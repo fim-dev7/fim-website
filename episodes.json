@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "source": "notion",
+    "database_id": "REPLACE-WITH-YOUR-NOTION-DB-ID",
+    "synced_at": "2026-05-17T06:00:00Z"
+  },
+  "episodes": [
+    {
+      "n": "28",
+      "title": "He Raised Backing Before He Had a Business Idea",
+      "guest": "Shakeel Lala",
+      "company": "Marlu",
+      "role": "Founder, Marlu",
+      "tags": ["Fintech AI", "Customer Discovery", "Pre-Seed"],
+      "primaryTag": "Fintech AI",
+      "desc": "Shakeel quit his job, convinced Australia's largest VC to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia's biggest financial advice conference. People tried to buy it on the spot. Marlu has since raised $10M and is live across 6 countries.",
+      "dur": "1:08:42",
+      "date": "May 14, 2026",
+      "featured": true,
+      "spotify": "https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl",
+      "apple": "https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671"
+    },
+    {
+      "n": "26",
+      "title": "Today's Dating Apps Are Designed to Keep You Single",
+      "guest": "Celeste Amadon",
+      "company": "Known",
+      "role": "Founder, Known",
+      "tags": ["Consumer Tech", "Female Founder", "Fundraising"],
+      "primaryTag": "Consumer Tech",
+      "desc": "Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta — and hundreds of couples are now in relationships. Her thesis: today's apps are perversely incentivised to keep you single and paying.",
+      "dur": "1:02:14",
+      "date": "Apr 30, 2026"
+    },
+    {
+      "n": "25",
+      "title": "They Applied to YC 4 Times. Then Raised $4M in 48 Hours.",
+      "guest": "Nam Nguyen",
+      "company": "Truth Systems",
+      "role": "Co-founder, Truth Systems",
+      "tags": ["AI", "Legal Tech", "YC"],
+      "primaryTag": "AI",
+      "desc": "Nam's co-founder was 19 years old. Law firms told them \"come back in 5 years.\" They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. Truth Systems is now the AI governance layer sitting inside law firms in real time.",
+      "dur": "58:21",
+      "date": "Apr 16, 2026"
+    }
+  ]
+}
