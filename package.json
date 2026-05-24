@@ -1,0 +1,12 @@
+{
+  "name": "fim-website",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync.js"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.23.3",
+    "googleapis": "^144.0.0"
+  }
+}
