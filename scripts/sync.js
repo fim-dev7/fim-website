@@ -15,7 +15,7 @@ const CHUNK_OVERLAP = 200; // overlap between consecutive chunks
 
 function getGoogleAuth() {
   const keyJson = process.env.GOOGLE_SERVICE_ACCOUNT_KEY
-    ? JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY)
+    ? JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY.trim())
     : JSON.parse(fs.readFileSync(path.join(__dirname, '../.secrets/google-service-account.json'), 'utf8'));
   return new google.auth.GoogleAuth({
     credentials: keyJson,
