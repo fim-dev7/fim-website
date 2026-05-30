@@ -32,6 +32,7 @@ import { fileURLToPath } from 'url';
 import { parseEpisodeDoc } from './lib/parse-doc.js';
 import { renderEpisodePage } from './lib/render-episode.js';
 import { renderDataCMS, renderArchivePage } from './lib/render-data.js';
+import { renderSitemap, renderRobots, renderLlmsTxt } from './lib/render-meta.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -411,6 +412,19 @@ async function main() {
   const archiveOut = writeIfChanged('episodes/index.html', archiveHtml);
   if (archiveOut.changed) written.push(archiveOut.path);
   console.log(`📝 episodes/index.html ${archiveOut.changed ? '(written)' : '(unchanged)'}`);
+
+  // Crawler files (sitemap.xml, robots.txt, llms.txt)
+  const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({ episodes: epsForData }));
+  if (sitemapOut.changed) written.push(sitemapOut.path);
+  console.log(`🗺️  sitemap.xml ${sitemapOut.changed ? '(written)' : '(unchanged)'}`);
+
+  const robotsOut = writeIfChanged('robots.txt', renderRobots());
+  if (robotsOut.changed) written.push(robotsOut.path);
+  console.log(`🤖 robots.txt ${robotsOut.changed ? '(written)' : '(unchanged)'}`);
+
+  const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({ episodes: epsForData, settings }));
+  if (llmsOut.changed) written.push(llmsOut.path);
+  console.log(`📚 llms.txt ${llmsOut.changed ? '(written)' : '(unchanged)'}`);
 
   // Settings
   const settingsOutput = { ...settings, synced_at: new Date().toISOString(), total_episodes: episodes.length };
