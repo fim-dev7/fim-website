@@ -14,9 +14,9 @@ jobs:
       - run: npm install
       - run: node scripts/sync.js
         env:
-          GOOGLE_SERVICE_ACCOUNT_KEY: REDACTED_PLACEHOLDER
-          ALGOLIA_APP_ID: G2C3CUY2G8
-          ALGOLIA_ADMIN_KEY: REDACTED_ALGOLIA_ADMIN_KEY_ROTATED_2026_05_30
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: sync episodes from Google Drive'
