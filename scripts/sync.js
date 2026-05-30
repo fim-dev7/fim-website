@@ -259,9 +259,23 @@ async function pushToAlgolia(records) {
   const index = client.initIndex(ALGOLIA_INDEX_NAME);
   await index.setSettings({
     searchableAttributes: ['guest_name', 'guest_company', 'title', 'chunk_text'],
-    attributesToSnippet: ['chunk_text:30'],
+    attributesToSnippet: ['chunk_text:40'],
     attributesToHighlight: ['title', 'guest_name', 'chunk_text'],
     customRanking: ['desc(episode_number)'],
+    // Relevance — let users query loosely
+    removeWordsIfNoResults: 'lastWords',
+    typoTolerance: true,
+    minWordSizefor1Typo: 4,
+    minWordSizefor2Typos: 8,
+    queryType: 'prefixLast',
+    ignorePlurals: true,
+    // Stop common-word filler so queries match the substance
+    advancedSyntax: true,
+    // Dedupe — one hit per episode at query time
+    distinct: 1,
+    attributeForDistinct: 'episode_number',
+    // Snippet readability
+    snippetEllipsisText: '…',
   });
   const { objectIDs } = await index.saveObjects(records);
   console.log(`\n✅ Pushed ${objectIDs.length} records to Algolia`);
