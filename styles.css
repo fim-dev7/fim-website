@@ -598,7 +598,13 @@ footer {
     var(--bg);
   border-top: 1px solid var(--border);
 }
-.ask .section-head { text-align: center; margin-bottom: 48px; }
+.ask .section-head {
+  display: block;          /* override global 2-col grid */
+  grid-template-columns: none;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.ask .section-head h2 { max-width: none; margin-left: auto; margin-right: auto; }
 .ask .section-head h2 {
   font-family: var(--sans);
   font-weight: 900;
