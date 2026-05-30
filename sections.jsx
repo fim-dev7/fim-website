@@ -81,6 +81,170 @@ function GuestStrip() {
 
 }
 
+// ─── Ask a question (Algolia search over transcripts) ─────────────
+const ALGOLIA_APP_ID = "G2C3CUY2G8";
+const ALGOLIA_SEARCH_KEY = "fad56bd6443dfbfc93a64a2b5c1d629c"; // search-only, browser-safe
+const ALGOLIA_INDEX = "fim_episodes";
+
+async function algoliaSearch(query) {
+  if (!query || !query.trim()) return [];
+  const url = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
+  const body = JSON.stringify({
+    params: new URLSearchParams({
+      query,
+      hitsPerPage: "30",
+      attributesToSnippet: "chunk_text:40",
+      highlightPreTag: "<mark>",
+      highlightPostTag: "</mark>",
+      snippetEllipsisText: "…",
+    }).toString(),
+  });
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "X-Algolia-Application-Id": ALGOLIA_APP_ID,
+      "X-Algolia-API-Key": ALGOLIA_SEARCH_KEY,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
+  });
+  if (!res.ok) throw new Error(`Algolia search ${res.status}`);
+  const data = await res.json();
+  // Dedupe by episode_number — pick the best (first/highest-ranked) chunk per episode
+  const seen = new Set();
+  const out = [];
+  for (const hit of data.hits || []) {
+    const epNum = hit.episode_number;
+    if (seen.has(epNum)) continue;
+    seen.add(epNum);
+    out.push(hit);
+    if (out.length >= 8) break;
+  }
+  return out;
+}
+
+const SUGGESTED_QUESTIONS = [
+  "How do I find product-market fit?",
+  "How do I raise pre-seed without a product?",
+  "When should I quit my job to start a company?",
+  "How do I do customer discovery?",
+  "What does the messy middle feel like?",
+  "How do I pitch a VC?",
+];
+
+function AskBox() {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [hasSearched, setHasSearched] = useState(false);
+
+  // Debounce query → run search 250ms after typing stops
+  useEffect(() => {
+    if (!query.trim()) {
+      setResults([]);
+      setHasSearched(false);
+      setError(null);
+      return;
+    }
+    const id = setTimeout(async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const hits = await algoliaSearch(query);
+        setResults(hits);
+        setHasSearched(true);
+      } catch (err) {
+        setError(err.message || "Search failed");
+      } finally {
+        setLoading(false);
+      }
+    }, 250);
+    return () => clearTimeout(id);
+  }, [query]);
+
+  // Reflect query into ?q= in URL so /#ask?q=... links work
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.split("?")[1] || "");
+    const q = params.get("q");
+    if (q) setQuery(q);
+  }, []);
+
+  function chooseSuggestion(s) {
+    setQuery(s);
+  }
+
+  return (
+    <section className="panel ask" id="ask">
+      <div className="container">
+        <div className="section-head">
+          <div className="kicker">Ask a question</div>
+          <h2>Search 28 episodes of founder conversations.</h2>
+          <p>Every transcript is searchable. Type a question, get the moment a founder answered it.</p>
+        </div>
+
+        <div className="ask-wrap">
+          <div className="ask-input-row">
+            <svg className="ask-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input
+              type="search"
+              className="ask-input"
+              placeholder="How do I raise a pre-seed round without a product?"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              autoComplete="off"
+              spellCheck="false"
+              aria-label="Search founder questions"
+            />
+            {query && (
+              <button className="ask-clear" onClick={() => setQuery("")} aria-label="Clear">×</button>
+            )}
+          </div>
+
+          {!query && (
+            <div className="ask-suggestions">
+              <span className="ask-suggestions-label">Try:</span>
+              {SUGGESTED_QUESTIONS.map((s) => (
+                <button key={s} className="ask-chip" onClick={() => chooseSuggestion(s)}>{s}</button>
+              ))}
+            </div>
+          )}
+
+          {loading && <div className="ask-status">Searching transcripts…</div>}
+          {error && <div className="ask-status ask-error">⚠ {error}</div>}
+          {hasSearched && !loading && results.length === 0 && (
+            <div className="ask-status">No transcripts matched that question. Try a different angle?</div>
+          )}
+
+          {results.length > 0 && (
+            <div className="ask-results">
+              <div className="ask-results-count">{results.length} {results.length === 1 ? "moment" : "moments"} found</div>
+              {results.map((hit) => <AskResult key={hit.objectID} hit={hit} />)}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AskResult({ hit }) {
+  const snippet = hit._snippetResult?.chunk_text?.value || hit.chunk_text?.slice(0, 240);
+  const epHref = hit.has_episode_page ? `episodes/${hit.slug}/` : (hit.spotify_url || "#");
+  const titleHead = (hit.title || "").split(" | ")[0];
+  return (
+    <a className="ask-result" href={epHref} target={hit.has_episode_page ? "_self" : "_blank"} rel="noreferrer">
+      <div className="ask-result-num">EP {hit.episode_number}</div>
+      <div className="ask-result-body">
+        <div className="ask-result-guest"><b>{hit.guest_name}</b> · <i>{hit.guest_company}</i></div>
+        <div className="ask-result-title">{titleHead}</div>
+        <div className="ask-result-snippet" dangerouslySetInnerHTML={{ __html: snippet }} />
+      </div>
+      <div className="ask-result-arrow" aria-hidden>↗</div>
+    </a>
+  );
+}
+
 // ─── What this is ─────────────────────────────────────────
 function WhatThisIs() {
   return (
