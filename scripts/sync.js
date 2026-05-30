@@ -39,7 +39,6 @@ import { renderTopicHub, renderTopicsIndex } from './lib/render-topic-hub.js';
 import { parseQaPack } from './lib/parse-qa-pack.js';
 import { aggregateQuestions } from './lib/aggregate-questions.js';
 import { renderQuestionPage, renderQuestionsIndex } from './lib/render-question-hub.js';
-import { embedBatch, textHash, EMBEDDING_DIM } from './lib/embed.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -527,70 +526,28 @@ async function main() {
     console.log('ℹ️  No Q&A packs found yet — /questions/ pages skipped.');
   }
 
-  // Semantic search embeddings — one vector per Q&A entry.
-  // Each Q&A gets a hash; if the hash matches a previously embedded entry in
-  // embeddings.json, we reuse the vector (no API call). Otherwise we re-embed.
-  // Result: embeddings.json — array of { slug, question, answer, episode_number,
-  // guest_name, guest_company, hash, embedding[512] }
-  if (process.env.VOYAGE_API_KEY) {
-    try {
-      const embPath = path.join(REPO_ROOT, 'embeddings.json');
-      const existing = fs.existsSync(embPath) ? JSON.parse(fs.readFileSync(embPath, 'utf8')) : [];
-      const existingByHash = new Map(existing.map(e => [e.hash, e]));
-
-      // Build the full Q&A index — one entry per (episode, slug) pair
-      const allEntries = [];
-      for (const e of enriched) {
-        for (const entry of (e.qaEntries || [])) {
-          const text = `${entry.question}\n${entry.answer}\n${(entry.longForm || []).join(' ')}`.trim();
-          const hash = textHash(text);
-          allEntries.push({
-            slug: entry.slug,
-            question: entry.question,
-            answer: entry.answer,
-            episode_number: e.episode_number,
-            guest_name: e.guest_name,
-            guest_company: e.guest_company,
-            ep_slug: e.slug,
-            has_episode_page: e.has_episode_page,
-            spotify_url: e.spotify_url,
-            hash,
-            _text: text,
-          });
-        }
-      }
-
-      const toEmbed = allEntries.filter(e => !existingByHash.has(e.hash));
-      console.log(`🧠 Embeddings: ${allEntries.length} total, ${toEmbed.length} new/changed`);
-
-      if (toEmbed.length > 0) {
-        const vecs = await embedBatch(toEmbed.map(e => e._text), {
-          apiKey: process.env.VOYAGE_API_KEY,
-          inputType: 'document',
-        });
-        for (let i = 0; i < toEmbed.length; i++) {
-          toEmbed[i].embedding = vecs[i];
-        }
-      }
-      // Stitch back vectors for cached entries
-      for (const entry of allEntries) {
-        if (!entry.embedding) {
-          entry.embedding = existingByHash.get(entry.hash)?.embedding;
-        }
-        delete entry._text;
-      }
-
-      // Filter out any that somehow still lack a vector (shouldn't happen)
-      const finalEmbeds = allEntries.filter(e => Array.isArray(e.embedding) && e.embedding.length === EMBEDDING_DIM);
-      const embOut = writeIfChanged('embeddings.json', JSON.stringify(finalEmbeds) + '\n');
-      if (embOut.changed) written.push(embOut.path);
-      console.log(`🧠 embeddings.json ${embOut.changed ? '(written)' : '(unchanged)'} — ${finalEmbeds.length} vectors, ${EMBEDDING_DIM} dim`);
-    } catch (err) {
-      console.log(`❌ Embedding step failed: ${err.message}`);
-    }
-  } else {
-    console.log('ℹ️  VOYAGE_API_KEY not set — semantic embeddings skipped.');
-  }
+  // Semantic search index — slim JSON shipped to /api/search/ Edge function.
+  // One entry per canonical question slug, with the top contributor's metadata.
+  // Claude (reranker) reads this entire index + the user's query and picks the
+  // best match. No embeddings — just question/answer text + slug.
+  const qaIndex = Array.from(grouped.entries()).map(([slug, group]) => {
+    const top = group.contributors[0];
+    return {
+      slug,
+      question: group.question,
+      answer: top.entry.answer || '',
+      episode_number: top.ep.episode_number,
+      guest_name: top.ep.guest_name,
+      guest_company: top.ep.guest_company,
+      ep_slug: top.ep.slug,
+      has_episode_page: !!top.ep.has_episode_page,
+      spotify_url: top.ep.spotify_url || null,
+      contributor_count: group.contributors.length,
+    };
+  });
+  const qaIndexOut = writeIfChanged('qa-index.json', JSON.stringify(qaIndex) + '\n');
+  if (qaIndexOut.changed) written.push(qaIndexOut.path);
+  console.log(`🧠 qa-index.json ${qaIndexOut.changed ? '(written)' : '(unchanged)'} — ${qaIndex.length} canonical Q&As`);
 
   // Crawler files — written AFTER question aggregation so sitemap includes them
   const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({
