@@ -31,6 +31,14 @@
   ],
   "redirects": [
     { "source": "/episodes/index.html", "destination": "/episodes/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/episodes/20-andy-miller", "destination": "/episodes/19-andy-miller/", "permanent": true },
+    { "source": "/episodes/20-andy-miller/", "destination": "/episodes/19-andy-miller/", "permanent": true },
+    { "source": "/episodes/25-nam-nguyen", "destination": "/episodes/24-nam-nguyen/", "permanent": true },
+    { "source": "/episodes/25-nam-nguyen/", "destination": "/episodes/24-nam-nguyen/", "permanent": true },
+    { "source": "/episodes/26-celeste-amadon", "destination": "/episodes/25-celeste-amadon/", "permanent": true },
+    { "source": "/episodes/26-celeste-amadon/", "destination": "/episodes/25-celeste-amadon/", "permanent": true },
+    { "source": "/episodes/28-shakeel-lala", "destination": "/episodes/27-shakeel-lala/", "permanent": true },
+    { "source": "/episodes/28-shakeel-lala/", "destination": "/episodes/27-shakeel-lala/", "permanent": true }
   ]
 }

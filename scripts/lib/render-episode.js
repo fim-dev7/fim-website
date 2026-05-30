@@ -7,6 +7,18 @@
 
 import { toText } from './parse-doc.js';
 
+/**
+ * Sheet titles often follow the YouTube/Spotify pattern
+ * `<Headline> | <Guest>, <Company>`. For on-page rendering we want only the
+ * headline — the guest + company are already shown separately in the header.
+ * Returns the title with everything after the first ` | ` stripped.
+ */
+function cleanTitle(title) {
+  if (!title) return '';
+  const idx = title.indexOf(' | ');
+  return idx === -1 ? title : title.slice(0, idx).trim();
+}
+
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]); }
 function escAttr(s) { return esc(s); }
@@ -107,7 +119,7 @@ function renderHeader({ ep, content }) {
   return `    <header class="ep-head">
       <div>
         <div class="ep-num">${esc(tagsLine)}</div>
-        <h1 class="ep-title">${esc(ep.title)}</h1>
+        <h1 class="ep-title">${esc(cleanTitle(ep.title))}</h1>
         <div class="ep-meta-row">
           ${released ? `<span><b>Released:</b> ${esc(released)}</span>` : ''}
           ${durDisp ? `<span><b>Duration:</b> ${esc(durDisp)}</span>` : ''}
@@ -334,7 +346,8 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
   const guestFirst = (ep.guest_name || '').split(/\s+/)[0];
   const metaDesc = content.meta.meta_description || content.hook ||
     `${ep.guest_name}${ep.guest_company ? `, ${ep.guest_company}` : ''}, on Founders In Motion.`;
-  const pageTitle = `Ep ${ep.episode_number}: ${ep.title} — ${ep.guest_name}${ep.guest_company ? `, ${ep.guest_company}` : ''} | Founders In Motion`;
+  const headlineOnly = cleanTitle(ep.title);
+  const pageTitle = `Ep ${ep.episode_number}: ${headlineOnly} — ${ep.guest_name}${ep.guest_company ? `, ${ep.guest_company}` : ''} | Founders In Motion`;
 
   const transcriptForJsonLd = transcriptSummary || (transcriptText ? transcriptText.slice(0, 800).replace(/\s+/g, ' ').trim() + '…' : `Conversation with ${ep.guest_name} on Founders In Motion.`);
 

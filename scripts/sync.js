@@ -94,18 +94,56 @@ async function getSettings(auth) {
 
 // --- Drive helpers --------------------------------------------------------
 
-async function findDocInFolder(auth, folderId, episodeNumber) {
+/**
+ * Find a Doc in a Drive folder matching this episode.
+ *
+ * Robust to sheet renumbering: matches by the full guest name in the Doc title.
+ * Docs should be named like "Ep 27 - Shakeel Lala", "Shakeel Lala — Marloo",
+ * or anything that contains the full guest name string.
+ *
+ * If `guestName` is empty, falls back to searching by "Ep XX" prefix (legacy /
+ * transcript-folder behaviour).
+ */
+async function findDocInFolder(auth, folderId, episodeNumber, guestName = '') {
   const drive = google.drive({ version: 'v3', auth });
-  const paddedNum = String(episodeNumber).padStart(2, '0');
-  const query = `'${folderId}' in parents and name contains 'Ep ${paddedNum}' and trashed = false`;
-  const res = await drive.files.list({
-    q: query,
-    fields: 'files(id, name, mimeType)',
-    pageSize: 5,
-  });
-  const files = res.data.files || [];
-  if (files.length === 0) return null;
-  return files.find(f => f.mimeType === 'application/vnd.google-apps.document') || files[0];
+  const needles = [];
+  if (guestName && guestName.trim()) {
+    needles.push(guestName.trim());
+  }
+  // Number fallback only when there's no guest name to anchor on (e.g. transcript folder).
+  if (needles.length === 0) {
+    const paddedNum = String(episodeNumber).padStart(2, '0');
+    needles.push(`Ep ${paddedNum}`);
+  }
+
+  for (const needle of needles) {
+    const escaped = needle.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const query = `'${folderId}' in parents and name contains '${escaped}' and trashed = false`;
+    let files;
+    try {
+      const res = await drive.files.list({
+        q: query,
+        fields: 'files(id, name, mimeType)',
+        pageSize: 5,
+      });
+      files = res.data.files || [];
+    } catch (err) {
+      continue;
+    }
+    if (files.length === 0) continue;
+    const doc = files.find(f => f.mimeType === 'application/vnd.google-apps.document') || files[0];
+    return doc;
+  }
+  return null;
+}
+
+/**
+ * Transcript-folder lookup — uses the "Ep XX" prefix, since transcript files
+ * are named that way and don't need to track sheet renumbering (the sync
+ * doesn't render transcripts at specific URLs, it just chunks them for Algolia).
+ */
+async function findTranscriptDoc(auth, folderId, episodeNumber) {
+  return findDocInFolder(auth, folderId, episodeNumber, '');
 }
 
 async function getDocText(auth, fileId, mimeType) {
@@ -233,7 +271,7 @@ async function main() {
 
     // Transcript
     let transcriptText = '';
-    const transcriptDoc = await findDocInFolder(auth, transcriptFolder, ep.episode_number);
+    const transcriptDoc = await findTranscriptDoc(auth, transcriptFolder, ep.episode_number);
     if (transcriptDoc) {
       console.log(`  📄 Transcript: ${transcriptDoc.name}`);
       try {
@@ -250,7 +288,7 @@ async function main() {
     // Content doc
     let content = null;
     if (contentFolder) {
-      const contentDoc = await findDocInFolder(auth, contentFolder, ep.episode_number);
+      const contentDoc = await findDocInFolder(auth, contentFolder, ep.episode_number, ep.guest_name);
       if (contentDoc) {
         console.log(`  📝 Content doc: ${contentDoc.name}`);
         try {
