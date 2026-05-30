@@ -81,13 +81,12 @@ function GuestStrip() {
 
 }
 
-// ─── Ask the archive (static Q&A search) ──────────────────────────────────
-// Algolia indexes pre-generated Q&A entries (not raw transcript chunks).
-// Each hit routes the user directly to a static /questions/<slug>/ page
-// containing the canonical answer + episode citations. No LLM at runtime.
-const ALGOLIA_APP_ID = "G2C3CUY2G8";
-const ALGOLIA_SEARCH_KEY = "fad56bd6443dfbfc93a64a2b5c1d629c";
-const ALGOLIA_INDEX = "fim_episodes";
+// ─── Ask the archive (semantic search via /api/search) ────────────────────
+// Calls /api/search/ with the user query. The Edge function embeds the query
+// via Voyage AI, scores cosine similarity against pre-embedded Q&A vectors
+// in embeddings.json, returns top matches. We display the best match as a
+// hero card with the FULL canonical answer, plus 2-3 related cards. Click
+// any card → the static /questions/<slug>/ page.
 
 const SUGGESTED_QUESTIONS = [
   "How do I find product-market fit?",
@@ -98,66 +97,59 @@ const SUGGESTED_QUESTIONS = [
   "How do I write a cold email to investors?",
 ];
 
-async function searchQuestions(query) {
-  if (!query || !query.trim()) return [];
-  const url = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
-  const body = JSON.stringify({
-    params: new URLSearchParams({
-      query,
-      hitsPerPage: "12",
-      attributesToSnippet: "answer:40,long_form:30",
-      highlightPreTag: "<mark>",
-      highlightPostTag: "</mark>",
-      snippetEllipsisText: "…",
-      filters: "type:question",
-    }).toString(),
-  });
-  const res = await fetch(url, {
+async function semanticSearch(query, { signal } = {}) {
+  if (!query || !query.trim()) return { hits: [] };
+  const res = await fetch("/api/search/", {
     method: "POST",
-    headers: {
-      "X-Algolia-Application-Id": ALGOLIA_APP_ID,
-      "X-Algolia-API-Key": ALGOLIA_SEARCH_KEY,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query }),
+    signal,
   });
-  if (!res.ok) throw new Error(`Search failed (${res.status})`);
-  const data = await res.json();
-  return data.hits || [];
+  if (!res.ok) {
+    let msg = `Search failed (${res.status})`;
+    try { const j = await res.json(); msg = j.error || msg; } catch {}
+    throw new Error(msg);
+  }
+  return res.json();
 }
 
 function AskBox() {
   const [query, setQuery] = useState("");
+  const [submitted, setSubmitted] = useState("");
   const [hits, setHits] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [hasSearched, setHasSearched] = useState(false);
 
+  // Debounced semantic search — fires 350ms after typing stops.
   useEffect(() => {
-    if (!query.trim()) { setHits([]); setHasSearched(false); setError(null); return; }
-    const id = setTimeout(async () => {
-      setLoading(true); setError(null);
-      try {
-        const results = await searchQuestions(query);
-        setHits(results);
-        setHasSearched(true);
-      } catch (err) {
-        setError(err.message || "Search failed");
-      } finally {
-        setLoading(false);
-      }
-    }, 200);
+    if (!submitted) { setHits([]); setError(null); return; }
+    const ctrl = new AbortController();
+    setLoading(true); setError(null);
+    semanticSearch(submitted, { signal: ctrl.signal })
+      .then((data) => { setHits(data.hits || []); })
+      .catch((err) => { if (err.name !== "AbortError") setError(err.message || "Search failed"); })
+      .finally(() => setLoading(false));
+    return () => ctrl.abort();
+  }, [submitted]);
+
+  // Debounce the live query → submitted
+  useEffect(() => {
+    if (!query.trim()) { setSubmitted(""); return; }
+    const id = setTimeout(() => setSubmitted(query.trim()), 350);
     return () => clearTimeout(id);
   }, [query]);
 
+  // ?q= deep link
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.split("?")[1] || "");
     const q = params.get("q");
-    if (q) setQuery(q);
+    if (q) { setQuery(q); setSubmitted(q); }
   }, []);
 
   function chooseSuggestion(s) { setQuery(s); }
-  function clearAll() { setQuery(""); }
+  function clearAll() { setQuery(""); setSubmitted(""); }
+
+  const [hero, ...related] = hits;
 
   return (
     <section className="panel ask" id="ask">
@@ -165,7 +157,7 @@ function AskBox() {
         <div className="section-head">
           <div className="kicker">Ask the archive</div>
           <h2>Get a real answer, drawn from real founders.</h2>
-          <p>Every founder question on the archive has a direct, cited answer. Type yours — get the canonical answer in one click.</p>
+          <p>Type any founder question — semantic search picks the canonical answer from the archive. Click for the full version.</p>
         </div>
 
         <div className="ask-wrap">
@@ -174,12 +166,12 @@ function AskBox() {
             <input
               type="search"
               className="ask-input"
-              placeholder="How do I raise a pre-seed round without a product?"
+              placeholder="How can I get customers before I have a product?"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               autoComplete="off"
               spellCheck="false"
-              aria-label="Search founder questions"
+              aria-label="Ask a founder question"
             />
             {query && (<button type="button" className="ask-clear" onClick={clearAll} aria-label="Clear">×</button>)}
           </div>
@@ -193,16 +185,17 @@ function AskBox() {
             </div>
           )}
 
-          {loading && <div className="ask-status">Searching…</div>}
+          {loading && <div className="ask-status"><span className="ask-spin" aria-hidden></span> Finding the best answer…</div>}
           {error && <div className="ask-status ask-error">⚠ {error}</div>}
-          {hasSearched && !loading && hits.length === 0 && (
-            <div className="ask-status">No questions matched. Try a different angle, or <a href="topics/" style={{color:"var(--cream)"}}>browse topics</a>.</div>
+          {submitted && !loading && hits.length === 0 && !error && (
+            <div className="ask-status">No answers matched. The archive's strongest areas: customer discovery, pre-seed fundraising, pivots, product-market fit. Try rephrasing in those terms — or <a href="questions/" style={{color:"var(--cream)"}}>browse all questions</a>.</div>
           )}
 
-          {hits.length > 0 && (
-            <div className="ask-results">
-              <div className="ask-results-count">{hits.length} answer{hits.length === 1 ? "" : "s"}</div>
-              {hits.map((hit) => <AskHit key={hit.objectID} hit={hit} />)}
+          {hero && <AskHero hit={hero} />}
+          {related.length > 0 && (
+            <div className="ask-related">
+              <div className="ask-related-label">Related</div>
+              {related.map((hit) => <AskRelated key={hit.slug + hit.episode_number} hit={hit} />)}
             </div>
           )}
         </div>
@@ -211,17 +204,32 @@ function AskBox() {
   );
 }
 
-function AskHit({ hit }) {
-  const href = hit.question_url || `questions/${hit.slug_q}/`;
-  const snippet = hit._snippetResult?.answer?.value || hit.answer || "";
+function AskHero({ hit }) {
+  const href = `questions/${hit.slug}/`;
   return (
-    <a className="ask-hit" href={href}>
-      <div className="ask-hit-body">
-        <h3 className="ask-hit-question">{hit.question}</h3>
-        <div className="ask-hit-answer" dangerouslySetInnerHTML={{ __html: snippet }} />
-        <div className="ask-hit-meta">Answered by <b>{hit.guest_name}</b> · <i>{hit.guest_company}</i> · EP {hit.episode_number}</div>
+    <a className="ask-hero" href={href}>
+      <div className="ask-hero-badge">Best match</div>
+      <h3 className="ask-hero-question">{hit.question}</h3>
+      <p className="ask-hero-answer">{hit.answer}</p>
+      <div className="ask-hero-footer">
+        <div className="ask-hero-attr">
+          <b>{hit.guest_name}</b> · <i>{hit.guest_company}</i> · EP {hit.episode_number}
+        </div>
+        <div className="ask-hero-cta">Read full answer <span aria-hidden>→</span></div>
       </div>
-      <div className="ask-hit-arrow" aria-hidden>→</div>
+    </a>
+  );
+}
+
+function AskRelated({ hit }) {
+  const href = `questions/${hit.slug}/`;
+  return (
+    <a className="ask-related-card" href={href}>
+      <div className="ask-related-body">
+        <h4 className="ask-related-question">{hit.question}</h4>
+        <div className="ask-related-attr"><b>{hit.guest_name}</b> · EP {hit.episode_number}</div>
+      </div>
+      <div className="ask-related-arrow" aria-hidden>↗</div>
     </a>
   );
 }
