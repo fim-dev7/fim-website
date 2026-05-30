@@ -282,6 +282,8 @@ async function pushToAlgolia(records) {
     distinct: 1,
     attributeForDistinct: 'slug_q',
     snippetEllipsisText: '…',
+    // Filter-only attributes (not facetable display, but `filters: "type:question"` works)
+    attributesForFaceting: ['filterOnly(type)', 'filterOnly(episode_number)'],
   });
   const { objectIDs } = await index.saveObjects(records);
   console.log(`\n✅ Pushed ${objectIDs.length} records to Algolia`);
