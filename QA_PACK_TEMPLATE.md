@@ -25,7 +25,7 @@ guest's story) + ~5–8 contributions to canonical questions.
 ```
 # How did Shakeel Lala raise venture capital before having a business idea?
 slug: how-to-raise-pre-seed-without-product
-answer: He convinced Australia's largest VC to back him and his co-founder Hardy on a single trust exercise — give us a year, we'll either come back with a product in market or come back honest about not finding one. They spent 9 months in "the void" before landing on Marloo.
+answer: He convinced one of Australia's largest VCs to back him and his co-founder Hardy on a single trust exercise — give us a year, we'll either come back with a product in market or come back honest about not finding one. They spent 6–7 months in "the void" before landing on Marloo.
 
 Shakeel and Hardy had both come out of consulting and corporate strategy. They'd agreed on the principles of how they wanted to build long before they agreed on what to build. They pitched one of Australia's largest VCs on a trust exercise: a year of paid investigation, with the explicit option of returning empty-handed.
 
@@ -33,7 +33,7 @@ What they did with that year: built and discarded frameworks across vertical B2B
 
 # What does Shakeel mean by "frameworks don't find markets"?
 slug: frameworks-dont-find-markets
-answer: The consulting reflex of building decision trees and ranked criteria to identify the "right" market sharpens thinking but doesn't surface real opportunity. Six months of frameworks produced no market. 800 advisor conversations produced Marloo.
+answer: The consulting reflex of building decision trees and ranked criteria to identify the "right" market sharpens thinking but doesn't surface real opportunity. 2–3 months of frameworks produced no market. 800 advisor conversations produced Marloo.
 
 Shakeel and Hardy started "the void" — the 6–7 months between both quitting their jobs and committing to an idea — by doing what consultants do: building frameworks. Five-point lists became 20-point lists. Nothing ever ticked all the boxes. They threw the frameworks out, went back to their networks, and ran 800 customer conversations across vertical B2B SaaS markets. The conversations found the market.
 
@@ -53,19 +53,15 @@ The consultative-then-product pattern: sit inside a firm for 1–2 days, talk to
 slug: how-to-find-first-customers
 answer: Direct outbound to people you've already talked to in customer discovery. Shakeel's first Marloo customers came from the 800 advisors he'd interviewed. The pipeline was already warm before the product existed.
 
-The pattern: discovery conversations are also the customer pipeline. Each conversation produced a relationship that converted later. Don't run paid ads. Don't build a marketing site. Talk to people, build for one, ship overnight, repeat.
+The pattern: discovery conversations are also the customer pipeline. Each conversation produced a relationship that converted later. Talk to people, build for one, ship overnight, repeat.
 
 # What does product-market fit feel like?
 slug: how-to-find-product-market-fit
 answer: For Shakeel, the marker was advisors trying to buy the vibe-coded demo at the Brisbane conference — before the product existed. Unsolicited demand. Half-sentence pitch test passed.
 
-Pull, not push. The absence of unsolicited momentum — even when revenue is growing through outbound — is the signal something is still off.
-
 # When should I quit my job to start a company?
 slug: when-to-quit-job-to-start-company
-answer: Shakeel and Hardy both quit their jobs simultaneously and convinced one of Australia's largest VCs to fund the year of investigation. The forcing function was the commitment itself — both of them gone, no fallback.
-
-For founders without the VC backing, the equivalent forcing function is enough customer evidence + a specific commitment date. Don't wait for certainty.
+answer: Hardy quit first; Shakeel followed, and they convinced one of Australia's largest VCs to fund the year of investigation. The forcing function was the commitment itself — both of them gone, no fallback.
 
 # How long does fundraising take?
 slug: how-long-fundraising-takes
@@ -81,7 +77,7 @@ Internal pressure > external pressure. Shakeel describes setting expectations of
 slug: how-to-build-global-from-day-one
 answer: Co-founder Hardy in London, dev team in Wellington, distribution across the UK and APAC. Shakeel and Hardy split responsibilities by geography from day one, with clean async division of labour.
 
-The approach: founders cover their nearest markets. Dev work happens where the talent is cheapest and best. Sales follows the founders' networks. No co-location requirement.
+The approach: founders cover their nearest markets. Sales follows the founders' networks. No co-location requirement.
 
 # What is the half-sentence pitch test?
 slug: half-sentence-pitch-test

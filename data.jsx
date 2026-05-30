@@ -12,7 +12,7 @@ const EPISODES = [
     role: "Co-founder, Marloo",
     tags: [],
     primaryTag: "Founders",
-    desc: "Shakeel quit his job, convinced Australia's largest VC to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia's biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.",
+    desc: "Shakeel quit his job, convinced one of Australia's largest VCs to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia's biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.",
     url: "episodes/27-shakeel-lala/",
     dur: "35 min",
     date: "Aug 5, 2026",

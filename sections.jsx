@@ -456,7 +456,7 @@ function About() {
             <p>Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable.
 
             </p>
-            <p>Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said "I'd quit my job before I gave this up." I was so curious of the messy middle, so I went and got it.
+            <p>Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said "I just wouldn't come to work tomorrow." I was so curious of the messy middle, so I went and got it.
 
             </p>
             <p>28 episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record.

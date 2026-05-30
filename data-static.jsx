@@ -40,7 +40,7 @@ const FAQ = [
   },
   {
     q: "How do you raise a pre-seed round with no product?",
-    a: "Pre-seed investors are betting on the founder and the thesis, not the product. Shakeel Lala raised backing from Australia's largest VC with no business idea at all — on the promise he'd spend a year finding something worth building. Celeste Amadon raised her pre-seed in 8 days at age 21 before Known had meaningful traction. Nate Spiteri contacted nearly 1,000 investors before closing his pre-seed for Shopfront. The people who raise without a product have almost always done the most work before asking — deep customer understanding, specific market insight, and a clear view of why now.",
+    a: "Pre-seed investors are betting on the founder and the thesis, not the product. Shakeel Lala raised backing from one of Australia's largest VCs with no business idea at all — on the promise he'd spend a year finding something worth building. Celeste Amadon raised her pre-seed in 8 days at age 21 before Known had meaningful traction. Nate Spiteri contacted nearly 1,000 investors before closing his pre-seed for Shopfront. The people who raise without a product have almost always done the most work before asking — deep customer understanding, specific market insight, and a clear view of why now.",
   },
   {
     q: "What happens when your startup fails?",
@@ -76,7 +76,7 @@ const FAQ = [
   },
   {
     q: "What does product-market fit really look like for an early-stage startup?",
-    a: "Pull, not push. Jevon Le Roux from Keeyu knew he had it when a customer said \"I'd quit my job before I gave this up.\" Shakeel Lala from Marloo knew it when advisors tried to buy a vibe-coded demo at a conference — before any product existed. The marker is unsolicited demand: people referring you without being asked, customers calling about features you haven't built, churn that won't happen at any price. If you're still pushing — outbound, paid ads, founder-led sales as the only growth lever — you don't have it yet.",
+    a: "Pull, not push. Jevon Le Roux from Keeyu knew he had it when a customer said \"I just wouldn't come to work tomorrow\" if Keeyu disappeared. Shakeel Lala from Marloo knew it when advisors tried to buy a vibe-coded demo at a conference — before any product existed. The marker is unsolicited demand: people referring you without being asked, customers calling about features you haven't built, churn that won't happen at any price. If you're still pushing — outbound, paid ads, founder-led sales as the only growth lever — you don't have it yet.",
   },
   {
     q: "How do I split equity with a co-founder?",
@@ -108,7 +108,7 @@ const FAQ = [
   },
   {
     q: "How do I find my first 10 customers?",
-    a: "Direct outbound to people you've already talked to in customer discovery. Shakeel Lala's first Marloo customers came from the 800 advisors he'd interviewed. Nam Nguyen's first big customer came from a cold LinkedIn comment on a director's frustrated post — he then ran a 6-month daily-check-in proving period. Don't run paid ads. Don't build a marketing site. Talk to people, build for one, ship overnight, repeat. Convert discovery conversations into beta users into paying customers — in that order.",
+    a: "Direct outbound to people you've already talked to in customer discovery. Shakeel Lala's first Marloo customers came from the 800 advisors he'd interviewed. Nam Nguyen's first big customer came from a cold LinkedIn comment on a director's frustrated post — he then ran a 6-month daily-check-in proving period. Talk to people, build for one, ship overnight, repeat. Convert discovery conversations into beta users into paying customers — in that order.",
   },
   {
     q: "How do I write a startup landing page that converts?",

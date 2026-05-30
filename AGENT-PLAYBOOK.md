@@ -105,6 +105,34 @@ If you can't easily download the transcript file (e.g. it's a Google Doc),
 use `read_file_content` on the transcript Doc to get plain text, then write
 to /tmp/fim-eval/transcript.txt.
 
+**4c. 🔎 APPEND SEARCH ALIASES — for every NEW slug, add phrasings to `aliases.json`.**
+
+Site search has **no runtime API**. It matches the user's query against build-time
+natural-language phrasings stored in `aliases.json` (keyed by canonical slug); `sync.js`
+reads that file and attaches the phrasings to the Algolia records it builds (see the
+`aliasesBySlug` block in `scripts/sync.js`). **If you author a Q&A with a NEW slug and
+don't add aliases for it, search will not route any natural-language query to that
+question** — the page exists but is effectively undiscoverable via search.
+
+For each NEW slug you introduced in step 4, append an entry to `aliases.json`:
+
+```json
+"your-new-slug": [
+  "how a founder would actually Google this",
+  "a different phrasing of the same intent",
+  "… aim for 10–15 natural-language variants …"
+]
+```
+
+Rules:
+- Only add entries for **NEW** slugs. Reused canonical slugs already have aliases —
+  but if this episode introduces a genuinely new phrasing angle, extend the existing list.
+- Write phrasings the way a founder would type them into Google, not the way the
+  question is titled. Mix problem-first ("I can't find any customers") and
+  topic-first ("first customer acquisition") forms.
+- Do this in the **same session** you author the Q&A pack, before triggering sync.
+- Keys starting with `_` (like `_comment`) are ignored by sync — don't remove them.
+
 **5. Trigger the sync workflow.**
 
 ```bash
@@ -178,6 +206,8 @@ Read `QA_PACK_TEMPLATE.md`. Key points:
 - Aim for **10–15 questions per episode**. Mix:
   - 5–7 episode-native (unique to this guest's story)
   - 5–8 canonical contributions (this episode adds to a cross-archive question)
+- **Every NEW slug needs `aliases.json` phrasings (step 4c).** A question page with no
+  aliases is invisible to site search. Add them in the same session.
 
 ### Canonical question slugs (use these when possible)
 
@@ -217,6 +247,7 @@ Add new canonical slugs only when you've checked above and the question doesn't 
 ├── index.html                                  homepage (React + FAQPage JSON-LD)
 ├── data.jsx                                    GENERATED — EPISODES/ARCHIVE/PLATFORMS
 ├── data-static.jsx                             HAND-EDITED — FAQ/QUOTES/STATS/FEATURES
+├── aliases.json                                HAND-EDITED — search phrasings per slug (see step 4c)
 ├── styles.css, episodes/episode.css            hand-edited
 ├── sitemap.xml, robots.txt, llms.txt           GENERATED
 ├── settings.json                               GENERATED
