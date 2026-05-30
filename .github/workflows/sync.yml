@@ -28,8 +28,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: sync site from Google Sheets + Drive'
-          file_pattern: |
-            settings.json
-            data.jsx
-            episodes/index.html
-            episodes/*/index.html
+          # NOTE: file_pattern must be a SINGLE LINE, space-separated. Multi-line
+          # YAML (using "|") only matches the first line.
+          file_pattern: 'settings.json data.jsx episodes/index.html episodes/*/index.html'
