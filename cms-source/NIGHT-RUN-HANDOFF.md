@@ -129,6 +129,46 @@ Nothing to change in the repo. To connect the domain:
 
 ---
 
+## 🔎 AEO + navigation hardening (second commit)
+
+Proactive robustness pass. The site already had strong schema (PodcastSeries, PodcastEpisode,
+FAQPage, QAPage, BreadcrumbList, Person, Organization, Speakable, WebSite+SearchAction). Gaps
+found and fixed:
+
+- **Canonical + `og:url` + `og:site_name` on every page type** — previously NONE existed.
+  Added in the render libs (`render-episode`, `render-question-hub`, `render-topic-hub`,
+  `render-data`) and hand-edited `index.html` + `about/index.html`. All use the existing
+  `https://foundersinmotion.com` base (same base the sitemap/JSON-LD already use).
+- **`og:image` + `twitter:card` parity** — questions/topics/archive/about pages had no
+  social preview image or card; now default to the brand banner
+  (`/assets/youtube-banner.png`). Episode pages keep their per-episode YouTube thumbnail.
+- **Custom `404.html`** (new, on-brand, `noindex`) — recovers lost visitors/crawlers with
+  links to every hub (episodes, questions, topics, search, about). Vercel auto-serves it.
+- Verified: render libs pass `node --check` + the smoke test, and a direct render confirms
+  the new tags emit correctly. `robots.txt` was already AEO-open (`User-agent: * / Allow: /`
+  covers GPTBot/ClaudeBot/PerplexityBot; uploads + cms-source disallowed) — left as-is.
+
+⚠️ **Timing:** the homepage, about, and 404 changes are **live on this deploy**. The
+generated pages (episodes/questions/topics/archive) get their canonical/og tags on the
+**next sync** (the changes live in the render libs) — i.e. after you do the Drive/Sheet
+fixes + re-enable the cron above.
+
+### Open items I did NOT do (your call — they're IA/brand decisions or need a browser check)
+1. **Primary nav points at homepage anchors** (`/#episodes`, `/#faq`, `/#ask`), not the
+   dedicated hub pages, and **Topics isn't in the nav at all**. Recommend: add a Topics link
+   and point/duplicate Episodes→`/episodes/` and Questions→`/questions/`. It's a global change
+   (every render lib + index + about) and a brand/IA choice, so I left it.
+2. **Footer only has social links** — no internal links to the hub pages. Adding
+   episodes/questions/topics/about to the site-wide footer would spread internal-link equity
+   to the hubs (standard AEO move). Same global blast radius — left for your sign-off.
+3. **Homepage `og:image` is a relative path** (`assets/youtube-banner.png`). It works on the
+   serving domain but some scrapers need an absolute URL — change to
+   `https://foundersinmotion.com/assets/youtube-banner.png` once the domain is live.
+4. **Eyeball the new `404.html`** in a browser — it reuses proven site classes + a small
+   scoped style block, but I couldn't visually verify it.
+5. **Optional: an RSS feed** (`/feed.xml`) of episodes for readers/aggregators. JSON-LD has
+   PodcastEpisode already, but there's no subscribable feed. Nice-to-have, not built.
+
 ## ⚠️ One process note
 
 `AGENT-PLAYBOOK.md` says "don't push directly to main — use a PR." You explicitly chose

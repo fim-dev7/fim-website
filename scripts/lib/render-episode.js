@@ -556,6 +556,9 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(metaDesc)}" />
+<link rel="canonical" href="https://foundersinmotion.com/episodes/${slug}/" />
+<meta property="og:url" content="https://foundersinmotion.com/episodes/${slug}/" />
+<meta property="og:site_name" content="Founders In Motion" />
 
 <meta property="og:title" content="${esc(`Ep ${ep.episode_number}: ${ep.title} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />
 <meta property="og:description" content="${esc(metaDesc)}" />
