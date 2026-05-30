@@ -181,11 +181,39 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
+/**
+ * Strip SRT subtitle formatting (cue numbers, timestamp ranges, blank lines)
+ * leaving just the prose, so transcript chunks read cleanly in search results.
+ * Plain-text transcripts pass through unchanged.
+ *
+ * SRT shape:
+ *   42
+ *   00:01:23,456 --> 00:01:27,890
+ *   Hello, this is the line of dialogue.
+ *   <blank>
+ */
+function stripSrtFormatting(text) {
+  if (!text) return '';
+  let t = text.replace(/\r\n/g, '\n');
+  // Remove SRT timestamp lines
+  t = t.replace(/^\d{1,2}:\d{2}:\d{2}[,.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{3}.*$/gm, '');
+  // Remove lone cue numbers (a digit on its own line, immediately followed by a timestamp line was removed above)
+  t = t.replace(/^\d+\s*$/gm, '');
+  // Collapse runs of blank lines
+  t = t.replace(/\n{3,}/g, '\n\n').trim();
+  return t;
+}
+
 function chunkTranscript(text) {
   if (!text || text.length === 0) return [];
   if (text.length <= CHUNK_SIZE) return [text];
   const chunks = [];
   let start = 0;
+  // Minimum advance per iteration — without this, a transcript with few ". " markers
+  // can produce hundreds of tiny near-duplicate chunks because lastIndexOf returns a
+  // position near the start, breakPoint is small, and `breakPoint - overlap` goes
+  // backwards. Always move forward by at least CHUNK_SIZE - CHUNK_OVERLAP.
+  const MIN_ADVANCE = CHUNK_SIZE - CHUNK_OVERLAP;
   while (start < text.length) {
     const end = start + CHUNK_SIZE;
     if (end >= text.length) { chunks.push(text.slice(start)); break; }
@@ -193,7 +221,10 @@ function chunkTranscript(text) {
     const lastSentenceEnd = window.lastIndexOf('. ');
     const breakPoint = lastSentenceEnd !== -1 ? start + lastSentenceEnd + 1 : end;
     chunks.push(text.slice(start, breakPoint).trim());
-    start = Math.max(start + 1, breakPoint - CHUNK_OVERLAP);
+    // Either jump to breakPoint - overlap, OR force-advance by MIN_ADVANCE — whichever is greater.
+    const nextStart = Math.max(start + MIN_ADVANCE, breakPoint - CHUNK_OVERLAP);
+    if (nextStart <= start) break; // safety net — should never trigger after the above
+    start = nextStart;
   }
   return chunks.filter(c => c.length > 0);
 }
@@ -277,7 +308,7 @@ async function main() {
       console.log(`  📄 Transcript: ${transcriptDoc.name}`);
       try {
         transcriptText = await getDocText(auth, transcriptDoc.id, transcriptDoc.mimeType);
-        transcriptText = transcriptText.replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+        transcriptText = stripSrtFormatting(transcriptText);
         console.log(`  ✓ Transcript: ${transcriptText.length.toLocaleString()} chars`);
       } catch (err) {
         console.log(`  ❌ Transcript fetch failed: ${err.message}`);
