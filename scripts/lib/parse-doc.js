@@ -76,21 +76,40 @@ function toInlineHTML(html) {
   s = s.replace(/<(?!\/?(b|em|a)\b)[^>]+>/gi, '');
   // Collapse whitespace
   s = s.replace(/\s+/g, ' ').trim();
-  return decodeEntities(s);
+  s = decodeEntities(s);
+  // Markdown-style bold/italic fallback (for plain-text-uploaded Docs)
+  s = s.replace(/\*\*([^*\n]+?)\*\*/g, '<b>$1</b>');
+  s = s.replace(/(^|[^*])\*([^*\n]+?)\*(?!\*)/g, '$1<em>$2</em>');
+  return s;
 }
 
 /**
  * Split body HTML into H1-delimited sections.
+ * Supports two formats:
+ *   1. Proper <h1>Heading</h1> — when the Doc was authored with Heading 1 style.
+ *   2. Plain-text Docs where paragraphs start with "# Heading" — auto-uploaded
+ *      from plain text. Each <p># Heading</p> acts as a section boundary.
  * Returns [{ heading: "Hook", inner: "<p>...</p>..." }, ...]
  */
 function splitByH1(bodyHtml) {
-  const re = /<h1\b[^>]*>([\s\S]*?)<\/h1>/gi;
-  const sections = [];
+  // First try <h1> tags
+  const h1Re = /<h1\b[^>]*>([\s\S]*?)<\/h1>/gi;
   const headings = [];
   let m;
-  while ((m = re.exec(bodyHtml)) !== null) {
-    headings.push({ heading: toText(m[1]), end: re.lastIndex, start: m.index });
+  while ((m = h1Re.exec(bodyHtml)) !== null) {
+    headings.push({ heading: toText(m[1]), end: h1Re.lastIndex, start: m.index });
   }
+  // If no <h1> tags, fall back to <p># Heading</p> markdown-style
+  if (headings.length === 0) {
+    const pRe = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+    let pm;
+    while ((pm = pRe.exec(bodyHtml)) !== null) {
+      const text = toText(pm[1]);
+      const mdMatch = text.match(/^#\s+(.+)$/);
+      if (mdMatch) headings.push({ heading: mdMatch[1].trim(), end: pRe.lastIndex, start: pm.index });
+    }
+  }
+  const sections = [];
   for (let i = 0; i < headings.length; i++) {
     const innerStart = headings[i].end;
     const innerEnd = i + 1 < headings.length ? headings[i + 1].start : bodyHtml.length;
@@ -118,32 +137,52 @@ function extractParagraphs(html) {
 }
 
 /**
- * Extract <li>...</li> items from the first <ul>/<ol> in HTML chunk.
+ * Extract list items. Two formats:
+ *   1. <li>item</li> — real lists.
+ *   2. <p>- item</p> or <p>* item</p> — plain-text-uploaded Docs.
  * Returns array of inline-cleaned strings.
  */
 function extractListItems(html) {
   const out = [];
-  const re = /<li\b[^>]*>([\s\S]*?)<\/li>/gi;
+  const liRe = /<li\b[^>]*>([\s\S]*?)<\/li>/gi;
   let m;
-  while ((m = re.exec(html)) !== null) {
+  while ((m = liRe.exec(html)) !== null) {
     const cleaned = toInlineHTML(m[1]);
     if (cleaned) out.push(cleaned);
+  }
+  if (out.length > 0) return out;
+  // Fallback: paragraphs starting with - or *
+  const pRe = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+  let pm;
+  while ((pm = pRe.exec(html)) !== null) {
+    const raw = pm[1];
+    // Strip leading inline tags to test plain text
+    const text = toText(raw);
+    const bulletMatch = text.match(/^[-*]\s+(.+)$/);
+    if (bulletMatch) {
+      // Re-run inline cleaning on the original chunk, then strip the bullet
+      const cleaned = toInlineHTML(raw).replace(/^[-*]\s+/, '');
+      if (cleaned) out.push(cleaned);
+    }
   }
   return out;
 }
 
 /**
- * Extract <blockquote>...</blockquote> blocks. Each blockquote contains <p> elements.
- * Returns array of { text, attr } where attr is the attribution line (last paragraph).
+ * Extract pull-quote blocks. Two formats:
+ *   1. <blockquote><p>quote</p><p>— attr</p></blockquote>
+ *   2. Plain-text Docs: paragraph starting with `> "quote..."` followed by
+ *      paragraph starting with `— attr` (em-dash). Each pair = one quote.
+ * Returns array of { text, attr }.
  */
 function extractBlockquotes(html) {
   const out = [];
-  const re = /<blockquote\b[^>]*>([\s\S]*?)<\/blockquote>/gi;
+  // First try real <blockquote>
+  const bqRe = /<blockquote\b[^>]*>([\s\S]*?)<\/blockquote>/gi;
   let m;
-  while ((m = re.exec(html)) !== null) {
+  while ((m = bqRe.exec(html)) !== null) {
     const paras = extractParagraphs(m[1]);
     if (paras.length === 0) continue;
-    // Last paragraph that starts with — or - is the attribution
     let attrIdx = -1;
     for (let i = paras.length - 1; i >= 0; i--) {
       if (/^[—-]/.test(paras[i].trim())) { attrIdx = i; break; }
@@ -152,6 +191,34 @@ function extractBlockquotes(html) {
     const text = paras.slice(0, attrIdx).join(' ').trim();
     const attr = paras[attrIdx].replace(/^[—-]\s*/, '').trim();
     if (text) out.push({ text, attr });
+  }
+  if (out.length > 0) return out;
+  // Fallback: paragraphs starting with > are quote text; the next paragraph
+  // starting with — or - is the attribution. Pair them up.
+  const paras = extractParagraphs(html);
+  let i = 0;
+  while (i < paras.length) {
+    const p = paras[i].trim();
+    const quoteMatch = p.match(/^>\s+(.+)$/);
+    if (quoteMatch) {
+      let text = quoteMatch[1].trim();
+      // Multi-line quote: keep consuming `> ...` paragraphs
+      let j = i + 1;
+      while (j < paras.length && /^>\s+/.test(paras[j].trim())) {
+        text += ' ' + paras[j].trim().replace(/^>\s+/, '');
+        j++;
+      }
+      // Attribution
+      let attr = '';
+      if (j < paras.length && /^[—-]\s*/.test(paras[j].trim())) {
+        attr = paras[j].trim().replace(/^[—-]\s*/, '');
+        j++;
+      }
+      out.push({ text: text.replace(/^["“]|["”]$/g, ''), attr });
+      i = j;
+    } else {
+      i++;
+    }
   }
   return out;
 }
