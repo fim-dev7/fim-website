@@ -103,6 +103,52 @@ function renderJsonLd({ ep, content, slug, transcriptSummary }) {
 }
 
 /**
+ * Article JSON-LD — gives AI search engines a second canonical schema for
+ * this content beyond PodcastEpisode. Article ranks better for "how-to" and
+ * "what-is" queries than PodcastEpisode does.
+ */
+function renderArticleJsonLd({ ep, content, slug }) {
+  const titleShort = (ep.title || '').split(' | ')[0];
+  const ytId = (function() {
+    if (!ep.youtube_url) return null;
+    const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  })();
+  const img = ytId ? `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg` : `https://foundersinmotion.com/assets/youtube-banner.png`;
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: titleShort,
+    description: content.hook || `${ep.guest_name}, ${ep.guest_company} on Founders In Motion.`,
+    url: `https://foundersinmotion.com/episodes/${slug}/`,
+    image: [img],
+    datePublished: ep.published_date || undefined,
+    dateModified: ep.published_date || undefined,
+    author: { '@type': 'Person', name: 'Thea Ngo', url: 'https://foundersinmotion.com/about/' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Founders In Motion',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://foundersinmotion.com/assets/logo-white.png',
+      },
+    },
+    about: ep.guest_name ? {
+      '@type': 'Person',
+      name: ep.guest_name,
+      affiliation: ep.guest_company ? { '@type': 'Organization', name: ep.guest_company } : undefined,
+    } : undefined,
+    // Speakable — voice assistants can read the TL;DR and key claims aloud.
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.ep-tldr-a', '.lead', '.claim .txt'],
+    },
+  };
+  const clean = JSON.parse(JSON.stringify(obj));
+  return JSON.stringify(clean, null, 2);
+}
+
+/**
  * Generate FAQPage JSON-LD from the structured content. Pulls Q&As from:
  *   - The hook (overview question)
  *   - Guest identity (who they are)
@@ -240,6 +286,46 @@ function renderHeader({ ep, content }) {
     </header>`;
 }
 
+/**
+ * Embed the YouTube player at the very top of the page. AEO win — the
+ * crawler sees the video URL + duration + transcript on the same page.
+ * For users, it's the "watch right here" pattern that podcast landing pages
+ * use.
+ */
+function renderYouTubeEmbed({ ep }) {
+  const ytId = (function() {
+    if (!ep.youtube_url) return null;
+    const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  })();
+  if (!ytId) return '';
+  // youtube-nocookie + lazy load = best UX + privacy.
+  return `    <div class="ep-video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/${esc(ytId)}?rel=0"
+        title="${esc(ep.title || 'Founders In Motion episode')}"
+        frameborder="0"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>`;
+}
+
+/**
+ * TL;DR — the Hook framed as a question + answer. Sits above the fold so
+ * AI search engines and human skimmers both extract the value in one read.
+ */
+function renderTldr({ ep, content }) {
+  if (!content?.hook) return '';
+  const guestFirst = (ep.guest_name || '').split(/\s+/)[0];
+  return `    <section class="ep-tldr" aria-label="Episode summary">
+      <div class="ep-tldr-q">In one paragraph: what's this episode about?</div>
+      <p class="ep-tldr-a">${esc(content.hook)}</p>
+      ${ep.guest_name ? `<div class="ep-tldr-meta">Answered by <b>${esc(ep.guest_name)}</b>${ep.guest_company ? `, ${esc(ep.guest_company)}` : ''} — interviewed by Thea Ngo.</div>` : ''}
+    </section>`;
+}
+
 function renderListen({ ep }) {
   const yt = ep.youtube_url || 'https://www.youtube.com/@foundersinmotion';
   const sp = ep.spotify_url || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl';
@@ -260,12 +346,20 @@ function renderListen({ ep }) {
     </div>`;
 }
 
-function renderStory(story) {
+function renderStory({ ep, content }) {
+  const story = content.story;
   if (!story || story.length === 0) return '';
   const [lead, ...rest] = story;
   const leadHtml = `<p class="lead">${lead}</p>`;
   const restHtml = rest.map(p => `<p>${p}</p>`).join('\n          ');
-  return `        <h2>The story</h2>
+  // Question-shaped H2 — AI search engines parse these as answer anchors.
+  // E.g. "How did Shakeel Lala raise venture capital before having a business idea?"
+  const guestRef = ep.guest_name || 'this founder';
+  const titleShort = (ep.title || '').split(' | ')[0].replace(/^[^:]+:\s*/, '');
+  const h2 = titleShort
+    ? `How ${esc(guestRef)} did it: ${esc(titleShort)}`
+    : `The full story`;
+  return `        <h2>${h2}</h2>
           ${leadHtml}
           ${restHtml}`;
 }
@@ -504,6 +598,11 @@ ${(() => {
 })()}
 ${renderPersonOrgJsonLd({ ep, content, slug }).map(json => `\n<!-- JSON-LD: Person/Organization (entity graph) -->\n<script type="application/ld+json">\n${json}\n</script>`).join('')}
 
+<!-- JSON-LD: Article + Speakable (AEO + voice search) -->
+<script type="application/ld+json">
+${renderArticleJsonLd({ ep, content, slug })}
+</script>
+
 </head>
 <body>
 
@@ -537,6 +636,10 @@ ${renderPersonOrgJsonLd({ ep, content, slug }).map(json => `\n<!-- JSON-LD: Pers
 
 ${renderHeader({ ep, content })}
 
+${renderYouTubeEmbed({ ep })}
+
+${renderTldr({ ep, content })}
+
 ${renderListen({ ep })}
 
     <!-- Body grid -->
@@ -545,7 +648,7 @@ ${renderListen({ ep })}
       <!-- MAIN COLUMN -->
       <article class="ep-main">
 
-${renderStory(content.story)}
+${renderStory({ ep, content })}
 
 ${renderWhatYoullHear(content.whatYoullHear)}
 
