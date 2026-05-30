@@ -81,47 +81,10 @@ function GuestStrip() {
 
 }
 
-// ─── Ask a question (Algolia search over transcripts) ─────────────
-const ALGOLIA_APP_ID = "G2C3CUY2G8";
-const ALGOLIA_SEARCH_KEY = "fad56bd6443dfbfc93a64a2b5c1d629c"; // search-only, browser-safe
-const ALGOLIA_INDEX = "fim_episodes";
-
-async function algoliaSearch(query) {
-  if (!query || !query.trim()) return [];
-  const url = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
-  const body = JSON.stringify({
-    params: new URLSearchParams({
-      query,
-      hitsPerPage: "30",
-      attributesToSnippet: "chunk_text:40",
-      highlightPreTag: "<mark>",
-      highlightPostTag: "</mark>",
-      snippetEllipsisText: "…",
-    }).toString(),
-  });
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      "X-Algolia-Application-Id": ALGOLIA_APP_ID,
-      "X-Algolia-API-Key": ALGOLIA_SEARCH_KEY,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body,
-  });
-  if (!res.ok) throw new Error(`Algolia search ${res.status}`);
-  const data = await res.json();
-  // Dedupe by episode_number — pick the best (first/highest-ranked) chunk per episode
-  const seen = new Set();
-  const out = [];
-  for (const hit of data.hits || []) {
-    const epNum = hit.episode_number;
-    if (seen.has(epNum)) continue;
-    seen.add(epNum);
-    out.push(hit);
-    if (out.length >= 8) break;
-  }
-  return out;
-}
+// ─── Ask a question (NotebookLM-style synthesis via /api/ask) ─────────────
+// User asks. We POST to /api/ask. The Edge function pulls top transcript
+// chunks from Algolia, sends them to Claude with a synthesis prompt, and
+// streams back a markdown answer with inline [N] citations to source episodes.
 
 const SUGGESTED_QUESTIONS = [
   "How do I find product-market fit?",
@@ -129,62 +92,186 @@ const SUGGESTED_QUESTIONS = [
   "When should I quit my job to start a company?",
   "How do I do customer discovery?",
   "What does the messy middle feel like?",
-  "How do I pitch a VC?",
+  "How do I write a cold email to investors?",
 ];
+
+const ESC_MAP = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+function escapeHtml(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ESC_MAP[c]); }
+
+/**
+ * Tiny markdown renderer for the Claude-generated answer.
+ * Supports: **bold**, *italic*, [N] citations, line breaks, bullet lists.
+ * Citations get rewritten as <a class="cite"> linking to the cited source.
+ */
+function renderAnswerMarkdown(md, sources) {
+  if (!md) return "";
+  // Pre-escape HTML — only our own tags should appear in the output
+  let out = escapeHtml(md);
+  // **bold**
+  out = out.replace(/\*\*([^*\n]+?)\*\*/g, "<strong>$1</strong>");
+  // *italic* (but not part of **)
+  out = out.replace(/(^|[^*\w])\*([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>");
+  // Bulleted list lines starting with "- " → wrap in <ul><li>
+  // Detect contiguous bullet groups and wrap
+  out = out.replace(/((?:^|\n)(?:- [^\n]+\n?)+)/g, (block) => {
+    const items = block.trim().split("\n").map((l) => l.replace(/^- /, "").trim()).filter(Boolean);
+    return "\n<ul>" + items.map((i) => `<li>${i}</li>`).join("") + "</ul>\n";
+  });
+  // Citations [N] → anchor
+  out = out.replace(/\[(\d{1,2})\]/g, (m, n) => {
+    const i = parseInt(n, 10) - 1;
+    const src = sources && sources[i];
+    if (!src) return m;
+    const href = src.has_episode_page ? `episodes/${src.slug}/` : (src.spotify_url || "#");
+    const tip = `${src.guest_name}${src.guest_company ? ", " + src.guest_company : ""} — Ep ${src.episode_number}`;
+    return `<a class="cite" href="${href}" title="${escapeHtml(tip)}">[${n}]</a>`;
+  });
+  // Paragraph breaks: split on \n\n, wrap each
+  const blocks = out.split(/\n\n+/).map((p) => {
+    const trimmed = p.trim();
+    if (!trimmed) return "";
+    if (trimmed.startsWith("<ul>") || trimmed.startsWith("<ol>")) return trimmed;
+    return `<p>${trimmed.replace(/\n/g, "<br/>")}</p>`;
+  });
+  return blocks.filter(Boolean).join("\n");
+}
+
+/**
+ * POST /api/ask and consume the SSE stream.
+ * Calls onSources(sources) once early, then onDelta(text) for each text chunk,
+ * then onDone() at the end (or onError on failure).
+ */
+async function streamAsk(query, { onSources, onDelta, onDone, onError, signal }) {
+  let res;
+  try {
+    res = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+      signal,
+    });
+  } catch (err) {
+    if (err.name === "AbortError") return;
+    onError && onError(err.message || "Network error");
+    return;
+  }
+  if (!res.ok) {
+    let msg = `Request failed (${res.status})`;
+    try { const j = await res.json(); msg = j.error || msg; } catch {}
+    onError && onError(msg);
+    return;
+  }
+  const ct = res.headers.get("content-type") || "";
+  // Non-streaming fallback (e.g. empty-result case) returns JSON.
+  if (ct.includes("application/json")) {
+    const j = await res.json();
+    if (j.sources && onSources) onSources(j.sources);
+    if (j.answer && onDelta) onDelta(j.answer);
+    onDone && onDone();
+    return;
+  }
+  // SSE parsing
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const events = buffer.split(/\n\n/);
+    buffer = events.pop() || "";
+    for (const evt of events) {
+      let eventName = "message";
+      let dataLine = "";
+      for (const line of evt.split("\n")) {
+        if (line.startsWith("event: ")) eventName = line.slice(7).trim();
+        else if (line.startsWith("data: ")) dataLine = line.slice(6);
+      }
+      if (!dataLine) continue;
+      if (eventName === "done") { onDone && onDone(); return; }
+      if (eventName === "error") {
+        try { const j = JSON.parse(dataLine); onError && onError(j.error || "Stream error"); } catch { onError && onError("Stream error"); }
+        return;
+      }
+      try {
+        const obj = JSON.parse(dataLine);
+        if (eventName === "sources" && obj.sources) {
+          onSources && onSources(obj.sources);
+        } else if (obj.t) {
+          onDelta && onDelta(obj.t);
+        }
+      } catch {
+        // ignore malformed event
+      }
+    }
+  }
+  onDone && onDone();
+}
 
 function AskBox() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState("");
+  const [sources, setSources] = useState([]);
+  const [answer, setAnswer] = useState("");
+  const [phase, setPhase] = useState("idle"); // idle | retrieving | synthesizing | done | error
   const [error, setError] = useState(null);
-  const [hasSearched, setHasSearched] = useState(false);
 
-  // Debounce query → run search 250ms after typing stops
+  // Trigger a synthesis run for `submitted`. Aborts a previous in-flight one.
   useEffect(() => {
-    if (!query.trim()) {
-      setResults([]);
-      setHasSearched(false);
-      setError(null);
+    if (!submitted) {
+      setSources([]); setAnswer(""); setPhase("idle"); setError(null);
       return;
     }
-    const id = setTimeout(async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const hits = await algoliaSearch(query);
-        setResults(hits);
-        setHasSearched(true);
-      } catch (err) {
-        setError(err.message || "Search failed");
-      } finally {
-        setLoading(false);
-      }
-    }, 250);
-    return () => clearTimeout(id);
-  }, [query]);
+    const controller = new AbortController();
+    setSources([]); setAnswer(""); setError(null);
+    setPhase("retrieving");
+    let gotFirstDelta = false;
+    streamAsk(submitted, {
+      onSources: (s) => { setSources(s); setPhase("synthesizing"); },
+      onDelta:   (t) => { if (!gotFirstDelta) { gotFirstDelta = true; setPhase("synthesizing"); } setAnswer((a) => a + t); },
+      onDone:    () => setPhase("done"),
+      onError:   (msg) => { setError(msg); setPhase("error"); },
+      signal: controller.signal,
+    });
+    return () => controller.abort();
+  }, [submitted]);
 
-  // Reflect query into ?q= in URL so /#ask?q=... links work
+  // Reflect ?q= in URL hash on first load
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.split("?")[1] || "");
     const q = params.get("q");
-    if (q) setQuery(q);
+    if (q) { setQuery(q); setSubmitted(q); }
   }, []);
 
-  function chooseSuggestion(s) {
-    setQuery(s);
+  function handleSubmit(e) {
+    if (e) e.preventDefault();
+    const q = query.trim();
+    if (!q) return;
+    setSubmitted(q);
+    try { window.history.replaceState(null, "", `#ask?q=${encodeURIComponent(q)}`); } catch {}
   }
+
+  function clearAll() {
+    setQuery(""); setSubmitted(""); setAnswer(""); setSources([]); setError(null); setPhase("idle");
+    try { window.history.replaceState(null, "", "#ask"); } catch {}
+  }
+
+  function chooseSuggestion(s) { setQuery(s); setSubmitted(s); }
+
+  const answerHtml = renderAnswerMarkdown(answer, sources);
+  const showSpinner = phase === "retrieving" || phase === "synthesizing";
 
   return (
     <section className="panel ask" id="ask">
       <div className="container">
         <div className="section-head">
-          <div className="kicker">Ask a question</div>
-          <h2>Search 28 episodes of founder conversations.</h2>
-          <p>Every transcript is searchable. Type a question, get the moment a founder answered it.</p>
+          <div className="kicker">Ask the archive</div>
+          <h2>Get a real answer, drawn from real founders.</h2>
+          <p>Every transcript across 28 episodes is searchable. Type any founder question and an answer gets synthesized from the moments founders actually said it — with citations.</p>
         </div>
 
         <div className="ask-wrap">
-          <div className="ask-input-row">
+          <form className="ask-input-row" onSubmit={handleSubmit}>
             <svg className="ask-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input
               type="search"
@@ -194,14 +281,15 @@ function AskBox() {
               onChange={(e) => setQuery(e.target.value)}
               autoComplete="off"
               spellCheck="false"
-              aria-label="Search founder questions"
+              aria-label="Ask a founder question"
             />
-            {query && (
-              <button className="ask-clear" onClick={() => setQuery("")} aria-label="Clear">×</button>
-            )}
-          </div>
+            {query && (<button type="button" className="ask-clear" onClick={clearAll} aria-label="Clear">×</button>)}
+            <button type="submit" className="ask-submit" disabled={!query.trim() || showSpinner}>
+              {showSpinner ? "…" : "Ask"}
+            </button>
+          </form>
 
-          {!query && (
+          {!submitted && !query && (
             <div className="ask-suggestions">
               <span className="ask-suggestions-label">Try:</span>
               {SUGGESTED_QUESTIONS.map((s) => (
@@ -210,17 +298,28 @@ function AskBox() {
             </div>
           )}
 
-          {loading && <div className="ask-status">Searching transcripts…</div>}
+          {phase === "retrieving" && (
+            <div className="ask-status"><span className="ask-spin" aria-hidden></span> Pulling relevant transcripts…</div>
+          )}
+          {phase === "synthesizing" && !answer && (
+            <div className="ask-status"><span className="ask-spin" aria-hidden></span> Synthesizing answer from {sources.length || "the"} episodes…</div>
+          )}
           {error && <div className="ask-status ask-error">⚠ {error}</div>}
-          {hasSearched && !loading && results.length === 0 && (
-            <div className="ask-status">No transcripts matched that question. Try a different angle?</div>
+
+          {(answer || phase === "done") && (
+            <article className="ask-answer">
+              <div className="ask-answer-body" dangerouslySetInnerHTML={{ __html: answerHtml }} />
+              {phase !== "done" && answer && <span className="ask-cursor" aria-hidden></span>}
+            </article>
           )}
 
-          {results.length > 0 && (
-            <div className="ask-results">
-              <div className="ask-results-count">{results.length} {results.length === 1 ? "moment" : "moments"} found</div>
-              {results.map((hit) => <AskResult key={hit.objectID} hit={hit} />)}
-            </div>
+          {sources.length > 0 && phase !== "retrieving" && (
+            <section className="ask-sources">
+              <h4>Sources</h4>
+              <div className="ask-sources-grid">
+                {sources.map((s) => <AskSource key={s.n} source={s} />)}
+              </div>
+            </section>
           )}
         </div>
       </div>
@@ -228,19 +327,16 @@ function AskBox() {
   );
 }
 
-function AskResult({ hit }) {
-  const snippet = hit._snippetResult?.chunk_text?.value || hit.chunk_text?.slice(0, 240);
-  const epHref = hit.has_episode_page ? `episodes/${hit.slug}/` : (hit.spotify_url || "#");
-  const titleHead = (hit.title || "").split(" | ")[0];
+function AskSource({ source }) {
+  const href = source.has_episode_page ? `episodes/${source.slug}/` : (source.spotify_url || "#");
   return (
-    <a className="ask-result" href={epHref} target={hit.has_episode_page ? "_self" : "_blank"} rel="noreferrer">
-      <div className="ask-result-num">EP {hit.episode_number}</div>
-      <div className="ask-result-body">
-        <div className="ask-result-guest"><b>{hit.guest_name}</b> · <i>{hit.guest_company}</i></div>
-        <div className="ask-result-title">{titleHead}</div>
-        <div className="ask-result-snippet" dangerouslySetInnerHTML={{ __html: snippet }} />
+    <a className="ask-source" href={href} target={source.has_episode_page ? "_self" : "_blank"} rel="noreferrer">
+      <div className="ask-source-n">[{source.n}]</div>
+      <div className="ask-source-body">
+        <div className="ask-source-guest"><b>EP {source.episode_number} · {source.guest_name}</b> · <i>{source.guest_company}</i></div>
+        <div className="ask-source-title">{source.title}</div>
       </div>
-      <div className="ask-result-arrow" aria-hidden>↗</div>
+      <div className="ask-source-arrow" aria-hidden>↗</div>
     </a>
   );
 }
