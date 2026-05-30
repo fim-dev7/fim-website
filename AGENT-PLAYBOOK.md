@@ -67,6 +67,44 @@ GitHub Action runs scripts/sync.js → commits regenerated files → Vercel depl
 - **Tool**: same as above.
 - **Structure**: see `QA_PACK_TEMPLATE.md`. Each H1 is a question. Below the H1 are key-value lines (`slug:`, `answer:`) followed by optional long-form paragraphs.
 
+**4b. 🛑 GROUNDING GATE — verify everything against the transcript BEFORE pushing to Drive.**
+
+This is non-negotiable. Both layers must pass. If either fails, you fix the
+content and re-run. Do not push to Drive until pass=true.
+
+**Layer 1 — programmatic checker.** Saves the generated content to temp files
+and runs `scripts/eval-grounding.js` against the transcript file.
+
+```bash
+# Save generated content + Q&A locally
+mkdir -p /tmp/fim-eval && cd "/Users/theango/Desktop/CLAUDE/FOUNDERS IN MOTION/PROJECTS/Others/FiM Website"
+# Write generated content Doc text to /tmp/fim-eval/content.txt
+# Write generated Q&A pack text to /tmp/fim-eval/qa.txt
+# Save the transcript file (downloaded from Drive transcript folder or pasted) to /tmp/fim-eval/transcript.txt
+
+node scripts/eval-grounding.js /tmp/fim-eval/transcript.txt /tmp/fim-eval/content.txt /tmp/fim-eval/qa.txt
+echo "Exit: $?"
+```
+
+Exit code 0 = every quote, number, and named entity in the generated content
+was found in the transcript. Exit code 1 = one or more failed. Inspect the
+JSON on stdout — the `quotes`/`numbers`/`names` arrays show what's ungrounded.
+
+**Layer 2 — independent LLM verifier.** Spawn a sub-agent with the Agent tool
+(subagent_type: `general-purpose`). The sub-agent has a clean context, so it
+can't confirm its own work.
+
+Use the prompt template in `EVAL-VERIFIER-PROMPT.md` — substitute the
+transcript and the generated content into the `{{TRANSCRIPT}}` and
+`{{CONTENT}}` placeholders. The sub-agent returns strict JSON with a
+per-claim verdict. `pass: true` means every claim is GROUNDED or
+PARAPHRASED. Anything EXTRAPOLATED or HALLUCINATED means stop, fix the
+claim, re-verify both layers.
+
+If you can't easily download the transcript file (e.g. it's a Google Doc),
+use `read_file_content` on the transcript Doc to get plain text, then write
+to /tmp/fim-eval/transcript.txt.
+
 **5. Trigger the sync workflow.**
 
 ```bash
