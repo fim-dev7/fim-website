@@ -20,7 +20,7 @@ function formatLastmod(iso) {
   return isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
 }
 
-export function renderSitemap({ episodes, topics = [] }) {
+export function renderSitemap({ episodes, topics = [], questionSlugs = [] }) {
   const today = new Date().toISOString().slice(0, 10);
   const sorted = [...episodes].sort((a, b) => b.episode_number - a.episode_number);
 
@@ -38,6 +38,23 @@ export function renderSitemap({ episodes, topics = [] }) {
       priority: '0.8',
       changefreq: 'monthly',
     });
+  }
+
+  if (questionSlugs.length > 0) {
+    urls.push({
+      loc: `${SITE_URL}/questions/`,
+      lastmod: today,
+      priority: '0.85',
+      changefreq: 'weekly',
+    });
+    for (const slug of questionSlugs) {
+      urls.push({
+        loc: `${SITE_URL}/questions/${slug}/`,
+        lastmod: today,
+        priority: '0.75',
+        changefreq: 'monthly',
+      });
+    }
   }
 
   for (const e of sorted) {

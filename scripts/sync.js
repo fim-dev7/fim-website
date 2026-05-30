@@ -36,6 +36,9 @@ import { renderSitemap, renderRobots, renderLlmsTxt } from './lib/render-meta.js
 import { extractFaqFromDataStatic, renderFaqPageJsonLd, injectFaqIntoIndexHtml } from './lib/render-homepage-faq.js';
 import { TOPICS } from './lib/topics-config.js';
 import { renderTopicHub, renderTopicsIndex } from './lib/render-topic-hub.js';
+import { parseQaPack } from './lib/parse-qa-pack.js';
+import { aggregateQuestions } from './lib/aggregate-questions.js';
+import { renderQuestionPage, renderQuestionsIndex } from './lib/render-question-hub.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -261,23 +264,23 @@ async function pushToAlgolia(records) {
   const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_ADMIN_KEY);
   const index = client.initIndex(ALGOLIA_INDEX_NAME);
   await index.setSettings({
-    searchableAttributes: ['guest_name', 'guest_company', 'title', 'chunk_text'],
-    attributesToSnippet: ['chunk_text:40'],
-    attributesToHighlight: ['title', 'guest_name', 'chunk_text'],
+    // Search the Q&A entries first; fall back to guest/title for episode-name queries.
+    searchableAttributes: ['unordered(question)', 'unordered(answer)', 'guest_name', 'guest_company', 'title', 'long_form'],
+    attributesToSnippet: ['answer:40', 'long_form:30'],
+    attributesToHighlight: ['question', 'answer', 'guest_name', 'title'],
+    // Rank by recency of source episode (newer wins ties)
     customRanking: ['desc(episode_number)'],
-    // Relevance — let users query loosely
+    // Forgiving queries
     removeWordsIfNoResults: 'lastWords',
     typoTolerance: true,
     minWordSizefor1Typo: 4,
     minWordSizefor2Typos: 8,
     queryType: 'prefixLast',
     ignorePlurals: true,
-    // Stop common-word filler so queries match the substance
     advancedSyntax: true,
-    // Dedupe — one hit per episode at query time
+    // One result per question_slug (canonical Q dedupe)
     distinct: 1,
-    attributeForDistinct: 'episode_number',
-    // Snippet readability
+    attributeForDistinct: 'slug_q',
     snippetEllipsisText: '…',
   });
   const { objectIDs } = await index.saveObjects(records);
@@ -300,6 +303,9 @@ async function main() {
 
   const transcriptFolder = settings.transcript_folder_id || '1gu8J2FRG35Z37evtSWC0HAtRZPXDh2QT';
   const contentFolder    = settings.episode_content_folder_id || null;
+  const qaBankFolder     = settings.qa_bank_folder_id || null;
+  if (qaBankFolder) console.log(`💬 Q&A bank folder: ${qaBankFolder}`);
+  else console.log('ℹ️  No qa_bank_folder_id in Settings sheet — /questions/ pages will not be generated.');
 
   if (!contentFolder) {
     console.log('ℹ️  No episode_content_folder_id in Settings sheet.');
@@ -355,6 +361,22 @@ async function main() {
       }
     }
 
+    // Q&A pack doc (one per episode in the FiM - Q&A Bank folder)
+    let qaEntries = [];
+    if (qaBankFolder) {
+      const qaDoc = await findDocInFolder(auth, qaBankFolder, ep.episode_number, ep.guest_name);
+      if (qaDoc) {
+        console.log(`  💬 Q&A pack: ${qaDoc.name}`);
+        try {
+          const html = await getDocHTML(auth, qaDoc.id);
+          qaEntries = parseQaPack(html);
+          console.log(`  ✓ Parsed: ${qaEntries.length} Q&A${qaEntries.length === 1 ? '' : 's'} (slugs: ${qaEntries.map(e => e.slug).join(', ')})`);
+        } catch (err) {
+          console.log(`  ❌ Q&A parse failed: ${err.message}`);
+        }
+      }
+    }
+
     // Existing hand-built page?
     const handBuiltPath = path.join(REPO_ROOT, 'episodes', slug, 'index.html');
     const handBuiltExists = !content && fs.existsSync(handBuiltPath) && !isGeneratedPage(handBuiltPath);
@@ -367,6 +389,7 @@ async function main() {
       slug,
       transcript: transcriptText,
       content,
+      qaEntries,
       has_episode_page: Boolean(content) || handBuiltExists,
     });
 
@@ -385,18 +408,26 @@ async function main() {
       slug,
       has_episode_page: Boolean(content) || handBuiltExists,
     };
+    // Episode header record — used for guest/title matches in search
     algoliaRecords.push({ objectID: `ep-${ep.episode_number}`, ...episodeMeta });
-    const chunks = chunkTranscript(transcriptText);
-    chunks.forEach((chunk, idx) => {
+
+    // Q&A entries — these are the PRIMARY search target now. Each becomes a record
+    // pointing at /questions/<slug>/ (or to the episode page if you'd rather).
+    // Replaces transcript chunks as the search corpus — much higher signal,
+    // smaller index, faster ranking, and clicks land on a static answer page.
+    for (const entry of (qaEntries || [])) {
       algoliaRecords.push({
-        objectID: `ep-${ep.episode_number}-chunk-${idx}`,
+        objectID: `ep-${ep.episode_number}-q-${entry.slug}`,
+        type: 'question',
+        question: entry.question,
+        slug_q: entry.slug,
+        answer: entry.answer,
+        long_form: (entry.longForm || []).join(' ').slice(0, 2000),
+        question_url: `/questions/${entry.slug}/`,
         ...episodeMeta,
-        chunk_text: chunk,
-        chunk_index: idx,
-        total_chunks: chunks.length,
       });
-    });
-    console.log(`  ✓ Built 1 header + ${chunks.length} chunk record(s)\n`);
+    }
+    console.log(`  ✓ Built 1 header + ${qaEntries?.length || 0} Q&A record(s)\n`);
   }
 
   // ----- PASS 2: render pages with full episode list available ------------
@@ -461,19 +492,6 @@ async function main() {
   if (archiveOut.changed) written.push(archiveOut.path);
   console.log(`📝 episodes/index.html ${archiveOut.changed ? '(written)' : '(unchanged)'}`);
 
-  // Crawler files (sitemap.xml, robots.txt, llms.txt)
-  const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({ episodes: epsForData, topics: TOPICS }));
-  if (sitemapOut.changed) written.push(sitemapOut.path);
-  console.log(`🗺️  sitemap.xml ${sitemapOut.changed ? '(written)' : '(unchanged)'}`);
-
-  const robotsOut = writeIfChanged('robots.txt', renderRobots());
-  if (robotsOut.changed) written.push(robotsOut.path);
-  console.log(`🤖 robots.txt ${robotsOut.changed ? '(written)' : '(unchanged)'}`);
-
-  const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({ episodes: epsForData, settings }));
-  if (llmsOut.changed) written.push(llmsOut.path);
-  console.log(`📚 llms.txt ${llmsOut.changed ? '(written)' : '(unchanged)'}`);
-
   // Topic hub pages — question-shaped guides referencing multiple episodes
   if (TOPICS.length > 0) {
     const epsById = new Map(enriched.map(e => [e.episode_number, e]));
@@ -487,6 +505,41 @@ async function main() {
     if (indexOut.changed) written.push(indexOut.path);
     console.log(`📚 topics/index.html ${indexOut.changed ? '(written)' : '(unchanged)'}`);
   }
+
+  // Question pages — aggregate Q&A entries across episodes by canonical_slug
+  const grouped = aggregateQuestions(
+    enriched.map(e => ({ episode: e, entries: e.qaEntries || [] }))
+  );
+  if (grouped.size > 0) {
+    for (const [slug, group] of grouped) {
+      const html = renderQuestionPage({ group, allGrouped: grouped });
+      const out = writeIfChanged(path.join('questions', slug, 'index.html'), html);
+      if (out.changed) written.push(out.path);
+      console.log(`❓ questions/${slug}/index.html ${out.changed ? '(written)' : '(unchanged)'} — ${group.contributors.length} contributor${group.contributors.length === 1 ? '' : 's'}`);
+    }
+    const qIdxOut = writeIfChanged('questions/index.html', renderQuestionsIndex({ grouped }));
+    if (qIdxOut.changed) written.push(qIdxOut.path);
+    console.log(`❓ questions/index.html ${qIdxOut.changed ? '(written)' : '(unchanged)'} — ${grouped.size} canonical question${grouped.size === 1 ? '' : 's'}`);
+  } else {
+    console.log('ℹ️  No Q&A packs found yet — /questions/ pages skipped.');
+  }
+
+  // Crawler files — written AFTER question aggregation so sitemap includes them
+  const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({
+    episodes: epsForData,
+    topics: TOPICS,
+    questionSlugs: Array.from(grouped.keys()),
+  }));
+  if (sitemapOut.changed) written.push(sitemapOut.path);
+  console.log(`🗺️  sitemap.xml ${sitemapOut.changed ? '(written)' : '(unchanged)'}`);
+
+  const robotsOut = writeIfChanged('robots.txt', renderRobots());
+  if (robotsOut.changed) written.push(robotsOut.path);
+  console.log(`🤖 robots.txt ${robotsOut.changed ? '(written)' : '(unchanged)'}`);
+
+  const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({ episodes: epsForData, settings }));
+  if (llmsOut.changed) written.push(llmsOut.path);
+  console.log(`📚 llms.txt ${llmsOut.changed ? '(written)' : '(unchanged)'}`);
 
   // Sync homepage FAQ JSON-LD with the hand-curated FAQ in data-static.jsx
   const faqs = extractFaqFromDataStatic(REPO_ROOT);
