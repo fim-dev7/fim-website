@@ -2,6 +2,8 @@ uploads/
 .secrets/
 NOTION.md
 EPISODE_TEMPLATE.md
+EPISODE_DOC_TEMPLATE.md
+cms-source/
 node_modules/
 .github/
 scripts/
