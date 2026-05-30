@@ -144,7 +144,7 @@ function renderAnswerMarkdown(md, sources) {
 async function streamAsk(query, { onSources, onDelta, onDone, onError, signal }) {
   let res;
   try {
-    res = await fetch("/api/ask", {
+    res = await fetch("/api/ask/", {  // trailing slash to bypass vercel.json trailingSlash redirect
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query }),
