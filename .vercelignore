@@ -1,0 +1,13 @@
+uploads/
+.secrets/
+NOTION.md
+EPISODE_TEMPLATE.md
+node_modules/
+.github/
+scripts/
+package.json
+package-lock.json
+settings.json
+*.napkin
+*.thumbnail.png
+.DS_Store
