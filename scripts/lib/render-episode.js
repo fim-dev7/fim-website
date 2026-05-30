@@ -102,6 +102,109 @@ function renderJsonLd({ ep, content, slug, transcriptSummary }) {
   return JSON.stringify(clean, null, 2);
 }
 
+/**
+ * Generate FAQPage JSON-LD from the structured content. Pulls Q&As from:
+ *   - The hook (overview question)
+ *   - Guest identity (who they are)
+ *   - Each key claim (statistic Q&As)
+ *   - Each theme (topic Q&As)
+ * Skips anything without good structured data so we don't emit empty Q&As.
+ */
+function renderFaqJsonLd({ ep, content }) {
+  const qas = [];
+  const titleShort = (ep.title || '').split(' | ')[0];
+
+  if (content.hook) {
+    qas.push({
+      q: `What is Founders In Motion Ep ${ep.episode_number} about?`,
+      a: `Ep ${ep.episode_number} is titled "${titleShort}" and features ${ep.guest_name}${ep.guest_company ? `, ${ep.guest_company}` : ''}. ${content.hook}`,
+    });
+  }
+
+  if (ep.guest_name && content.meta.guest_bio) {
+    qas.push({
+      q: `Who is ${ep.guest_name}?`,
+      a: `${ep.guest_name} is the ${content.meta.guest_role || 'founder'} of ${ep.guest_company || ''}. ${content.meta.guest_bio}`,
+    });
+  }
+
+  if (Array.isArray(content.keyClaims)) {
+    for (const { label, text } of content.keyClaims) {
+      if (!label || !text) continue;
+      qas.push({
+        q: `What does "${label}" mean in ${ep.guest_name}'s story?`,
+        a: text,
+      });
+    }
+  }
+
+  if (Array.isArray(content.themes)) {
+    for (const { label, text } of content.themes) {
+      if (!label || !text) continue;
+      qas.push({
+        q: `What does ${ep.guest_name} mean by "${label}"?`,
+        a: text,
+      });
+    }
+  }
+
+  if (qas.length === 0) return null;
+
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: qas.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+  return JSON.stringify(obj, null, 2);
+}
+
+/**
+ * Render Person + Organization JSON-LD for the guest and their company.
+ * Helps AI search build entity graphs (Shakeel Lala → Marloo → Financial Advice AI).
+ */
+function renderPersonOrgJsonLd({ ep, content, slug }) {
+  const guestUrl = `https://foundersinmotion.com/episodes/${slug}/`;
+  const out = [];
+
+  if (ep.guest_name) {
+    const person = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: ep.guest_name,
+      jobTitle: content.meta.guest_role || 'Founder',
+      url: guestUrl,
+    };
+    if (ep.guest_company) {
+      person.affiliation = {
+        '@type': 'Organization',
+        name: ep.guest_company,
+      };
+      person.worksFor = { '@type': 'Organization', name: ep.guest_company };
+    }
+    if (content.meta.guest_bio) {
+      person.description = content.meta.guest_bio;
+    }
+    out.push(JSON.stringify(person, null, 2));
+  }
+
+  if (ep.guest_company && content.meta.guest_bio) {
+    const org = {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: ep.guest_company,
+      founder: { '@type': 'Person', name: ep.guest_name },
+      url: guestUrl,
+    };
+    out.push(JSON.stringify(org, null, 2));
+  }
+
+  return out;
+}
+
 function renderHeader({ ep, content }) {
   const tags = (content.meta.tags || '').split(/\s*[·|]\s*/).filter(Boolean);
   const tagsLine = ['Episode ' + ep.episode_number, ...tags].join(' · ');
@@ -363,6 +466,22 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
 <meta property="og:title" content="${esc(`Ep ${ep.episode_number}: ${ep.title} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />
 <meta property="og:description" content="${esc(metaDesc)}" />
 <meta property="og:type" content="article" />
+${(() => {
+  // Use YouTube thumbnail as OG image — automatic, episode-specific, free.
+  // maxresdefault.jpg is the high-quality (1280x720) version when available.
+  const ytId = (function() {
+    if (!ep.youtube_url) return null;
+    const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  })();
+  if (!ytId) return '';
+  const og = `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`;
+  return `<meta property="og:image" content="${og}" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="720" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${og}" />`;
+})()}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -379,6 +498,11 @@ ${renderJsonLd({ ep, content, slug, transcriptSummary: transcriptForJsonLd })}
 <script type="application/ld+json">
 ${renderBreadcrumbList({ ep, slug })}
 </script>
+${(() => {
+  const faq = renderFaqJsonLd({ ep, content });
+  return faq ? `\n<!-- JSON-LD: FAQPage (per-episode, AEO long-tail) -->\n<script type="application/ld+json">\n${faq}\n</script>` : '';
+})()}
+${renderPersonOrgJsonLd({ ep, content, slug }).map(json => `\n<!-- JSON-LD: Person/Organization (entity graph) -->\n<script type="application/ld+json">\n${json}\n</script>`).join('')}
 
 </head>
 <body>

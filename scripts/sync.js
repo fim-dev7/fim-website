@@ -33,6 +33,9 @@ import { parseEpisodeDoc } from './lib/parse-doc.js';
 import { renderEpisodePage } from './lib/render-episode.js';
 import { renderDataCMS, renderArchivePage } from './lib/render-data.js';
 import { renderSitemap, renderRobots, renderLlmsTxt } from './lib/render-meta.js';
+import { extractFaqFromDataStatic, renderFaqPageJsonLd, injectFaqIntoIndexHtml } from './lib/render-homepage-faq.js';
+import { TOPICS } from './lib/topics-config.js';
+import { renderTopicHub, renderTopicsIndex } from './lib/render-topic-hub.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -459,7 +462,7 @@ async function main() {
   console.log(`📝 episodes/index.html ${archiveOut.changed ? '(written)' : '(unchanged)'}`);
 
   // Crawler files (sitemap.xml, robots.txt, llms.txt)
-  const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({ episodes: epsForData }));
+  const sitemapOut = writeIfChanged('sitemap.xml', renderSitemap({ episodes: epsForData, topics: TOPICS }));
   if (sitemapOut.changed) written.push(sitemapOut.path);
   console.log(`🗺️  sitemap.xml ${sitemapOut.changed ? '(written)' : '(unchanged)'}`);
 
@@ -470,6 +473,34 @@ async function main() {
   const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({ episodes: epsForData, settings }));
   if (llmsOut.changed) written.push(llmsOut.path);
   console.log(`📚 llms.txt ${llmsOut.changed ? '(written)' : '(unchanged)'}`);
+
+  // Topic hub pages — question-shaped guides referencing multiple episodes
+  if (TOPICS.length > 0) {
+    const epsById = new Map(enriched.map(e => [e.episode_number, e]));
+    for (const topic of TOPICS) {
+      const html = renderTopicHub({ topic, episodesById: epsById, allTopics: TOPICS });
+      const out = writeIfChanged(path.join('topics', topic.slug, 'index.html'), html);
+      if (out.changed) written.push(out.path);
+      console.log(`📚 topics/${topic.slug}/index.html ${out.changed ? '(written)' : '(unchanged)'}`);
+    }
+    const indexOut = writeIfChanged('topics/index.html', renderTopicsIndex({ topics: TOPICS }));
+    if (indexOut.changed) written.push(indexOut.path);
+    console.log(`📚 topics/index.html ${indexOut.changed ? '(written)' : '(unchanged)'}`);
+  }
+
+  // Sync homepage FAQ JSON-LD with the hand-curated FAQ in data-static.jsx
+  const faqs = extractFaqFromDataStatic(REPO_ROOT);
+  if (faqs && faqs.length > 0) {
+    const jsonLdBlock = renderFaqPageJsonLd(faqs);
+    const indexPath = path.join(REPO_ROOT, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      const indexHtml = fs.readFileSync(indexPath, 'utf8');
+      const updated = injectFaqIntoIndexHtml(indexHtml, jsonLdBlock);
+      const idxOut = writeIfChanged('index.html', updated);
+      if (idxOut.changed) written.push(idxOut.path);
+      console.log(`❓ index.html FAQPage JSON-LD ${idxOut.changed ? '(updated)' : '(unchanged)'} — ${faqs.length} Qs`);
+    }
+  }
 
   // Settings
   const settingsOutput = { ...settings, synced_at: new Date().toISOString(), total_episodes: episodes.length };
