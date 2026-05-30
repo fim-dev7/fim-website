@@ -1,0 +1,7 @@
+# https://foundersinmotion.com — robots.txt
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+Sitemap: https://foundersinmotion.com/sitemap.xml

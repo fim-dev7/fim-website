@@ -1,0 +1,75 @@
+# Founders In Motion
+
+> An interview podcast where Thea Ngo — an early-stage investor — interviews early-stage founders about the realities of building. Each episode is one founder, in the thick of it, answering the questions an investor would actually ask. Coverage spans Australia, Southeast Asia, and the US. Topics: customer discovery, pre-seed and seed fundraising, pivots, rebuilds, product-market fit, founder mental health, and what the messy middle of building actually looks like.
+
+## Episodes with detailed show notes
+
+- [Ep 27: Shakeel Lala, Marloo](https://foundersinmotion.com/episodes/27-shakeel-lala/): Shakeel quit his job, convinced Australia's largest VC to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia's biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.
+- [Ep 25: Celeste Amadon, Known](https://foundersinmotion.com/episodes/25-celeste-amadon/): Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta and hundreds of couples are now in relationships. Her thesis: today's apps are perversely incentivised to keep you single and paying.
+- [Ep 24: Nam Nguyen, TruthSystems (YC S25)](https://foundersinmotion.com/episodes/24-nam-nguyen/): Nam's co-founder was 19 years old. Law firms told them "come back in 5 years." They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. TruthSystems is now the AI governance layer sitting inside law firms in real time.
+- [Ep 19: Andy Miller, Heaps Normal](https://foundersinmotion.com/episodes/19-andy-miller/): Summer beer, winter launch, unknown brand, mid-pandemic, and non-alcoholic. Kitchen-kettle XPA brewed in longneck bottles. Robbie Williams on the cap table. $50M+ B Corp. Andy Miller on building Heaps Normal into Australia's biggest non-alc beer brand.
+
+## What founders learn here
+
+The archive answers questions like:
+- How do I raise a pre-seed round without a product?
+- How do I find product-market fit?
+- What does customer discovery actually look like?
+- When should I quit my job to start a company?
+- How do I pitch a VC who's never invested in my category?
+- What does the "messy middle" of building look like?
+- How do APAC founders raise from US investors?
+- How do I rebuild after a co-founder exits?
+- How do I survive a startup failure?
+
+Full FAQ at https://foundersinmotion.com/#faq
+
+## Full archive
+
+- Ep 28: Will Bodewes, Phonely (YC S24) — The D1 Athlete Who Built a $100M Voice AI Company
+- Ep 27: Shakeel Lala, Marloo — $40M FinTech Founder on Raising Millions Before He Had a Business Idea
+- Ep 26: Nathan Yun, Paire — He Turned Falling Socks into an Eight Figure Global Brand
+- Ep 25: Celeste Amadon, Known — This Stanford Dropout Wants to Help You Fall in Love
+- Ep 24: Nam Nguyen, TruthSystems (YC S25) — How He Turned 3 YC Rejections into a $25M AI Governance Company
+- Ep 23: Finnlay Morcombe, Fluency — The 25-Year-Old Who Raised $6M From Early Facebook Investors
+- Ep 22: Stephen Turban, Lumiere Education — What Harvard Didn't Know: I Was Already Building an 8-Figure Startup
+- Ep 21: Jevon Le Roux, Keeyu — He Ran One of Australia's Biggest Athleisure Brands - Then Built Software to Fix Its Biggest Flaw
+- Ep 20: Ethan Yong, Umami Papi — Building a Cult Food Brand: The Umami Papi Story
+- Ep 19: Andy Miller, Heaps Normal — Building a $50M+ Zero Alcohol Global Craft Beer Brand
+- Ep 18: Alessia and Elia, VibeFlow (YC S25) — Why This YC Startup Is Betting That AI Will Get Things Wrong
+- Ep 17: Joe Zhou, StrongRoom AI — Australia's $70M 'Theranos': The Founder Who Bought It
+- Ep 16: Satya Tumati, Socratix AI — Why This YC Startup Just Raised $4M to Catch Fraud Before It Happen
+- Ep 15: Hamish McKay, Order Editing — He Built a Shopify App for MrBeast, Now It's Doing $2M ARR
+- Ep 14: Jason Ma, Dyna Robotics — He's Building $600M Robots That Folds your Laundry
+- Ep 13: Sam Richardson, Butter — Why Butter Hit 10k Users in Months And What It Says About the Loneliness Epidemic
+- Ep 12: Phung, Daniel and Hanson, SipHRD — They Sold Out their Alcohol Brand in 48 Hours Without Running a Single Ad
+- Ep 11: Vivek and John, Affil.ai (YC S24) — Inside Silicon Valley's $600B Startup School
+- Ep 10: Hung Bui, AIducation — What Stanford Didn't Teach Me: Rebuilding Vietnam's Hottest EdTech
+- Ep 9: Floriye Elmazi, Sisterwould — I Sold My Car & Built a Cult Haircare Startup Founder Story
+- Ep 8: Brian Pham, Litecard — What Every Australian Loyalty Program Get Wrong, And How Litecard Fix It
+- Ep 7: Robert Huynh, Nook / Reforge — Why this YC-backed Startup Really Failed
+- Ep 6: Ben Wood, WipWrk — Why Outdoor Gear Is Almost Impossible to Recycle - And How One Founder Fixed It
+- Ep 5: Nhi Nguyen, MaiMoney — Why Vietnamese People Don't Invest - And How One Fintech Is Fixing It
+- Ep 4: Kiki and Elan, Sourmilk — From Private Equity to Yogurt Startup Founder Story
+- Ep 3: Nate Spiteri, Shopfront — I Spoke to 1,000 Investors Before Raising. Here's What Nobody Tells You
+- Ep 2: Selina Li, gymii.ai — She Built an AI App Alone in 60 Days
+- Ep 1: Abby Huang, Dime — Inside the GenZ Marketing Agency that's Changing Influencer Marketing
+
+## Listen
+
+- Spotify: https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl?si=9d89e52141e143bd
+- Apple Podcasts: https://podcasts.apple.com/us/podcast/founders-in-motion-with-thea-ngo/id1810228671
+- YouTube: https://www.youtube.com/@FoundersInMotion?sub_confirmation=1
+
+## Host
+
+Thea Ngo — early-stage investor. Site: https://foundersinmotion.com. LinkedIn: https://www.linkedin.com/in/theango/
+
+## Crawl
+
+- Sitemap: https://foundersinmotion.com/sitemap.xml
+- Robots: https://foundersinmotion.com/robots.txt
+- All episode pages are server-rendered HTML with PodcastEpisode JSON-LD and full transcripts inside collapsed `<details>` blocks (fully crawlable).
+- Homepage has FAQPage JSON-LD with 12 founder questions and answers drawn from across the archive.
+
+Generated: 2026-05-30T11:21:03.251Z

@@ -6,6 +6,7 @@
  */
 
 import { toText } from './parse-doc.js';
+import { renderBreadcrumbList } from './render-meta.js';
 
 /**
  * Sheet titles often follow the YouTube/Spotify pattern
@@ -372,6 +373,11 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
 <!-- JSON-LD: PodcastEpisode with transcript -->
 <script type="application/ld+json">
 ${renderJsonLd({ ep, content, slug, transcriptSummary: transcriptForJsonLd })}
+</script>
+
+<!-- JSON-LD: BreadcrumbList (AEO crawl signal) -->
+<script type="application/ld+json">
+${renderBreadcrumbList({ ep, slug })}
 </script>
 
 </head>
