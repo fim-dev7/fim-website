@@ -264,8 +264,9 @@ async function pushToAlgolia(records) {
   const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_ADMIN_KEY);
   const index = client.initIndex(ALGOLIA_INDEX_NAME);
   await index.setSettings({
-    // Search the Q&A entries first; fall back to guest/title for episode-name queries.
-    searchableAttributes: ['unordered(question)', 'unordered(answer)', 'guest_name', 'guest_company', 'title', 'long_form'],
+    // Search aliases first (build-time-generated natural-language phrasings that
+    // map user intent to canonical slugs), then question, then answer body.
+    searchableAttributes: ['unordered(aliases)', 'unordered(question)', 'unordered(answer)', 'guest_name', 'guest_company', 'title', 'long_form'],
     attributesToSnippet: ['answer:40', 'long_form:30'],
     attributesToHighlight: ['question', 'answer', 'guest_name', 'title'],
     // Rank by recency of source episode (newer wins ties)
@@ -315,6 +316,30 @@ async function main() {
     console.log('   key: episode_content_folder_id   value: <Drive folder ID>\n');
   } else {
     console.log(`📁 Content folder: ${contentFolder}\n`);
+  }
+
+  // Load build-time-generated aliases — natural-language phrasings per canonical
+  // slug. These are why search "feels smart" without runtime API calls. Generated
+  // by Claude at content time (see aliases.json + AGENT-PLAYBOOK.md).
+  const aliasesPath = path.join(REPO_ROOT, 'aliases.json');
+  const aliasesBySlug = (() => {
+    if (!fs.existsSync(aliasesPath)) return {};
+    try {
+      const raw = JSON.parse(fs.readFileSync(aliasesPath, 'utf8'));
+      const out = {};
+      for (const [k, v] of Object.entries(raw)) {
+        if (k.startsWith('_')) continue;
+        if (Array.isArray(v)) out[k] = v;
+      }
+      return out;
+    } catch (err) {
+      console.log(`⚠️  aliases.json parse failed: ${err.message}`);
+      return {};
+    }
+  })();
+  if (Object.keys(aliasesBySlug).length > 0) {
+    const total = Object.values(aliasesBySlug).reduce((a, v) => a + v.length, 0);
+    console.log(`🪶 aliases.json: ${Object.keys(aliasesBySlug).length} slugs, ${total} total phrasings`);
   }
 
   // ----- PASS 1: fetch all transcripts + content docs ---------------------
@@ -418,6 +443,7 @@ async function main() {
     // Replaces transcript chunks as the search corpus — much higher signal,
     // smaller index, faster ranking, and clicks land on a static answer page.
     for (const entry of (qaEntries || [])) {
+      const aliases = aliasesBySlug[entry.slug] || [];
       algoliaRecords.push({
         objectID: `ep-${ep.episode_number}-q-${entry.slug}`,
         type: 'question',
@@ -426,6 +452,7 @@ async function main() {
         answer: entry.answer,
         long_form: (entry.longForm || []).join(' ').slice(0, 2000),
         question_url: `/questions/${entry.slug}/`,
+        aliases,
         ...episodeMeta,
       });
     }

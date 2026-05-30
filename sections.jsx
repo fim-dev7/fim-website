@@ -81,12 +81,15 @@ function GuestStrip() {
 
 }
 
-// ─── Ask the archive (semantic search via /api/search) ────────────────────
-// Calls /api/search/ with the user query. The Edge function embeds the query
-// via Voyage AI, scores cosine similarity against pre-embedded Q&A vectors
-// in embeddings.json, returns top matches. We display the best match as a
-// hero card with the FULL canonical answer, plus 2-3 related cards. Click
-// any card → the static /questions/<slug>/ page.
+// ─── Ask the archive (alias-backed Algolia search) ────────────────────────
+// Algolia indexes Q&A entries with build-time-generated aliases — natural-
+// language phrasings of each canonical question. User queries match against
+// the aliases first, so semantic intent reaches the canonical /questions/
+// <slug>/ page without any runtime API call. All intelligence is precomputed
+// by Claude when content is added; runtime is pure static search.
+const ALGOLIA_APP_ID = "G2C3CUY2G8";
+const ALGOLIA_SEARCH_KEY = "fad56bd6443dfbfc93a64a2b5c1d629c";
+const ALGOLIA_INDEX = "fim_episodes";
 
 const SUGGESTED_QUESTIONS = [
   "How do I find product-market fit?",
@@ -97,20 +100,39 @@ const SUGGESTED_QUESTIONS = [
   "How do I write a cold email to investors?",
 ];
 
-async function semanticSearch(query, { signal } = {}) {
+async function searchQA(query, { signal } = {}) {
   if (!query || !query.trim()) return { hits: [] };
-  const res = await fetch("/api/search/", {
+  const url = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
+  const body = JSON.stringify({
+    params: new URLSearchParams({
+      query,
+      hitsPerPage: "6",
+      filters: "type:question",
+      removeWordsIfNoResults: "lastWords",
+    }).toString(),
+  });
+  const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
+    headers: {
+      "X-Algolia-Application-Id": ALGOLIA_APP_ID,
+      "X-Algolia-API-Key": ALGOLIA_SEARCH_KEY,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
     signal,
   });
-  if (!res.ok) {
-    let msg = `Search failed (${res.status})`;
-    try { const j = await res.json(); msg = j.error || msg; } catch {}
-    throw new Error(msg);
-  }
-  return res.json();
+  if (!res.ok) throw new Error(`Search failed (${res.status})`);
+  const data = await res.json();
+  // Normalize to the same shape the hero/related UI expects
+  const hits = (data.hits || []).map((h) => ({
+    slug: h.slug_q,
+    question: h.question,
+    answer: h.answer,
+    episode_number: h.episode_number,
+    guest_name: h.guest_name,
+    guest_company: h.guest_company,
+  }));
+  return { hits };
 }
 
 function AskBox() {
@@ -125,7 +147,7 @@ function AskBox() {
     if (!submitted) { setHits([]); setError(null); return; }
     const ctrl = new AbortController();
     setLoading(true); setError(null);
-    semanticSearch(submitted, { signal: ctrl.signal })
+    searchQA(submitted, { signal: ctrl.signal })
       .then((data) => { setHits(data.hits || []); })
       .catch((err) => { if (err.name !== "AbortError") setError(err.message || "Search failed"); })
       .finally(() => setLoading(false));
