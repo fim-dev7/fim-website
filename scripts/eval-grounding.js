@@ -53,7 +53,8 @@ function norm(s) {
     .replace(/[‘’]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/[–—]/g, '-')
-    .replace(/[^\p{L}\p{N}\s$%.,'-]/gu, ' ')
+    // Strip all punctuation — semantic matching shouldn't care about commas/periods/etc.
+    .replace(/[^\p{L}\p{N}\s$%'-]/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -109,15 +110,27 @@ function extractQuotes(text) {
 
 function extractNumbers(text) {
   const out = [];
+  const TIME_UNITS = '(?:k|m|b|thousand|million|billion)';
+  // Time/measurement words that should NOT cause "9 m" to be parsed as "9 million".
+  // If the suffix "m" / "b" / "k" is followed by one of these, we don't treat
+  // the m/b/k as a magnitude.
+  const NEXT_WORD_TIME = 'months?|days?|hours?|minutes?|years?|weeks?|seconds?';
   // 1. Currencies + scaled numbers + percentages + multi-digit numbers
-  const re1 = /\$\s*\d[\d,.]*\s*[KMBkmb]?|\d[\d,.]*\s*(?:%|percent|k|m|b|thousand|million|billion)|\b\d{1,3}(?:,\d{3})+\b|\b\d{3,}\b/g;
+  //    The (?!) negative-lookahead skips "9 months" / "10b hours".
+  const re1 = new RegExp(
+    `\\$\\s*\\d[\\d,.]*\\s*[KMBkmb]?|`                                   // $10M, $1.5K
+    + `\\d[\\d,.]*\\s*%|\\d[\\d,.]*\\s*percent\\b|`                       // 50%, 5 percent
+    + `\\d[\\d,.]*\\s*${TIME_UNITS}(?!\\s+(?:${NEXT_WORD_TIME}))\\b|`    // 9M (but not "9 m months")
+    + `\\b\\d{1,3}(?:,\\d{3})+\\b|`                                       // 1,200
+    + `\\b\\d{3,}\\b`,                                                     // any 3+ digit
+    'g'
+  );
   for (const m of text.matchAll(re1)) {
     const v = m[0].trim();
     if (v && /\d/.test(v)) out.push(v);
   }
-  // 2. Small numbers (1-99) followed by a unit-like word — common in
-  //    fabricated content like "47 countries" or "12 advisors".
-  const UNITS = 'countries|advisors|customers|firms|episodes|conversations|investors|founders|hours|days|weeks|months|years|users|term sheets|cents|dollars|stores|cans|investors|directors|hires|engineers';
+  // 2. Small numbers (1-99) followed by a unit-like word
+  const UNITS = 'countries|advisors|customers|firms|episodes|conversations|investors|founders|hours|days|weeks|months|years|users|term sheets|cents|dollars|stores|cans|directors|hires|engineers';
   const re2 = new RegExp(`\\b(\\d{1,2})\\s+(?:${UNITS})\\b`, 'gi');
   for (const m of text.matchAll(re2)) out.push(m[1]);
   return Array.from(new Set(out));
@@ -131,13 +144,19 @@ function extractProperNouns(text) {
   const out = [];
   const re = /\b([A-Z][a-zA-Z'\-&]+(?:[ ]+[A-Z][a-zA-Z'\-&]+){1,4})\b/g;
   const SKIP_LEADERS = /^(The|A|An|How|What|When|Why|Where|This|That|These|Those|Key|Full|My|Our|Their|In|On|For|With|From|At|It|He|She|They)\s/i;
-  // Words that mark a sentence boundary; if any token contains terminal punctuation,
-  // we reject (regex above already handles this via [a-zA-Z'\-&] class — no period —
-  // but content may include "Dr." or "U.S." which we *do* want to keep).
+  // Generic tech jargon that's just capitalised category language, not a named
+  // entity. Adding to this list reduces false-positive name flags.
+  const SKIP_TERMS = new Set([
+    'AI SaaS','B2B SaaS','B2C SaaS','Vertical SaaS','Series A','Series B','Series C',
+    'Pre Seed','Pre-Seed','Pre Seed','Seed Round','Seed Stage','Series Seed',
+    'Product Market','Product Market Fit','Customer Discovery','Customer Acquisition',
+    'Go To Market','Go-To Market','Cost Of','Internal Rate','Open Source',
+  ].map(s => s.toLowerCase()));
   for (const m of text.matchAll(re)) {
     const name = m[1].trim();
     if (SKIP_LEADERS.test(name)) continue;
     if (name.split(/\s+/).every(w => w.length < 3)) continue;
+    if (SKIP_TERMS.has(name.toLowerCase())) continue;
     out.push(name);
   }
   return Array.from(new Set(out));
@@ -151,7 +170,21 @@ function quoteGrounded(quote, transcriptNorm) {
   const q = norm(quote);
   // 1. exact substring (most reliable)
   if (transcriptNorm.includes(q)) return { method: 'exact', score: 1 };
-  // 2. word-overlap fallback for paraphrases / minor edits
+  // 2. Split the quote into clauses (on common natural breakpoints) and require
+  //    EVERY clause to appear in the transcript as a substring. Catches multi-
+  //    sentence quotes where each sentence is real but the transcript order /
+  //    punctuation differs.
+  const clauses = q
+    .split(/[,;:]| but | and | so | because | however /)
+    .map(s => s.trim())
+    .filter(s => s.split(' ').filter(Boolean).length >= 3);
+  if (clauses.length >= 2) {
+    let hit = 0;
+    for (const c of clauses) if (transcriptNorm.includes(c)) hit++;
+    const score = hit / clauses.length;
+    if (score >= 0.6) return { method: 'clause-coverage', score, clauses: clauses.length, hits: hit };
+  }
+  // 3. word-overlap fallback for paraphrases / minor edits
   const qWords = new Set(q.split(' ').filter(w => w.length > 2));
   if (qWords.size === 0) return { method: 'too-short', score: 0 };
   let matches = 0;
@@ -199,7 +232,8 @@ function nameGrounded(name, transcriptNorm) {
 // Report builder
 // --------------------------------------------------------------------------
 
-const QUOTE_PASS = 0.8;   // accepts very close paraphrase only
+const QUOTE_PASS = 0.65;  // word-overlap threshold; real content typically scores 0.7-1.0,
+                          // fabricated quotes score 0-0.3. Layer 2 (LLM verifier) handles ambiguous cases.
 const NAME_PASS  = 0.7;   // accepts surname-only
 const NUMBER_PASS = 1.0;  // numbers must match canonically — no fuzzy
 
