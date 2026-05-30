@@ -14,202 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../episodes-archive.css" />
 
-<style>
-.index-page { padding: 120px 0 80px; }
-.index-head { padding-bottom: 56px; border-bottom: 1px solid var(--border); margin-bottom: 64px; }
-.index-head .label { margin-bottom: 24px; }
-.index-head h1 {
-  font-family: var(--sans);
-  font-weight: 900;
-  font-size: clamp(40px, 6vw, 72px);
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  margin: 0 0 24px;
-  max-width: 18ch;
-  text-wrap: balance;
-}
-.index-head p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 60ch;
-  margin: 0;
-}
-.section-label {
-  font-family: var(--body);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0 0 32px;
-}
-.section-label::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
+<!-- Generated: 2026-05-30T10:44:05.386Z -->
 
-/* Featured episode cards */
-.featured-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 96px;
-}
-@media (max-width: 800px) { .featured-grid { grid-template-columns: 1fr; } }
-.featured-card {
-  display: block;
-  padding: 36px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.02);
-  transition: border-color 0.15s, transform 0.15s;
-  position: relative;
-}
-.featured-card:hover {
-  border-color: var(--cream);
-  transform: translateY(-2px);
-}
-.featured-card .num-tag {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--cream);
-  margin-bottom: 14px;
-}
-.featured-card h3 {
-  font-family: var(--sans);
-  font-weight: 800;
-  font-size: clamp(22px, 2.5vw, 28px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 16px;
-  color: var(--off-white);
-  text-wrap: balance;
-}
-.featured-card p.fc-desc {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--off-white);
-  margin: 0 0 24px;
-}
-.featured-card .fc-guest {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-.featured-card .fc-avatar {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--cream);
-  color: var(--forest);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--sans); font-weight: 800; font-size: 13px;
-}
-.featured-card .fc-guest-meta b { display: block; font-size: 14px; color: var(--off-white); font-weight: 600; }
-.featured-card .fc-guest-meta i { display: block; font-style: normal; font-size: 12px; color: var(--muted); }
-.featured-card .fc-arrow {
-  position: absolute;
-  top: 36px; right: 36px;
-  color: var(--cream);
-  font-size: 22px;
-}
-
-/* Compact list */
-.ep-list {
-  border-top: 1px solid var(--border);
-}
-.ep-row {
-  display: grid;
-  grid-template-columns: 60px 1fr 220px 100px;
-  gap: 32px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: center;
-  text-decoration: none;
-  transition: background 0.15s;
-}
-.ep-row:hover { background: rgba(212,168,125,0.04); }
-@media (max-width: 800px) {
-  .ep-row { grid-template-columns: 50px 1fr; gap: 16px; }
-  .ep-row .ep-row-guest, .ep-row .ep-row-meta { grid-column: 2; padding-top: 8px; }
-}
-.ep-row-num {
-  font-family: var(--sans);
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--cream);
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.ep-row-content h4 {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  margin: 0 0 6px;
-  color: var(--off-white);
-  text-wrap: balance;
-}
-.ep-row-content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--muted);
-  max-width: 64ch;
-}
-.ep-row-guest b { display: block; font-size: 14px; font-weight: 600; color: var(--off-white); }
-.ep-row-guest i { display: block; font-style: italic; font-size: 13px; color: var(--muted); margin-top: 2px; }
-.ep-row-meta {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-.ep-row-meta .has-page {
-  display: inline-block;
-  padding: 3px 10px;
-  border: 1px solid var(--cream);
-  color: var(--cream);
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.cta-block {
-  margin-top: 96px;
-  padding: 56px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: rgba(255,255,255,0.02);
-  text-align: center;
-}
-.cta-block h2 {
-  font-family: var(--sans);
-  font-weight: 800;
-  font-size: clamp(28px, 3.5vw, 40px);
-  letter-spacing: -0.025em;
-  margin: 0 0 16px;
-  color: var(--off-white);
-}
-.cta-block p { color: var(--muted); margin: 0 0 28px; font-size: 16px; }
-.cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.cta-row .btn { padding: 12px 20px; }
-</style>
 </head>
 <body>
 
@@ -224,7 +32,7 @@
       <a href="../index.html#faq">Founder Questions</a>
       <a href="../index.html#about">About</a>
     </div>
-    <a class="btn btn-primary" href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">
+    <a class="btn btn-primary" href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl?si=9d89e52141e143bd">
       Listen Free <span aria-hidden="true">→</span>
     </a>
   </div>
@@ -243,11 +51,11 @@
 
     <div class="featured-grid">
 
-      <a href="28-shakeel-lala/" class="featured-card">
+      <a href="27-shakeel-lala/" class="featured-card">
         <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 28 · Fintech AI</div>
-        <h3>He Raised Venture Capital Before He Had a Business Idea</h3>
-        <p class="fc-desc">800 conversations. Six months in "the void." A vibe-coded conference demo. Marloo is now the AI doing the work inside 650+ financial advice firms.</p>
+        <div class="num-tag">Episode 27 · Founders</div>
+        <h3>$40M FinTech Founder on Raising Millions Before He Had a Business Idea | Shakeel Lala, Marloo</h3>
+        <p class="fc-desc">Shakeel quit his job, convinced Australia&#39;s largest VC to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia&#39;s biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.</p>
         <div class="fc-guest">
           <div class="fc-avatar">SL</div>
           <div class="fc-guest-meta">
@@ -257,11 +65,11 @@
         </div>
       </a>
 
-      <a href="26-celeste-amadon/" class="featured-card">
+      <a href="25-celeste-amadon/" class="featured-card">
         <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 26 · Consumer Tech</div>
-        <h3>Today's Dating Apps Are Designed to Keep You Single</h3>
-        <p class="fc-desc">21 years old. Pre-seed in 8 days. Seed in 4 days. 12+ term sheets, pre-product. The Forerunner pitch and the Marina Green moment.</p>
+        <div class="num-tag">Episode 25 · Founders</div>
+        <h3>This Stanford Dropout Wants to Help You Fall in Love | Celeste Amadon, Known</h3>
+        <p class="fc-desc">Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta and hundreds of couples are now in relationships. Her thesis: today&#39;s apps are perversely incentivised to keep you single and paying.</p>
         <div class="fc-guest">
           <div class="fc-avatar">CA</div>
           <div class="fc-guest-meta">
@@ -271,11 +79,11 @@
         </div>
       </a>
 
-      <a href="25-nam-nguyen/" class="featured-card">
+      <a href="24-nam-nguyen/" class="featured-card">
         <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 25 · Legal Tech · YC</div>
-        <h3>They Applied to YC 4 Times. Then Raised $4M in 48 Hours.</h3>
-        <p class="fc-desc">19-year-old co-founder. Six months in Poland with no plan B. A cold LinkedIn comment that became a customer. The fifth YC application that finally turned.</p>
+        <div class="num-tag">Episode 24 · Founders</div>
+        <h3>How He Turned 3 YC Rejections into a $25M AI Governance Company | Nam Nguyen, TruthSystems (YC S25)</h3>
+        <p class="fc-desc">Nam&#39;s co-founder was 19 years old. Law firms told them &quot;come back in 5 years.&quot; They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. TruthSystems is now the AI governance layer sitting inside law firms in real time.</p>
         <div class="fc-guest">
           <div class="fc-avatar">NN</div>
           <div class="fc-guest-meta">
@@ -285,11 +93,11 @@
         </div>
       </a>
 
-      <a href="20-andy-miller/" class="featured-card">
+      <a href="19-andy-miller/" class="featured-card">
         <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 20 · Consumer · Brand</div>
-        <h3>An Australian Beer Brand Worth $50M — and It's Non-Alcoholic</h3>
-        <p class="fc-desc">Summer beer, winter launch, unknown brand, mid-pandemic, and non-alcoholic. Kitchen-kettle XPA. Robbie Williams on the cap table. $50M+ B Corp.</p>
+        <div class="num-tag">Episode 19 · Founders</div>
+        <h3>Building a $50M+ Zero Alcohol Global Craft Beer Brand | Andy Miller, Heaps Normal</h3>
+        <p class="fc-desc">Summer beer, winter launch, unknown brand, mid-pandemic, and non-alcoholic. Kitchen-kettle XPA brewed in longneck bottles. Robbie Williams on the cap table. $50M+ B Corp. Andy Miller on building Heaps Normal into Australia&#39;s biggest non-alc beer brand.</p>
         <div class="fc-guest">
           <div class="fc-avatar">AM</div>
           <div class="fc-guest-meta">
@@ -305,238 +113,247 @@
 
     <div class="ep-list">
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">27</div>
+      <a href="https://open.spotify.com/episode/5Qy6XotgRHuJKuOiBC4D5r" class="ep-row">
+        <div class="ep-row-num">28</div>
         <div class="ep-row-content">
-          <h4>Building the Future of Match-Making</h4>
-          <p>Founder of Paire on consumer relationships, intent, and what comes after the swipe.</p>
+          <h4>The D1 Athlete Who Built a $100M Voice AI Company | Will Bodewes, Phonely (YC S24)</h4>
+          <p>Will Bodewes on Founders In Motion.</p>
+        </div>
+        <div class="ep-row-guest"><b>Will Bodewes</b><i>Phonely (YC S24)</i></div>
+        <div class="ep-row-meta">Spotify ↗</div>
+      </a>
+
+      <a href="https://open.spotify.com/episode/23gugYcESrzwTXLPdBcBpA" class="ep-row">
+        <div class="ep-row-num">26</div>
+        <div class="ep-row-content">
+          <h4>He Turned Falling Socks into an Eight Figure Global Brand | Nathan Yun, Paire</h4>
+          <p>Nathan Yun on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Nathan Yun</b><i>Paire</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">24</div>
+      <a href="https://open.spotify.com/episode/3Ihn5mdT111utiTxWScldp" class="ep-row">
+        <div class="ep-row-num">23</div>
         <div class="ep-row-content">
-          <h4>How to Pitch Without a Pitch</h4>
-          <p>The Fluency founder on selling enterprise software through conversations that don't feel like sales.</p>
+          <h4>The 25-Year-Old Who Raised $6M From Early Facebook Investors | Finnlay Morcombe, Fluency</h4>
+          <p>Finnlay Morcombe on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Finnlay Morcombe</b><i>Fluency</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">23</div>
+      <a href="https://open.spotify.com/episode/5KiuFCH2KsV8f8sWlA0MF1" class="ep-row">
+        <div class="ep-row-num">22</div>
         <div class="ep-row-content">
-          <h4>An 8-Figure Education Business Out of Ho Chi Minh City</h4>
-          <p>10,000 students across 105 countries. Why Stephen built Lumiere outside Silicon Valley — and why that turned out to be the edge.</p>
+          <h4>What Harvard Didn&#39;t Know: I Was Already Building an 8-Figure Startup | Stephen Turban, Lumiere Education</h4>
+          <p>Stephen Turban on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Stephen Turban</b><i>Lumiere Education</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">22</div>
+      <a href="https://open.spotify.com/episode/4HRJUNIaUfe7x1PypXT0Dp" class="ep-row">
+        <div class="ep-row-num">21</div>
         <div class="ep-row-content">
-          <h4>"I'd Quit My Job Before I Gave This Up"</h4>
-          <p>The customer quote that told Jevon he'd found product-market fit. The hard part was getting to it.</p>
+          <h4>He Ran One of Australia&#39;s Biggest Athleisure Brands - Then Built Software to Fix Its Biggest Flaw | Jevon Le Roux, Keeyu</h4>
+          <p>Jevon Le Roux on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Jevon Le Roux</b><i>Keeyu</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">21</div>
+      <a href="https://open.spotify.com/episode/4tPBi8UXB43Fy5wHmZqIoR?si=TCahkWIKQt6sfKZ3kcS34A" class="ep-row">
+        <div class="ep-row-num">20</div>
         <div class="ep-row-content">
-          <h4>Three "Needs Improvement" Reviews to 150 Coles Stores</h4>
-          <p>Pushed out of corporate accounting. A chance encounter at a Gordon Ramsay filming. Umami Papi is now in 150 Coles stores in its first year.</p>
+          <h4>Building a Cult Food Brand: The Umami Papi Story | Ethan Yong, Umami Papi</h4>
+          <p>Ethan Yong on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Ethan Yong</b><i>Umami Papi</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">19</div>
-        <div class="ep-row-content">
-          <h4>Building Through a YC Batch</h4>
-          <p>VibeFlow co-founders Alessia and Illya on shipping inside YC S25 — and what changed week to week.</p>
-        </div>
-        <div class="ep-row-guest"><b>Alessia &amp; Illya</b><i>VibeFlow (YC S25)</i></div>
-        <div class="ep-row-meta">Spotify ↗</div>
-      </a>
-
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/0ukccMD910q4TFtylTWGc3?si=X6ggMXbKSYiY96vi6Wg64w" class="ep-row">
         <div class="ep-row-num">18</div>
         <div class="ep-row-content">
-          <h4>"Strongroom Dies. I'm Going Down With the Ship."</h4>
-          <p>Joe Zhou acquired Strongroom AI out of administration following a fraud scandal. The story of what it takes to put a company back together.</p>
+          <h4>Why This YC Startup Is Betting That AI Will Get Things Wrong | Alessia &amp; Elia, Vibeflow (YC S25)</h4>
+          <p>Alessia and Elia on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Joe Zhou</b><i>Strongroom AI</i></div>
+        <div class="ep-row-guest"><b>Alessia and Elia</b><i>VibeFlow (YC S25)</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/5kXOsgAVapxgdEpNN2TL0D?si=moCEYq_mSjea7VyNsqSU1w" class="ep-row">
         <div class="ep-row-num">17</div>
         <div class="ep-row-content">
-          <h4>Months of Discovery Before a Line of Code</h4>
-          <p>Satya on deep customer discovery with risk teams at financial institutions — and why most founders skip the step that matters most.</p>
+          <h4>Australia&#39;s $70M &#39;Theranos&#39;: The Founder Who Bought It | Joe Zhou, StrongRoom AI</h4>
+          <p>Joe Zhou on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Satya Tumati</b><i>Socratix AI (YC S25)</i></div>
+        <div class="ep-row-guest"><b>Joe Zhou</b><i>StrongRoom AI</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/17fmTyEHuz7RuX3e3Jd6C1?si=NJOZPmWOTYqxwTZN2TmgXw" class="ep-row">
         <div class="ep-row-num">16</div>
         <div class="ep-row-content">
-          <h4>Six Months of Zero Revenue — Then Nike</h4>
-          <p>Hamish spent six months selling the wrong thing. The validation that turned it: learning Nike was using a manual workaround for the exact problem.</p>
+          <h4>Why This YC Startup Just Raised $4M to Catch Fraud Before It Happen | Satya Tumati, Socratix AI (YC S25)</h4>
+          <p>Satya Tumati on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Hamish McKay</b><i>OrderEditing</i></div>
+        <div class="ep-row-guest"><b>Satya Tumati</b><i>Socratix AI</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/3lMZETLEwQQyaLoYtaOTfw?si=jzI7wpg9TQ-egPpPciMAOA" class="ep-row">
         <div class="ep-row-num">15</div>
         <div class="ep-row-content">
-          <h4>Turned Down DeepMind, Nvidia and Meta to Build Robots</h4>
-          <p>Jason Ma on the offers he walked past and the $120M he raised for Dyna Robotics instead.</p>
+          <h4>He Built a Shopify App for MrBeast, Now It&#39;s Doing $2M ARR | Hamish McKay, Order Editing</h4>
+          <p>Hamish McKay on Founders In Motion.</p>
+        </div>
+        <div class="ep-row-guest"><b>Hamish McKay</b><i>Order Editing</i></div>
+        <div class="ep-row-meta">Spotify ↗</div>
+      </a>
+
+      <a href="https://open.spotify.com/episode/6oLWJJXqhvJ50ItAqJJVz7?si=mFGtgD1zQKitDMnRgiBjLw" class="ep-row">
+        <div class="ep-row-num">14</div>
+        <div class="ep-row-content">
+          <h4>He&#39;s Building $600M Robots That Folds your Laundry | Jason Ma, Dyna Robotics</h4>
+          <p>Jason Ma on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Jason Ma</b><i>Dyna Robotics</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">12</div>
+      <a href="https://open.spotify.com/episode/2NIc2oXFHJq5hEuNrgS9BX?si=j0lOVjpyQkCZY-QUCJvgog" class="ep-row">
+        <div class="ep-row-num">13</div>
         <div class="ep-row-content">
-          <h4>They Sold the AI Before They Built It</h4>
-          <p>Vivek and John on simulating their product manually at "blitz breakneck speed" before the AI existed.</p>
+          <h4>Why Butter Hit 10k Users in Months And What It Says About the Loneliness Epidemic | Sam Richardson, Butter</h4>
+          <p>Sam Richardson on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Vivek &amp; John</b><i>Affil.ai (YC S24)</i></div>
+        <div class="ep-row-guest"><b>Sam Richardson</b><i>Butter</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/6CBnaZLTaAR6QXhhOYuaa6?si=a2urRzy_R62GobI6PEl9-w" class="ep-row">
+        <div class="ep-row-num">12</div>
+        <div class="ep-row-content">
+          <h4>They Sold Out their Alcohol Brand in 48 Hours Without Running a Single Ad | Phung, Daniel &amp; Hanson, SipHRD</h4>
+          <p>Phung, Daniel and Hanson on Founders In Motion.</p>
+        </div>
+        <div class="ep-row-guest"><b>Phung, Daniel and Hanson</b><i>SipHRD</i></div>
+        <div class="ep-row-meta">Spotify ↗</div>
+      </a>
+
+      <a href="https://open.spotify.com/episode/5LZn1SRtXJaSVwv7varQzA?si=FBRyB5b3TvKk1YlrsY9G0A" class="ep-row">
         <div class="ep-row-num">11</div>
         <div class="ep-row-content">
-          <h4>"Don't Be Ashamed of What You're Building"</h4>
-          <p>Hung Bui on shipping rough product anyway, learning in public, and building AIducation through self-doubt.</p>
+          <h4>Inside Silicon Valley&#39;s $600B Startup School | Vivek &amp; John, Affil.ai (YC S24)</h4>
+          <p>Vivek and John on Founders In Motion.</p>
+        </div>
+        <div class="ep-row-guest"><b>Vivek and John</b><i>Affil.ai (YC S24)</i></div>
+        <div class="ep-row-meta">Spotify ↗</div>
+      </a>
+
+      <a href="https://open.spotify.com/episode/3j4ODYdjImBdKoI5NzdAR3?si=52BA1PXJSQWghMdN9vV9Fg" class="ep-row">
+        <div class="ep-row-num">10</div>
+        <div class="ep-row-content">
+          <h4>What Stanford Didn&#39;t Teach Me: Rebuilding Vietnam&#39;s Hottest EdTech | Hung Bui, AIducation</h4>
+          <p>Hung Bui on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Hung Bui</b><i>AIducation</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">10</div>
+      <a href="https://open.spotify.com/episode/6hEz0TSS94K7WqT4b56HYi?si=icNTr23iQmqBgS1ZJ57LgA" class="ep-row">
+        <div class="ep-row-num">9</div>
         <div class="ep-row-content">
-          <h4>Rebuilt Solo, On YouTube Tutorials</h4>
-          <p>Flo Elmazi rebuilt Sisterwould alone after her co-founder left. No marketing background. Just learning in the open.</p>
+          <h4>I Sold My Car &amp; Built a Cult Haircare Startup Founder Story | Floriye Elmazi, Sisterwould</h4>
+          <p>Floriye Elmazi on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Floriye Elmazi</b><i>Sisterwould</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">9</div>
-        <div class="ep-row-content">
-          <h4>The Card Built for People Who Don't Trust Banks</h4>
-          <p>Brian Pham on building LiteCard in a market the incumbents take for granted.</p>
-        </div>
-        <div class="ep-row-guest"><b>Brian Pham</b><i>LiteCard</i></div>
-        <div class="ep-row-meta">Spotify ↗</div>
-      </a>
-
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/7ifLjAg3rJM89xrZRv9nrF" class="ep-row">
         <div class="ep-row-num">8</div>
         <div class="ep-row-content">
-          <h4>"It's Easy to Get Money. It's Hard to Stay Motivated."</h4>
-          <p>Robert built Nook to $20M valuation and 50K users in Vietnam. Then it shut down. He pivoted to Reforge Labs.</p>
+          <h4>What Every Australian Loyalty Program Get Wrong, And How Litecard Fix It | Brian Pham, Litecard</h4>
+          <p>Brian Pham on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Robert Huynh</b><i>Reforge Labs</i></div>
+        <div class="ep-row-guest"><b>Brian Pham</b><i>Litecard</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/1AtTBVY7esMx9eC4m9l4AO?si=ZvjyiZVLTTWmqcue9SvoSQ" class="ep-row">
         <div class="ep-row-num">7</div>
         <div class="ep-row-content">
-          <h4>The Emotional Math of Being a Founder</h4>
-          <p>Ben Wood on maintaining mental balance through the daily highs and lows of building WipWrk.</p>
+          <h4>Why this YC-backed Startup Really Failed | Robert Huynh, Nook (YC W22)</h4>
+          <p>Robert Huynh on Founders In Motion.</p>
+        </div>
+        <div class="ep-row-guest"><b>Robert Huynh</b><i>Nook / Reforge</i></div>
+        <div class="ep-row-meta">Spotify ↗</div>
+      </a>
+
+      <a href="https://open.spotify.com/episode/0SSCA4fk941aqtXgt24Yr5?si=D7FIJzhTStGnTfkSi8G3eA" class="ep-row">
+        <div class="ep-row-num">6</div>
+        <div class="ep-row-content">
+          <h4>Why Outdoor Gear Is Almost Impossible to Recycle - And How One Founder Fixed It | Ben Wood, WipWrk</h4>
+          <p>Ben Wood on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Ben Wood</b><i>WipWrk</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">6</div>
+      <a href="https://open.spotify.com/episode/4U9zTNK9gKOBnZAkNMMtOU?si=n9CXPYgbTuKof_eoQGb3vw" class="ep-row">
+        <div class="ep-row-num">5</div>
         <div class="ep-row-content">
-          <h4>Building for Vietnamese Retail Investors</h4>
-          <p>Nhi Nguyen on market depth as a moat — and why nobody from outside Vietnam can replicate it.</p>
+          <h4>Why Vietnamese People Don&#39;t Invest - And How One Fintech Is Fixing It | Nhi Nguyen, MaiMoney</h4>
+          <p>Nhi Nguyen on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Nhi Nguyen</b><i>MaiMoney</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">5</div>
+      <a href="https://open.spotify.com/episode/1zmhmwi4KxU8e8Q5OTN210?si=-azf5ctXSUWiBj-B3rRlJA" class="ep-row">
+        <div class="ep-row-num">4</div>
         <div class="ep-row-content">
-          <h4>Two PE Careers, One Yogurt Company</h4>
-          <p>Kiki and Elan both left four-year private equity and finance careers — simultaneously — to start Sourmilk.</p>
+          <h4>From Private Equity to Yogurt Startup Founder Story | Kiki &amp; Elan, Sourmilk Yogurt</h4>
+          <p>Kiki and Elan on Founders In Motion.</p>
         </div>
-        <div class="ep-row-guest"><b>Kiki &amp; Elan</b><i>Sourmilk</i></div>
+        <div class="ep-row-guest"><b>Kiki and Elan</b><i>Sourmilk</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">4</div>
+      <a href="https://open.spotify.com/episode/3hfi4ss8OtW3sDG7CoIWgk?si=SVQ8BlvrQJmkTkEaF_Ny9A" class="ep-row">
+        <div class="ep-row-num">3</div>
         <div class="ep-row-content">
-          <h4>1,000 Investor Emails to Close a Pre-Seed</h4>
-          <p>Nate Spiteri contacted nearly a thousand investors before closing his pre-seed for Shopfront.</p>
+          <h4>I Spoke to 1,000 Investors Before Raising. Here&#39;s What Nobody Tells You | Nate Spiteri, Shopfront</h4>
+          <p>Nate Spiteri on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Nate Spiteri</b><i>Shopfront</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
-        <div class="ep-row-num">3</div>
-        <div class="ep-row-content">
-          <h4>Australian Spine Health, Reinvented</h4>
-          <p>Nam Vuong on building a healthcare brand in a category the incumbents had abandoned.</p>
-        </div>
-        <div class="ep-row-guest"><b>Nam Vuong</b><i>Spine Finance</i></div>
-        <div class="ep-row-meta">Spotify ↗</div>
-      </a>
-
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/3Vs4THjk3ZPNsMhbc4RoDy?si=o8hQ7zPRQyu6fMkTdD3-Hw" class="ep-row">
         <div class="ep-row-num">2</div>
         <div class="ep-row-content">
-          <h4>400 Survey Responses Before a Single Feature</h4>
-          <p>Selina surveyed 400+ people and built gymii.ai around the 82% who said they wanted social sharing.</p>
+          <h4>She Built an AI App Alone in 60 Days | Selina Li, gymii.ai</h4>
+          <p>Selina Li on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Selina Li</b><i>gymii.ai</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
-      <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="ep-row">
+      <a href="https://open.spotify.com/episode/599BbUYwndrcslH2hyUm1D?si=rti_27JyQWa3DUHH-4ZOww" class="ep-row">
         <div class="ep-row-num">1</div>
         <div class="ep-row-content">
-          <h4>"I Had to Learn That From My First Paying Clients"</h4>
-          <p>Abby on the moment validation stops being a survey result and starts being someone giving you money.</p>
+          <h4>Inside the GenZ Marketing Agency that&#39;s Changing Influencer Marketing | Abby Huang, Dime</h4>
+          <p>Abby Huang on Founders In Motion.</p>
         </div>
         <div class="ep-row-guest"><b>Abby Huang</b><i>Dime</i></div>
         <div class="ep-row-meta">Spotify ↗</div>
       </a>
 
     </div>
-
-    <!-- CTA -->
-    <section class="cta-block">
-      <h2>Catch new episodes weekly</h2>
-      <p>One unscripted conversation with one early-stage founder, every week.</p>
-      <div class="cta-row">
-        <a href="https://www.youtube.com/@foundersinmotion" class="btn btn-primary">Watch on YouTube</a>
-        <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" class="btn btn-secondary">Spotify</a>
-        <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671" class="btn btn-secondary">Apple Podcasts</a>
-      </div>
-    </section>
 
   </div>
 </main>
@@ -549,10 +366,10 @@
         <span class="brand-text">Founders <em>In Motion</em></span>
       </a>
       <nav class="footer-nav">
-        <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
-        <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
-        <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
+        <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl?si=9d89e52141e143bd">Spotify</a>
+        <a href="https://podcasts.apple.com/us/podcast/founders-in-motion-with-thea-ngo/id1810228671">Apple</a>
+        <a href="⁠⁠⁠⁠https://www.instagram.com/thea.yaps⁠⁠⁠">Instagram</a>
+        <a href="⁠⁠⁠⁠https://www.tiktok.com/@foundersinmotion⁠⁠⁠">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>
       <div class="copyright">© 2026 Founders In Motion · Hosted by Thea Ngo</div>
