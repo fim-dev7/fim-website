@@ -70,6 +70,82 @@ const FAQ = [
     q: "What should early-stage founders focus on before raising money?",
     a: "Get extremely clear on who your customer is and have evidence — not just a thesis. That evidence doesn't need to be revenue; it can be conversations, LOIs, waitlists, or a demo people tried to buy. Early-stage investors read for founder quality as much as market quality — so the prep that matters most sharpens your thinking about the problem, not the kind that polishes your deck. The founders who raise quickly are almost always the ones who've spent the most time with customers before their first investor meeting.",
   },
+  {
+    q: "How do founders write a cold email to investors that actually gets a response?",
+    a: "Specific, short, and proof-led. Nate Spiteri from Shopfront wrote nearly 1,000 cold investor emails — and the ones that converted led with traction or a sharp insight in the first two lines, not with the company story. Subject lines mattered more than body length. Avoid template language. Investors read for signal; vague \"we're building the X for Y\" gets archived. Concrete numbers, a specific ask, and a clear introduction path are the three things that move a cold email up the queue.",
+  },
+  {
+    q: "What does product-market fit really look like for an early-stage startup?",
+    a: "Pull, not push. Jevon Le Roux from Keeyu knew he had it when a customer said \"I'd quit my job before I gave this up.\" Shakeel Lala from Marloo knew it when advisors tried to buy a vibe-coded demo at a conference — before any product existed. The marker is unsolicited demand: people referring you without being asked, customers calling about features you haven't built, churn that won't happen at any price. If you're still pushing — outbound, paid ads, founder-led sales as the only growth lever — you don't have it yet.",
+  },
+  {
+    q: "How do I split equity with a co-founder?",
+    a: "The standard advice — even splits unless someone has materially more skin in the game — holds up across the FiM archive. Lopsided splits create resentment when the workload inevitably equalises. The split matters less than the conversation: founders who survive co-founder transitions (Floriye Elmazi rebuilt Sisterwould alone after her co-founder left) had a vesting structure that handled the exit cleanly. Always use 4-year vesting with a 1-year cliff. Document the split before incorporating, not after.",
+  },
+  {
+    q: "When should you incorporate your startup?",
+    a: "Before you take any money, sign any customer contracts, or have a co-founder put in real work. Incorporation is cheap (Stripe Atlas, ~$500) and protects you when things get real. Common mistake: bootstrapping for months as a sole prop and incorporating later, then having to messily restructure equity. The founders in the FiM archive who raised quickly had their corporate structure clean and ready when investors started doing diligence.",
+  },
+  {
+    q: "How long does fundraising take for a pre-seed or seed round?",
+    a: "Wildly variable. Celeste Amadon closed a pre-seed in 8 days and a seed in 4 — but she'd spent two years on the VC side first. Nam Nguyen took years across four YC rejections before closing $4M in 48 hours. Nate Spiteri contacted nearly 1,000 investors before his pre-seed closed. The pattern: founders who closed fast had pre-built credibility — operator background, prior raises, VC network, or undeniable traction. Without those, expect 3-6 months minimum.",
+  },
+  {
+    q: "What is a SAFE and should I use one for my pre-seed?",
+    a: "SAFE = Simple Agreement for Future Equity. It's a convertible instrument — investor gives you money now, gets equity in your next priced round. Y Combinator's standard, increasingly the norm for pre-seed and seed in the US, UK, and Australia. Pros: fast, cheap, no negotiation on valuation. Cons: stacking many SAFEs without tracking dilution can leave founders shocked at their cap table. Most FiM founders raising under $2M used SAFEs; larger rounds tend to priced equity.",
+  },
+  {
+    q: "How do I evaluate a co-founder before going all in?",
+    a: "The founders in the FiM archive who survived co-founder challenges shared three traits: they'd worked together meaningfully before founding (not just been friends), they'd disagreed on something hard and resolved it well, and they had explicit alignment on the stakes. Kiki and Elan from Sourmilk left finance careers simultaneously — that synchronicity made the partnership functional. If you haven't built something tough together, do that first. Six months of side-project collaboration tells you more than any reference check.",
+  },
+  {
+    q: "How do founders handle investor rejection?",
+    a: "Most rejections aren't about you. Nam Nguyen got four YC rejections — the fifth application succeeded because the team had grown, not because YC changed its mind. Robert Huynh's Nook shut down at $20M valuation and 50K users; he kept building. The founders who get traction reframe rejection as data: which part of the pitch broke down, which investor type wasn't a fit, what evidence would've changed the answer. Keep a CRM of every conversation. Reject the rejection's narrative, not the feedback.",
+  },
+  {
+    q: "What's a fair pre-seed valuation in 2026?",
+    a: "Highly dependent on geography, traction, and round size. US pre-seed for software ranges roughly $5M-$15M post-money. APAC and Australia trend lower — $3M-$8M is common. Specific traction (paying customers, signed LOIs, technical moat) pushes higher. The FiM archive shows wide ranges: Celeste Amadon's Known got fully-priced US consumer-tech valuations; Australian fintech rounds tend to land lower. Don't fixate on valuation — fixate on dilution and the quality of investors on the cap table.",
+  },
+  {
+    q: "How do I find my first 10 customers?",
+    a: "Direct outbound to people you've already talked to in customer discovery. Shakeel Lala's first Marloo customers came from the 800 advisors he'd interviewed. Nam Nguyen's first big customer came from a cold LinkedIn comment on a director's frustrated post — he then ran a 6-month daily-check-in proving period. Don't run paid ads. Don't build a marketing site. Talk to people, build for one, ship overnight, repeat. Convert discovery conversations into beta users into paying customers — in that order.",
+  },
+  {
+    q: "How do I write a startup landing page that converts?",
+    a: "Lead with the problem, then the proof. Most early-stage landing pages lead with what the product does — they should lead with what's painful and unsolved. Use customer language (steal phrases from your discovery interviews verbatim). Add specific proof — a number, a logo, a quote — above the fold. Then make one ask: book a call, start a free trial, join the waitlist. One CTA. The founders in the FiM archive who closed early customers had landing pages that read like answers to a specific question, not like brochures.",
+  },
+  {
+    q: "What does YC actually look for in a pre-seed application?",
+    a: "Speed of execution, evidence of customer love, and a clean answer to \"why this, why now, why you.\" Nam Nguyen applied to YC four times — the fifth succeeded because the team had real customers in production, conviction tested by six months in Poland, and a billion-dollar frame for why their problem space mattered. YC's bar isn't \"is this idea promising?\" — it's \"would I bet on this team to figure it out?\" Application essays should be short, specific, and showcase the team's reflexes more than the deck.",
+  },
+  {
+    q: "How do I pivot without losing my team or investors?",
+    a: "Be transparent early. Hamish McKay from Order Editing spent 6 months with zero revenue before repositioning — the pivot worked because he communicated the discovery loop and the new thesis clearly. Robert Huynh pivoted from Nook to Reforge Labs after Nook shut down. The investors who stayed wanted to see: did the team learn the right things, is the new thesis sharper, and is the cap table workable. Don't pivot in secret. Don't pivot to escape something — pivot toward a thing you can defend.",
+  },
+  {
+    q: "How do I hire my first engineer at a startup?",
+    a: "Equity-heavy compensation. Strong opinions, weakly held. The right first engineer is closer to a co-founder than an employee. Look for builders with prior shipping experience, a clear point of view on the stack, and willingness to do work outside their JD. Don't hire from your network of friends — hire from your network of people who've shipped. Trial period of 1-2 weeks paid is standard. The founders in the FiM archive who built fast had a first engineer who could ship full features alone within two weeks of joining.",
+  },
+  {
+    q: "How do founders avoid burning out in the first two years?",
+    a: "Ben Wood from WipWrk described it precisely: \"The hardest challenge is maintaining mental balance — those emotional fluctuations of yes, you succeeded, or no, that didn't work, and bringing yourself back to stable every day.\" The founders who lasted shared three things: a non-negotiable weekly anchor (gym, partner, parents), a small group of other founders they were honest with, and a clear separation between \"the company is struggling\" and \"I'm struggling.\" If you're at \"I am the company,\" you're already in trouble.",
+  },
+  {
+    q: "What's the difference between pre-seed, seed, and Series A funding?",
+    a: "Pre-seed: betting on the founder and idea, typically $250K-$2M, often SAFE, no product needed. Seed: betting on early traction signals, typically $1M-$5M, can be SAFE or priced, usually has a product and early customers. Series A: betting on a repeatable business, typically $5M-$15M, priced equity with board seats, requires demonstrable PMF and clear unit economics. The FiM archive includes founders at every stage — Shakeel's $10M is roughly a Series A despite the label, Celeste's seed was at Series A scale, and many \"seed\" rounds in APAC look like US pre-seeds.",
+  },
+  {
+    q: "Should I bootstrap or raise venture capital?",
+    a: "Depends on the market and the founder. Stephen Turban built Lumiere Education to 8-figure ARR from Ho Chi Minh City without VC. Andy Miller from Heaps Normal mixed angel + venture money to build a $50M+ brand. Venture is the right path when the market is large, the timing is now-or-never, and the company can't reach the prize without capital. Bootstrap when you have a real path to revenue, the market rewards margin over scale, or the constraint is talent rather than capital. Don't take venture because it feels like the default.",
+  },
+  {
+    q: "How do I evaluate a startup idea before quitting my job?",
+    a: "Validate the problem first, the solution second, the business model third. Don't build anything until you've talked to 30-50 people who have the problem and described it back to you in their words. Selina Li from gymii.ai surveyed 400+ people before building. Look for evidence the problem is urgent (people have built workarounds), frequent (they hit it weekly), and expensive (in time, money, or stress). Then validate that someone will pay for a solution — pre-orders, LOIs, or a paid pilot — before quitting.",
+  },
+  {
+    q: "What does customer discovery look like in practice?",
+    a: "Conversations, not surveys. Embedded time inside the customer's world, not pitch decks. Shakeel Lala spent days inside financial advice firms — sitting with management, compliance, support, and advisors — before pitching anything. Satya Tumati at Socratix AI spent months in risk teams at financial institutions before writing product code. The format that works: 30-60 minute open-ended conversations, ask about their last week (not their hypothetical future), record everything, look for the language they actually use. Stop running discovery when you can describe the problem in their words better than they can.",
+  },
 ];
 
 const STATS = [

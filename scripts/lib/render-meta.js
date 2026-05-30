@@ -20,14 +20,25 @@ function formatLastmod(iso) {
   return isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
 }
 
-export function renderSitemap({ episodes }) {
+export function renderSitemap({ episodes, topics = [] }) {
   const today = new Date().toISOString().slice(0, 10);
   const sorted = [...episodes].sort((a, b) => b.episode_number - a.episode_number);
 
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: today, priority: '1.0', changefreq: 'weekly' },
     { loc: `${SITE_URL}/episodes/`, lastmod: today, priority: '0.9', changefreq: 'weekly' },
+    { loc: `${SITE_URL}/about/`, lastmod: today, priority: '0.7', changefreq: 'monthly' },
+    { loc: `${SITE_URL}/topics/`, lastmod: today, priority: '0.8', changefreq: 'monthly' },
   ];
+
+  for (const t of topics) {
+    urls.push({
+      loc: `${SITE_URL}/topics/${t.slug}/`,
+      lastmod: today,
+      priority: '0.8',
+      changefreq: 'monthly',
+    });
+  }
 
   for (const e of sorted) {
     if (e.has_episode_page) {
