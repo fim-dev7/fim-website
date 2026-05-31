@@ -48,7 +48,7 @@ The conviction underneath it all is that they'd "rather company die trying" than
 >
 > — Finnlay Morcombe, on the one-week hard pivot (15:48)
 
-> we would rather company die trying than be a $50 million company
+> we would rather spend all of our money and die at 100 million
 >
 > — Finnlay Morcombe, on why they would rather die trying (20:46)
 
