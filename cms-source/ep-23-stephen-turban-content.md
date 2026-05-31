@@ -1,16 +1,16 @@
 # Hook
 
-Steven Turban started Lumiere because he wanted to quit his Harvard PhD but didn't know how — then his department screen-shared his face and gave him an ultimatum: the PhD or the company, not both.
+Stephen Turban started Lumiere because he wanted to quit his Harvard PhD but didn't know how — then his department screen-shared his face and gave him an ultimatum: the PhD or the company, not both.
 
 # Story
 
-Steven Turban runs Lumiere, an education company focused on PhD-level research for high schoolers. He didn't start it as a grand mission. Back in 2020, while on the PhD track at Harvard Business School, he wanted out — and figured that if he had a company that was working, he'd have "a choice set." His framing at the time: "how do I de risk the other option." So the PhD became the side thing and Lumiere became the 16-hour-a-day thing.
+Stephen Turban runs Lumiere, an education company focused on PhD-level research for high schoolers. He didn't start it as a grand mission. Back in 2020, while on the PhD track at Harvard Business School, he wanted out — and figured that if he had a company that was working, he'd have "a choice set." His framing at the time: "how do I de risk the other option." So the PhD became the side thing and Lumiere became the 16-hour-a-day thing.
 
-The forcing function came from his department. The head of staff brought him onto a Zoom call, screen-shared the Lumiere website with his face and bio — "hi I'm Steven Turban I'm a PhD student at HBS" — and asked, "Steven, is this you?" The department gave him an ultimatum: do your PhD or run your company, but not both. He was pissed at the time, but grateful in retrospect: it made an easy decision. He paused the PhD, told himself he could always go back, and went all in. His parents, all from Hawaii, were so chill they just said, "that's great honey."
+The forcing function came from his department. The head of staff brought him onto a Zoom call, screen-shared the Lumiere website with his face and bio — "hi I'm Stephen Turban I'm a PhD student at HBS" — and asked, "Stephen, is this you?" The department gave him an ultimatum: do your PhD or run your company, but not both. He was pissed at the time, but grateful in retrospect: it made an easy decision. He paused the PhD, told himself he could always go back, and went all in. His parents, all from Hawaii, were so chill they just said, "that's great honey."
 
-The episode is really about focus and identity. Steven argues researchers, entrepreneurs, and artists are nearly identical — all creating something from nothing — but warns that getting "caught up in the system" turns useful skills into useless ones. He tells the story of his biggest rookie mistake: after Lumiere hit roughly 50 people, he got arrogant about his hiring ability, started a second "assistant company," and split his attention. It did okay; Lumiere suffered; he sold the assistant company "for not much." His rule now: he'll only start new things that fit inside the Lumiere umbrella. "Once I go outside education, I'm an idiot."
+The episode is really about focus and identity. Stephen argues researchers, entrepreneurs, and artists are nearly identical — all creating something from nothing — but warns that getting "caught up in the system" turns useful skills into useless ones. He tells the story of his biggest rookie mistake: after Lumiere hit roughly 50 people, he got arrogant about his hiring ability, started a second "assistant company," and split his attention. It did okay; Lumiere suffered; he sold the assistant company "for not much." His rule now: he'll only start new things that fit inside the Lumiere umbrella. "Once I go outside education, I'm an idiot."
 
-He chose to bootstrap, not raise, because he doesn't do well with authority — "I'm a like an a minus entrepreneur but I'm like a C minus employee" — and because a company with good margins and service fees up front doesn't need the money. The other throughline is attention and belonging: Steven leans into a deliberately controversial public persona ("attention's king"), does stand-up comedy in Vietnamese, and credits that comedy group with finally rooting him to Saigon after years of feeling temporary.
+He chose to bootstrap, not raise, because he doesn't do well with authority — "I'm a like an a minus entrepreneur but I'm like a C minus employee" — and because a company with good margins and service fees up front doesn't need the money. The other throughline is attention and belonging: Stephen leans into a deliberately controversial public persona ("attention's king"), does stand-up comedy in Vietnamese, and credits that comedy group with finally rooting him to Saigon after years of feeling temporary.
 
 # What you'll hear
 
@@ -24,7 +24,7 @@ He chose to bootstrap, not raise, because he doesn't do well with authority — 
 
 # Key claims
 
-- **2020** — The year Steven started Lumiere, while on the PhD track at Harvard Business School
+- **2020** — The year Stephen started Lumiere, while on the PhD track at Harvard Business School
 - **6,000** — Students working with Lumiere this year, with a team of about 100 people
 - **16 hours** — A day he spent grinding on Lumiere while his PhD got two hours
 - **84 days** — How long he'd actually been running Lumiere when people asked, after three launch cohorts
@@ -43,38 +43,38 @@ He chose to bootstrap, not raise, because he doesn't do well with authority — 
 - 16:01 — The hardest period — "I think founders are big wimps"
 - 17:48 — Controversial persona, comedy, and "attention's king"
 - 21:02 — Moving to Vietnam and the two-way door
-- 25:48 — The real Steven vs. the social-media one
+- 25:48 — The real Stephen vs. the social-media one
 - 27:54 — One sentence of wisdom — lean into belonging
 
 # Quotes
 
 > I actually started Lumiere because I was thinking man I really wanna quit my PhD but I don't know how and it's gonna be really awkward if I don't have something else to do
 
-— Steven Turban, on why he started Lumiere (01:38)
+— Stephen Turban, on why he started Lumiere (01:38)
 
 > you can either do your PhD or you can run your company but you can't do both
 
-— Steven Turban, on the ultimatum from his department (03:24)
+— Stephen Turban, on the ultimatum from his department (03:24)
 
 > once I go outside education I'm an idiot
 
-— Steven Turban, on scoping himself down (15:30)
+— Stephen Turban, on scoping himself down (15:30)
 
 > I think founders are big wimps
 
-— Steven Turban, on the framing of founder hardship (16:04)
+— Stephen Turban, on the framing of founder hardship (16:04)
 
 > attention's king so once you have attention then after attention you can have everything else
 
-— Steven Turban, on his public persona (18:56)
+— Stephen Turban, on his public persona (18:56)
 
 > you should lean into the things that create a sense of belonging in the place you are
 
-— Steven Turban, his one sentence of wisdom (27:54)
+— Stephen Turban, his one sentence of wisdom (27:54)
 
 # Themes
 
-- **De-risking the leap** — Steven keeps returning to building optionality first: a working company as "a choice set" so quitting the PhD wasn't a cliff
+- **De-risking the leap** — Stephen keeps returning to building optionality first: a working company as "a choice set" so quitting the PhD wasn't a cliff
 - **Focus over opportunism** — "if you're a good founder you see opportunities everywhere," but his lesson is to scope down and stay inside the Lumiere umbrella
 - **Autonomy and bootstrapping** — he "bristles" at authority and built a bootstrapped company specifically to control his own destiny
 - **Attention as strategy** — "attention's king"; being interesting and controversial beats quietly working hard and hoping to be found
@@ -82,12 +82,12 @@ He chose to bootstrap, not raise, because he doesn't do well with authority — 
 
 # Mentioned
 
-- **Lumiere** — Steven's education company focused on PhD-level research for high schoolers; about 6,000 students and about 100 people this year
+- **Lumiere** — Stephen's education company focused on PhD-level research for high schoolers; about 6,000 students and about 100 people this year
 - **Druva** — His co-founder, who did finish his PhD
-- **Harvard Business School** — Where Steven was a PhD student studying entrepreneurship
+- **Harvard Business School** — Where Stephen was a PhD student studying entrepreneurship
 - **Oxford** — Where he was also a PhD student
-- **Dan Gilbert** — The researcher behind the boredom/electric-shock study Steven cites on attention
-- **Saigon** — Where Steven has lived for about six years; he does stand-up comedy in Vietnamese there
+- **Dan Gilbert** — The researcher behind the boredom/electric-shock study Stephen cites on attention
+- **Saigon** — Where Stephen has lived for about six years; he does stand-up comedy in Vietnamese there
 
 # Background
 
@@ -104,4 +104,4 @@ guest_bio: Started Lumiere in 2020 while on the PhD track at Harvard Business Sc
 mini_stats: 2020 founded | 6,000 students | 100 team | bootstrapped
 tags: Education · Bootstrapping · Focus
 background_title: Background
-twitter_share: Steven Turban started Lumiere because he wanted to quit his Harvard PhD but didn't know how. Then his department screen-shared his face and gave him an ultimatum.
+twitter_share: Stephen Turban started Lumiere because he wanted to quit his Harvard PhD but didn't know how. Then his department screen-shared his face and gave him an ultimatum.

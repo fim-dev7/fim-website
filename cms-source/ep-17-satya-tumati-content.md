@@ -34,7 +34,7 @@ The earliest demo was a proof of concept, a very small MVP hacked together in le
 # Chapters
 
 - 00:00 — Cold open — "writing some code and seeing a two-ton robot respond to it in real time"
-- 01:25 — Meet Satya — Co-founder and CEO of Socratix
+- 01:25 — Meet Satya — Co-founder and CEO of Socratix AI
 - 01:50 — A small town in India to Silicon Valley — Inspired by the TV show
 - 02:17 — UCLA, Cruise, and LinkedIn — Connecting a laptop to a moving car
 - 03:25 — Why fraud and risk — Operations hasn't seen much love
@@ -91,7 +91,7 @@ The earliest demo was a proof of concept, a very small MVP hacked together in le
 
 # Background
 
-- **Company** — Socratix (building AI co-workers for fraud and risk teams)
+- **Company** — Socratix AI (building AI co-workers for fraud and risk teams)
 - **Stage** — Raised over $4 million; first customer already in production
 - **Customers** — Larger institutions like fintechs, banks, credit unions and marketplaces
 - **Founder background** — Grew up in a small town in India; masters at UCLA; worked at Cruise and LinkedIn before founding the company
@@ -100,7 +100,7 @@ The earliest demo was a proof of concept, a very small MVP hacked together in le
 
 duration: 25 min
 duration_iso: PT25M
-guest_role: Co-founder and CEO, Socratix
+guest_role: Co-founder and CEO, Socratix AI
 guest_bio: Grew up in a small town in India, came to the US inspired by the TV show Silicon Valley, did his masters at UCLA, and worked at Cruise and LinkedIn before raising over $4 million to build AI co-workers for fraud and risk teams.
 mini_stats: $4M raised | <1 week MVP | 50 Q matching | 3 YC criteria
 tags: AI Agents · Fintech · Customer Discovery · Pre-Seed
