@@ -504,7 +504,11 @@ async function main() {
     slug: e.slug,
     has_episode_page: e.has_episode_page,
     hook: e.content?.hook || '',
-    short_desc: e.short_desc || e.content?.hook || '',
+    // Single source of truth: when an episode has a content doc, its Hook drives the
+    // homepage card + archive description too (so you only write the description once,
+    // in the content doc — not also in the sheet). The sheet's short_desc is only a
+    // fallback for episodes that have NO content doc yet.
+    short_desc: e.content?.hook || e.short_desc || '',
     duration: e.content?.meta?.duration || '',
     role: e.content?.meta?.guest_role || '',
   }));
