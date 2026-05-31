@@ -1,14 +1,8 @@
 name: Sync FiM site from Google Sheets + Drive
 on:
-  # ⏸️ Scheduled sync PAUSED 2026-05-31 (overnight run). The Drive Q&A doc + Episodes
-  # sheet still hold the UN-corrected Ep 27 (Shakeel) text. If the cron runs before those
-  # are fixed, sync regenerates from Drive/Sheet and auto-commits the hallucinations back
-  # over the corrected files, then Vercel redeploys them.
-  # TO RE-ENABLE: fix the Drive doc + sheet first (see cms-source/NIGHT-RUN-HANDOFF.md),
-  # then uncomment the two `schedule` lines below. Manual runs still work right now via
-  # the workflow_dispatch button / `gh workflow run sync.yml`.
-  # schedule:
-  #   - cron: '0 */6 * * *'
+  # Re-enabled 2026-05-31 after the full archive + Drive Docs were corrected.
+  schedule:
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
