@@ -141,6 +141,19 @@ function AskBox() {
   const [hits, setHits] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  // slug → number of founders who answered this canonical question (from qa-index.json),
+  // so the search result can flag "+N more perspectives" before you click in.
+  const [counts, setCounts] = useState({});
+  useEffect(() => {
+    fetch("qa-index.json")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((idx) => {
+        const m = {};
+        (idx || []).forEach((q) => { m[q.slug] = q.contributor_count || 1; });
+        setCounts(m);
+      })
+      .catch(() => {});
+  }, []);
 
   // Debounced semantic search — fires 350ms after typing stops.
   useEffect(() => {
@@ -213,11 +226,11 @@ function AskBox() {
             <div className="ask-status">No answers matched. The archive's strongest areas: customer discovery, pre-seed fundraising, pivots, product-market fit. Try rephrasing in those terms — or <a href="questions/" style={{color:"var(--cream)"}}>browse all questions</a>.</div>
           )}
 
-          {hero && <AskHero hit={hero} />}
+          {hero && <AskHero hit={hero} count={counts[hero.slug] || 1} />}
           {related.length > 0 && (
             <div className="ask-related">
               <div className="ask-related-label">Related</div>
-              {related.map((hit) => <AskRelated key={hit.slug + hit.episode_number} hit={hit} />)}
+              {related.map((hit) => <AskRelated key={hit.slug + hit.episode_number} hit={hit} count={counts[hit.slug] || 1} />)}
             </div>
           )}
         </div>
@@ -226,30 +239,32 @@ function AskBox() {
   );
 }
 
-function AskHero({ hit }) {
+function AskHero({ hit, count = 1 }) {
   const href = `questions/${hit.slug}/`;
+  const others = count - 1;
   return (
     <a className="ask-hero" href={href}>
-      <div className="ask-hero-badge">Best match</div>
+      <div className="ask-hero-badge">Best match{count > 1 ? ` · ${count} perspectives` : ""}</div>
       <h3 className="ask-hero-question">{hit.question}</h3>
       <p className="ask-hero-answer">{hit.answer}</p>
       <div className="ask-hero-footer">
         <div className="ask-hero-attr">
           <b>{hit.guest_name}</b> · <i>{hit.guest_company}</i> · EP {hit.episode_number}
+          {others > 0 && (<span className="ask-hero-more"> · +{others} other founder{others === 1 ? "" : "s"} answered this</span>)}
         </div>
-        <div className="ask-hero-cta">Read full answer <span aria-hidden>→</span></div>
+        <div className="ask-hero-cta">{count > 1 ? `See all ${count} perspectives` : "Read full answer"} <span aria-hidden>→</span></div>
       </div>
     </a>
   );
 }
 
-function AskRelated({ hit }) {
+function AskRelated({ hit, count = 1 }) {
   const href = `questions/${hit.slug}/`;
   return (
     <a className="ask-related-card" href={href}>
       <div className="ask-related-body">
         <h4 className="ask-related-question">{hit.question}</h4>
-        <div className="ask-related-attr"><b>{hit.guest_name}</b> · EP {hit.episode_number}</div>
+        <div className="ask-related-attr"><b>{hit.guest_name}</b> · EP {hit.episode_number}{count > 1 ? ` · ${count} perspectives` : ""}</div>
       </div>
       <div className="ask-related-arrow" aria-hidden>↗</div>
     </a>

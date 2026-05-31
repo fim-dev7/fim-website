@@ -1085,3 +1085,6 @@ footer {
   .ask-hero { padding: 24px; }
   .ask-hero-footer { flex-direction: column; align-items: flex-start; }
 }
+
+/* Ask: multi-perspective hint on search results */
+.ask-hero-more { color: var(--cream); }
