@@ -13,18 +13,30 @@ pulls the Drive Q&A doc + Episodes sheet as source-of-truth and auto-commits the
 over the repo. Both still contain the un-corrected Ep 27 (Shakeel) text, so if the cron
 ran now it would regenerate the hallucinations and redeploy them. Order:
 
-1. **Drive — swap the Ep 27 Q&A doc** (folder *FiM - Q&A Bank*, ID in Settings sheet
-   `qa_bank_folder_id`):
-   - Trash the original `Ep 27 - Shakeel Lala - Q&A` Doc **and** the `.docx` of the same name.
-   - Rename the corrected `Ep 27 - Shakeel Lala - Q&A (corrected v2 — replace original)`
-     Doc → strip the suffix so it becomes exactly `Ep 27 - Shakeel Lala - Q&A`.
-   - (Sync matches by guest name; if both the old and v2 docs exist it grabs whichever it
-     finds first — that's why the original must go.)
+**UPDATE (verified against Drive directly):** the Q&A side is already fine — see below. The
+two real sync risks are the **Episode Content Doc Hook** and the **Sheet**.
+
+1. **Episode CONTENT Doc — fix one line** (NOT delete). Doc `Ep 28 - Shakeel Lala`
+   (id `1LRe3n4H90G3YoIYClqOlIEKvzIHvLYiblSSi8X0Fi6w`, in *FiM - Episode Content*
+   `1tB7b1B7g8goxaRxCbOwOXJaEqbNF6flR`). Sync reads this to build the episode page.
+   The **Hook** (first paragraph) still says `convinced Australia's largest VC` (singular) —
+   change to `convinced one of Australia's largest VCs`. The rest of the doc is already
+   correct (Story, 6–7 months, frameworks, quotes all grounded). The "over 9 months" in the
+   Hook is fine — that's the 800-conversations period, which the transcript supports.
 
 2. **Episodes sheet** (`1E8poisRe7yIdH_7i5fFGXcX0pRHni2s22Cr5Hppn3GA`, Episodes tab):
    - Find Shakeel's row → `short_desc` column → change `convinced Australia's largest VC`
-     to `convinced one of Australia's largest VCs`. (This feeds the episode page meta
-     description + homepage card; without it the singular overclaim comes back on sync.)
+     to `convinced one of Australia's largest VCs`. (Feeds the homepage card + archive row.)
+
+   **Q&A doc — already done, no action needed.** The doc in the *FiM - Q&A Bank* folder
+   (`14wZE6aVwgVx_6NnGdbGBfaueB-IT9a7v`) that sync actually reads is
+   `Ep 27 - Shakeel Lala - Q&A` (id `1XMVdnavoRg_2K3iIBxLQu5qrqD8SRxxcE99Sw4s-R88`) — verified
+   CORRECTED (one of Australia's largest VCs / 6-7 months / 2-3 months frameworks / Hardy quit
+   first / no "Don't run paid ads" / no "Pull not push"). Sync will read the right one.
+   • Optional housekeeping: two stray HALLUCINATED copies of the same-named Q&A doc exist in
+   OTHER folders (NOT the Q&A Bank, so sync ignores them) — safe to delete to avoid future
+   confusion: `1prZIZDoUFeHXKHw4OxL0ghPWGJ_FD1mLnOi7xerxYFw` (folder `13il-hm23ycEBh25r3TaaVRYqj_cZZao4`)
+   and `1XUvLeRGgAAJxn9OO3d3O2UNCeIimudni81mO3vt401A` (folder `0AEp-TX2FqInFUk9PVA`).
 
 3. **Re-enable + run sync:** uncomment the two `schedule:` lines in `sync.yml`, then run
    `gh workflow run sync.yml --ref main` (or the Actions "Run workflow" button). Confirm
