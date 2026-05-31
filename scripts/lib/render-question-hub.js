@@ -29,6 +29,18 @@ function paragraphsHtml(arr) {
   return arr.map(p => `<p>${p}</p>`).join('\n          ');
 }
 
+// Trim an answer down to ~2 sentences for a compact perspective preview.
+function previewSentences(text, max = 2) {
+  const s = String(text == null ? '' : text).trim();
+  if (!s) return '';
+  const sentences = s.match(/[^.!?]+[.!?]+(?:["')\]]+)?|\S[^.!?]*$/g);
+  if (!sentences) return s;
+  const out = sentences.slice(0, max).join(' ').trim();
+  // If we truncated and the result doesn't end cleanly, add an ellipsis.
+  if (sentences.length > max && !/[.!?]$/.test(out)) return out + '…';
+  return out;
+}
+
 export function renderQuestionPage({ group, allGrouped }) {
   const { slug, question, contributors } = group;
   const url = `${SITE_URL}/questions/${slug}/`;
@@ -132,6 +144,41 @@ export function renderQuestionPage({ group, allGrouped }) {
   const relatedLinks = related.map(r =>
     `<li><a href="../${esc(r.slug)}/">${esc(r.question)}</a></li>`
   ).join('\n          ');
+
+  // Multiple-perspectives preview — only when more than one founder answered.
+  // Each card shows guest + company + a ~2-sentence preview of THEIR answer,
+  // a link to their episode, and a <details> revealing their full long-form.
+  const multiplePerspectives = contributors.length > 1;
+  const perspectiveCards = contributors.map(({ ep, entry }) => {
+    const epHref = ep.has_episode_page ? `${SITE_URL}/episodes/${ep.slug}/` : (ep.spotify_url || '#');
+    const longBlocks = paragraphsHtml(entry.longForm || []);
+    const preview = previewSentences(entry.answer, 2);
+    return `<article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>${esc(initials(ep.guest_name))}</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">${esc(ep.guest_name)}</div>
+              <div class="q-perspective-co">${esc(ep.guest_company)} · EP ${ep.episode_number}</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">${esc(preview)}</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="${esc(epHref)}">${ep.has_episode_page ? 'Episode ↗' : 'Listen ↗'}</a>
+          </div>
+          ${longBlocks ? `<details class="q-perspective-full">
+            <summary>See ${esc(ep.guest_name)}'s full take</summary>
+            ${longBlocks}
+          </details>` : ''}
+        </article>`;
+  }).join('\n        ');
+
+  const perspectivesSection = multiplePerspectives ? `<section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">${contributors.length} founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        ${perspectiveCards}
+      </div>
+    </section>` : '';
 
   return `<!doctype html>
 <html lang="en">
@@ -249,6 +296,50 @@ ${speakable}
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -291,6 +382,8 @@ ${speakable}
       ${topAnswer ? `<blockquote class="q-lead-answer">${esc(topAnswer)}</blockquote>
       <div class="q-lead-attribution">— <a href="${esc(contributors[0].ep.has_episode_page ? `${SITE_URL}/episodes/${contributors[0].ep.slug}/` : (contributors[0].ep.spotify_url || '#'))}">${esc(contributors[0].ep.guest_name)}, ${esc(contributors[0].ep.guest_company)} (Ep ${contributors[0].ep.episode_number})</a></div>` : ''}
     </header>
+
+    ${perspectivesSection}
 
     <section class="q-contributors">
       <h2>${contributors.length === 1 ? 'The full answer' : 'What founders in the archive say'}</h2>
@@ -342,6 +435,7 @@ export function renderQuestionsIndex({ grouped }) {
   all.sort((a, b) => b.contributors.length - a.contributors.length || a.question.localeCompare(b.question));
 
   const cards = all.map(g => `<a class="q-index-card" href="${esc(g.slug)}/">
+        ${g.contributors.length > 1 ? `<span class="q-index-badge">▲ ${g.contributors.length} perspectives</span>` : ''}
         <h3>${esc(g.question)}</h3>
         <p>${esc((g.contributors[0]?.entry?.answer || '').slice(0, 200))}</p>
         <div class="q-index-card-meta">${g.contributors.length === 1
@@ -420,6 +514,7 @@ ${itemListSchema}
 .q-index-card h3 { font-family: var(--sans); font-weight: 700; font-size: clamp(18px, 2vw, 22px); letter-spacing: -0.015em; line-height: 1.25; margin: 0 0 10px; color: var(--off-white); padding-right: 28px; }
 .q-index-card p { font-family: var(--body); font-size: 14px; line-height: 1.55; color: var(--muted); margin: 0 0 10px; max-width: 64ch; }
 .q-index-card-meta { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); }
+.q-index-badge { display: inline-block; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; margin-bottom: 12px; background: rgba(212,168,125,0.06); }
 .q-index-arrow { position: absolute; top: 28px; right: 32px; color: var(--cream); font-size: 18px; }
 </style>
 </head>

@@ -8,22 +8,36 @@
 #   2. a Q&A Pack               (per QA_PACK_TEMPLATE.md)
 # …both run through the two-layer grounding gate, with aliases.json updated.
 #
-# Output lands locally in cms-source/ (git-tracked, NOT deployed). It does NOT
-# upload to Drive or run sync — you paste the two files into Google Docs in the
-# Episode Content + Q&A Bank folders, then sync.
+# Output lands locally in cms-source/ (git-tracked, NOT deployed). By default it
+# does NOT upload to Drive or run sync — you paste the two files into Google Docs
+# in the Episode Content + Q&A Bank folders, then sync.
+#
+# Pass --publish to additionally upload both files to Drive as Google Docs (in
+# the same headless run, only after the grounding gate passes).
 #
 # Usage:
-#   scripts/make-episode-materials.sh "Guest Name" <episode_number>
+#   scripts/make-episode-materials.sh "Guest Name" <episode_number> [--publish]
 # Example:
 #   scripts/make-episode-materials.sh "Jane Doe" 29
+#   scripts/make-episode-materials.sh "Jane Doe" 29 --publish
 #
 # Requires the `claude` CLI (you have it — you're using Claude Code). Inherits
 # this project's MCP servers (Drive) + skills automatically.
 
 set -euo pipefail
 
-GUEST="${1:?usage: make-episode-materials.sh \"Guest Name\" <episode_number>}"
-EP="${2:?usage: make-episode-materials.sh \"Guest Name\" <episode_number>}"
+GUEST="${1:?usage: make-episode-materials.sh \"Guest Name\" <episode_number> [--publish]}"
+EP="${2:?usage: make-episode-materials.sh \"Guest Name\" <episode_number> [--publish]}"
+
+# Optional 3rd argument: --publish enables the Drive upload step.
+PUBLISH=0
+if [ "${3:-}" = "--publish" ]; then
+  PUBLISH=1
+elif [ -n "${3:-}" ]; then
+  echo "error: unknown 3rd argument '${3}' (expected --publish)" >&2
+  echo "usage: make-episode-materials.sh \"Guest Name\" <episode_number> [--publish]" >&2
+  exit 2
+fi
 
 # Run from the repo root regardless of where it's invoked.
 cd "$(dirname "$0")/.."
@@ -53,16 +67,48 @@ STEP 3 — GROUNDING GATE (do not finish until it passes):
     Layer 1.
 
 STEP 4 — ALIASES: for every NEW slug you introduced, append 10-15 natural-language search phrasings
-to aliases.json (see step 4c in AGENT-PLAYBOOK.md). Do not touch existing canonical slugs' aliases.
+to aliases.json (see step 4c in AGENT-PLAYBOOK.md). Do not touch existing canonical slugs' aliases."
+
+# STEP 5 differs depending on whether we're publishing.
+DRIVE="mcp__19ae1e43-d7e3-424b-a3c2-e508898e2806"
+
+if [ "$PUBLISH" -eq 1 ]; then
+  PROMPT="${PROMPT}
+
+STEP 5 — PUBLISH TO DRIVE (only after the grounding gate in STEP 3 passes with exit 0 and a clean
+Layer-2 verdict). Upload BOTH local files to Google Drive as Google Docs using the Drive MCP tool
+${DRIVE}__create_file. Read each file's full contents and pass it as textContent with
+contentMimeType 'text/plain':
+  - Episode Content Doc (cms-source/ep-${EP}-<slug>-content.md):
+      parentId  '1tB7b1B7g8goxaRxCbOwOXJaEqbNF6flR'   (FiM - Episode Content folder)
+      title     'Ep ${EP} - ${GUEST}'
+  - Q&A Pack (cms-source/qa-packs/ep-${EP}-<slug>-qa.md):
+      parentId  '14wZE6aVwgVx_6NnGdbGBfaueB-IT9a7v'   (FiM - Q&A Bank folder)
+      title     'Ep ${EP} - ${GUEST} - Q&A'
+  Call create_file EXACTLY ONCE per file. If a create_file call errors, STOP immediately, report the
+  error, and DO NOT retry — a retry could create a duplicate Doc. Do NOT run scripts/sync.js.
+
+STEP 6 — When done, print: the two output file paths, the slugs used (mark canonical vs new), the
+final Layer-1 + Layer-2 grounding verdicts, the two created Google Doc titles/links, and then this
+exact line:
+  Add the episode row to the Episodes sheet, then run: node scripts/sync.js (or trigger the workflow)."
+else
+  PROMPT="${PROMPT}
 
 STEP 5 — DO NOT upload to Drive and DO NOT run scripts/sync.js. When done, print: the two output file
 paths, the slugs used (mark canonical vs new), and the final Layer-1 + Layer-2 grounding verdicts."
+fi
 
 # Scoped allow-list: only the tools this job actually needs — read/write files, run
 # node, spawn the grounding sub-agent, and the read-only Drive lookups. No blanket
 # permission bypass. If a tool still prompts, approve it in this terminal, or adjust
 # the list below. (You can raise autonomy yourself via claude's permission flags —
 # see `claude --help` — but that's your call, not baked in here.)
-DRIVE="mcp__19ae1e43-d7e3-424b-a3c2-e508898e2806"
-exec claude -p "$PROMPT" \
-  --allowedTools "Bash Read Write Edit Glob Grep Task ${DRIVE}__read_file_content ${DRIVE}__search_files"
+ALLOWED="Bash Read Write Edit Glob Grep Task ${DRIVE}__read_file_content ${DRIVE}__search_files"
+
+# Only grant the write-capable Drive create_file tool when --publish is set.
+if [ "$PUBLISH" -eq 1 ]; then
+  ALLOWED="${ALLOWED} ${DRIVE}__create_file"
+fi
+
+exec claude -p "$PROMPT" --allowedTools "$ALLOWED"

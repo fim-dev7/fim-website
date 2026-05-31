@@ -122,42 +122,54 @@ Object.assign(window, { EPISODES, FEATURED, ARCHIVE, PLATFORMS });
  */
 export function renderArchivePage({ episodes, settings }) {
   const sortedDesc = [...episodes].sort((a, b) => b.episode_number - a.episode_number);
-  const featured = pickFeatured(sortedDesc, 4);
+  const featured = pickFeatured(sortedDesc, 1);
   const featuredIds = new Set(featured.map(e => e.episode_number));
-  const archive = sortedDesc.filter(e => !featuredIds.has(e.episode_number));
+  const grid = sortedDesc.filter(e => !featuredIds.has(e.episode_number));
 
   const generatedAt = new Date().toISOString();
   const totalCount = episodes.length;
 
+  // Resolve the destination + a friendly "watch/listen" label for any episode.
+  const linkFor = (e) => e.has_episode_page
+    ? `${esc(e.slug)}/`
+    : (esc(e.spotify_url) || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl');
+
+  // ---- Featured / most-recent hero card (wide, with large thumbnail) ----
   const featuredCards = featured.map(e => {
     const primaryTag = (e.tags && e.tags[0]) || 'Founders';
-    const role = e.role || (e.guest_company ? `Co-founder, ${e.guest_company}` : 'Founder');
-    return `      <a href="${esc(e.slug)}/" class="featured-card">
-        <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode ${e.episode_number} · ${esc(primaryTag)}</div>
-        <h3>${esc(e.title)}</h3>
-        <p class="fc-desc">${esc(e.short_desc || e.hook || '')}</p>
-        <div class="fc-guest">
-          <div class="fc-avatar">${esc(initials(e.guest_name))}</div>
-          <div class="fc-guest-meta">
+    const desc = e.short_desc || e.hook || `${e.guest_name} on Founders In Motion.`;
+    return `      <a href="${linkFor(e)}" class="ep-feature">
+        <div class="ep-feature-media">
+          <img src="${thumbUrl(e)}" alt="${escAttr(e.guest_name)} — Founders In Motion episode ${e.episode_number}" loading="lazy" decoding="async" />
+          <span class="ep-badge ep-badge-lg">EP ${e.episode_number}</span>
+          <span class="ep-feature-flag">Latest</span>
+        </div>
+        <div class="ep-feature-body">
+          <div class="ep-kicker">${esc(primaryTag)}</div>
+          <h2>${esc(e.title)}</h2>
+          <p class="ep-feature-desc">${esc(desc)}</p>
+          <div class="ep-guest">
             <b>${esc(e.guest_name)}</b>
-            <i>${esc(role)}</i>
+            ${e.guest_company ? `<i>${esc(e.guest_company)}</i>` : ''}
           </div>
+          <span class="ep-feature-cta">${e.has_episode_page ? 'Show notes' : 'Listen on Spotify'} <span aria-hidden="true">→</span></span>
         </div>
       </a>`;
   }).join('\n\n');
 
-  const archiveRows = archive.map(e => {
-    const href = e.has_episode_page ? `${esc(e.slug)}/` : (esc(e.spotify_url) || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl');
-    const metaLabel = e.has_episode_page ? 'Show notes ↗' : 'Spotify ↗';
-    return `      <a href="${href}" class="ep-row">
-        <div class="ep-row-num">${e.episode_number}</div>
-        <div class="ep-row-content">
-          <h4>${esc(e.title)}</h4>
-          <p>${esc(e.short_desc || e.hook || `${e.guest_name} on Founders In Motion.`)}</p>
+  // ---- The full grid of every other episode ----
+  const gridCards = grid.map(e => {
+    const desc = e.short_desc || e.hook || `${e.guest_name} on Founders In Motion.`;
+    return `      <a href="${linkFor(e)}" class="ep-card">
+        <div class="ep-card-media">
+          <img src="${thumbUrl(e)}" alt="${escAttr(e.guest_name)} — Founders In Motion episode ${e.episode_number}" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP ${e.episode_number}</span>
         </div>
-        <div class="ep-row-guest"><b>${esc(e.guest_name)}</b><i>${esc(e.guest_company)}</i></div>
-        <div class="ep-row-meta">${metaLabel}</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">${esc(e.guest_name)}</h3>
+          ${e.guest_company ? `<div class="ep-card-company">${esc(e.guest_company)}</div>` : ''}
+          <p class="ep-card-hook">${esc(desc)}</p>
+        </div>
       </a>`;
   }).join('\n\n');
 
@@ -183,6 +195,177 @@ export function renderArchivePage({ episodes, settings }) {
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css" />
 <link rel="stylesheet" href="../episodes-archive.css" />
+
+<style>
+  /* ── Episodes archive: visual card grid (scoped, tokens from styles.css) ── */
+  .ep-feature {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    margin-bottom: 88px;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .ep-feature:hover {
+    border-color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px -22px rgba(0,0,0,0.7);
+  }
+  .ep-feature-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .ep-feature-media img,
+  .ep-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+  }
+  .ep-feature:hover .ep-feature-media img,
+  .ep-card:hover .ep-card-media img { transform: scale(1.04); }
+  .ep-feature-body {
+    padding: clamp(28px, 3vw, 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ep-kicker {
+    font-family: var(--body);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .ep-feature-body h2 {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin: 0 0 16px;
+    color: var(--off-white);
+    text-wrap: balance;
+  }
+  .ep-feature-desc {
+    font-size: 15px; line-height: 1.6;
+    color: var(--off-white);
+    margin: 0 0 22px;
+    max-width: 48ch;
+  }
+  .ep-feature-cta {
+    margin-top: 8px;
+    font-family: var(--body);
+    font-size: 14px; font-weight: 600;
+    color: var(--cream);
+  }
+  .ep-feature:hover .ep-feature-cta span { transform: translateX(3px); }
+  .ep-feature-cta span { display: inline-block; transition: transform .18s ease; }
+  .ep-feature-flag {
+    position: absolute;
+    top: 14px; right: 14px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--forest);
+    font-family: var(--sans);
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── Card grid ── */
+  .ep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .ep-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .ep-card:hover {
+    border-color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -24px rgba(0,0,0,0.7);
+  }
+  .ep-card-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .ep-badge {
+    position: absolute;
+    bottom: 12px; left: 12px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(12,12,12,0.78);
+    backdrop-filter: blur(4px);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+  .ep-badge-lg {
+    top: 14px; left: 14px; bottom: auto;
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .ep-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .ep-card-guest {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 3px;
+    color: var(--off-white);
+  }
+  .ep-card:hover .ep-card-guest { color: var(--cream); }
+  .ep-card-company {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .ep-card-hook {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (max-width: 800px) {
+    .ep-feature { grid-template-columns: 1fr; }
+    .ep-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  }
+  @media (max-width: 520px) {
+    .ep-grid { grid-template-columns: 1fr; }
+  }
+</style>
 
 <!-- Generated: ${generatedAt} -->
 
@@ -215,19 +398,15 @@ export function renderArchivePage({ episodes, settings }) {
       <p>Unscripted conversations with early-stage founders across Australia, Southeast Asia, and the US. Each episode is one founder, still in the thick of it, answering the questions an early-stage investor would actually ask.</p>
     </header>
 
-    <div class="section-label">Featured episodes — full show notes</div>
-
-    <div class="featured-grid">
+    <div class="section-label">Latest episode</div>
 
 ${featuredCards}
 
-    </div>
+    <div class="section-label">All episodes</div>
 
-    <div class="section-label">The full archive</div>
+    <div class="ep-grid">
 
-    <div class="ep-list">
-
-${archiveRows}
+${gridCards}
 
     </div>
 
@@ -259,9 +438,16 @@ ${archiveRows}
 `;
 }
 
-function initials(name) {
-  if (!name) return '??';
-  const parts = name.replace(/[&]/g, ' ').split(/\s+/).filter(Boolean);
-  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+/** Extract a YouTube video id from a watch / youtu.be / embed URL. Mirrors sync.js. */
+function getYouTubeId(url) {
+  if (!url) return null;
+  const match = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
 }
+
+/** Cover-image URL for an episode: YouTube thumbnail, or the brand banner fallback. */
+function thumbUrl(e) {
+  const id = getYouTubeId(e.youtube_url);
+  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : '/assets/youtube-banner.png';
+}
+

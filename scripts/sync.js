@@ -134,7 +134,11 @@ async function findDocInFolder(auth, folderId, episodeNumber, guestName = '') {
     try {
       const res = await drive.files.list({
         q: query,
-        fields: 'files(id, name, mimeType)',
+        fields: 'files(id, name, mimeType, modifiedTime)',
+        // Prefer the most recently modified match, so re-uploading a corrected
+        // Doc (a newer copy) automatically wins over a stale same-named one —
+        // no need to delete the old Doc first (create-only Drive access).
+        orderBy: 'modifiedTime desc',
         pageSize: 5,
       });
       files = res.data.files || [];
