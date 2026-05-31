@@ -46,7 +46,7 @@ export const TOPICS = [
       },
       {
         q: 'Can you raise pre-seed with no product?',
-        a: 'Yes. Shakeel Lala raised backing from Australia\'s largest VC with no business idea at all — on the promise he\'d spend a year finding something worth building. Celeste Amadon raised her pre-seed before Known had meaningful traction. The bar isn\'t product, it\'s evidence the founder has done deep work and the thesis is defensible.',
+        a: 'Yes. Shakeel Lala raised backing from one of Australia\'s largest VCs with no business idea at all — on the promise he\'d spend a year finding something worth building. Celeste Amadon raised her pre-seed before Known had meaningful traction. The bar isn\'t product, it\'s evidence the founder has done deep work and the thesis is defensible.',
       },
       {
         q: 'What pre-seed valuation should I expect in 2026?',
