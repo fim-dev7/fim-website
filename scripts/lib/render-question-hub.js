@@ -121,7 +121,7 @@ export function renderQuestionPage({ group, allGrouped }) {
   // ----- HTML body ------------------------------------------------------------
 
   const contributorCards = contributors.map(({ ep, entry }) => {
-    const epHref = ep.has_episode_page ? `${SITE_URL}/episodes/${ep.slug}/` : (ep.spotify_url || '#');
+    const epHref = ep.has_episode_page ? `/episodes/${ep.slug}/` : (ep.spotify_url || '#');
     const longBlocks = paragraphsHtml(entry.longForm || []);
     const guestRole = ep.content?.meta?.guest_role || (ep.guest_company ? `Founder, ${ep.guest_company}` : 'Founder');
     return `<article class="q-contributor">
@@ -150,7 +150,7 @@ export function renderQuestionPage({ group, allGrouped }) {
   // a link to their episode, and a <details> revealing their full long-form.
   const multiplePerspectives = contributors.length > 1;
   const perspectiveCards = contributors.map(({ ep, entry }) => {
-    const epHref = ep.has_episode_page ? `${SITE_URL}/episodes/${ep.slug}/` : (ep.spotify_url || '#');
+    const epHref = ep.has_episode_page ? `/episodes/${ep.slug}/` : (ep.spotify_url || '#');
     const longBlocks = paragraphsHtml(entry.longForm || []);
     const preview = previewSentences(entry.answer, 2);
     return `<article class="q-perspective">
@@ -380,15 +380,15 @@ ${speakable}
       <div class="kicker">${contributors.length === 1 ? 'A founder answers' : `${contributors.length} founders answer`}</div>
       <h1 class="q-question">${esc(question)}</h1>
       ${topAnswer ? `<blockquote class="q-lead-answer">${esc(topAnswer)}</blockquote>
-      <div class="q-lead-attribution">— <a href="${esc(contributors[0].ep.has_episode_page ? `${SITE_URL}/episodes/${contributors[0].ep.slug}/` : (contributors[0].ep.spotify_url || '#'))}">${esc(contributors[0].ep.guest_name)}, ${esc(contributors[0].ep.guest_company)} (Ep ${contributors[0].ep.episode_number})</a></div>` : ''}
+      <div class="q-lead-attribution">— <a href="${esc(contributors[0].ep.has_episode_page ? `/episodes/${contributors[0].ep.slug}/` : (contributors[0].ep.spotify_url || '#'))}">${esc(contributors[0].ep.guest_name)}, ${esc(contributors[0].ep.guest_company)} (Ep ${contributors[0].ep.episode_number})</a></div>` : ''}
     </header>
 
     ${perspectivesSection}
 
-    <section class="q-contributors">
-      <h2>${contributors.length === 1 ? 'The full answer' : 'What founders in the archive say'}</h2>
+    ${!multiplePerspectives ? `<section class="q-contributors">
+      <h2>The full answer</h2>
       ${contributorCards}
-    </section>
+    </section>` : ''}
 
     ${related.length > 0 ? `<section class="q-related">
       <h3>Related questions</h3>

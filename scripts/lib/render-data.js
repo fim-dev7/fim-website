@@ -217,7 +217,6 @@ export function renderArchivePage({ episodes, settings }) {
   }
   .ep-feature-media {
     position: relative;
-    aspect-ratio: 16 / 9;
     background: var(--surface);
     overflow: hidden;
   }
@@ -228,6 +227,10 @@ export function renderArchivePage({ episodes, settings }) {
     object-fit: cover;
     display: block;
     transition: transform .35s ease;
+  }
+  .ep-feature-media img {
+    position: absolute;
+    inset: 0;
   }
   .ep-feature:hover .ep-feature-media img,
   .ep-card:hover .ep-card-media img { transform: scale(1.04); }
@@ -360,6 +363,8 @@ export function renderArchivePage({ episodes, settings }) {
 
   @media (max-width: 800px) {
     .ep-feature { grid-template-columns: 1fr; }
+    .ep-feature-media { aspect-ratio: 16 / 9; }
+    .ep-feature-media img { position: static; inset: auto; }
     .ep-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
   }
   @media (max-width: 520px) {

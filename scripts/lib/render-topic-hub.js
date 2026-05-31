@@ -93,7 +93,7 @@ export function renderTopicHub({ topic, episodesById, allTopics }) {
     const title = (e.title || '').split(' | ')[0];
     const claim = pickKeyClaim(e.content);
     const quote = pickKeyQuote(e.content);
-    const href = e.has_episode_page ? `${SITE_URL}/episodes/${e.slug}/` : (e.spotify_url || '#');
+    const href = e.has_episode_page ? `/episodes/${e.slug}/` : (e.spotify_url || '#');
     const hook = e.content?.hook || e.short_desc || '';
     return `<article class="topic-ep">
         <a href="${esc(href)}" class="topic-ep-link">
@@ -110,7 +110,7 @@ export function renderTopicHub({ topic, episodesById, allTopics }) {
       </article>`;
   }).join('\n\n      ');
 
-  const seeAlsoLinks = seeAlsoTopics.map(t => `<li><a href="${SITE_URL}/topics/${t.slug}/">${esc(t.question)}</a></li>`).join('\n          ');
+  const seeAlsoLinks = seeAlsoTopics.map(t => `<li><a href="/topics/${t.slug}/">${esc(t.question)}</a></li>`).join('\n          ');
 
   return `<!doctype html>
 <html lang="en">
