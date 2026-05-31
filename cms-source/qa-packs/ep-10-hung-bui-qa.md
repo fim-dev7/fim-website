@@ -1,4 +1,4 @@
-# What is AI Education, Hung Bui's learning platform?
+# What is AIducation, Hung Bui's learning platform?
 slug: what-is-ai-education-hung-bui
 answer: Introduced as Vietnam's first AI powered learning platform, built by Vietnamese for Vietnamese. Hung describes it as an all in one personalized platform that takes the student as the core and builds tools around them for parents, teachers and schools too.
 
@@ -50,7 +50,7 @@ Companies, even tech companies, are resistant to changes: if they've been using 
 slug: are-gpt-wrappers-a-real-business
 answer: Hung thinks the bad rap is unfair. "You don't have to train your own models to be different, and you can be a GPT wrapper without having all of the bad marketing names to it." He reframes a model call as just "a function in the code that allows your platform to be intelligent."
 
-Hung says AI Education does train its own models, but argues training isn't what makes you different. He draws the analogy that companies like Oracle and Google have customer-facing software that, at its heart, is "just databases" — so instead of thinking about it as a GPT wrapper, "you can think about it as a function in the code that allows your platform to be intelligent." Training mattered for his team specifically because they wanted a model that could converse according to the standards of pedagogy in Vietnam and solve math, English, physics and chemistry problems correctly — but "for most founders and most companies, I don't think that would be needed." He cites cow AI as an example that succeeded with "smart tricks and smart engineering," not heavy training.
+Hung says AIducation does train its own models, but argues training isn't what makes you different. He draws the analogy that companies like Oracle and Google have customer-facing software that, at its heart, is "just databases" — so instead of thinking about it as a GPT wrapper, "you can think about it as a function in the code that allows your platform to be intelligent." Training mattered for his team specifically because they wanted a model that could converse according to the standards of pedagogy in Vietnam and solve math, English, physics and chemistry problems correctly — but "for most founders and most companies, I don't think that would be needed." He cites cow AI as an example that succeeded with "smart tricks and smart engineering," not heavy training.
 
 # What warning signs tell you it's time to pivot, not patch?
 slug: warning-signs-time-to-pivot
@@ -58,11 +58,11 @@ answer: For Hung, two tickers signalled a deeper problem. First, even though use
 
 Hung describes how founders get attached to their product and push through dry patches, so the question is how to tell a patch from a fundamental issue. Looking back, he realized the tools they'd built from the base of Personal AI were "a great set of tools and solutions, but they were not addressing the specific problems that our customers had." The signal that it was structural rather than a marketing problem was the combination of zero on-platform activity after signup and zero paying users — the two major tickers that told him they really needed to change.
 
-# What was Hung Bui's first startup before AI Education?
+# What was Hung Bui's first startup before AIducation?
 slug: hung-bui-first-startup-personal-ai
 answer: It was called Personal AI and it focused on the mental side — a service that let you talk to AI pals or friends, similar to character AI at the time, aimed at a new generation who prefer to talk to their idols like anime characters.
 
-Hung says Personal AI did have users, but he realized it could be much more than that. When he looked at the data, "most of the stress actually came from education," so he concluded that a full fledged platform taking care of not just the mental side but also the education side "would be the perfect solution." That insight is what turned Personal AI into AI Education — though he's candid that they failed for quite some time before they finally found out what they should be building.
+Hung says Personal AI did have users, but he realized it could be much more than that. When he looked at the data, "most of the stress actually came from education," so he concluded that a full fledged platform taking care of not just the mental side but also the education side "would be the perfect solution." That insight is what turned Personal AI into AIducation — though he's candid that they failed for quite some time before they finally found out what they should be building.
 
 # What is the most valuable lesson Hung Bui learned as a founder?
 slug: hung-bui-most-valuable-lesson

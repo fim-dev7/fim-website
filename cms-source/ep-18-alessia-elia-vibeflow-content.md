@@ -1,18 +1,18 @@
 # Hook
 
-Alessia and Illya met in co-founder dating hell — both trying YC co-founder matching from Paris and Sri Lanka, complaining to each other every day about not finding the right match — until they asked why they weren't just brainstorming together. That became Vibe Flow, a YC-backed startup helping non-technical founders build production-ready apps in no code.
+Alessia and Elia met in co-founder dating hell — both trying YC co-founder matching from Paris and Sri Lanka, complaining to each other every day about not finding the right match — until they asked why they weren't just brainstorming together. That became VibeFlow, a YC-backed startup helping non-technical founders build production-ready apps in no code.
 
 # Story
 
-Before Vibe Flow, Alessia and Illya were both separately tinkering with ideas and going through co-founder matching. Illya had joined EF, Entrepreneur First, in Paris — a program to do co-founder matching where they "celebrate break up" so you don't lose time and figure things out fast. He met around 60 people in three days and at one point realized he couldn't find anyone in the same mentality as him: super hardcore, wanting to work seven days a week, super ambitious. Alessia was working full time for a company, always enjoying her side projects, but none of the people she worked with were willing to go full time on a startup — so she took a leap of faith and quit her job, then tried the YC co-founder matching platform, which she describes as being like a dating platform, like Tinder or Bumble.
+Before VibeFlow, Alessia and Elia were both separately tinkering with ideas and going through co-founder matching. Elia had joined EF, Entrepreneur First, in Paris — a program to do co-founder matching where they "celebrate break up" so you don't lose time and figure things out fast. He met around 60 people in three days and at one point realized he couldn't find anyone in the same mentality as him: super hardcore, wanting to work seven days a week, super ambitious. Alessia was working full time for a company, always enjoying her side projects, but none of the people she worked with were willing to go full time on a startup — so she took a leap of faith and quit her job, then tried the YC co-founder matching platform, which she describes as being like a dating platform, like Tinder or Bumble.
 
-They went through this process together — Illya in Paris, Alessia in Sri Lanka — doing the exact same thing and calling every day as friends, complaining about not finding the right match. At one point they just said: but why are we not brainstorming together at least. They decided to brainstorm and directly ended up on an idea. It wasn't Vibe Flow yet, but they saw the team was working well. Their lesson from that period: the co-founder is the most important thing, especially in an early-stage startup, because the idea is going to change — the right way in is personal fit, the way of working, and the values, and the rest will come together.
+They went through this process together — Elia in Paris, Alessia in Sri Lanka — doing the exact same thing and calling every day as friends, complaining about not finding the right match. At one point they just said: but why are we not brainstorming together at least. They decided to brainstorm and directly ended up on an idea. It wasn't VibeFlow yet, but they saw the team was working well. Their lesson from that period: the co-founder is the most important thing, especially in an early-stage startup, because the idea is going to change — the right way in is personal fit, the way of working, and the values, and the rest will come together.
 
-Both are technical: Illya has a background in computer science and AI specialized toward biotech, Alessia in computer graphics and computer vision with more than four years of software engineering experience. They started in health, looking at a very niche problem around the microbiome — deep tech, biotech — got some initial traction, then came back to what they know best: AI and data tools. At the moment Lovable exploded, they saw so many complaints online — everyone was super mad on social — and they tried to understand what was happening. They built the first version of Vibe Flow within a month, with no AI: people could import their UIs from tools like Lovable and build the backend manually with a drag-and-drop interface, all in one solution instead of the "Frankenstein approach" of stitching three different platforms and subscriptions together. They added the AI element, launched on Product Hunt, won product of the day, and hit 6,000 users in three weeks.
+Both are technical: Elia has a background in computer science and AI specialized toward biotech, Alessia in computer graphics and computer vision with more than four years of software engineering experience. They started in health, looking at a very niche problem around the microbiome — deep tech, biotech — got some initial traction, then came back to what they know best: AI and data tools. At the moment Lovable exploded, they saw so many complaints online — everyone was super mad on social — and they tried to understand what was happening. They built the first version of VibeFlow within a month, with no AI: people could import their UIs from tools like Lovable and build the backend manually with a drag-and-drop interface, all in one solution instead of the "Frankenstein approach" of stitching three different platforms and subscriptions together. They added the AI element, launched on Product Hunt, won product of the day, and hit 6,000 users in three weeks.
 
-The product thesis is reliability. All the existing solutions are pretty good at the first generation, but they don't tackle maintaining and scaling these applications — the need non-technical people have. Vibe Flow's AI doesn't touch the raw code directly; you iterate with the AI on the logic with a visual feedback of what's being built, and once you agree on the logic the code is generated deterministically. That avoids the loop where you let the AI generate code, it doesn't work, you go around for four days, lose time and money and get super frustrated. They focus on the backend — a very hard problem a lot of people aren't tackling — and on deterministic code for workflows like connecting multiple apps, where you want something to always happen, not have an AI decide whether to do it.
+The product thesis is reliability. All the existing solutions are pretty good at the first generation, but they don't tackle maintaining and scaling these applications — the need non-technical people have. VibeFlow's AI doesn't touch the raw code directly; you iterate with the AI on the logic with a visual feedback of what's being built, and once you agree on the logic the code is generated deterministically. That avoids the loop where you let the AI generate code, it doesn't work, you go around for four days, lose time and money and get super frustrated. They focus on the backend — a very hard problem a lot of people aren't tackling — and on deterministic code for workflows like connecting multiple apps, where you want something to always happen, not have an AI decide whether to do it.
 
-They built and launched continuously — the internal YC platform, then YC, then Product Hunt, then Hacker News and Reddit — treating launching as a continuous feedback loop rather than one huge launch. When they got into YC they moved from Zurich and Paris all the way to SF within days, started living together and working 24/7 at a crazy pace. For them YC's biggest value was the network over the badge or the mentorship, and SF itself — where everyone believes you can do anything — accelerated the startup ten times compared to Europe. Their most-repeated lesson: launch fast and often, do things that don't scale, solve a problem for one person who comes back every day and loves your product, and keep being more ambitious. As Illya puts it, if you're not talking to users or building, what are you doing.
+They built and launched continuously — the internal YC platform, then YC, then Product Hunt, then Hacker News and Reddit — treating launching as a continuous feedback loop rather than one huge launch. When they got into YC they moved from Zurich and Paris all the way to SF within days, started living together and working 24/7 at a crazy pace. For them YC's biggest value was the network over the badge or the mentorship, and SF itself — where everyone believes you can do anything — accelerated the startup ten times compared to Europe. Their most-repeated lesson: launch fast and often, do things that don't scale, solve a problem for one person who comes back every day and loves your product, and keep being more ambitious. As Elia puts it, if you're not talking to users or building, what are you doing.
 
 # What you'll hear
 
@@ -27,15 +27,15 @@ They built and launched continuously — the internal YC platform, then YC, then
 # Key claims
 
 - **6,000** — Users hit in three weeks after winning product of the day on Product Hunt
-- **60** — People Illya met in three days during EF co-founder matching in Paris
-- **1 month** — Time to build the first version of Vibe Flow, with no AI
-- **4 years** — Alessia's software engineering experience before Vibe Flow
+- **60** — People Elia met in three days during EF co-founder matching in Paris
+- **1 month** — Time to build the first version of VibeFlow, with no AI
+- **4 years** — Alessia's software engineering experience before VibeFlow
 
 # Chapters
 
 - 00:00 — Cold open — "two founders who couldn't find the right co founder"
-- 00:38 — Meet the founders — Alessia and Illya, co-founders of Vibe Flow
-- 01:04 — What Vibe Flow does — Production-ready apps in no code, beyond the first generation
+- 00:38 — Meet the founders — Alessia and Elia, co-founders of VibeFlow
+- 01:04 — What VibeFlow does — Production-ready apps in no code, beyond the first generation
 - 01:55 — Co-founder dating hell — EF in Paris, YC matching, and "60 people in like three days"
 - 04:50 — How to narrow down a co-founder — The co-founder is the most important thing
 - 05:25 — First ideas — Microbiome, deep tech, then back to AI and data tools
@@ -52,15 +52,15 @@ They built and launched continuously — the internal YC platform, then YC, then
 
 > the co founder is the most important thing especially in early stage startup like you need to prioritize your team before anything else
 
-— Illya, on what matters most early (04:50)
+— Elia, on what matters most early (04:50)
 
 > I think the right way is the personal fits and the way of working and the values and after the rest will come together
 
-— Illya, on how to choose a co-founder (05:00)
+— Elia, on how to choose a co-founder (05:00)
 
 > you will learn way more by seeing than by listening
 
-— Illya, on going on site for customer discovery (07:50)
+— Elia, on going on site for customer discovery (07:50)
 
 > you're never gonna feel ready anyway
 
@@ -68,11 +68,11 @@ They built and launched continuously — the internal YC platform, then YC, then
 
 > launching a fast and launching often is the most valuable thing in early
 
-— Illya, on shipping speed (19:00)
+— Elia, on shipping speed (19:00)
 
 > if you're not talking to customers or building what are you doing
 
-— Illya, quoting a YC partner (26:57)
+— Elia, quoting a YC partner (26:57)
 
 # Themes
 
@@ -85,10 +85,10 @@ They built and launched continuously — the internal YC platform, then YC, then
 
 # Mentioned
 
-- **EF / Entrepreneur First** — Co-founder matching program Illya joined in Paris; "they celebrate break up"
-- **YC** — Y Combinator; backed Vibe Flow; Illya valued the network most
-- **Ewer** — Entrepreneurship program where Illya first learned customer discovery
-- **The mom test** — The book on customer interviews Illya read; "I think it's super famous"
+- **EF / Entrepreneur First** — Co-founder matching program Elia joined in Paris; "they celebrate break up"
+- **YC** — Y Combinator; backed VibeFlow; Elia valued the network most
+- **Ewer** — Entrepreneurship program where Elia first learned customer discovery
+- **The mom test** — The book on customer interviews Elia read; "I think it's super famous"
 - **Product Hunt** — Where they won product of the day and hit 6,000 users in three weeks
 - **Hacker News** — One of the platforms they launched on
 - **Reddit** — Another platform in their continuous launch
@@ -101,18 +101,18 @@ They built and launched continuously — the internal YC platform, then YC, then
 
 # Background
 
-- **Company** — Vibe Flow, an all-in-one platform that lets anyone build production-ready apps in no code
+- **Company** — VibeFlow, an all-in-one platform that lets anyone build production-ready apps in no code
 - **Stage** — YC-backed; first version built within a month, won product of the day on Product Hunt, hit 6,000 users in three weeks
-- **Founders** — Alessia and Illya, both technical, who met through co-founder matching
+- **Founders** — Alessia and Elia, both technical, who met through co-founder matching
 - **Location** — Moved from Zurich and Paris to San Francisco for YC; living together and working 24/7
 
 # Meta
 
 duration: 27 min
 duration_iso: PT27M
-guest_role: Co-founders, Vibe Flow
-guest_bio: Two technical founders who met in co-founder matching across Paris and Sri Lanka and built Vibe Flow, a YC-backed no-code platform for building production-ready apps.
+guest_role: Co-founders, VibeFlow
+guest_bio: Two technical founders who met in co-founder matching across Paris and Sri Lanka and built VibeFlow, a YC-backed no-code platform for building production-ready apps.
 mini_stats: 6,000 users | 1 month to first build | 60 people in 3 days | 4 years engineering
 tags: AI Dev Tools · No Code · Customer Discovery
-twitter_share: Alessia and Illya met in co-founder dating hell, then built Vibe Flow — a YC-backed no-code platform that hit 6,000 users in three weeks after winning product of the day on Product Hunt.
+twitter_share: Alessia and Elia met in co-founder dating hell, then built VibeFlow — a YC-backed no-code platform that hit 6,000 users in three weeks after winning product of the day on Product Hunt.
 background_title: Background

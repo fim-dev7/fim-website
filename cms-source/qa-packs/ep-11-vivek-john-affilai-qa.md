@@ -66,9 +66,9 @@ The founders frame the co-founder relationship as the single biggest early-stage
 
 slug: how-to-hire-first-engineer
 
-answer: When you start missing your first customers' demands. Vivek pushes back on hiring fast just because you have funding — "you should hire when you're starting to miss your first customer demands." The trigger for them was actually missing something during "a very crucial moment of the contract."
+answer: When you start missing your first customers' demands. John pushes back on hiring fast just because you have funding — "you should hire when you're starting to miss your first customer demands." The trigger for them was actually missing something during "a very crucial moment of the contract."
 
-Vivek rejects the "we have VC funding, we should go ahead and hire as quickly as possible" instinct — "I don't think that's the case." The YC coaching he cites: "you should hire when you're starting to miss your first customer demands." With first and second customers that "were pretty big enterprises" and just the two of them, "we were starting to struggle." The first red flag was when they "actually truly missed something" at "a very crucial moment of the contract," while the customer was "still evaluating us versus one of the like long term providers." Only then did they think about qualities — on engineering, "the No. 1 thing is just being able to figure things out," plus the ability to "experiment, iterate fast" and "take ownership," without needing to be constantly handheld.
+John rejects the "we have VC funding, we should go ahead and hire as quickly as possible" instinct — "I don't think that's the case." The YC coaching he cites: "you should hire when you're starting to miss your first customer demands." With first and second customers that "were pretty big enterprises" and just the two of them, "we were starting to struggle." The first red flag was when they "actually truly missed something" at "a very crucial moment of the contract," while the customer was "still evaluating us versus one of the like long term providers." On engineering, Vivek says "the No. 1 thing is just being able to figure things out," plus the ability to "experiment, iterate fast" and "take ownership," without needing to be constantly handheld.
 
 # How do you know it's time to pivot?
 
