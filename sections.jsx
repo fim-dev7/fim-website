@@ -472,7 +472,7 @@ function About() {
           </div>
         </div>
         <div className="about">
-          <div className="thea-avatar">TN</div>
+          <img className="thea-avatar" src="assets/thea-ngo.jpg" alt="Thea Ngo, host of Founders In Motion" loading="lazy" decoding="async" />
           <div>
             <h2 className="h2">Thea Ngo</h2>
             <div className="role-tag">Early-stage investor &amp; professional question-asker</div>

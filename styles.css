@@ -518,15 +518,11 @@ section.panel {
 @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
 .thea-avatar {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: var(--forest);
-  border: 2px solid var(--cream);
-  display: grid; place-items: center;
-  font-family: var(--sans); font-weight: 900;
-  font-size: clamp(80px, 12vw, 120px);
-  color: var(--cream);
-  letter-spacing: -0.04em;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 24px 60px -36px rgba(0,0,0,0.8);
 }
 .about .role-tag {
   font-family: var(--body); font-size: 11px; font-weight: 700;
