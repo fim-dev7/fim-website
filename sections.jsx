@@ -38,6 +38,12 @@ function Hero() {
   return (
     <header className="hero" id="top">
       <div className="container hero-inner">
+        <div className="hero-grid">
+        <figure className="hero-photo">
+          <img src="assets/thea-ngo.jpg" alt="Thea Ngo — host of Founders In Motion" />
+          <figcaption><b>Thea Ngo</b><span>Host · early-stage investor</span></figcaption>
+        </figure>
+        <div className="hero-text">
         <span className="pill"><span className="dot"></span>New episodes weekly</span>
         <h1>Before the <em>headline.</em></h1>
         <p className="hero-sub">
@@ -54,6 +60,8 @@ function Hero() {
             <AppleIcon /> Apple Podcasts
           </a>
           <a href="#episodes" className="btn btn-secondary">Browse Episodes</a>
+        </div>
+        </div>
         </div>
         <div className="stats">
           {STATS.map((s) =>
