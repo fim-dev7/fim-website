@@ -123,7 +123,7 @@ const settings = {
   spotify_show: 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl',
   apple_show: 'https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671',
   youtube_channel: 'https://www.youtube.com/@FoundersInMotion',
-  instagram: 'https://www.instagram.com/foundersinmotion/',
+  instagram: 'https://www.instagram.com/thea.yaps',
   my_linkedin: 'https://www.linkedin.com/in/theango/',
 };
 const data = renderDataCMS({

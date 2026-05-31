@@ -467,7 +467,7 @@ function About() {
             </p>
             <div className="socials">
               <a className="social" href="https://www.linkedin.com/in/theango/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a className="social" href="https://www.instagram.com/foundersinmotion/" target="_blank" rel="noreferrer">Instagram ↗</a>
+              <a className="social" href="https://www.instagram.com/thea.yaps" target="_blank" rel="noreferrer">Instagram ↗</a>
               <a className="social" href="https://www.tiktok.com/@foundersinmotion" target="_blank" rel="noreferrer">TikTok ↗</a>
             </div>
           </div>
@@ -490,7 +490,7 @@ function Footer() {
           <nav className="footer-nav">
             <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
             <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-            <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+            <a href="https://www.instagram.com/thea.yaps">Instagram</a>
             <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
             <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
           </nav>

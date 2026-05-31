@@ -95,7 +95,11 @@ async function getSettings(auth) {
   });
   const rows = res.data.values || [];
   const settings = {};
-  rows.forEach(([key, value]) => { if (key) settings[key] = value; });
+  // Sanitize: strip zero-width/word-joiner/BOM chars that sneak in from sheet
+  // copy-paste (they silently break URLs like the Instagram link) and trim.
+  rows.forEach(([key, value]) => {
+    if (key) settings[key] = String(value == null ? '' : value).replace(/[​-‍⁠﻿]/g, '').trim();
+  });
   return settings;
 }
 
