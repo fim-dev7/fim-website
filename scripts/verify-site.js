@@ -33,15 +33,21 @@ const qPages = subPages('questions');
 const epPages = subPages('episodes');
 const topicPages = subPages('topics');
 
-// 1. DEDUP INVARIANT — a question page must never render BOTH the multi-perspective
-//    section AND the legacy "The full answer" stack (the bug the user reported).
+// 1. ANSWER-SECTION INVARIANTS. Detect the RENDERED heading, NOT the CSS rule:
+//    `.q-perspectives-title { }` appears in EVERY page's <style> block, so matching
+//    the bare string misclassifies single-contributor pages as multi (this exact bug
+//    stripped 238 pages once — never use the bare string again).
 {
-  const bad = qPages.filter((p) => {
-    const h = read(p);
-    return h.includes('q-perspectives-title') && h.includes('>The full answer<');
-  });
-  check('questions: no page renders perspectives + "The full answer" twice', bad.length === 0,
-    bad.length ? `${bad.length}/${qPages.length} pages, e.g. ${bad.slice(0, 3).join(', ')}` : '');
+  const RENDERED_PERSP = '<h2 class="q-perspectives-title">';   // multi-perspective section actually rendered
+  const FULL_ANSWER = '<section class="q-contributors">';       // single-contributor "full answer" stack
+  // a) no page should render BOTH (that's the true duplicate)
+  const dup = qPages.filter((p) => { const h = read(p); return h.includes(RENDERED_PERSP) && h.includes(FULL_ANSWER); });
+  check('questions: no page renders perspectives + full-answer together', dup.length === 0,
+    dup.length ? `${dup.length} pages, e.g. ${dup.slice(0, 3).join(', ')}` : '');
+  // b) every page MUST render at least one answer section (catches content stripped by mistake)
+  const empty = qPages.filter((p) => { const h = read(p); return !h.includes(RENDERED_PERSP) && !h.includes(FULL_ANSWER); });
+  check('questions: every page has an answer section (perspectives OR full answer)', empty.length === 0,
+    empty.length ? `${empty.length} pages have NO answer body, e.g. ${empty.slice(0, 3).join(', ')}` : '');
 }
 
 // 2. CLICKABLE internal links must be root-relative (absolute foundersinmotion.com breaks
