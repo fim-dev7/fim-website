@@ -92,8 +92,8 @@ What's next is demand. Priority one is saturating New York City outside of groce
 - **Walmart** — Big-chain store most CPG brands spend marketing dollars to get into
 - **Target** — Big-chain store most CPG brands spend marketing dollars to get into
 - **Alex Cooper** — Named as an example of the celebrity-brand wave the consumer is tired of
-- **Prime** — Celebrity drink brand from Logan Paul and Jake Paul, cited as part of the 2024 celebrity-brand apex
-- **Mr. Beast** — Cited (with "Feastables"/"Feast of Bowls") as part of the celebrity CPG wave
+- **Prime** — Brand from Logan and Jake Paul, cited as part of the 2024 celebrity-brand apex
+- **Mr. Beast** — Cited (with "Feast of Bowls") as part of the celebrity CPG wave
 
 # Background
 
