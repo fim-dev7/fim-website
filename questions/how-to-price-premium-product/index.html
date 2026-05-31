@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,48 @@
       <blockquote class="q-lead-answer">Andy wanted all aspects of the beer — including pricing — to be accessible, but it&#39;s also a premium product that costs a lot to produce, and &quot;the margins in beer are not very high.&quot; They can&#39;t compete with the bigger brewers on price, so as they&#39;ve scaled they&#39;ve sometimes held or even reduced prices to pass economies of scale on to consumers.</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/19-andy-miller/">Andy Miller, Heaps Normal (Ep 19)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">2 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>AM</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Andy Miller</div>
+              <div class="q-perspective-co">Heaps Normal · EP 19</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Andy wanted all aspects of the beer — including pricing — to be accessible, but it&#39;s also a premium product that costs a lot to produce, and &quot;the margins in beer are not very high.&quot;  They can&#39;t compete with the bigger brewers on price, so as they&#39;ve scaled they&#39;ve sometimes held or even reduced prices to pass economies of scale on to consumers.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/19-andy-miller/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Andy Miller's full take</summary>
+            <p>They always wanted the beer itself, the taste, and all aspects of the beer to be accessible, and they've tried to keep pricing accessible too. But it's also a premium product, so it costs a lot to produce, and as Andy puts it, "the margins in beer are not very high," so there's not a lot of room to move.</p>
+          <p>It's also a scale game. They can't compete with the bigger brewers on price and have never really tried to. As they've scaled, they've taken opportunities to either hold the price or even sometimes reduce the price, to pass those economies of scale on to consumers and make sure it's an accessible product for as many people as possible.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>PH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Phung, Daniel and Hanson</div>
+              <div class="q-perspective-co">SipHRD · EP 12</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">SipHRD ran &quot;a lot of competitive analysis,&quot; comparing RTD hard seltzers on alcohol percentage and volume, then priced &quot;slightly higher if not on par&quot; — because they &quot;find that our drink does have a lot more quality&quot; in ingredients, can and carton.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/12-phung-daniel-and-hanson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Phung, Daniel and Hanson's full take</summary>
+            <p>Daniel, "the finance guy," handled pricing. They did "a lot of competitive analysis," looking at "other companies with the same drink as us" — "RTD hard solders" — "comparing it between alcohol percentage and obviously how much you actually get in the can as well." They priced "quite similarly to them," but felt their drink "does have a lot more quality with what we have in regards to the ingredients as well as the actual can and carton," so they decided to "price it slightly higher if not on par" with comparable products.</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -241,7 +327,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

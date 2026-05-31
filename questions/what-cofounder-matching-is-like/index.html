@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>What is co-founder matching like at EF and YC? | Founders In Motion</title>
-<meta name="description" content="Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. Alessia describes the YC co-founder matching platform as &quot;like a dating platform." />
+<meta name="description" content="Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. The YC co-founder matching platform is described as &quot;like a dating platform... li" />
 <link rel="canonical" href="https://foundersinmotion.com/questions/what-cofounder-matching-is-like/" />
 <meta property="og:url" content="https://foundersinmotion.com/questions/what-cofounder-matching-is-like/" />
 <meta property="og:site_name" content="Founders In Motion" />
@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <meta property="og:title" content="What is co-founder matching like at EF and YC?" />
-<meta property="og:description" content="Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. Alessia describes the YC co-founder matching platform as &quot;like a dating platform." />
+<meta property="og:description" content="Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. The YC co-founder matching platform is described as &quot;like a dating platform... li" />
 <meta property="og:type" content="article" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +50,7 @@
 
 <!-- JSON-LD: QAPage (Google's canonical Q&A markup) -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"QAPage","url":"https://foundersinmotion.com/questions/what-cofounder-matching-is-like/","mainEntity":{"@type":"Question","name":"What is co-founder matching like at EF and YC?","url":"https://foundersinmotion.com/questions/what-cofounder-matching-is-like/","author":{"@type":"Organization","name":"Founders In Motion"},"acceptedAnswer":{"@type":"Answer","text":"Elia calls it \"one of the most important process in a startup.\" At EF in Paris \"they celebrate break up\" so you don't lose time — he met around 60 people in three days. Alessia describes the YC co-founder matching platform as \"like a dating platform... like a tinder or Bumble.\"","url":"https://foundersinmotion.com/episodes/18-alessia-and-elia/","author":{"@type":"Person","name":"Alessia and Elia","affiliation":{"@type":"Organization","name":"VibeFlow (YC S25)"}}},"suggestedAnswer":[]}}
+{"@context":"https://schema.org","@type":"QAPage","url":"https://foundersinmotion.com/questions/what-cofounder-matching-is-like/","mainEntity":{"@type":"Question","name":"What is co-founder matching like at EF and YC?","url":"https://foundersinmotion.com/questions/what-cofounder-matching-is-like/","author":{"@type":"Organization","name":"Founders In Motion"},"acceptedAnswer":{"@type":"Answer","text":"Elia calls it \"one of the most important process in a startup.\" At EF in Paris \"they celebrate break up\" so you don't lose time — he met around 60 people in three days. The YC co-founder matching platform is described as \"like a dating platform... like a tinder or Bumble.\"","url":"https://foundersinmotion.com/episodes/18-alessia-and-elia/","author":{"@type":"Person","name":"Alessia and Elia","affiliation":{"@type":"Organization","name":"VibeFlow (YC S25)"}}},"suggestedAnswer":[]}}
 </script>
 
 <!-- JSON-LD: SpeakableSpecification -->
@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -176,9 +220,11 @@
     <header class="q-head">
       <div class="kicker">A founder answers</div>
       <h1 class="q-question">What is co-founder matching like at EF and YC?</h1>
-      <blockquote class="q-lead-answer">Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. Alessia describes the YC co-founder matching platform as &quot;like a dating platform... like a tinder or Bumble.&quot;</blockquote>
+      <blockquote class="q-lead-answer">Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. The YC co-founder matching platform is described as &quot;like a dating platform... like a tinder or Bumble.&quot;</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/18-alessia-and-elia/">Alessia and Elia, VibeFlow (YC S25) (Ep 18)</a></div>
     </header>
+
+    
 
     <section class="q-contributors">
       <h2>The full answer</h2>
@@ -191,10 +237,10 @@
           </div>
           <a href="https://foundersinmotion.com/episodes/18-alessia-and-elia/" class="q-contributor-listen" aria-label="Listen to episode">Show notes ↗</a>
         </header>
-        <p class="q-contributor-answer">Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. Alessia describes the YC co-founder matching platform as &quot;like a dating platform... like a tinder or Bumble.&quot;</p>
+        <p class="q-contributor-answer">Elia calls it &quot;one of the most important process in a startup.&quot; At EF in Paris &quot;they celebrate break up&quot; so you don&#39;t lose time — he met around 60 people in three days. The YC co-founder matching platform is described as &quot;like a dating platform... like a tinder or Bumble.&quot;</p>
         <details class="q-contributor-long">
           <summary>More from this episode</summary>
-          <p>Elia joined EF, Entrepreneur First, in Paris last year — "a program like to do co founder matching." The mechanic: "you try to match with people... and after you have to see if you match or not on the topic on the professional side on the personal side." What stood out: "there it's super funny because they celebrate break up so it means that when you break... you don't lose time, you need to figure this out super fast." He was "trying very hard, like I met I think like 60 people in like three days," but couldn't find anyone "in the same mentality as me which is like super hardcore mentality, like I want to work seven days of the week." Alessia tried the YC co-founder matching platform and found "they were all amazing people," but "it's like a dating platform, it's like a tinder or Bumble" where you need both a personal connection and to know how the person actually works.</p>
+          <p>Elia joined EF, Entrepreneur First, in Paris last year — "a program like to do co founder matching." The mechanic: "you try to match with people... and after you have to see if you match or not on the topic on the professional side on the personal side." What stood out: "there it's super funny because they celebrate break up so it means that when you break... you don't lose time, you need to figure this out super fast." He was "trying very hard, like I met I think like 60 people in like three days," but couldn't find anyone "in the same mentality as me which is like super hardcore mentality, like I want to work seven days of the week." On the YC co-founder matching platform "they were all amazing people," but "it's like a dating platform, it's like a tinder or Bumble" where you need both a personal connection and to know how the person actually works.</p>
         </details>
       </article>
     </section>
@@ -224,7 +270,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

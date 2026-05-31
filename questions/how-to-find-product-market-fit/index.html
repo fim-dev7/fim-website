@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,197 @@
       <blockquote class="q-lead-answer">For Shakeel, the marker was advisors trying to buy the vibe-coded demo at the Brisbane conference — before the product existed. Unsolicited demand. Half-sentence pitch test passed.</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/27-shakeel-lala/">Shakeel Lala, Marloo (Ep 27)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">11 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>SL</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Shakeel Lala</div>
+              <div class="q-perspective-co">Marloo · EP 27</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Shakeel, the marker was advisors trying to buy the vibe-coded demo at the Brisbane conference — before the product existed.  Unsolicited demand.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/27-shakeel-lala/">Episode ↗</a>
+          </div>
+          
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NY</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nathan Yun</div>
+              <div class="q-perspective-co">Paire · EP 26</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Nathan the confidence came three to six months in, after &quot;selling to strangers and doing those surveys.&quot;  Layered on top were the growth unlocks: big PR moments and new products — underwear in particular, which now drives 60% of sales.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/26-nathan-yun/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nathan Yun's full take</summary>
+            <p>Nathan describes scaling confidence arriving once strangers validated the product through surveys, not just friends and family. After that, the biggest growth unlocks were "a big PR exposure" — a broad sheet article in year one, The Current Affair, and Shark Tank — plus new products they could actually plan. Two years after socks "we launched underwear and t shirts, and underwear in particular has done super well for us," to the point that "pair is actually now more of an underwear company because we sell 60% underwear." He calls new products "one of the biggest opportunities that we have found."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>CA</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Celeste Amadon</div>
+              <div class="q-perspective-co">Known · EP 25</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Celeste the PMF idea is obvious — &quot;the idea of being able to serve someone a date with someone they would want to go on a date with on a platter does have PMF.&quot;  The hard part isn&#39;t the demand, it&#39;s &quot;the engineering work that gets you to being able to provide that to people.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/25-celeste-amadon/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Celeste Amadon's full take</summary>
+            <p>Celeste calls serving someone a wanted date "on a platter" a "PMF result," saying "it's not rocket science in hindsight." The early validation was concrete: a low-view TikTok still converted "800 people signed up." The real challenge she names is whether "you can actually do the engineering work" to deliver matches well — early AI matching "didn't do a good enough job," requiring human review before it improved.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JR</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Jevon Le Roux</div>
+              <div class="q-perspective-co">Keeyu · EP 21</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Jevon, one of the clearest signals came from a video case study: asked what she&#39;d do if she didn&#39;t have Keeyu, a customer said &quot;I just wouldn&#39;t come to work tomorrow.&quot;  The same person told a company that tried to recruit her she would only come &quot;if you got&quot; Keeyu.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/21-jevon-le-roux/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Jevon Le Roux's full take</summary>
+            <p>Jevon contrasts that pull with the first version of Keeyu, which "turned out that that was a vitamin for retailers, it wasn't a painkiller, because it wasn't really solving the crux of the problem." When they had eight or 10 customers and their backs against the wall, what kept them going was that those users relied on the product — "it was really really meaningful." The customer who said she "just wouldn't come to work tomorrow" gave that its rawest expression: she literally could not do her job without it.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>HM</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Hamish McKay</div>
+              <div class="q-perspective-co">Order Editing · EP 15</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">The turning point was discovering they&#39;d been positioned wrong.  Hamish had started the business thinking the most valuable, interesting part was saving brands time and money on customer service — the editing of the order, removing the volume of emails.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/15-hamish-mckay/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Hamish McKay's full take</summary>
+            <p>Then a LinkedIn post showing post-purchase upsell — "there's space in your package for another item, get 20% off for the next half hour" — landed their first two clients immediately. As Hamish puts it, "the veil was lifted" and what they'd thought their marketing should be positioned around was wrong. The real value was monetizing the post-purchase moment, with brands making $500,000 to $1 million a year from it.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>SR</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Sam Richardson</div>
+              <div class="q-perspective-co">Butter · EP 13</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Sam&#39;s early signal was proving one core hypothesis: would people post plans on the internet that they want to do with strangers in person?  He launched a narrow MVP just to test it — and they did, which he treated as a great proof point that there was a really strong need.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/13-sam-richardson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Sam Richardson's full take</summary>
+            <p>He launched to Melbourne, and specifically to the soberish community there — young, mid-20s people who were thinking about not drinking or had recently stopped and wanted things in their life that didn't revolve around alcohol. It was a timely, narrow testing ground to prove people would actually post plans before scaling to a broader market.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>PH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Phung, Daniel and Hanson</div>
+              <div class="q-perspective-co">SipHRD · EP 12</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For SipHRD, the signal was a private 150-case release essentially selling out within days, with &quot;all the messages coming through asking where&#39;s the email.&quot;  Phung said &quot;I did not expect much to come from it&quot; — the support was &quot;overwhelming.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/12-phung-daniel-and-hanson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Phung, Daniel and Hanson's full take</summary>
+            <p>The taste-test release surfaced unexpected demand. Phung admits the "first 3day campaign" was "quite nerve-wracking" and "I did not expect much to come from it to be honest." But "once everything came through, all the messages came through" — including people "asking where's the email" because it "hasn't been sent yet" — they felt "so overwhelmed by like the amount of support." The 150 cases sold out by Friday night while they were still delivering, including a 9pm Shopify order they turned around immediately. Her takeaway: "don't underestimate um you know yourself in terms of like your business. Like it can always be bigger than what you think in your head."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>VJ</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Vivek and John</div>
+              <div class="q-perspective-co">Affil.ai (YC S24) · EP 11</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Vivek and John, the marker was a customer paying and signing despite a barely-working product.  After John manually validated documents for a month and &quot;it solved the pain point,&quot; the customer signed the contract — &quot;that&#39;s all that matters,&quot; even though &quot;there was no actual product.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/11-vivek-and-john/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Vivek and John's full take</summary>
+            <p>The founders tie product-market fit directly to payment and pain. The goal at early stage, Vivek says, is "to grow as rapidly as possible and get as many customers as possible, find PMF." The signal isn't a polished product — their first product was "barely working" with John faking the AI by hand — it's that the customer "got the results," said "this is amazing," and signed. "It worked, it solved the pain point, that's all that matters." Their related lesson: don't be a perfectionist. "We took too long to launch" crafting a perfect story, and chasing a perfect product in front of a customer wasted time — "as long as they're paying... then you can like worry later about hiring a team to actually like polish the product."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>HB</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Hung Bui</div>
+              <div class="q-perspective-co">AIducation · EP 10</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Hung, the signal is payment, not praise.  People will say something is good, but that means nothing if no one buys — the turning point is &quot;the moment when someone pulls out their credit card.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/10-hung-bui/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Hung Bui's full take</summary>
+            <p>Hung distinguishes flattery from fit. People will say they love everything about what you're building, but that is cheap. The question that matters is "does this actually have a fit in the market," and the only thing that answers it is someone choosing to pay. He learned this in reverse: the first version had users who signed up but showed basically no activity on the platform, and no paying users — a monthly active number "too embarrassing to discuss right now."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>BW</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Ben Wood</div>
+              <div class="q-perspective-co">WipWrk · EP 6</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Ben, product-market fit beats everything else — given a choice between unlimited funding and product-market fit he chose product-market fit without hesitation, because it&#39;s what creates real impact and value.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/6-ben-wood/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Ben Wood's full take</summary>
+            <p>When asked to pick between unlimited funding and product-market fit, Ben didn't hesitate: "Instead product market fit, not even a question." He sees funding without fit as a trap that "just breeds issues," and bootstrapping as the way to keep every step intentional. For Ben, product-market fit is the thing that "is going to create more impact and more value" — the foundation he'd protect over capital.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>AH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Abby Huang</div>
+              <div class="q-perspective-co">Dime · EP 1</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Abby, product-market fit is recurring clients — not selling one thing one time and calling it a day.  It&#39;s clients who continuously come back, emailing again to explore a new campaign for 2025 or to be on a one-year retainer contract.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/1-abby-huang/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Abby Huang's full take</summary>
+            <p>She frames it through the age-old saying of building something that people want, which she had to learn when she got her first paying clients. The signs of validation, for her, are clients treating Dime as a partner they want and need to support their company's growth — not just giving the service a one-time try and never responding again.</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -381,7 +616,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

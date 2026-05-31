@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,200 @@
       <blockquote class="q-lead-answer">Will says the opportunity cost has &quot;weighed on my mind&quot; — &quot;I&#39;ve missed out on like two years of my life that I could be hanging out with friends, I could be traveling.&quot; His justification: the path &quot;gives me a lot of optionality to do whatever I want in the rest of my life.&quot;</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/28-will-bodewes/">Will Bodewes, Phonely (YC S24) (Ep 28)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">11 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>WB</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Will Bodewes</div>
+              <div class="q-perspective-co">Phonely (YC S24) · EP 28</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Will says the opportunity cost has &quot;weighed on my mind&quot; — &quot;I&#39;ve missed out on like two years of my life that I could be hanging out with friends, I could be traveling.&quot;  His justification: the path &quot;gives me a lot of optionality to do whatever I want in the rest of my life.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/28-will-bodewes/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Will Bodewes's full take</summary>
+            <p>Will admits he used to hear people say "I work 18 hours a day" and didn't think it was possible "until I did it, and then I did it for years." The cost: "two years of my life" he could have spent with friends or traveling. He justifies it through optionality — "for the rest of my life I can choose the impact that I want to make," having learned "how to raise capital, how to build a product, how to engineer, how to scale a sales team." As he puts it: "life is really long," and having "the optionality to spend the rest of it doing what you want is valuable."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>CA</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Celeste Amadon</div>
+              <div class="q-perspective-co">Known · EP 25</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Yes — Celeste says &quot;being a founder and having a lot of stress and working a ton can feel lonely even if you are not alone.&quot;  She works &quot;seven days a week in office&quot; with her team and credits starting the company with Asher for keeping her from feeling lonely.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/25-celeste-amadon/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Celeste Amadon's full take</summary>
+            <p>Celeste says she is "very rarely alone right now," working "seven days a week in office" with her team. But she's candid that founder stress is its own kind of loneliness: it "can feel lonely even if you are not alone." She says she's "really grateful that Asher and I started this company together because without him I would feel lonely," and that having a team that is "in some ways friends and family" has "made it a lot easier."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>ST</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Stephen Turban</div>
+              <div class="q-perspective-co">Lumiere Education · EP 22</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Stephen&#39;s contrarian take: &quot;I think founders are big wimps&quot; who &quot;love to say that their life is so hard.&quot;  He says building can be difficult and ambiguous, but when you bootstrap &quot;the only person who&#39;s judging you is yourself,&quot; and he found McKinsey far harder than running his own company.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/22-stephen-turban/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Stephen Turban's full take</summary>
+            <p>Asked about the hardest period of his founder journey, Stephen pushes back on the premise: "I think founders are big wimps… big complainers who love to say that their life is so hard." His actual experience: starting a company can be difficult and ambiguous, but "especially if you don't raise money, the only person who's judging you is yourself, cause no one really gives a shit about you." He frames the whole thing as "a journey of like joy and discovery and like learning." The hardest moments, he says, are "always around people." His comparison point is consulting: "I had a way harder time working at McKinsey" — having someone yell that you suck was far worse to him than messing something up in his own company.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JR</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Jevon Le Roux</div>
+              <div class="q-perspective-co">Keeyu · EP 21</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Jevon describes &quot;the roller coaster of emotions of getting it right and not getting it right,&quot; including stretches where the team&#39;s &quot;backs up against the wall&quot; with runway worries.  His antidote is to &quot;celebrate the small wins&quot; and stay focused on the customers who genuinely rely on the product.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/21-jevon-le-roux/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Jevon Le Roux's full take</summary>
+            <p>He's candid that "in the last three weeks we've signed five customers," but right before that he had "3 4 weeks" with none and "started questioning" whether he was doing things right and slipped into "a down mood." Sometimes you're getting it right "but the winds are not showing." When their backs were against the wall, the founding team anchored on the fact that the problem was real and that their eight or 10 customers relied on the product — which was "really really meaningful."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JZ</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Joe Zhou</div>
+              <div class="q-perspective-co">StrongRoom AI · EP 17</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Joe nearly pulled out halfway through — dragged-out creditor hearings, money chucked at lawyers, the worst possible press.  What kept him in: once he decides to do something he normally sees it through, the constant news coverage created peer pressure, and by then he felt he&#39;d already earned the scar tissue.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/17-joe-zhou/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Joe Zhou's full take</summary>
+            <p>The purchase got really complicated — multiple court hearings, a license period during which he couldn't purchase, creditor hearings (No. 1, No. 2) that dragged out for months. Joe did it over three short weekends around Easter, Anzac Day and Labour Day, with legal bills going through the roof. "Halfway through I certainly thinking to myself, is this worth it? Like I'm just chucking money at lawyers and buying something out of administration which I've never done before with the worst possible press you could ever ask for." What kept him from pulling out: "once I decide to do something I normally see it through — I hate quitting halfway." The news was covering him all the way through, so there was "too much peer pressure," and "I already feel like I got scar tissues by that point." He decided he was committed to see it through to the end.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>HM</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Hamish McKay</div>
+              <div class="q-perspective-co">Order Editing · EP 15</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Hamish&#39;s most valuable lesson is that, like anything in life, you get better at it over time.  As a first-time founder he&#39;d really struggle mentally — stressing about hiring or firing people, building a team, making big decisions he&#39;d never made before — and it would affect his energy and his output.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/15-hamish-mckay/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Hamish McKay's full take</summary>
+            <p>He wishes future him could have been in his ear saying it's all good, it'll be imperfect the first time but the next time gets better and better, and eventually you'll be really good at it — these are all puzzles to solve. He warns against existential dread about where the company is heading, because of course you've never managed a business like that. Instead, just focus on what it feels like to manage three people, then try four, then five, "and suddenly you'll find you'll be at the end of the year and you're like holy shit I'm managing 10 people."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>PH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Phung, Daniel and Hanson</div>
+              <div class="q-perspective-co">SipHRD · EP 12</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Hanson&#39;s lesson is &quot;being patient and not losing hope.&quot;  Other businesses only post &quot;all their wins&quot; online, not the &quot;late nights&quot; or &quot;tears stress&quot; — so &quot;as long as you keep hope in what you&#39;re doing,&quot; it will eventually lead to the goal.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/12-phung-daniel-and-hanson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Phung, Daniel and Hanson's full take</summary>
+            <p>Asked the most valuable lesson, Hanson says it's "being patient and not losing hope." His reasoning: when you start a business you see other businesses "flourishing," but what they post online is "generally all their wins" — "you don't generally see the hard work" or "all the like late nights or like tears stress whatnot." His conclusion: "as long as you keep hope in what you're doing and what you believe you're going to do, um, it will eventually lead to then goal of obviously achieving the dream." Phung's own lesson on the same theme after two years building "in the dark": "don't underestimate um you know yourself," because the business "can always be bigger than what you think in your head."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>FE</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Floriye Elmazi</div>
+              <div class="q-perspective-co">Sisterwould · EP 9</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Floriye, the small motivators are personal DMs from people saying &quot;love your mission, love your product, love what you&#39;re doing&quot; — that feedback is &quot;actually what keeps us going&quot; because it&#39;s so difficult to start and launch a business.  She also makes a point of celebrating the wins along the way and remembering how far she&#39;s come.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/9-floriye-elmazi/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Floriye Elmazi's full take</summary>
+            <p>She compares it to motherhood: "being a mom and growing a baby and growing a business, it's like the same thing." Because you get lost in the journey and forget how much you have and how far you've come, she deliberately looks back — a year ago she was stressed about things that ended up working out — and stays grateful along the way. It's a lesson she frames as not just for building a business but for life in general.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>RH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Robert Huynh</div>
+              <div class="q-perspective-co">Nook / Reforge · EP 7</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Robert&#39;s survival mechanism was community — first your co-founder and team, then other founders to meet up with and share tips.  He says &quot;Buildings are super lonely,&quot; and his motivation had to come from inside, with the mantra to &quot;act like a cockroach.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/7-robert-huynh/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Robert Huynh's full take</summary>
+            <p>Robert describes feeling low after leaving business school, stuck in Thailand during Covid lockdown, unable to reach customers in Vietnam. What got him through was finding your community: "your first and foremost community is your co-founder and your team," but he also made sure to bring in other founders to meet up with and "share tips and tricks." His advice to a struggling founder is to realize that if you keep pushing you stay alive — "You act like a cockroach... you cannot get rid of you." And the deeper point: the thing that kills startups "is hard to stay motivated. And that motivation has to come from inside."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>BW</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Ben Wood</div>
+              <div class="q-perspective-co">WipWrk · EP 6</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Ben&#39;s anchor is systems and self-care: 90% of businesses fail to grow in the first three years, so he protects his mental and physical health and the people around him.  Sport, the outdoors, and talking things through clear his mind so he only worries about what&#39;s stuck.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/6-ben-wood/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Ben Wood's full take</summary>
+            <p>Ben's best advice is "the importance of the systems you have in your life." He notes that "90% of businesses fail to grow in the first three years," and that his mental and physical health "will always be more important than the business," because he'll create far more impact over a lifetime by looking after himself rather than burning out now and frying future opportunity. To stay balanced he stays very active — a surfer and rock climber for most of his life — and finds that "just the act of talking through things allows you to process them," clearing his mind so he can come back and only worry about what's actually stuck rather than all the surrounding noise.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NS</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nate Spiteri</div>
+              <div class="q-perspective-co">Shopfront · EP 3</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Nate names three things that kept him going over 12 months: having a partner, having a dog, and making sure he exercised.  He&#39;s wary of importing Silicon Valley hustle culture — &quot;we&#39;re not in Silicon Valley&quot; — and warns that grinding six months then switching off for three can do more damage than good.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/3-nate-spiteri/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nate Spiteri's full take</summary>
+            <p>Nate says he's not in Silicon Valley so he doesn't think founders need to "embed this hustle culture into us here" — but if things need to be done, they have to be done. He's "massive in trying to balance both" work and personal life, de-stressing in evenings and weekends where possible. The three things that really helped him for the last 12 months were "having a partner, not having a dog, making sure I exercise." (He even got engaged in the middle of pitching in September.) On burnout: "you can obviously grind, grind, grind for six months, but then if you switch it off for three months because you, you literally can't do anything like this, that can do more damage than, than good."</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -384,7 +622,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

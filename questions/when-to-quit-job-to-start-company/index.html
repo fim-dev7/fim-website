@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,198 @@
       <blockquote class="q-lead-answer">Hardy quit first; Shakeel followed a few months later. Together they convinced one of Australia&#39;s largest VCs to fund the year of investigation. The forcing function was the commitment itself — both of them gone, no fallback.</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/27-shakeel-lala/">Shakeel Lala, Marloo (Ep 27)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">11 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>SL</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Shakeel Lala</div>
+              <div class="q-perspective-co">Marloo · EP 27</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Hardy quit first; Shakeel followed a few months later.  Together they convinced one of Australia&#39;s largest VCs to fund the year of investigation.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/27-shakeel-lala/">Episode ↗</a>
+          </div>
+          
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>CA</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Celeste Amadon</div>
+              <div class="q-perspective-co">Known · EP 25</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Celeste is &quot;on a leave of absence from Stanford.&quot;  She and Asher left &quot;before we raised a dime or had even really a single user&quot; because they knew &quot;the time to build it was now, not in three months or six months.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/25-celeste-amadon/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Celeste Amadon's full take</summary>
+            <p>Celeste describes herself and Asher as "both pretty risk positive people." They "took time off" — or "dropped out when you call it" — and "canceled our jobs that we had lined up" and "really burned the ships in some ways." But she insists "it was never that dramatic." Her reframe: "building a company when you still have the option to go back to school if it doesn't work is probably less risky."</p>
+          <p>She adds a belief about conviction: "your first believer should be you in your own idea and like your own ability to execute," because "if you don't believe, it's like hard to get someone else to believe in you."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>ST</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Stephen Turban</div>
+              <div class="q-perspective-co">Lumiere Education · EP 22</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Stephen&#39;s approach was to de-risk the leap first — build a working company so quitting gives you &quot;a choice set&quot; rather than a cliff.  In his case an external forcing function (Harvard&#39;s ultimatum) made the decision easy, and he reminded himself the move was reversible: &quot;I can always go back.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/22-stephen-turban/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Stephen Turban's full take</summary>
+            <p>Stephen thinks it's hard for people to take risks, so the question he asks is "how do I de risk the other option." He built Lumiere on the side specifically so that, if it worked, he'd have a choice set when he wanted to leave the PhD. The actual trigger to commit full-time was external — his department forced the choice — but he frames the underlying decision as low-stakes because it was reversible: he paused the PhD rather than burning it, telling himself "I can always go back."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>EY</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Ethan Yong</div>
+              <div class="q-perspective-co">Umami Papi · EP 20</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Ethan waited for a &quot;perfect moment&quot; to quit his corporate job that never came.  Instead, after receiving three &quot;needs improvements&quot; performance reviews in a row, he was pulled into a meeting room with his performance manager and a partner and chose to go all in on Umami Papi — even though it wasn&#39;t making a lot of money and there&#39;d be days with no sales.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/20-ethan-yong/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Ethan Yong's full take</summary>
+            <p>Ethan had imagined quitting at 10pm in busy season, fed up with 10-hour days, while Umami Papi sales were booming — "the perfect pivot." The reality was different. His head wasn't at the corporate job because he'd capitalise on meeting new faces in the office to pitch his chili oil, so they knew what he was doing. He warns that everyone doing a full-time job and a side hustle looks for that perfect moment, but the reality is it's very hard to do both well — "you can't give 100% to everything you do."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>AE</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Alessia and Elia</div>
+              <div class="q-perspective-co">VibeFlow (YC S25) · EP 18</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Alessia was working full time and enjoyed her side projects, but &quot;none of them was willing to go full time with a startup&quot; and &quot;it&#39;s really difficult to do a startup part time.  I don&#39;t think it&#39;s possible.&quot;…</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/18-alessia-and-elia/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Alessia and Elia's full take</summary>
+            <p>Alessia describes the forcing function. She "was working full time for a company and I always enjoyed doing my side projects," and tried "to work with several people but none of them was willing to go full time with a startup." Her conclusion: "it's really difficult to do a startup part time. I don't think it's possible." So "at some point I just like I just invested in myself and I took a leap of faith and I quit the job." She then went into the YC co-founder matching process to find someone equally committed.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JM</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Jason Ma</div>
+              <div class="q-perspective-co">Dyna Robotics · EP 14</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Jason had offers to return to Google DeepMind, Nvidia and Meta but turned them down because the best way to make an impact in robotics is at a startup.  To the big labs robotics is a research problem, not something they want to solve right away — and getting robots to work requires actually deploying them in real scenarios, which he felt isn&#39;t possible at a big corporate lab.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/14-jason-ma/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Jason Ma's full take</summary>
+            <p>Jason could have gone back to Deep Mind, Nvidia or Meta — the host hints at an eye-popping number they offered — but he chose the founder path. His reasoning: "the best way to make an impact in robotics is at a startup." Robotics is an extremely complex problem, not just a software problem, so he wanted the freedom and the velocity to do all the things required to get robots to work. He firmly believes that getting robots to work requires deploying them in realistic, real scenarios, "and I think that's just not possible to do at a big corporate lab" where robotics is a research problem to them, not something they want to solve right away. The big companies' core businesses and core AI aren't in robotics — they're developing big language models to power their platforms and competing with the OpenAI and Anthropic of the world. He felt it's possible to get robots to work in the real world with the right team and mindset, and there's enough funding willing to back this kind of startup now.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>SR</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Sam Richardson</div>
+              <div class="q-perspective-co">Butter · EP 13</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Sam didn&#39;t quit all at once.  Butter started as a passion project he worked on a couple of hours a week while working full-time in corporate; then he quit his job to start freelancing so he could give himself two to three days a week on Butter, and went full-time at the start of this year.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/13-sam-richardson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Sam Richardson's full take</summary>
+            <p>He'd been thinking about Butter for a long time before that, and there was a really long lead-up before he committed to it as an actual business. By the time of the conversation, Butter had been live a bit over a year and he'd been working on it as a real business for about that long.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>PH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Phung, Daniel and Hanson</div>
+              <div class="q-perspective-co">SipHRD · EP 12</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">The SipHRD founders never quit — they built it over two years while &quot;juggling full-time jobs.&quot;  After the party, Daniel messaged Phung &quot;with like details on how to start&quot; a few days later, which is when she knew &quot;it&#39;s fully serious.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/12-phung-daniel-and-hanson/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Phung, Daniel and Hanson's full take</summary>
+            <p>The team built SipHRD around their day jobs. The host frames it as "two years building it from scratch, juggling full-time jobs." The commitment moment was Daniel following up: after the party, Phung "didn't know if he was serious or not," gave him "2 3 days," and "he just messaged me with like details on how to start. I'm like, Okay, it's fully serious."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>BP</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Brian Pham</div>
+              <div class="q-perspective-co">Litecard · EP 8</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">For Brian it came after a gut feeling, not a plan.  After &quot;a number of corporate jobs as well as consulting jobs,&quot; he had ideas &quot;all the time,&quot; but about three years ago &quot;I had that gut feeling.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/8-brian-pham/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Brian Pham's full take</summary>
+            <p>Brian says that as an entrepreneur "you probably have a lot of different ideas all the time," and the difference with Litecard came "after getting enough data points." Around three years ago "I had that gut feeling. I was like, this is going to be something I want to dedicate, like a big portion of my life to and potentially my life's work." He decided to start his own venture after working in corporate and consulting jobs, born and raised in Australia.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>RH</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Robert Huynh</div>
+              <div class="q-perspective-co">Nook / Reforge · EP 7</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Robert&#39;s view is that not everyone should — &quot;not everyone wants to be a founder and that&#39;s totally okay.&quot;  You&#39;re a founder because you love learning and want to make a difference; if you&#39;d rather not think about work on the weekend, going back to a job is a legitimate, personal choice.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/7-robert-huynh/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Robert Huynh's full take</summary>
+            <p>Robert started Nook over a summer instead of taking an internship, getting funding from the Rock Summer fellows program. But his honest take on the trade-off is that being a founder means "you're constantly thinking about all this different things," versus an "easy path" he describes as "I miss my old corporate job. I miss being able to just think from 8 to 6 and not stressed out about everything that's going on." His conclusion: "it's really a personal choice."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>KE</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Kiki and Elan</div>
+              <div class="q-perspective-co">Sourmilk · EP 4</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Kiki and Elan had both been in their jobs for four years and were &quot;really thinking about what was next.&quot;  They&#39;d &quot;learned a ton&quot; and felt &quot;it was time to actually implement those learnings in a way that we felt would be impactful.&quot;…</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/4-kiki-and-elan/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Kiki and Elan's full take</summary>
+            <p>The founders describe a deliberate transition. They graduated from Stanford in 2020 as "Covid graduates," had been working at the same places for four years, and decided it was time to implement what they'd learned. The clear move was to "scale this thing that [Elan] has already... built and made and healed herself with" and bring it to a broader population. Before going full time, "we were working on [Sourmilk] nights and weekends, for a couple months" — "the mornings before our full time jobs, in the evenings after our full time jobs" — and "the day we went full time, it was back in January."</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -382,7 +618,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

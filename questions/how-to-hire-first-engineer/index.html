@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,47 @@
       <blockquote class="q-lead-answer">When you start missing your first customers&#39; demands. John pushes back on hiring fast just because you have funding — &quot;you should hire when you&#39;re starting to miss your first customer demands.&quot; The trigger for them was actually missing something during &quot;a very crucial moment of the contract.&quot;</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/11-vivek-and-john/">Vivek and John, Affil.ai (YC S24) (Ep 11)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">2 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>VJ</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Vivek and John</div>
+              <div class="q-perspective-co">Affil.ai (YC S24) · EP 11</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">When you start missing your first customers&#39; demands.  John pushes back on hiring fast just because you have funding — &quot;you should hire when you&#39;re starting to miss your first customer demands.&quot;…</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/11-vivek-and-john/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Vivek and John's full take</summary>
+            <p>John rejects the "we have VC funding, we should go ahead and hire as quickly as possible" instinct — "I don't think that's the case." The YC coaching he cites: "you should hire when you're starting to miss your first customer demands." With first and second customers that "were pretty big enterprises" and just the two of them, "we were starting to struggle." The first red flag was when they "actually truly missed something" at "a very crucial moment of the contract," while the customer was "still evaluating us versus one of the like long term providers." On engineering, Vivek says "the No. 1 thing is just being able to figure things out," plus the ability to "experiment, iterate fast" and "take ownership," without needing to be constantly handheld.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>HB</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Hung Bui</div>
+              <div class="q-perspective-co">AIducation · EP 10</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Hung interviews for fit over skill.  After screenings, when he interviews someone he focuses &quot;mostly not on their tech capabilities or their abilities to do the work anymore&quot; but on &quot;whether or not this person can vibe with the team.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/10-hung-bui/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Hung Bui's full take</summary>
+            <p>Hung says startup culture is actually really important because you'll be working with someone at least eight hours a day, "and then maybe some way more" — so you should at least be able to have fun and have a good laugh with them. He credits this approach for a team that is now a little bit more than 20 people who are all great friends with each other. The company even keeps Saturdays off the usual work clock: in Vietnam people normally work Monday to Saturday, but his team doesn't work the Saturday shifts and instead comes in to make TikTok content and have fun.</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -240,7 +325,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

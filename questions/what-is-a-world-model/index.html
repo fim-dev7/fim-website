@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>What does Finnlay mean by &quot;agency is so powerful, what&#39;s gonna happen?&quot; | Founders In Motion</title>
-<meta name="description" content="It&#39;s the open question the conversation circles back to: &quot;agency is so powerful, what&#39;s gonna happen?&quot; — set against a platform that maps how work actually happens in Fortune 500 organizations." />
-<link rel="canonical" href="https://foundersinmotion.com/questions/agency-is-so-powerful/" />
-<meta property="og:url" content="https://foundersinmotion.com/questions/agency-is-so-powerful/" />
+<title>What is a &quot;world model&quot; and why is Fluency building one? | Founders In Motion</title>
+<meta name="description" content="Where an LLM &quot;predicts the next sentence, word, what&#39;s called a token,&quot; a world model &quot;uses the same architecture to predict the next most likely event.&quot; For Fluency it represents &quot;how work gets done in a business&quot; — graph-based — so you &quot;put work ma" />
+<link rel="canonical" href="https://foundersinmotion.com/questions/what-is-a-world-model/" />
+<meta property="og:url" content="https://foundersinmotion.com/questions/what-is-a-world-model/" />
 <meta property="og:site_name" content="Founders In Motion" />
 <meta property="og:image" content="https://foundersinmotion.com/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<meta property="og:title" content="What does Finnlay mean by &quot;agency is so powerful, what&#39;s gonna happen?&quot;" />
-<meta property="og:description" content="It&#39;s the open question the conversation circles back to: &quot;agency is so powerful, what&#39;s gonna happen?&quot; — set against a platform that maps how work actually happens in Fortune 500 organizations." />
+<meta property="og:title" content="What is a &quot;world model&quot; and why is Fluency building one?" />
+<meta property="og:description" content="Where an LLM &quot;predicts the next sentence, word, what&#39;s called a token,&quot; a world model &quot;uses the same architecture to predict the next most likely event.&quot; For Fluency it represents &quot;how work gets done in a business&quot; — graph-based — so you &quot;put work ma" />
 <meta property="og:type" content="article" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,8 +41,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What does Finnlay mean by \"agency is so powerful, what's gonna happen?\"",
-      "item": "https://foundersinmotion.com/questions/agency-is-so-powerful/"
+      "name": "What is a \"world model\" and why is Fluency building one?",
+      "item": "https://foundersinmotion.com/questions/what-is-a-world-model/"
     }
   ]
 }
@@ -50,7 +50,7 @@
 
 <!-- JSON-LD: QAPage (Google's canonical Q&A markup) -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"QAPage","url":"https://foundersinmotion.com/questions/agency-is-so-powerful/","mainEntity":{"@type":"Question","name":"What does Finnlay mean by \"agency is so powerful, what's gonna happen?\"","url":"https://foundersinmotion.com/questions/agency-is-so-powerful/","author":{"@type":"Organization","name":"Founders In Motion"},"acceptedAnswer":{"@type":"Answer","text":"It's the open question the conversation circles back to: \"agency is so powerful, what's gonna happen?\" — set against a platform that maps how work actually happens in Fortune 500 organizations.","url":"https://foundersinmotion.com/episodes/23-finnlay-morcombe/","author":{"@type":"Person","name":"Finnlay Morcombe","affiliation":{"@type":"Organization","name":"Fluency"}}},"suggestedAnswer":[]}}
+{"@context":"https://schema.org","@type":"QAPage","url":"https://foundersinmotion.com/questions/what-is-a-world-model/","mainEntity":{"@type":"Question","name":"What is a \"world model\" and why is Fluency building one?","url":"https://foundersinmotion.com/questions/what-is-a-world-model/","author":{"@type":"Organization","name":"Founders In Motion"},"acceptedAnswer":{"@type":"Answer","text":"Where an LLM \"predicts the next sentence, word, what's called a token,\" a world model \"uses the same architecture to predict the next most likely event.\" For Fluency it represents \"how work gets done in a business\" — graph-based — so you \"put work map in and it'll predict what's going to happen next. Work map out.\"","url":"https://foundersinmotion.com/episodes/23-finnlay-morcombe/","author":{"@type":"Person","name":"Finnlay Morcombe","affiliation":{"@type":"Organization","name":"Fluency"}}},"suggestedAnswer":[]}}
 </script>
 
 <!-- JSON-LD: SpeakableSpecification -->
@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -175,10 +219,12 @@
 
     <header class="q-head">
       <div class="kicker">A founder answers</div>
-      <h1 class="q-question">What does Finnlay mean by &quot;agency is so powerful, what&#39;s gonna happen?&quot;</h1>
-      <blockquote class="q-lead-answer">It&#39;s the open question the conversation circles back to: &quot;agency is so powerful, what&#39;s gonna happen?&quot; — set against a platform that maps how work actually happens in Fortune 500 organizations.</blockquote>
+      <h1 class="q-question">What is a &quot;world model&quot; and why is Fluency building one?</h1>
+      <blockquote class="q-lead-answer">Where an LLM &quot;predicts the next sentence, word, what&#39;s called a token,&quot; a world model &quot;uses the same architecture to predict the next most likely event.&quot; For Fluency it represents &quot;how work gets done in a business&quot; — graph-based — so you &quot;put work map in and it&#39;ll predict what&#39;s going to happen next. Work map out.&quot;</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/23-finnlay-morcombe/">Finnlay Morcombe, Fluency (Ep 23)</a></div>
     </header>
+
+    
 
     <section class="q-contributors">
       <h2>The full answer</h2>
@@ -191,10 +237,11 @@
           </div>
           <a href="https://foundersinmotion.com/episodes/23-finnlay-morcombe/" class="q-contributor-listen" aria-label="Listen to episode">Show notes ↗</a>
         </header>
-        <p class="q-contributor-answer">It&#39;s the open question the conversation circles back to: &quot;agency is so powerful, what&#39;s gonna happen?&quot; — set against a platform that maps how work actually happens in Fortune 500 organizations.</p>
+        <p class="q-contributor-answer">Where an LLM &quot;predicts the next sentence, word, what&#39;s called a token,&quot; a world model &quot;uses the same architecture to predict the next most likely event.&quot; For Fluency it represents &quot;how work gets done in a business&quot; — graph-based — so you &quot;put work map in and it&#39;ll predict what&#39;s going to happen next. Work map out.&quot;</p>
         <details class="q-contributor-long">
           <summary>More from this episode</summary>
-          <p>The teaser leaves it as a live question rather than a tidy answer: agency is so powerful — what's gonna happen?</p>
+          <p>Finnlay distinguishes it from large language models: a world model "uses the same architecture to predict the next most likely event," and "it's not representing text. It'll represent something like a video game or represent a manufacturing floor." For Fluency, "it represents how work gets done in a business. So, it's graph based."</p>
+          <p>The payoff he describes: "effective super agents on top of your process" that can run workflows "fully autonomously," and the ability to "put in like what a future state looks like" and predict "how is it going to affect the team? How's it going to affect your revenue?" He believes the best way to do this is "a sovereign world model per customer," and notes one investor "heads up AI at Princeton" and is "super focused on building out world models." Timeline: "1.5 8 to 12 weeks," act two "9 months."</p>
         </details>
       </article>
     </section>
@@ -205,9 +252,9 @@
           <li><a href="../how-to-pivot-without-losing-team/">How do I pivot without losing my team or investors?</a></li>
           <li><a href="../what-is-fluency/">What is Fluency?</a></li>
           <li><a href="../who-is-finnlay-morcombe/">Who is Finnlay Morcombe?</a></li>
-          <li><a href="../how-fluency-raised-seed/">How did Fluency raise a $6 million seed round?</a></li>
-          <li><a href="../die-trying-over-safe-exit/">Why would Finnlay rather his company &quot;die trying&quot;?</a></li>
-          <li><a href="../self-taught-devs-melbourne/">How did self taught devs from Melbourne build Fluency?</a></li>
+          <li><a href="../how-fluency-raised-seed/">How did Fluency raise its seed round from Accel?</a></li>
+          <li><a href="../how-to-raise-as-apac-founder/">How do Australian founders raise capital from US investors?</a></li>
+          <li><a href="../do-us-investors-discount-australian-revenue/">Do US investors discount Australian revenue?</a></li>
       </ul>
     </section>
 
@@ -224,7 +271,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

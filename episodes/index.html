@@ -21,7 +21,178 @@
 <link rel="stylesheet" href="../styles.css" />
 <link rel="stylesheet" href="../episodes-archive.css" />
 
-<!-- Generated: 2026-05-31T06:31:28.674Z -->
+<style>
+  /* ── Episodes archive: visual card grid (scoped, tokens from styles.css) ── */
+  .ep-feature {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    margin-bottom: 88px;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .ep-feature:hover {
+    border-color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px -22px rgba(0,0,0,0.7);
+  }
+  .ep-feature-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .ep-feature-media img,
+  .ep-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+  }
+  .ep-feature:hover .ep-feature-media img,
+  .ep-card:hover .ep-card-media img { transform: scale(1.04); }
+  .ep-feature-body {
+    padding: clamp(28px, 3vw, 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ep-kicker {
+    font-family: var(--body);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .ep-feature-body h2 {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin: 0 0 16px;
+    color: var(--off-white);
+    text-wrap: balance;
+  }
+  .ep-feature-desc {
+    font-size: 15px; line-height: 1.6;
+    color: var(--off-white);
+    margin: 0 0 22px;
+    max-width: 48ch;
+  }
+  .ep-feature-cta {
+    margin-top: 8px;
+    font-family: var(--body);
+    font-size: 14px; font-weight: 600;
+    color: var(--cream);
+  }
+  .ep-feature:hover .ep-feature-cta span { transform: translateX(3px); }
+  .ep-feature-cta span { display: inline-block; transition: transform .18s ease; }
+  .ep-feature-flag {
+    position: absolute;
+    top: 14px; right: 14px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--forest);
+    font-family: var(--sans);
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── Card grid ── */
+  .ep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .ep-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .ep-card:hover {
+    border-color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -24px rgba(0,0,0,0.7);
+  }
+  .ep-card-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .ep-badge {
+    position: absolute;
+    bottom: 12px; left: 12px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(12,12,12,0.78);
+    backdrop-filter: blur(4px);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+  .ep-badge-lg {
+    top: 14px; left: 14px; bottom: auto;
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .ep-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .ep-card-guest {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 3px;
+    color: var(--off-white);
+  }
+  .ep-card:hover .ep-card-guest { color: var(--cream); }
+  .ep-card-company {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .ep-card-hook {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (max-width: 800px) {
+    .ep-feature { grid-template-columns: 1fr; }
+    .ep-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  }
+  @media (max-width: 520px) {
+    .ep-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- Generated: 2026-05-31T08:49:02.147Z -->
 
 </head>
 <body>
@@ -52,310 +223,352 @@
       <p>Unscripted conversations with early-stage founders across Australia, Southeast Asia, and the US. Each episode is one founder, still in the thick of it, answering the questions an early-stage investor would actually ask.</p>
     </header>
 
-    <div class="section-label">Featured episodes — full show notes</div>
+    <div class="section-label">Latest episode</div>
 
-    <div class="featured-grid">
-
-      <a href="28-will-bodewes/" class="featured-card">
-        <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 28 · Founders</div>
-        <h3>The D1 Athlete Who Built a $100M Voice AI Company | Will Bodewes, Phonely (YC S24)</h3>
-        <p class="fc-desc">Will was an ultra endurance cyclist and a college skier whose final race got cancelled. He carried that chip into Phonely — voice AI that answers your phone — going from 30% of calls failing to a customer paying $78,000 a month.</p>
-        <div class="fc-guest">
-          <div class="fc-avatar">WB</div>
-          <div class="fc-guest-meta">
+      <a href="28-will-bodewes/" class="ep-feature">
+        <div class="ep-feature-media">
+          <img src="https://i.ytimg.com/vi/abdLPFWllL4/hqdefault.jpg" alt="Will Bodewes — Founders In Motion episode 28" loading="lazy" decoding="async" />
+          <span class="ep-badge ep-badge-lg">EP 28</span>
+          <span class="ep-feature-flag">Latest</span>
+        </div>
+        <div class="ep-feature-body">
+          <div class="ep-kicker">Founders</div>
+          <h2>The D1 Athlete Who Built a $100M Voice AI Company | Will Bodewes, Phonely (YC S24)</h2>
+          <p class="ep-feature-desc">Will was an ultra endurance cyclist and a college skier whose final race got cancelled. He carried that chip into Phonely — voice AI that answers your phone — going from 30% of calls failing to a customer paying $78,000 a month.</p>
+          <div class="ep-guest">
             <b>Will Bodewes</b>
-            <i>Co-founder and CEO, Phonely</i>
+            <i>Phonely (YC S24)</i>
           </div>
+          <span class="ep-feature-cta">Show notes <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
-      <a href="27-shakeel-lala/" class="featured-card">
-        <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 27 · Founders</div>
-        <h3>$40M FinTech Founder on Raising Millions Before He Had a Business Idea | Shakeel Lala, Marloo</h3>
-        <p class="fc-desc">Shakeel quit his job, convinced one of Australia&#39;s largest VCs to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia&#39;s biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.</p>
-        <div class="fc-guest">
-          <div class="fc-avatar">SL</div>
-          <div class="fc-guest-meta">
-            <b>Shakeel Lala</b>
-            <i>Co-founder, Marloo</i>
-          </div>
+    <div class="section-label">All episodes</div>
+
+    <div class="ep-grid">
+
+      <a href="27-shakeel-lala/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/3vHPK48Ytmg/hqdefault.jpg" alt="Shakeel Lala — Founders In Motion episode 27" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 27</span>
+        </div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Shakeel Lala</h3>
+          <div class="ep-card-company">Marloo</div>
+          <p class="ep-card-hook">Shakeel quit his job, convinced one of Australia&#39;s largest VCs to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia&#39;s biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.</p>
         </div>
       </a>
 
-      <a href="26-nathan-yun/" class="featured-card">
-        <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 26 · Founders</div>
-        <h3>He Turned Falling Socks into an Eight Figure Global Brand | Nathan Yun, Paire</h3>
-        <p class="fc-desc">Nathan Yun started a fashion brand with &quot;the least sexy product, socks&quot; after his ankle socks kept slipping on Covid walks. Five years later Paire hits an eight figure run rate, went viral on Shark Tank, and proved that boring products can build iconic brands.</p>
-        <div class="fc-guest">
-          <div class="fc-avatar">NY</div>
-          <div class="fc-guest-meta">
-            <b>Nathan Yun</b>
-            <i>Co-founder, Paire</i>
-          </div>
+      <a href="26-nathan-yun/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/8maCjm036jE/hqdefault.jpg" alt="Nathan Yun — Founders In Motion episode 26" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 26</span>
+        </div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Nathan Yun</h3>
+          <div class="ep-card-company">Paire</div>
+          <p class="ep-card-hook">Nathan Yun started a fashion brand with &quot;the least sexy product, socks&quot; after his ankle socks kept slipping on Covid walks. Five years later Paire hits an eight figure run rate, went viral on Shark Tank, and proved that boring products can build iconic brands.</p>
         </div>
       </a>
 
-      <a href="25-celeste-amadon/" class="featured-card">
-        <span class="fc-arrow">↗</span>
-        <div class="num-tag">Episode 25 · Founders</div>
-        <h3>This Stanford Dropout Wants to Help You Fall in Love | Celeste Amadon, Known</h3>
-        <p class="fc-desc">Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta and hundreds of couples are now in relationships. Her thesis: today&#39;s apps are perversely incentivised to keep you single and paying.</p>
-        <div class="fc-guest">
-          <div class="fc-avatar">CA</div>
-          <div class="fc-guest-meta">
-            <b>Celeste Amadon</b>
-            <i>Co-founder &amp; CEO, Known</i>
-          </div>
+      <a href="25-celeste-amadon/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/DcXscRZa0P8/hqdefault.jpg" alt="Celeste Amadon — Founders In Motion episode 25" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 25</span>
+        </div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Celeste Amadon</h3>
+          <div class="ep-card-company">Known</div>
+          <p class="ep-card-hook">Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta and hundreds of couples are now in relationships. Her thesis: today&#39;s apps are perversely incentivised to keep you single and paying.</p>
         </div>
       </a>
 
-    </div>
-
-    <div class="section-label">The full archive</div>
-
-    <div class="ep-list">
-
-      <a href="24-nam-nguyen/" class="ep-row">
-        <div class="ep-row-num">24</div>
-        <div class="ep-row-content">
-          <h4>How He Turned 3 YC Rejections into a $25M AI Governance Company | Nam Nguyen, TruthSystems (YC S25)</h4>
-          <p>Nam&#39;s co-founder was 19 years old. Law firms told them &quot;come back in 5 years.&quot; They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. TruthSystems is now the AI governance layer sitting inside law firms in real time.</p>
+      <a href="24-nam-nguyen/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/2tUpkD2bx5I/hqdefault.jpg" alt="Nam Nguyen — Founders In Motion episode 24" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 24</span>
         </div>
-        <div class="ep-row-guest"><b>Nam Nguyen</b><i>TruthSystems (YC S25)</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Nam Nguyen</h3>
+          <div class="ep-card-company">TruthSystems (YC S25)</div>
+          <p class="ep-card-hook">Nam&#39;s co-founder was 19 years old. Law firms told them &quot;come back in 5 years.&quot; They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. TruthSystems is now the AI governance layer sitting inside law firms in real time.</p>
+        </div>
       </a>
 
-      <a href="23-finnlay-morcombe/" class="ep-row">
-        <div class="ep-row-num">23</div>
-        <div class="ep-row-content">
-          <h4>The 25-Year-Old Who Raised $6M From Early Facebook Investors | Finnlay Morcombe, Fluency</h4>
-          <p>Most 25 year olds are figuring out their first job — Finnlay Morcombe built Fluency, convinced the investors behind Facebook to lead a $6 million seed round before he&#39;d even unpacked in San Francisco, and hard pivoted within one week of going to market.</p>
+      <a href="23-finnlay-morcombe/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/-SDHfaRPU2I/hqdefault.jpg" alt="Finnlay Morcombe — Founders In Motion episode 23" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 23</span>
         </div>
-        <div class="ep-row-guest"><b>Finnlay Morcombe</b><i>Fluency</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Finnlay Morcombe</h3>
+          <div class="ep-card-company">Fluency</div>
+          <p class="ep-card-hook">At 25, Finnlay Morcombe built Fluency — a platform that maps how work actually happens in Fortune 500 organizations — raised 6 million from Accel within weeks of landing in the US, and hard pivoted into the product within one week of going to market.</p>
+        </div>
       </a>
 
-      <a href="22-stephen-turban/" class="ep-row">
-        <div class="ep-row-num">22</div>
-        <div class="ep-row-content">
-          <h4>What Harvard Didn&#39;t Know: I Was Already Building an 8-Figure Startup | Stephen Turban, Lumiere Education</h4>
-          <p>Stephen Turban started Lumiere because he wanted to quit his Harvard PhD but didn&#39;t know how — then his department screen-shared his face and gave him an ultimatum: the PhD or the company, not both.</p>
+      <a href="22-stephen-turban/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/9adrQMQXZEk/hqdefault.jpg" alt="Stephen Turban — Founders In Motion episode 22" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 22</span>
         </div>
-        <div class="ep-row-guest"><b>Stephen Turban</b><i>Lumiere Education</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Stephen Turban</h3>
+          <div class="ep-card-company">Lumiere Education</div>
+          <p class="ep-card-hook">Stephen Turban started Lumiere because he wanted to quit his Harvard PhD but didn&#39;t know how — then his department screen-shared his face and gave him an ultimatum: the PhD or the company, not both.</p>
+        </div>
       </a>
 
-      <a href="21-jevon-le-roux/" class="ep-row">
-        <div class="ep-row-num">21</div>
-        <div class="ep-row-content">
-          <h4>He Ran One of Australia&#39;s Biggest Athleisure Brands - Then Built Software to Fix Its Biggest Flaw | Jevon Le Roux, Keeyu</h4>
-          <p>Jevon Le Roux ran retail brands like Surf Stitch and PE Nation before co-founding Keeyu — and he knew the product mattered when a customer, asked what she&#39;d do without it, said &quot;I just wouldn&#39;t come to work tomorrow.&quot;</p>
+      <a href="21-jevon-le-roux/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/g1dUQiHShR0/hqdefault.jpg" alt="Jevon Le Roux — Founders In Motion episode 21" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 21</span>
         </div>
-        <div class="ep-row-guest"><b>Jevon Le Roux</b><i>Keeyu</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Jevon Le Roux</h3>
+          <div class="ep-card-company">Keeyu</div>
+          <p class="ep-card-hook">Jevon Le Roux ran retail brands like Surf Stitch and PE Nation before co-founding Keeyu — and he knew the product mattered when a customer, asked what she&#39;d do without it, said &quot;I just wouldn&#39;t come to work tomorrow.&quot;</p>
+        </div>
       </a>
 
-      <a href="20-ethan-yong/" class="ep-row">
-        <div class="ep-row-num">20</div>
-        <div class="ep-row-content">
-          <h4>Building a Cult Food Brand: The Umami Papi Story | Ethan Yong, Umami Papi</h4>
-          <p>Ethan Yong built Umami Papi from a tiny apartment and a Microsoft Paint logo into Australia&#39;s cult chili oil brand — and got into 150 Coles stores after a chance checkout conversation while buying salmon.</p>
+      <a href="20-ethan-yong/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/wXFFTEqedeo/hqdefault.jpg" alt="Ethan Yong — Founders In Motion episode 20" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 20</span>
         </div>
-        <div class="ep-row-guest"><b>Ethan Yong</b><i>Umami Papi</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Ethan Yong</h3>
+          <div class="ep-card-company">Umami Papi</div>
+          <p class="ep-card-hook">Ethan Yong built Umami Papi from a tiny apartment and a Microsoft Paint logo into Australia&#39;s cult chili oil brand — and got into 150 Coles stores after a chance checkout conversation while buying salmon.</p>
+        </div>
       </a>
 
-      <a href="19-andy-miller/" class="ep-row">
-        <div class="ep-row-num">19</div>
-        <div class="ep-row-content">
-          <h4>Building a $50M+ Zero Alcohol Global Craft Beer Brand | Andy Miller, Heaps Normal</h4>
-          <p>Summer beer, winter launch, unknown brand, mid-pandemic, and non-alcoholic. Kitchen-kettle XPA brewed in longneck bottles. Robbie Williams on the cap table. $50M+ B Corp. Andy Miller on building Heaps Normal into Australia&#39;s biggest non-alc beer brand.</p>
+      <a href="19-andy-miller/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/i38e7Assln4/hqdefault.jpg" alt="Andy Miller — Founders In Motion episode 19" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 19</span>
         </div>
-        <div class="ep-row-guest"><b>Andy Miller</b><i>Heaps Normal</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Andy Miller</h3>
+          <div class="ep-card-company">Heaps Normal</div>
+          <p class="ep-card-hook">Summer beer, winter launch, unknown brand, mid-pandemic, and non-alcoholic. Kitchen-kettle XPA brewed in longneck bottles. Robbie Williams on the cap table. $50M+ B Corp. Andy Miller on building Heaps Normal into Australia&#39;s biggest non-alc beer brand.</p>
+        </div>
       </a>
 
-      <a href="18-alessia-and-elia/" class="ep-row">
-        <div class="ep-row-num">18</div>
-        <div class="ep-row-content">
-          <h4>Why This YC Startup Is Betting That AI Will Get Things Wrong | Alessia &amp; Elia, Vibeflow (YC S25)</h4>
-          <p>Alessia and Elia met in co-founder dating hell — both trying YC co-founder matching from Paris and Sri Lanka, complaining to each other every day about not finding the right match — until they asked why they weren&#39;t just brainstorming together. That became VibeFlow, a YC-backed startup helping non-technical founders build production-ready apps in no code.</p>
+      <a href="18-alessia-and-elia/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/nDLxP_3iiJw/hqdefault.jpg" alt="Alessia and Elia — Founders In Motion episode 18" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 18</span>
         </div>
-        <div class="ep-row-guest"><b>Alessia and Elia</b><i>VibeFlow (YC S25)</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Alessia and Elia</h3>
+          <div class="ep-card-company">VibeFlow (YC S25)</div>
+          <p class="ep-card-hook">Alessia and Elia met in co-founder dating hell — Elia doing EF in Paris, Alessia trying the YC co-founder matching platform, connecting from apart (Paris and Sri Lanka) and complaining to each other every day about not finding the right match — until they asked why they weren&#39;t just brainstorming together. That became VibeFlow, a YC-backed startup helping non-technical founders build production-ready apps in no code.</p>
+        </div>
       </a>
 
-      <a href="17-joe-zhou/" class="ep-row">
-        <div class="ep-row-num">17</div>
-        <div class="ep-row-content">
-          <h4>Australia&#39;s $70M &#39;Theranos&#39;: The Founder Who Bought It | Joe Zhou, StrongRoom AI</h4>
-          <p>Joe raised money to buy a startup out of administration — &quot;the Theranos of Australia&quot; — then inherited what he calls 1,000 problems overnight. This is what it&#39;s like to rebuild a company that already crashed.</p>
+      <a href="17-joe-zhou/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/quXgFmxwOCw/hqdefault.jpg" alt="Joe Zhou — Founders In Motion episode 17" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 17</span>
         </div>
-        <div class="ep-row-guest"><b>Joe Zhou</b><i>StrongRoom AI</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Joe Zhou</h3>
+          <div class="ep-card-company">StrongRoom AI</div>
+          <p class="ep-card-hook">Joe raised money to buy a startup out of administration — &quot;the Theranos of Australia&quot; — then inherited what he calls 1,000 problems overnight. This is what it&#39;s like to rebuild a company that already crashed.</p>
+        </div>
       </a>
 
-      <a href="16-satya-tumati/" class="ep-row">
-        <div class="ep-row-num">16</div>
-        <div class="ep-row-content">
-          <h4>Why This YC Startup Just Raised $4M to Catch Fraud Before It Happen | Satya Tumati, Socratix AI (YC S25)</h4>
-          <p>Satya Tumati used to connect his laptop to a self-driving car and push code that moved a two-ton robot in real time. Now he&#39;s raised over $4 million to build AI co-workers for fraud and risk teams — and his first customer came from a completely cold message.</p>
+      <a href="16-satya-tumati/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/3F97ExxvD1c/hqdefault.jpg" alt="Satya Tumati — Founders In Motion episode 16" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 16</span>
         </div>
-        <div class="ep-row-guest"><b>Satya Tumati</b><i>Socratix AI</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Satya Tumati</h3>
+          <div class="ep-card-company">Socratix AI</div>
+          <p class="ep-card-hook">Satya Tumati used to connect his laptop to a self-driving car and push code that moved a two-ton robot in real time. Now he&#39;s raised over $4 million to build AI co-workers for fraud and risk teams — and his first customer came from a completely cold message.</p>
+        </div>
       </a>
 
-      <a href="15-hamish-mckay/" class="ep-row">
-        <div class="ep-row-num">15</div>
-        <div class="ep-row-content">
-          <h4>He Built a Shopify App for MrBeast, Now It&#39;s Doing $2M ARR | Hamish McKay, Order Editing</h4>
-          <p>Hamish McKay co-founded Order Editing, a Shopify app that gives online shoppers a &quot;Grace period&quot; to change their order after checkout — and hit a million in AR in the first year by building in public and refusing venture capital.</p>
+      <a href="15-hamish-mckay/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/HX5UsfAFUco/hqdefault.jpg" alt="Hamish McKay — Founders In Motion episode 15" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 15</span>
         </div>
-        <div class="ep-row-guest"><b>Hamish McKay</b><i>Order Editing</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Hamish McKay</h3>
+          <div class="ep-card-company">Order Editing</div>
+          <p class="ep-card-hook">Hamish McKay co-founded Order Editing, a Shopify app that gives online shoppers a &quot;Grace period&quot; to change their order after checkout — and hit a million in AR in the first year by building in public and refusing venture capital.</p>
+        </div>
       </a>
 
-      <a href="14-jason-ma/" class="ep-row">
-        <div class="ep-row-num">14</div>
-        <div class="ep-row-content">
-          <h4>He&#39;s Building $600M Robots That Folds your Laundry | Jason Ma, Dyna Robotics</h4>
-          <p>Jason Ma turned down offers to return to Google DeepMind, Nvidia and Meta to start Dyna Robotics — and just raised $120 million to build robots that fold napkins non-stop for 24 hours instead of chasing the humanoid dream.</p>
+      <a href="14-jason-ma/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/aY5694DIQnA/hqdefault.jpg" alt="Jason Ma — Founders In Motion episode 14" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 14</span>
         </div>
-        <div class="ep-row-guest"><b>Jason Ma</b><i>Dyna Robotics</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Jason Ma</h3>
+          <div class="ep-card-company">Dyna Robotics</div>
+          <p class="ep-card-hook">Jason Ma turned down offers to return to Google DeepMind, Nvidia and Meta to start Dyna Robotics — and just raised $120 million to build robots that fold napkins non-stop for 24 hours instead of chasing the humanoid dream.</p>
+        </div>
       </a>
 
-      <a href="13-sam-richardson/" class="ep-row">
-        <div class="ep-row-num">13</div>
-        <div class="ep-row-content">
-          <h4>Why Butter Hit 10k Users in Months And What It Says About the Loneliness Epidemic | Sam Richardson, Butter</h4>
-          <p>Sam moved cities six times and kept rebuilding his social life from scratch, so he built Butter — the app to hang out with new friends, now at 10,000 users and gearing up to launch across Australia.</p>
+      <a href="13-sam-richardson/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/Vvt4Q9qROcU/hqdefault.jpg" alt="Sam Richardson — Founders In Motion episode 13" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 13</span>
         </div>
-        <div class="ep-row-guest"><b>Sam Richardson</b><i>Butter</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Sam Richardson</h3>
+          <div class="ep-card-company">Butter</div>
+          <p class="ep-card-hook">Sam moved cities six times and kept rebuilding his social life from scratch, so he built Butter — the app to hang out with new friends, now at 10,000 users and gearing up to launch across Australia.</p>
+        </div>
       </a>
 
-      <a href="12-phung-daniel-and-hanson/" class="ep-row">
-        <div class="ep-row-num">12</div>
-        <div class="ep-row-content">
-          <h4>They Sold Out their Alcohol Brand in 48 Hours Without Running a Single Ad | Phung, Daniel &amp; Hanson, SipHRD</h4>
-          <p>Phung, Daniel and Hanson spent two years building SipHRD — an Asian-flavoured alcohol brand — while juggling full-time jobs, four different launch dates, and 15 trial recipes. Their first product, a lychee vodka seltzer, sold out in 48 hours.</p>
+      <a href="12-phung-daniel-and-hanson/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/8xA6fqLSJ0Q/hqdefault.jpg" alt="Phung, Daniel and Hanson — Founders In Motion episode 12" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 12</span>
         </div>
-        <div class="ep-row-guest"><b>Phung, Daniel and Hanson</b><i>SipHRD</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Phung, Daniel and Hanson</h3>
+          <div class="ep-card-company">SipHRD</div>
+          <p class="ep-card-hook">Phung, Daniel and Hanson spent two years building SipHRD — an Asian-flavoured alcohol brand — while juggling full-time jobs, four different launch dates, and 15 trial recipes. Their first product, a lychee vodka seltzer, sold out in 48 hours.</p>
+        </div>
       </a>
 
-      <a href="11-vivek-and-john/" class="ep-row">
-        <div class="ep-row-num">11</div>
-        <div class="ep-row-content">
-          <h4>Inside Silicon Valley&#39;s $600B Startup School | Vivek &amp; John, Affil.ai (YC S24)</h4>
-          <p>Vivek and John got into YC with an idea the partners disliked, then landed their first paying customer with no real product — John manually skim-reading documents at &quot;absolute blitz breakneck speed&quot; while telling the customer the AI worked great. They sold before they built.</p>
+      <a href="11-vivek-and-john/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/wvoiTMeqHLg/hqdefault.jpg" alt="Vivek and John — Founders In Motion episode 11" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 11</span>
         </div>
-        <div class="ep-row-guest"><b>Vivek and John</b><i>Affil.ai (YC S24)</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Vivek and John</h3>
+          <div class="ep-card-company">Affil.ai (YC S24)</div>
+          <p class="ep-card-hook">Vivek and John got into YC with an idea the partners disliked, then landed their first paying customer with no real product — John manually skim-reading documents at &quot;absolute blitz breakneck speed&quot; while telling the customer the AI worked great. They sold before they built.</p>
+        </div>
       </a>
 
-      <a href="10-hung-bui/" class="ep-row">
-        <div class="ep-row-num">10</div>
-        <div class="ep-row-content">
-          <h4>What Stanford Didn&#39;t Teach Me: Rebuilding Vietnam&#39;s Hottest EdTech | Hung Bui, AIducation</h4>
-          <p>Hung Bui&#39;s AIducation hit 40,000 users and entered 23,000 schools — but only after his first product flopped in the field and he had five months to rebuild it from scratch.</p>
+      <a href="10-hung-bui/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/N990hEgOWOc/hqdefault.jpg" alt="Hung Bui — Founders In Motion episode 10" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 10</span>
         </div>
-        <div class="ep-row-guest"><b>Hung Bui</b><i>AIducation</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Hung Bui</h3>
+          <div class="ep-card-company">AIducation</div>
+          <p class="ep-card-hook">Hung Bui&#39;s AIducation hit 40,000 users and entered 23,000 schools — but only after his first product flopped in the field and he had five months to rebuild it from scratch.</p>
+        </div>
       </a>
 
-      <a href="9-floriye-elmazi/" class="ep-row">
-        <div class="ep-row-num">9</div>
-        <div class="ep-row-content">
-          <h4>I Sold My Car &amp; Built a Cult Haircare Startup Founder Story | Floriye Elmazi, Sisterwould</h4>
-          <p>Floriye sold her car to start a hair care brand she didn&#39;t set out to build — and ended up shipping Sisterwould to Lindsay Lohan, Dua Lipa and Nicole Kidman, with Braille on every bottle.</p>
+      <a href="9-floriye-elmazi/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/bmlEnXZghuc/hqdefault.jpg" alt="Floriye Elmazi — Founders In Motion episode 9" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 9</span>
         </div>
-        <div class="ep-row-guest"><b>Floriye Elmazi</b><i>Sisterwould</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Floriye Elmazi</h3>
+          <div class="ep-card-company">Sisterwould</div>
+          <p class="ep-card-hook">Floriye sold her car to start a hair care brand she didn&#39;t set out to build — and ended up shipping Sisterwould to Lindsay Lohan, Dua Lipa and Nicole Kidman, with Braille on every bottle.</p>
+        </div>
       </a>
 
-      <a href="8-brian-pham/" class="ep-row">
-        <div class="ep-row-num">8</div>
-        <div class="ep-row-content">
-          <h4>What Every Australian Loyalty Program Get Wrong, And How Litecard Fix It | Brian Pham, Litecard</h4>
-          <p>Brian Pham built Litecard, a &quot;wallet led marketing platform&quot; that turns Apple and Google Wallet into a media channel for brands and retailers — and expanded it from Australia across Asia and into Europe. This is how he picked markets, killed technical friction, and learned to study the data faster.</p>
+      <a href="8-brian-pham/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/42jYxgm8x-8/hqdefault.jpg" alt="Brian Pham — Founders In Motion episode 8" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 8</span>
         </div>
-        <div class="ep-row-guest"><b>Brian Pham</b><i>Litecard</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Brian Pham</h3>
+          <div class="ep-card-company">Litecard</div>
+          <p class="ep-card-hook">Brian Pham built Litecard, a &quot;wallet led marketing platform&quot; that turns Apple and Google Wallet into a media channel for brands and retailers — and expanded it from Australia across Asia and into Europe. This is how he picked markets, killed technical friction, and learned to study the data faster.</p>
+        </div>
       </a>
 
-      <a href="7-robert-huynh/" class="ep-row">
-        <div class="ep-row-num">7</div>
-        <div class="ep-row-content">
-          <h4>Why this YC-backed Startup Really Failed | Robert Huynh, Nook (YC W22)</h4>
-          <p>Robert Huynh got Nook, his blue collar job marketplace in Vietnam, to 50,000 users and a $20 million valuation — then had to walk away. This is the story of how it started and how it fell apart.</p>
+      <a href="7-robert-huynh/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/ugNaSFV1sQg/hqdefault.jpg" alt="Robert Huynh — Founders In Motion episode 7" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 7</span>
         </div>
-        <div class="ep-row-guest"><b>Robert Huynh</b><i>Nook / Reforge</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Robert Huynh</h3>
+          <div class="ep-card-company">Nook / Reforge</div>
+          <p class="ep-card-hook">Robert Huynh got Nook, his blue collar job marketplace in Vietnam, to 50,000 users and a $20 million valuation — then had to walk away. This is the story of how it started and how it fell apart.</p>
+        </div>
       </a>
 
-      <a href="6-ben-wood/" class="ep-row">
-        <div class="ep-row-num">6</div>
-        <div class="ep-row-content">
-          <h4>Why Outdoor Gear Is Almost Impossible to Recycle - And How One Founder Fixed It | Ben Wood, WipWrk</h4>
-          <p>A designer turned founder, Ben Wood takes tents and backpacks that are past their use-by date and turns them into brand new products — keeping high-performance textiles that are nigh on impossible to recycle out of the landfill.</p>
+      <a href="6-ben-wood/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/HJ6GF_G-v2Y/hqdefault.jpg" alt="Ben Wood — Founders In Motion episode 6" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 6</span>
         </div>
-        <div class="ep-row-guest"><b>Ben Wood</b><i>WipWrk</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Ben Wood</h3>
+          <div class="ep-card-company">WipWrk</div>
+          <p class="ep-card-hook">A designer turned founder, Ben Wood takes tents and backpacks that are past their use-by date and turns them into brand new products — keeping high-performance textiles that are nigh on impossible to recycle out of the landfill.</p>
+        </div>
       </a>
 
-      <a href="5-nhi-nguyen/" class="ep-row">
-        <div class="ep-row-num">5</div>
-        <div class="ep-row-content">
-          <h4>Why Vietnamese People Don&#39;t Invest - And How One Fintech Is Fixing It | Nhi Nguyen, MaiMoney</h4>
-          <p>Nhi grew up in Vietnam, studied finance in Australia, and was shocked that one country builds your wealth automatically while the other leaves you guessing — so she built MaiMoney to bring institutional-quality investing to everyday Vietnamese investors.</p>
+      <a href="5-nhi-nguyen/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/lB9Y0M_Uwhk/hqdefault.jpg" alt="Nhi Nguyen — Founders In Motion episode 5" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 5</span>
         </div>
-        <div class="ep-row-guest"><b>Nhi Nguyen</b><i>MaiMoney</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Nhi Nguyen</h3>
+          <div class="ep-card-company">MaiMoney</div>
+          <p class="ep-card-hook">Nhi grew up in Vietnam, studied finance in Australia, and was shocked that one country builds your wealth automatically while the other leaves you guessing — so she built MaiMoney to bring institutional-quality investing to everyday Vietnamese investors.</p>
+        </div>
       </a>
 
-      <a href="4-kiki-and-elan/" class="ep-row">
-        <div class="ep-row-num">4</div>
-        <div class="ep-row-content">
-          <h4>From Private Equity to Yogurt Startup Founder Story | Kiki &amp; Elan, Sourmilk Yogurt</h4>
-          <p>Kiki and Elan quit their corporate jobs to start Sourmilk, a probiotic yogurt company — and grew to ten K followers and a cult following by building the brand in public. Their bet: people still care about protein, but now they&#39;re caring a lot more about gut health.</p>
+      <a href="4-kiki-and-elan/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/bN5zp-hh11Q/hqdefault.jpg" alt="Kiki and Elan — Founders In Motion episode 4" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 4</span>
         </div>
-        <div class="ep-row-guest"><b>Kiki and Elan</b><i>Sourmilk</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Kiki and Elan</h3>
+          <div class="ep-card-company">Sourmilk</div>
+          <p class="ep-card-hook">Kiki and Elan quit their corporate jobs to start Sourmilk, a probiotic yogurt company — and grew to ten K followers and a cult following by building the brand in public. Their bet: people still care about protein, but now they&#39;re caring a lot more about gut health.</p>
+        </div>
       </a>
 
-      <a href="3-nate-spiteri/" class="ep-row">
-        <div class="ep-row-num">3</div>
-        <div class="ep-row-content">
-          <h4>I Spoke to 1,000 Investors Before Raising. Here&#39;s What Nobody Tells You | Nate Spiteri, Shopfront</h4>
-          <p>Nate Spiteri raised 800 K for Shopfront in December — the month every investor told him a round could never close. To get there, he reached out to almost 1000 investors and treated fundraising like a sales pipeline.</p>
+      <a href="3-nate-spiteri/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/dXm-8U7afY4/hqdefault.jpg" alt="Nate Spiteri — Founders In Motion episode 3" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 3</span>
         </div>
-        <div class="ep-row-guest"><b>Nate Spiteri</b><i>Shopfront</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Nate Spiteri</h3>
+          <div class="ep-card-company">Shopfront</div>
+          <p class="ep-card-hook">Nate Spiteri raised 800 K for Shopfront in December — the month every investor told him a round could never close. To get there, he reached out to almost 1000 investors and treated fundraising like a sales pipeline.</p>
+        </div>
       </a>
 
-      <a href="2-selina-li/" class="ep-row">
-        <div class="ep-row-num">2</div>
-        <div class="ep-row-content">
-          <h4>She Built an AI App Alone in 60 Days | Selina Li, gymii.ai</h4>
-          <p>Selina Li built the MVP of gymii.ai in two months with no prior full stack experience, then chose to bootstrap rather than chase VCs while building a nutrition-tracking app that&#39;s social on purpose.</p>
+      <a href="2-selina-li/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/folecmtyNlM/hqdefault.jpg" alt="Selina Li — Founders In Motion episode 2" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 2</span>
         </div>
-        <div class="ep-row-guest"><b>Selina Li</b><i>gymii.ai</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Selina Li</h3>
+          <div class="ep-card-company">gymii.ai</div>
+          <p class="ep-card-hook">Selina Li built the MVP of gymii.ai in two months with no prior full stack experience, then chose to bootstrap rather than chase VCs while building a nutrition-tracking app that&#39;s social on purpose.</p>
+        </div>
       </a>
 
-      <a href="1-abby-huang/" class="ep-row">
-        <div class="ep-row-num">1</div>
-        <div class="ep-row-content">
-          <h4>Inside the GenZ Marketing Agency that&#39;s Changing Influencer Marketing | Abby Huang, Dime</h4>
-          <p>Abby Huang built Dime into a marketing platform that connects brands and Gen Z consumers through student ambassadors — after first building a bad product nobody wanted and learning that you can&#39;t out market a bad product.</p>
+      <a href="1-abby-huang/" class="ep-card">
+        <div class="ep-card-media">
+          <img src="https://i.ytimg.com/vi/T49kV69U4N8/hqdefault.jpg" alt="Abby Huang — Founders In Motion episode 1" loading="lazy" decoding="async" />
+          <span class="ep-badge">EP 1</span>
         </div>
-        <div class="ep-row-guest"><b>Abby Huang</b><i>Dime</i></div>
-        <div class="ep-row-meta">Show notes ↗</div>
+        <div class="ep-card-body">
+          <h3 class="ep-card-guest">Abby Huang</h3>
+          <div class="ep-card-company">Dime</div>
+          <p class="ep-card-hook">Abby Huang built Dime into a marketing platform that connects brands and Gen Z consumers through student ambassadors — after first building a bad product nobody wanted and learning that you can&#39;t out market a bad product.</p>
+        </div>
       </a>
 
     </div>
@@ -373,8 +586,8 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl?si=9d89e52141e143bd">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion-with-thea-ngo/id1810228671">Apple</a>
-        <a href="⁠⁠⁠⁠https://www.instagram.com/thea.yaps⁠⁠⁠">Instagram</a>
-        <a href="⁠⁠⁠⁠https://www.tiktok.com/@foundersinmotion⁠⁠⁠">TikTok</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
+        <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>
       <div class="copyright">© 2026 Founders In Motion · Hosted by Thea Ngo</div>

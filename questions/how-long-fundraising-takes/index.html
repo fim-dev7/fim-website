@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,96 @@
       <blockquote class="q-lead-answer">Phonely got into Y Combinator in the summer of 2024 and raised a seed round it didn&#39;t announce because it was &quot;too busy working.&quot; The Series A didn&#39;t come until 2026 — a roughly two year gap — and it arrived without running a formal raise, off a LinkedIn post about cycling.</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/28-will-bodewes/">Will Bodewes, Phonely (YC S24) (Ep 28)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">5 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>WB</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Will Bodewes</div>
+              <div class="q-perspective-co">Phonely (YC S24) · EP 28</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Phonely got into Y Combinator in the summer of 2024 and raised a seed round it didn&#39;t announce because it was &quot;too busy working.&quot;  The Series A didn&#39;t come until 2026 — a roughly two year gap — and it arrived without running a formal raise, off a LinkedIn post about cycling.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/28-will-bodewes/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Will Bodewes's full take</summary>
+            <p>Will got into YC in summer of 2024 and raised a seed round right out of it that they "didn't announce just cause we were too busy working." Through a roughly two year gap, while the AI funding market "went into a frenzy" with mega rounds, Phonely "kept our head down and kept building." The Series A came when Base Ten's Caroline saw a LinkedIn post Will wrote about cycling and reached out, and "months later Phonely had 16 million and 100 mil valuation without running a formal" raise.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>SL</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Shakeel Lala</div>
+              <div class="q-perspective-co">Marloo · EP 27</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Shakeel and Hardy raised Marloo&#39;s pre-seed before they had a product — on a year-long trust exercise with one of Australia&#39;s largest VCs.  The $10M round that followed came on the back of 9 months of investigation and 12+ months of building, with Marloo live across 6 countries.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/27-shakeel-lala/">Episode ↗</a>
+          </div>
+          
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>CA</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Celeste Amadon</div>
+              <div class="q-perspective-co">Known · EP 25</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Celeste says Known raised its pre-seed &quot;in eight days&quot; while &quot;pre product,&quot; and later raised its seed round &quot;in four days&quot; with &quot;more than a dozen term sheets.&quot;  She credits her time in early-stage investing for knowing what investors want to see.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/25-celeste-amadon/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Celeste Amadon's full take</summary>
+            <p>Celeste worked in early-stage / pre-seed investing before founding Known, sitting "across from founders deciding whether their ideas were worth funding." She says seeing fundraising "from the investor side" gives a founder "an edge": "we raised our pre seed I think it was in eight days" while "pre product," and "we raised our seed round in four days and had more than a dozen term sheets."</p>
+          <p>Her framework: "investors don't want to waste your time or have their time wasted either." The job is "cutting through the noise and finding people that are likely to want to back your company," explaining why, "and figuring out if they're not interested quickly." She compares running a raise to "optimizing almost like a campaign" — building momentum and focusing your time on who's interested.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NN</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nam Nguyen</div>
+              <div class="q-perspective-co">TruthSystems (YC S25) · EP 24</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">After getting into YC, Nam&#39;s co-founder started taking calls on a Sunday night and the round was essentially filled by that Tuesday night — out in the market for around 48 hours.  But before YC, the same pre-seed raise had been very difficult and &quot;just not going anywhere.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/24-nam-nguyen/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nam Nguyen's full take</summary>
+            <p>Nam contrasts two fundraising experiences. Before YC, raising the pre-seed was "actually very difficult" and "just not going anywhere." After getting in — with the three components YC cared about now clear — it was a sprint: "My co-founder started taking calls on a Sunday night and I think our round was essentially filled by that Tuesday night," in total "out in the market for around 48 hours." Nam keeps it grounded: the round helped reaffirm to customers that they were a serious company, and "the moment the money hit the bank we were already on our first fly out to New York to meet with our customers."</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NS</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nate Spiteri</div>
+              <div class="q-perspective-co">Shopfront · EP 3</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Nate&#39;s round took about five months to close, maybe a bit less.  The first two months were almost radio silence and back-to-back no&#39;s because he over-focused on a &quot;top five&quot; he wrongly assumed were a sure thing; the first VC only came in two to three months into the raise.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/3-nate-spiteri/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nate Spiteri's full take</summary>
+            <p>Nate says he wouldn't call it smooth sailing: "I'd say it took us about five months to close, maybe a bit less." For the first two months he focused on a batch of investors — his "top five" that he naively thought were almost a sure thing — and got "either radio silence or long delays between replies," then "one, no. Then the second no, and then the third no." Early yeses came in small angel cheques of "ten K, 15 K, 20 k," adding up to "75 to 100 K in angels" that were warm but not committed against a target of 750. The pivotal point was a more sophisticated angel coming in for 50 K, and shortly after, the first VC — all "2 or 3 months into the fundraise."</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -286,7 +420,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>

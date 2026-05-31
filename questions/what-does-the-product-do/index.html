@@ -137,6 +137,50 @@
 .q-contributor-long[open] summary::before { content: "− "; }
 .q-contributor-long p { font-family: var(--body); font-size: 16px; line-height: 1.65; color: var(--off-white); margin: 12px 0; }
 
+/* Multiple-perspectives preview */
+.q-perspectives { max-width: 760px; margin: 0 auto 56px; }
+.q-perspectives-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--off-white);
+}
+.q-perspectives-sub { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 60ch; }
+.q-perspectives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.q-perspective {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.q-perspective:hover { border-color: var(--cream); }
+.q-perspective-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.q-perspective-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest, #172223);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 13px;
+  flex: 0 0 auto;
+}
+.q-perspective-who { min-width: 0; }
+.q-perspective-name { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--off-white); line-height: 1.2; }
+.q-perspective-co { font-family: var(--sans); font-weight: 700; font-size: 11px; color: var(--cream); letter-spacing: 0.05em; margin-top: 3px; }
+.q-perspective-preview { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--off-white); margin: 0 0 14px; }
+.q-perspective-actions { margin-bottom: 4px; }
+.q-perspective-link { font-family: var(--sans); font-weight: 600; font-size: 12px; color: var(--cream); text-decoration: none; }
+.q-perspective-link:hover { text-decoration: underline; }
+.q-perspective-full { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+.q-perspective-full summary { font-family: var(--sans); font-weight: 700; font-size: 12px; color: var(--cream); cursor: pointer; padding: 4px 0; list-style: none; }
+.q-perspective-full summary::before { content: "+ "; }
+.q-perspective-full[open] summary::before { content: "− "; }
+.q-perspective-full p { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--off-white); margin: 10px 0; }
+@media (max-width: 640px) { .q-perspectives-grid { grid-template-columns: 1fr; } }
+
 .q-related { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.02); }
 .q-related h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin: 0 0 16px; color: var(--off-white); }
 .q-related ul { list-style: none; padding: 0; margin: 0; }
@@ -179,6 +223,98 @@
       <blockquote class="q-lead-answer">It&#39;s a lightweight, vendor-agnostic layer packaged as a browser extension that sits above and monitors the different AI tools a law firm uses, giving firms a single source of truth for AI compliance. It only surfaces to an end user when they might be violating firm policy.</blockquote>
       <div class="q-lead-attribution">— <a href="https://foundersinmotion.com/episodes/24-nam-nguyen/">Nam Nguyen, TruthSystems (YC S25) (Ep 24)</a></div>
     </header>
+
+    <section class="q-perspectives" aria-label="Multiple perspectives">
+      <h2 class="q-perspectives-title">5 founders on this question</h2>
+      <p class="q-perspectives-sub">Different founders, different playbooks. Here's how each answered — preview first, full take one click away.</p>
+      <div class="q-perspectives-grid">
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NN</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nam Nguyen</div>
+              <div class="q-perspective-co">TruthSystems (YC S25) · EP 24</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">It&#39;s a lightweight, vendor-agnostic layer packaged as a browser extension that sits above and monitors the different AI tools a law firm uses, giving firms a single source of truth for AI compliance.  It only surfaces to an end user when they might be violating firm policy.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/24-nam-nguyen/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nam Nguyen's full take</summary>
+            <p>Nam describes pivoting from a point solution to "a lightweight vendor agnostic layer now package as a browser extension that sits above and monitor all of these different tools that the law firms have." For an end user, it sits in the background and only comes up "as a last resort" when you might be violating firm policy. For admins, it gives observability into AI usage down to the logs level for every client and matter an attorney was working on, with the flexibility to update and enforce policies through real-time inference — including work to scan even a 500-page file upload within a couple of seconds.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JZ</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Joe Zhou</div>
+              <div class="q-perspective-co">StrongRoom AI · EP 17</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">StrongRoom AI is a SaaS platform for organisations that deal with controlled drug management and opioid replacement therapy — pharmacies and clinics.  Joe says the press described it as an AI company for adherence and medication management, but &quot;that&#39;s actually not what they do at all.&quot;</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/17-joe-zhou/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Joe Zhou's full take</summary>
+            <p>Joe admits his one-line pitch isn't perfect yet — "that was a very bad one line pitch, but that's as close as it gets." In simple words, StrongRoom does a lot of stuff in substance abuse and addiction and controlled drug compliance. It's the SaaS platform for organisations that deal with controlled drug management and opioid replacement therapy — so it could be pharmacies, clinics. He notes it provides opioid replacement program software as well as a controlled drug register for compliance and analytics, and that StrongRoom has very large market share in Australia, a near-monopoly in several analytics areas, and is sitting on a lot of pharmaceutical data.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>ST</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Satya Tumati</div>
+              <div class="q-perspective-co">Socratix AI · EP 16</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Socratix AI builds AI co-workers for fraud and risk teams — specialized AI agents that automate the grunt work like chasing false positives and analyzing transactions so teams can focus on what really matters.  Satya frames the mission as reducing the routine and amplifying the judgement.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/16-satya-tumati/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Satya Tumati's full take</summary>
+            <p>Satya's view is that the engineering world benefited a lot from co-pilots, auto-suggest and seamless tooling, but operations "hasn't seen much love." With today's AI he felt there was a real opportunity in fintech and other ops-heavy domains. His co-founder had lived the problem in a previous role, and out of that came the shared vision of building AI co-workers for fraud and risk teams. The framing he keeps returning to: in the future, with AI coming in, "we want to reduce the routine and amplify the judgement." Satya describes the product as something powerful and generic, built with security and long-term scalability in mind because they knew they'd be working with larger institutions like fintechs, banks, credit unions and marketplaces.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>JM</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Jason Ma</div>
+              <div class="q-perspective-co">Dyna Robotics · EP 14</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">At Dyna they&#39;re building general purpose robots that power the future of the physical economy — AI-powered robots that can do any task in any business or home scenario.  To start out they&#39;ve deployed robots in restaurants, gyms and fitness centers.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/14-jason-ma/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Jason Ma's full take</summary>
+            <p>Jason describes Dyna as building general purpose robots that power the future of the physical economy. The way he thinks about it: they're developing AI-powered robots that can do any task in any business or home scenario, and to start out they've deployed their robots in scenarios such as restaurants, gyms and fitness centers. The mission is to make the robots and the AI model as general as possible so they can do any task you want. The first public proof was a 24-hour napkin test — a robot folding napkins non-stop for 24 hours, nearly 800 folded with a 99% success rate.</p>
+          </details>
+        </article>
+        <article class="q-perspective">
+          <header class="q-perspective-head">
+            <div class="q-perspective-avatar" aria-hidden>NS</div>
+            <div class="q-perspective-who">
+              <div class="q-perspective-name">Nate Spiteri</div>
+              <div class="q-perspective-co">Shopfront · EP 3</div>
+            </div>
+          </header>
+          <p class="q-perspective-preview">Shopfront is a set of tools that sit between anyone selling fashion products and the marketplaces — Grailed, Depop, Etsy, Facebook Marketplace, eBay.  The first product lists your items across every marketplace at once and removes them elsewhere when one sells, using AI to cut listing time from 15 or 20 minutes to 1 or 2 minutes.</p>
+          <div class="q-perspective-actions">
+            <a class="q-perspective-link" href="https://foundersinmotion.com/episodes/3-nate-spiteri/">Episode ↗</a>
+          </div>
+          <details class="q-perspective-full">
+            <summary>See Nate Spiteri's full take</summary>
+            <p>Nate describes Shopfront as "a platform or a set of tools that sit between anyone selling fashion products and all the marketplaces like Grailed, Depop, Etsy, Facebook Marketplace, eBay." The first product lists your products across every marketplace at once, and "when it sells on one, we'll take it off the rest," giving "4 or 5 times the chance of sale" versus listing on just one. AI handles image recognition, background removal and tagging, then maps the listing to every marketplace — taking the listing process "down from 15 or 20 minutes to 1 or 2 minutes." Wraparound services in the works include new sourcing for sellers, SEO-optimised listing generation, and pricing and sizing accuracy.</p>
+          </details>
+        </article>
+      </div>
+    </section>
 
     <section class="q-contributors">
       <h2>What founders in the archive say</h2>
@@ -288,7 +424,7 @@
       <nav class="footer-nav">
         <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">Spotify</a>
         <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671">Apple</a>
-        <a href="https://www.instagram.com/foundersinmotion/">Instagram</a>
+        <a href="https://www.instagram.com/thea.yaps">Instagram</a>
         <a href="https://www.tiktok.com/@foundersinmotion">TikTok</a>
         <a href="https://www.linkedin.com/in/theango/">LinkedIn</a>
       </nav>
