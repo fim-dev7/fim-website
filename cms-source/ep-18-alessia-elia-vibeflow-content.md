@@ -1,10 +1,10 @@
 # Hook
 
-Alessia and Elia met in co-founder dating hell — both trying YC co-founder matching from Paris and Sri Lanka, complaining to each other every day about not finding the right match — until they asked why they weren't just brainstorming together. That became VibeFlow, a YC-backed startup helping non-technical founders build production-ready apps in no code.
+Alessia and Elia met in co-founder dating hell — Elia doing EF in Paris, Alessia trying the YC co-founder matching platform, connecting from apart (Paris and Sri Lanka) and complaining to each other every day about not finding the right match — until they asked why they weren't just brainstorming together. That became VibeFlow, a YC-backed startup helping non-technical founders build production-ready apps in no code.
 
 # Story
 
-Before VibeFlow, Alessia and Elia were both separately tinkering with ideas and going through co-founder matching. Elia had joined EF, Entrepreneur First, in Paris — a program to do co-founder matching where they "celebrate break up" so you don't lose time and figure things out fast. He met around 60 people in three days and at one point realized he couldn't find anyone in the same mentality as him: super hardcore, wanting to work seven days a week, super ambitious. Alessia was working full time for a company, always enjoying her side projects, but none of the people she worked with were willing to go full time on a startup — so she took a leap of faith and quit her job, then tried the YC co-founder matching platform, which she describes as being like a dating platform, like Tinder or Bumble.
+Before VibeFlow, Alessia and Elia were both separately tinkering with ideas and going through co-founder matching. Elia had joined EF, Entrepreneur First, in Paris — a program to do co-founder matching where they "celebrate break up" so you don't lose time and figure things out fast. He met around 60 people in three days and at one point realized he couldn't find anyone in the same mentality as him: super hardcore, wanting to work seven days a week, super ambitious. Alessia was working full time for a company, always enjoying her side projects, but none of the people she worked with were willing to go full time on a startup — so she took a leap of faith and quit her job, then tried the YC co-founder matching platform — described as "like a dating platform... like a tinder or Bumble."
 
 They went through this process together — Elia in Paris, Alessia in Sri Lanka — doing the exact same thing and calling every day as friends, complaining about not finding the right match. At one point they just said: but why are we not brainstorming together at least. They decided to brainstorm and directly ended up on an idea. It wasn't VibeFlow yet, but they saw the team was working well. Their lesson from that period: the co-founder is the most important thing, especially in an early-stage startup, because the idea is going to change — the right way in is personal fit, the way of working, and the values, and the rest will come together.
 
@@ -64,13 +64,13 @@ They built and launched continuously — the internal YC platform, then YC, then
 
 > you're never gonna feel ready anyway
 
-— Alessia, on launching before you feel ready (17:33)
+— The founders' takeaway, on launching before you feel ready (17:33)
 
 > launching a fast and launching often is the most valuable thing in early
 
 — Elia, on shipping speed (19:00)
 
-> if you're not talking to customers or building what are you doing
+> if you're not talking to users or building what are you doing
 
 — Elia, quoting a YC partner (26:57)
 

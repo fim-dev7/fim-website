@@ -39,7 +39,7 @@ On hiring, the rule was to wait until they started missing first-customer demand
 - 04:55 — Why they stood out — Seven years together beat a bad idea
 - 06:07 — What really happens inside the batch — Weekly dinners and the cohort pod system
 - 08:45 — Network, coaching, or brand — Which one mattered most
-- 10:42 — Sell before you build — The mantra that reworked Vivek's mind
+- 10:42 — Sell before you build — The mantra that reworked John's mind
 - 15:23 — The pivot — The company that signed an NDA and ghosted them
 - 17:18 — What Affil.ai actually is — AI compliance for financial affiliate marketing
 - 18:45 — How John knew the pain point — 43 credit cards and a travel-startup affiliate program
@@ -88,7 +88,6 @@ On hiring, the rule was to wait until they started missing first-customer demand
 - **Y Combinator** — The startup school whose batch Vivek and John went through; "make something people want" is its motto
 - **Google Photos** — One of their interviewers was literally its founder
 - **Michael Sybel** — Sat in on their interview call; basically founded a twitch among other things
-- **Dalton** — Brought up as a Spotify competitor in the room
 - **Penn** — Where Vivek and John met freshman year
 - **Japan** — Where they were on vacation when the interview call came; they prepped in a Sapporo Airbnb working Pacific hours
 - **Airbnb and Doordash** — Founders who came to speak at the YC weekly dinners
