@@ -74,4 +74,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.com. LinkedIn:
 - All episode pages are server-rendered HTML with PodcastEpisode JSON-LD and full transcripts inside collapsed `<details>` blocks (fully crawlable).
 - Homepage has FAQPage JSON-LD with 12 founder questions and answers drawn from across the archive.
 
-Generated: 2026-06-04T11:38:21.947Z
+Generated: 2026-06-04T19:50:10.081Z
