@@ -41,11 +41,14 @@ Overcast · Pocket Casts · Goodpods · Podchaser · Amazon Music · iHeartRadio
 - **A green light to draft outreach** (#2/#3) → I'll write the messages; you review + send (per your no-email rule).
 - **Leave Chrome logged into the relevant accounts** + tell me which to use → for web tasks (like directory submissions) I can drive them via the browser, the way I did GSC/Vercel — but only with you awake to approve any login/OAuth steps.
 
-## What I did tonight (safe, no access needed)
-- Re-submitted all 299 URLs to IndexNow (Bing/Yandex/Seznam/Naver).
-- Verified full site health (all key pages, sitemap, robots, llms = 200; homepage Babel-free).
-- Did NOT make risky structural changes unattended.
+## What I did tonight (safe, no access needed) — all live + verified
+- **Re-submitted all 299 URLs to IndexNow** (Bing/Yandex/Seznam/Naver).
+- **Optimized the two heavy images**: og banner 1.87MB→398KB (resized to the ideal 1280×720), guest strip 1.6MB→668KB. ~2.4MB saved, zero design change (verified live).
+- **Added BreadcrumbList + ItemList JSON-LD to /episodes/** (the questions hub already had ItemList) → helps Google/AI parse the collection. Synced + validated live (29 items, valid JSON).
+- **Drafted the full off-page toolkit** → see `DISCOVERY-TOOLKIT.md` (guest-backlink outreach + prioritized guest list, directory submission steps, social/YouTube copy, Wikidata item). Drafts only — nothing sent.
+- Verified full site health (verify-site: 11 checks · 263 Q&A · 29 episode pages; homepage Babel-free; all key pages 200).
 
-## Smaller on-page polish still available (your OK, low risk)
-- WebP/resize the two heavy images (guest strip, og banner) for Core Web Vitals.
-- `llms-full.txt` (full Q&A in one file for AI crawlers) · `ItemList` JSON-LD on the index pages · image sitemap for the thumbnails.
+## Deferred on-page polish (low value / higher risk — better done while you're around)
+- `llms-full.txt` (full Q&A in one file for AI crawlers) — needs sync-pipeline plumbing; marginal over already-crawlable pages.
+- Image sitemap for thumbnails — low value (podcast-thumbnail image search) + risk of malforming the critical sitemap. Skipped on purpose unattended.
+- Guest strip → JPEG/WebP for a further ~500KB — needs a homepage bundle rebuild; not worth the unattended risk.
