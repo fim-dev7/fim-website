@@ -84,6 +84,15 @@ const topicPages = subPages('topics');
     bad.length ? `${bad.length} pages missing canonical` : '');
 }
 
+// 6. HOMEPAGE BUNDLE — built, wired, and Babel-standalone removed.
+{
+  const html = read('index.html');
+  check('homepage no longer loads @babel/standalone', !/babel\/standalone/.test(html));
+  check('homepage loads the prebuilt app.bundle.js', /src="app\.bundle\.js/.test(html) && !/text\/babel/.test(html));
+  check('app.bundle.js exists and looks complete', exists('app.bundle.js') &&
+    /createRoot/.test(read('app.bundle.js')) && /React\.createElement/.test(read('app.bundle.js')));
+}
+
 // ── report ──────────────────────────────────────────────
 console.log(`\nverify-site: ${checks} checks · ${qPages.length} question pages · ${epPages.length} episode pages\n`);
 if (failures.length) {

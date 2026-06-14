@@ -8,5 +8,9 @@
   "dependencies": {
     "algoliasearch": "^4.23.3",
     "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-react": "^7.29.7"
   }
 }
