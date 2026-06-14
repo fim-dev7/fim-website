@@ -26,9 +26,16 @@ jobs:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - id: autocommit
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: sync site from Google Sheets + Drive'
           # NOTE: file_pattern must be a SINGLE LINE, space-separated. Multi-line
           # YAML (using "|") only matches the first line.
           file_pattern: 'settings.json data.jsx index.html episodes/index.html episodes/*/index.html topics/index.html topics/*/index.html questions/index.html questions/*/index.html sitemap.xml robots.txt llms.txt qa-index.json'
+
+      # Push the (re)generated URLs to IndexNow (Bing/Yandex/etc.) — only when the
+      # sync actually changed files, so we don't re-ping the same URLs every 6h.
+      - name: Ping IndexNow
+        if: steps.autocommit.outputs.changes_detected == 'true'
+        run: node scripts/indexnow-submit.js
