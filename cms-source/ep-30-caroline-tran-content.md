@@ -102,8 +102,8 @@ Not everything went smoothly. A large merchant was about to start, then at 11 PM
 
 # Meta
 
-duration: 21 min
-duration_iso: PT21M
+duration: 22 min
+duration_iso: PT22M
 guest_role: Co-founder and CEO, Hello Clever
 guest_bio: Moved to Australia 15 years ago and worked in accounting and media finance before launching Hello Clever during Covid, pivoting from a consumer cashback app into a global payments company.
 mini_stats: 20 countries | 60 banking relationships | 70 employees | 5 offices
