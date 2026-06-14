@@ -175,6 +175,29 @@ export function renderArchivePage({ episodes, settings }) {
       </a>`;
   }).join('\n\n');
 
+  // ---- Collection structured data (BreadcrumbList + ItemList of every episode page) ----
+  const SITE = 'https://foundersinmotion.tech';
+  const epPages = sortedDesc.filter(e => e.has_episode_page);
+  const itemListSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Founders In Motion — All Episodes',
+    itemListElement: epPages.map((e, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE}/episodes/${e.slug}/`,
+      name: e.title || `${e.guest_name}${e.guest_company ? ' — ' + e.guest_company : ''}`,
+    })),
+  }, null, 2);
+  const breadcrumbSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Founders In Motion', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Episodes', item: `${SITE}/episodes/` },
+    ],
+  }, null, 2);
+
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -197,6 +220,16 @@ export function renderArchivePage({ episodes, settings }) {
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css" />
 <link rel="stylesheet" href="../episodes-archive.css" />
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+${breadcrumbSchema}
+</script>
+
+<!-- JSON-LD: ItemList of every episode -->
+<script type="application/ld+json">
+${itemListSchema}
+</script>
 
 <style>
   /* ── Episodes archive: visual card grid (scoped, tokens from styles.css) ── */
