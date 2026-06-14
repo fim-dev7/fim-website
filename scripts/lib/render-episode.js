@@ -7,6 +7,7 @@
 
 import { toText } from './parse-doc.js';
 import { renderBreadcrumbList } from './render-meta.js';
+import fs from 'fs';
 
 /**
  * Sheet titles often follow the YouTube/Spotify pattern
@@ -23,6 +24,11 @@ function cleanTitle(title) {
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]); }
 function escAttr(s) { return esc(s); }
+
+/** Custom episode thumbnail (assets/thumbs/<slug>.jpg) absolute URL if present, else null. */
+function customThumb(slug) {
+  return slug && fs.existsSync(`assets/thumbs/${slug}.jpg`) ? `https://foundersinmotion.tech/assets/thumbs/${slug}.jpg` : null;
+}
 
 function initials(name) {
   if (!name) return '??';
@@ -136,7 +142,7 @@ function renderArticleJsonLd({ ep, content, slug }) {
     const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
     return m ? m[1] : null;
   })();
-  const img = ytId ? `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg` : `https://foundersinmotion.tech/assets/youtube-banner.png`;
+  const img = customThumb(slug) || (ytId ? `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg` : `https://foundersinmotion.tech/assets/youtube-banner.png`);
   const obj = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -602,6 +608,10 @@ ${(() => {
     const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
     return m ? m[1] : null;
   })();
+  const ct = customThumb(slug);
+  if (ct) return `<meta property="og:image" content="${ct}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${ct}" />`;
   if (!ytId) return `<meta property="og:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />`;

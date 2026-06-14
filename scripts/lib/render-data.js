@@ -12,6 +12,8 @@
  * data-static.jsx, hand-edited, never touched by sync.
  */
 
+import fs from 'fs';
+
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]); }
 function escAttr(s) { return esc(s); }
@@ -450,8 +452,9 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-/** Cover-image URL for an episode: YouTube thumbnail, or the brand banner fallback. */
+/** Cover-image URL for an episode: custom thumbnail, else YouTube, else brand banner. */
 function thumbUrl(e) {
+  if (e.slug && fs.existsSync(`assets/thumbs/${e.slug}.jpg`)) return `/assets/thumbs/${e.slug}.jpg`;
   const id = getYouTubeId(e.youtube_url);
   return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : '/assets/youtube-banner.png';
 }
