@@ -15,7 +15,7 @@
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]); }
 
-const SITE_URL = 'https://foundersinmotion.com';
+const SITE_URL = 'https://www.foundersinmotion.tech';
 
 function initials(name) {
   if (!name) return '??';
@@ -190,7 +190,7 @@ export function renderQuestionPage({ group, allGrouped }) {
 <link rel="canonical" href="${url}" />
 <meta property="og:url" content="${url}" />
 <meta property="og:site_name" content="Founders In Motion" />
-<meta property="og:image" content="https://foundersinmotion.com/assets/youtube-banner.png" />
+<meta property="og:image" content="https://www.foundersinmotion.tech/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <meta property="og:title" content="${esc(question)}" />

@@ -73,7 +73,7 @@ function renderJsonLd({ ep, content, slug, transcriptSummary }) {
   const obj = {
     '@context': 'https://schema.org',
     '@type': 'PodcastEpisode',
-    url: `https://foundersinmotion.com/episodes/${slug}/`,
+    url: `https://www.foundersinmotion.tech/episodes/${slug}/`,
     name: ep.title,
     datePublished: ep.published_date || undefined,
     duration: durationISO(content.meta.duration_iso || content.meta.duration) || undefined,
@@ -82,7 +82,7 @@ function renderJsonLd({ ep, content, slug, transcriptSummary }) {
     partOfSeries: {
       '@type': 'PodcastSeries',
       name: 'Founders In Motion',
-      url: 'https://foundersinmotion.com/',
+      url: 'https://www.foundersinmotion.tech/',
     },
     associatedMedia: ep.spotify_url ? {
       '@type': 'MediaObject',
@@ -114,23 +114,23 @@ function renderArticleJsonLd({ ep, content, slug }) {
     const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
     return m ? m[1] : null;
   })();
-  const img = ytId ? `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg` : `https://foundersinmotion.com/assets/youtube-banner.png`;
+  const img = ytId ? `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg` : `https://www.foundersinmotion.tech/assets/youtube-banner.png`;
   const obj = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: titleShort,
     description: content.hook || `${ep.guest_name}, ${ep.guest_company} on Founders In Motion.`,
-    url: `https://foundersinmotion.com/episodes/${slug}/`,
+    url: `https://www.foundersinmotion.tech/episodes/${slug}/`,
     image: [img],
     datePublished: ep.published_date || undefined,
     dateModified: ep.published_date || undefined,
-    author: { '@type': 'Person', name: 'Thea Ngo', url: 'https://foundersinmotion.com/about/' },
+    author: { '@type': 'Person', name: 'Thea Ngo', url: 'https://www.foundersinmotion.tech/about/' },
     publisher: {
       '@type': 'Organization',
       name: 'Founders In Motion',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://foundersinmotion.com/assets/logo-white.png',
+        url: 'https://www.foundersinmotion.tech/assets/logo-white.png',
       },
     },
     about: ep.guest_name ? {
@@ -213,7 +213,7 @@ function renderFaqJsonLd({ ep, content }) {
  * Helps AI search build entity graphs (Shakeel Lala → Marloo → Financial Advice AI).
  */
 function renderPersonOrgJsonLd({ ep, content, slug }) {
-  const guestUrl = `https://foundersinmotion.com/episodes/${slug}/`;
+  const guestUrl = `https://www.foundersinmotion.tech/episodes/${slug}/`;
   const out = [];
 
   if (ep.guest_name) {
@@ -452,7 +452,7 @@ function renderSidebar({ content, ep, slug, episodes }) {
   }
 
   const tweet = content.meta.twitter_share || `${ep.guest_name} on Founders In Motion. ${content.hook || ep.title}`;
-  const shareUrl = `https://foundersinmotion.com/episodes/${slug}/`;
+  const shareUrl = `https://www.foundersinmotion.tech/episodes/${slug}/`;
   blocks.push(`<div class="side-block">
           <h5>Share this episode</h5>
           <ul>
@@ -496,7 +496,7 @@ function renderTranscript({ ep, content, transcriptText, durationDisp }) {
       <div class="transcript-body">
 
         <div class="transcript-note">
-          This is an auto-generated transcript, lightly edited for readability. Timestamps reference the audio version. If you spot an error, <a href="mailto:hi@foundersinmotion.com" style="color:var(--cream);">let us know</a>.
+          This is an auto-generated transcript, lightly edited for readability. Timestamps reference the audio version. If you spot an error, <a href="mailto:hi@www.foundersinmotion.tech" style="color:var(--cream);">let us know</a>.
         </div>
 
         ${body}
@@ -556,8 +556,8 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(metaDesc)}" />
-<link rel="canonical" href="https://foundersinmotion.com/episodes/${slug}/" />
-<meta property="og:url" content="https://foundersinmotion.com/episodes/${slug}/" />
+<link rel="canonical" href="https://www.foundersinmotion.tech/episodes/${slug}/" />
+<meta property="og:url" content="https://www.foundersinmotion.tech/episodes/${slug}/" />
 <meta property="og:site_name" content="Founders In Motion" />
 
 <meta property="og:title" content="${esc(`Ep ${ep.episode_number}: ${ep.title} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />

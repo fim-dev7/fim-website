@@ -180,10 +180,10 @@ export function renderArchivePage({ episodes, settings }) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Episodes — Founders In Motion | All ${totalCount} Episodes</title>
 <meta name="description" content="All episodes of Founders In Motion. ${totalCount} unscripted conversations with early-stage founders across Australia, Southeast Asia, and the US — covering customer discovery, pre-seed fundraising, pivots, rebuilds, and what the messy middle of building actually looks like." />
-<link rel="canonical" href="https://foundersinmotion.com/episodes/" />
-<meta property="og:url" content="https://foundersinmotion.com/episodes/" />
+<link rel="canonical" href="https://www.foundersinmotion.tech/episodes/" />
+<meta property="og:url" content="https://www.foundersinmotion.tech/episodes/" />
 <meta property="og:site_name" content="Founders In Motion" />
-<meta property="og:image" content="https://foundersinmotion.com/assets/youtube-banner.png" />
+<meta property="og:image" content="https://www.foundersinmotion.tech/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <meta property="og:title" content="All Episodes — Founders In Motion" />

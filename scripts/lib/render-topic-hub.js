@@ -13,7 +13,7 @@
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]); }
 
-const SITE_URL = 'https://foundersinmotion.com';
+const SITE_URL = 'https://www.foundersinmotion.tech';
 
 function initials(name) {
   if (!name) return '??';
@@ -455,8 +455,8 @@ ${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Founders In Motion', item: 'https://foundersinmotion.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Topics', item: 'https://foundersinmotion.com/topics/' },
+      { '@type': 'ListItem', position: 1, name: 'Founders In Motion', item: 'https://www.foundersinmotion.tech/' },
+      { '@type': 'ListItem', position: 2, name: 'Topics', item: 'https://www.foundersinmotion.tech/topics/' },
     ],
   }, null, 2)}
 </script>
@@ -467,7 +467,7 @@ ${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Founder Topics',
-    url: 'https://foundersinmotion.com/topics/',
+    url: 'https://www.foundersinmotion.tech/topics/',
     description: 'Question-shaped guides for founders, drawing from interviews across the Founders In Motion archive.',
   }, null, 2)}
 </script>

@@ -50,11 +50,11 @@ const topicPages = subPages('topics');
     empty.length ? `${empty.length} pages have NO answer body, e.g. ${empty.slice(0, 3).join(', ')}` : '');
 }
 
-// 2. CLICKABLE internal links must be root-relative (absolute foundersinmotion.com breaks
-//    on vercel.app). Only <a> anchors count — canonical/og:url tags are SUPPOSED to be absolute.
+// 2. CLICKABLE internal links must be root-relative (an absolute host breaks when the primary
+//    domain changes). Only <a> anchors count — canonical/og:url tags are SUPPOSED to be absolute.
 {
   const bad = [...qPages, ...epPages, ...topicPages].filter((p) =>
-    /<a\b[^>]*href="https:\/\/foundersinmotion\.com\/(episodes|questions|topics)\//.test(read(p)));
+    /<a\b[^>]*href="https:\/\/(?:www\.)?foundersinmotion\.(?:com|tech)\/(episodes|questions|topics)\//.test(read(p)));
   check('clickable internal links are root-relative', bad.length === 0,
     bad.length ? `${bad.length} pages have absolute <a> hrefs` : '');
 }
