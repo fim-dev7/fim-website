@@ -2,21 +2,26 @@
 
 ## ✅ Done & live on foundersinmotion.tech
 
-- **Domain** migrated to the apex `foundersinmotion.tech` (was a dead `.com`); `www` 308→apex. All canonicals/og/sitemap/llms/JSON-LD correct.
-- **IndexNow**: 294 URLs submitted to Bing/Yandex/etc.; auto-wired into the sync workflow.
-- **robots directive** `max-snippet:-1, max-image-preview:large, max-video-preview:-1` on every indexable page.
-- **Social/author meta**: author + twitter:title/description/image site-wide; episode og:title de-duplicated; og:type fixed on Q/topic pages; article:published_time/author on episodes.
-- **Performance**: React → production builds (~1MB lighter); preconnect to unpkg; LCP hero preload; explicit image dimensions; fallback og:image for audio-only episodes.
-- **Google Search Console**: property verified; **sitemap.xml submitted — Status: Success, 299 pages discovered.**
-- **Ep 29 — Caroline Tran (Hello Clever)** — generated, grounded (two-layer gate + independent verifier), published. **LIVE at /episodes/29-caroline-tran/** with $15M ARR, correct names (no Clover/Emotion leaks), her question pages, and in the sitemap. (Note: the transcript file said "Ep 30" but the canonical number is **29** per the Sheet — site is correct.)
+- **Domain** on apex `foundersinmotion.tech` (`www` → apex). All canonicals/og/sitemap/llms/JSON-LD correct.
+- **Google Search Console**: verified; sitemap submitted — Success, 299 pages. **Bing Webmaster** imported.
+- **IndexNow**: all URLs submitted; auto-pings on every sync.
+- **robots** `max-snippet:-1, max-image-preview:large, max-video-preview:-1` on every indexable page.
+- **Social/author meta**: author + twitter:title/description/image site-wide; episode og:title de-duplicated; og:type fixed on Q/topic; article:published_time/author on episodes.
+- **Performance**: React → production builds; **in-browser Babel eliminated** (~3MB removed; JSX prebuilt into `app.bundle.js`); preconnect; LCP hero preload; explicit image dimensions; audio-only fallback og:image. Homepage verified rendering identically.
+- **Ep 29 — Caroline Tran (Hello Clever)**: grounded (two-layer gate + independent verifier), **live** at /episodes/29-caroline-tran/ with $15M ARR, correct names, **custom thumbnail** (card + og:image), question pages, in sitemap.
 
-## 📋 Remaining — all optional
+## ⚠️ ONE workflow change — editing the homepage
 
-- [ ] **Bing Webmaster Tools** — one-click "Import from Google Search Console" (optional; IndexNow already feeds Bing/Copilot/ChatGPT).
-- [ ] **Vercel** — flip the `www→apex` redirect from 307 → 308 (Settings → Domains; the dropdown that wouldn't automate). Minor.
-- [ ] *(Optional)* custom thumbnail for Ep 29 (no YouTube → currently the FiM banner fallback).
-- [ ] *(Housekeeping)* the Drive content/Q&A Docs are still titled "Ep 30 - Caroline Tran" — harmless (sync matches by guest name), but rename to "Ep 29" in Drive if you want tidiness. Also a stale duplicate "Ep 30" content Doc exists from the $15M re-upload (newest-Doc-wins ignores it).
+The homepage is now a prebuilt bundle (no in-browser Babel). After editing **`sections.jsx`, `app.jsx`, or `tweaks-panel.jsx`**, you MUST rebuild:
 
-## 🔧 Bigger refactors (your call — I'll do with you watching)
+```
+node scripts/build-client.mjs   # regenerates app.bundle.js
+```
 
-- Eliminate in-browser Babel via a build step (biggest perf win left, ~3MB) · self-host React · WebP the large PNGs (guests-strip 1.6MB, og banner 1.87MB) · trim/self-host Google Fonts weights.
+…then commit `app.bundle.js` alongside the `.jsx`. (`data.jsx`/`data-static.jsx` are plain data — no rebuild needed.) The 6-hourly sync also rebuilds the bundle automatically, and `verify-site.js` flags if Babel ever creeps back. Editing question/episode CONTENT (Drive Docs + Sheet) is unchanged — drop a transcript, sync, done.
+
+## 🔧 Optional remaining (smaller wins — say the word)
+
+- WebP/resize the large PNGs (guests-strip 1.6MB, og banner 1.87MB) · self-host React (remove unpkg dependency) · trim Google Fonts weights.
+- Vercel `www→apex` redirect: bump 307 → 308 if not already done (Settings → Domains).
+- Housekeeping: Drive content/Q&A Docs still titled "Ep 30 - Caroline Tran" (harmless — sync matches by guest; rename to "Ep 29" for tidiness).
