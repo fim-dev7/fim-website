@@ -84,6 +84,14 @@
 .about-photo img { width: 100%; border-radius: 18px; border: 1px solid var(--border); display: block; }
 .about-photo figcaption { font-family: var(--body); font-size: 13px; color: var(--muted); text-align: center; margin-top: 12px; }
 
+.about-moments { max-width: 760px; margin: 56px auto 0; }
+.about-moments h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -0.02em; color: var(--off-white); margin: 0 0 6px; }
+.about-moments .moments-sub { font-family: var(--body); font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0 0 20px; }
+.moments-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.moments-grid img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); display: block; }
+.moments-grid img:last-child { grid-column: 1 / -1; }
+@media (max-width: 640px) { .moments-grid { grid-template-columns: 1fr; } .moments-grid img:last-child { grid-column: auto; } }
+
 .about-body { max-width: 720px; margin: 0 auto; }
 .about-body h2 {
   font-family: var(--sans);
@@ -172,6 +180,18 @@
       <img src="../assets/thea-ngo.jpg" alt="Thea Ngo, host of Founders In Motion" loading="lazy" decoding="async" />
       <figcaption>Thea Ngo — host of Founders In Motion.</figcaption>
     </figure>
+
+    <section class="about-moments">
+      <h2>On the show</h2>
+      <p class="moments-sub">Behind the scenes — in studio, on location, and over video, across the archive.</p>
+      <div class="moments-grid">
+        <img src="../assets/moments/studio.jpg" alt="Founders In Motion — Thea Ngo in a recording session" loading="lazy" decoding="async" width="1280" height="720" />
+        <img src="../assets/moments/will.jpg" alt="Founders In Motion — Thea Ngo interviewing Will Bodewes" loading="lazy" decoding="async" width="1280" height="714" />
+        <img src="../assets/moments/nathan.jpg" alt="Founders In Motion — Thea Ngo interviewing Nathan Yun" loading="lazy" decoding="async" width="1280" height="720" />
+        <img src="../assets/moments/lauren.jpg" alt="Founders In Motion — Thea Ngo interviewing Lauren" loading="lazy" decoding="async" width="1280" height="720" />
+        <img src="../assets/moments/videocall.jpg" alt="Founders In Motion — a remote interview" loading="lazy" decoding="async" width="1280" height="720" />
+      </div>
+    </section>
 
     <div class="about-body">
 
