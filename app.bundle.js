@@ -1040,10 +1040,10 @@ function Hero() {
   }, React.createElement("figure", {
     className: "hero-photo"
   }, React.createElement("img", {
-    src: "assets/thea-ngo.jpg",
+    src: "assets/thea-hero.jpg",
     alt: "Thea Ngo \u2014 host of Founders In Motion",
-    width: "800",
-    height: "1055",
+    width: "888",
+    height: "1100",
     fetchPriority: "high",
     decoding: "async"
   }), React.createElement("figcaption", null, React.createElement("b", null, "Thea Ngo"), React.createElement("span", null, "Host \xB7 early-stage investor"))), React.createElement("div", {

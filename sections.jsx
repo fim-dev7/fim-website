@@ -40,7 +40,7 @@ function Hero() {
       <div className="container hero-inner">
         <div className="hero-grid">
         <figure className="hero-photo">
-          <img src="assets/thea-ngo.jpg" alt="Thea Ngo — host of Founders In Motion" width="800" height="1055" fetchPriority="high" decoding="async" />
+          <img src="assets/thea-hero.jpg" alt="Thea Ngo — host of Founders In Motion" width="888" height="1100" fetchPriority="high" decoding="async" />
           <figcaption><b>Thea Ngo</b><span>Host · early-stage investor</span></figcaption>
         </figure>
         <div className="hero-text">
