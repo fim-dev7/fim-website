@@ -4,12 +4,12 @@
 
 ## Episodes with detailed show notes
 
+- [Ep 29: Caroline Tran, Hello Clever](https://foundersinmotion.tech/episodes/29-caroline-tran/): Caroline Tran was building a payments company with no payment background. She started a consumer cashback app, ran out of money, pivoted, and found her first paying merchant on a Facebook group — today Hello Clever runs at $15M ARR, processing payments across 20 countries.
 - [Ep 28: Will Bodewes, Phonely (YC S24)](https://foundersinmotion.tech/episodes/28-will-bodewes/): Will was an ultra endurance cyclist and a college skier whose final race got cancelled. He carried that chip into Phonely — voice AI that answers your phone — going from 30% of calls failing to a customer paying $78,000 a month.
 - [Ep 27: Shakeel Lala, Marloo](https://foundersinmotion.tech/episodes/27-shakeel-lala/): Shakeel quit his job, convinced one of Australia's largest VCs to back him with no business idea, ran 800 conversations with financial advisors over 9 months, then vibe-coded a demo the week before Australia's biggest financial advice conference. People tried to buy it on the spot. Marloo has since raised $10M and is live across 6 countries.
 - [Ep 26: Nathan Yun, Paire](https://foundersinmotion.tech/episodes/26-nathan-yun/): Nathan Yun started a fashion brand with "the least sexy product, socks" after his ankle socks kept slipping on Covid walks. Five years later Paire hits an eight figure run rate, went viral on Shark Tank, and proved that boring products can build iconic brands.
 - [Ep 25: Celeste Amadon, Known](https://foundersinmotion.tech/episodes/25-celeste-amadon/): Celeste was 21 when she walked into Forerunner Ventures. She raised her pre-seed in 8 days, her seed in 4 days, and fielded 12+ term sheets. Known has set up 1,500 curated dates in beta and hundreds of couples are now in relationships. Her thesis: today's apps are perversely incentivised to keep you single and paying.
 - [Ep 24: Nam Nguyen, TruthSystems (YC S25)](https://foundersinmotion.tech/episodes/24-nam-nguyen/): Nam's co-founder was 19 years old. Law firms told them "come back in 5 years." They applied to YC four times. When they finally got in, their $4M round filled in 48 hours. TruthSystems is now the AI governance layer sitting inside law firms in real time.
-- [Ep 23: Finnlay Morcombe, Fluency](https://foundersinmotion.tech/episodes/23-finnlay-morcombe/): At 25, Finnlay Morcombe built Fluency — a platform that maps how work actually happens in Fortune 500 organizations — raised 6 million from Accel within weeks of landing in the US, and hard pivoted into the product within one week of going to market.
 
 ## What founders learn here
 
@@ -28,6 +28,7 @@ Full FAQ at https://foundersinmotion.tech/#faq
 
 ## Full archive
 
+- Ep 29: Caroline Tran, Hello Clever — $15M ARR Fintech Founder: I Found My First Customer on Facebook
 - Ep 28: Will Bodewes, Phonely (YC S24) — The D1 Athlete Who Built a $100M Voice AI Company
 - Ep 27: Shakeel Lala, Marloo — $40M FinTech Founder on Raising Millions Before He Had a Business Idea
 - Ep 26: Nathan Yun, Paire — He Turned Falling Socks into an Eight Figure Global Brand
@@ -74,4 +75,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - All episode pages are server-rendered HTML with PodcastEpisode JSON-LD and full transcripts inside collapsed `<details>` blocks (fully crawlable).
 - Homepage has FAQPage JSON-LD with 12 founder questions and answers drawn from across the archive.
 
-Generated: 2026-06-14T10:55:37.978Z
+Generated: 2026-06-14T11:54:10.593Z
