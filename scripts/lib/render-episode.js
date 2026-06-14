@@ -571,7 +571,8 @@ ${(() => {
     const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
     return m ? m[1] : null;
   })();
-  if (!ytId) return '';
+  if (!ytId) return `<meta property="og:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />
+<meta name="twitter:card" content="summary_large_image" />`;
   const og = `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`;
   return `<meta property="og:image" content="${og}" />
 <meta property="og:image:width" content="1280" />
