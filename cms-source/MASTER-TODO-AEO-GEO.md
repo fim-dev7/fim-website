@@ -6,13 +6,14 @@ _Last updated 2026-06-15._ Everything in one place: what's done, your highest-RO
 - **On-page AEO/GEO**: canonical / sitemap / llms.txt / robots / rich JSON-LD, IndexNow auto-ping, `/episodes/` ItemList, image optimization (~2.4MB), in-browser Babel removed.
 - **GSC** verified + sitemap submitted (the property lives on **hello.foundersinmotion@gmail.com**).
 - **GSC "Request Indexing" submitted today for 6 key URLs**: homepage, `/episodes/`, `/questions/`, `/episodes/29-caroline-tran/`, `/28-will-bodewes/`, `/27-shakeel-lala/`. Note: every page except the homepage was *"Discovered – currently not indexed"* (Google knew them from the sitemap but hadn't crawled them) — they're now in Google's priority crawl queue.
+- **Pocket Casts** — RSS submitted today (✓ "feed successfully added," Public). **Overcast** — auto-pulls from Apple Podcasts (already listed there), so no manual action needed.
 - **Drafted all outreach** (this doc + DISCOVERY-TOOLKIT.md). Nothing has been sent.
 
 ## 🔥 Do this week (highest ROI, ~1–2 hrs total)
 1. **Guest backlinks** — send the outreach to your top ~12 guests (template + list in DISCOVERY-TOOLKIT.md). A link from each guest's company site is the single strongest signal for AI answer engines. **← biggest win.**
 2. **Claim Goodpods + Podchaser** — the two directories that give a *do-follow* backlink once claimed (steps in DISCOVERY-TOOLKIT.md).
 3. **Wire your channels** — add `foundersinmotion.tech` to your YouTube channel links + every video description, and to your IG / LinkedIn / TikTok bios (copy in DISCOVERY-TOOLKIT.md).
-4. **Submit RSS to the rest** — Overcast, Pocket Casts, Amazon Music, iHeart (RSS: `https://anchor.fm/s/fe863658/podcast/rss`). _Tell me "submit to Overcast + Pocket Casts" and I'll do those two — no login needed; the others need your account._
+4. **Submit RSS to remaining directories** — Pocket Casts ✓ done · Overcast auto-pulls from Apple ✓. Still to do: **Amazon Music** + **iHeartRadio** (RSS: `https://anchor.fm/s/fe863658/podcast/rss`) — both need your account login; steps in DISCOVERY-TOOLKIT.md, or I can drive them with you present to sign in.
 
 ## 📈 Then — broader reach (the research below)
 5. Pitch **media & newsletters** (esp. AU + SEA) — §1
