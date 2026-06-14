@@ -1,6 +1,6 @@
 # Hook
 
-Caroline Tran was building a payments company with no payment background. She started a consumer cashback app, ran out of money, pivoted, and found her first paying merchant on a Facebook group — today Hello Clever processes payments across 20 countries.
+Caroline Tran was building a payments company with no payment background. She started a consumer cashback app, ran out of money, pivoted, and found her first paying merchant on a Facebook group — today Hello Clever runs at $15M ARR, processing payments across 20 countries.
 
 # Story
 
@@ -26,6 +26,7 @@ Not everything went smoothly. A large merchant was about to start, then at 11 PM
 
 # Key claims
 
+- **$15M ARR** — Hello Clever's annual recurring revenue
 - **20** — Countries Hello Clever helps merchants and businesses accept payments in
 - **18 months** — Time hyper-focused on Australia, from 2022 until early 2024, before going global
 - **60** — Banking relationships globally now, up from about two 24 months earlier
@@ -106,7 +107,7 @@ duration: 22 min
 duration_iso: PT22M
 guest_role: Co-founder and CEO, Hello Clever
 guest_bio: Moved to Australia 15 years ago and worked in accounting and media finance before launching Hello Clever during Covid, pivoting from a consumer cashback app into a global payments company.
-mini_stats: 20 countries | 60 banking relationships | 70 employees | 5 offices
+mini_stats: $15M ARR | 20 countries | 60 banking relationships | 70 employees
 tags: Fintech · Payments · Pivoting
 background_title: Background
-twitter_share: Caroline Tran built a payments company with no payment background — pivoted out of a consumer app, found her first merchant on a Facebook group, and now Hello Clever processes payments across 20 countries.
+twitter_share: Caroline Tran built a payments company with no payment background — pivoted out of a consumer app, found her first merchant on a Facebook group, and now Hello Clever runs at $15M ARR across 20 countries.
