@@ -39,6 +39,28 @@ function formatDate(iso) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
+/**
+ * Convert a published_date into an ISO8601 date (YYYY-MM-DD) for
+ * article:published_time. Source dates are stored DD/MM/YYYY. Already-ISO
+ * values (YYYY-MM-DD) pass through. Returns null if unparseable.
+ */
+function articleDate(text) {
+  if (!text) return null;
+  const s = String(text).trim();
+  // Already ISO8601 (YYYY-MM-DD, optionally with time)
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  // DD/MM/YYYY
+  const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) {
+    const [, dd, mm, yyyy] = m;
+    const d = dd.padStart(2, '0');
+    const mo = mm.padStart(2, '0');
+    if (+mo < 1 || +mo > 12 || +d < 1 || +d > 31) return null;
+    return `${yyyy}-${mo}-${d}`;
+  }
+  return null;
+}
+
 function durationISO(text) {
   if (!text) return null;
   // Accept "35 min", "1h 8m", "1:08:42", "PT35M", "68 min"
@@ -554,15 +576,24 @@ export function renderEpisodePage({ ep, content, slug, transcriptText, transcrip
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(metaDesc)}" />
 <link rel="canonical" href="https://foundersinmotion.tech/episodes/${slug}/" />
 <meta property="og:url" content="https://foundersinmotion.tech/episodes/${slug}/" />
 <meta property="og:site_name" content="Founders In Motion" />
 
-<meta property="og:title" content="${esc(`Ep ${ep.episode_number}: ${ep.title} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />
+<meta property="og:title" content="${esc(`Ep ${ep.episode_number}: ${headlineOnly} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />
 <meta property="og:description" content="${esc(metaDesc)}" />
+<meta property="twitter:title" content="${esc(`Ep ${ep.episode_number}: ${headlineOnly} — ${ep.guest_name}, ${ep.guest_company || ''}`).replace(/, $/, '')}" />
+<meta property="twitter:description" content="${esc(metaDesc)}" />
 <meta property="og:type" content="article" />
+${(() => {
+  const ad = articleDate(ep.published_date);
+  return ad ? `<meta property="article:published_time" content="${ad}" />
+<meta property="article:author" content="Thea Ngo" />` : '';
+})()}
 ${(() => {
   // Use YouTube thumbnail as OG image — automatic, episode-specific, free.
   // maxresdefault.jpg is the high-quality (1280x720) version when available.
@@ -572,7 +603,8 @@ ${(() => {
     return m ? m[1] : null;
   })();
   if (!ytId) return `<meta property="og:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />
-<meta name="twitter:card" content="summary_large_image" />`;
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />`;
   const og = `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`;
   return `<meta property="og:image" content="${og}" />
 <meta property="og:image:width" content="1280" />

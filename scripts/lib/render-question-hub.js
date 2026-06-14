@@ -185,6 +185,8 @@ export function renderQuestionPage({ group, allGrouped }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>${esc(question)} | Founders In Motion</title>
 <meta name="description" content="${esc(metaDescription)}" />
 <link rel="canonical" href="${url}" />
@@ -192,10 +194,13 @@ export function renderQuestionPage({ group, allGrouped }) {
 <meta property="og:site_name" content="Founders In Motion" />
 <meta property="og:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://foundersinmotion.tech/assets/youtube-banner.png" />
 
 <meta property="og:title" content="${esc(question)}" />
 <meta property="og:description" content="${esc(metaDescription)}" />
-<meta property="og:type" content="article" />
+<meta property="twitter:title" content="${esc(question)}" />
+<meta property="twitter:description" content="${esc(metaDescription)}" />
+<meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -460,16 +465,21 @@ export function renderQuestionsIndex({ grouped }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>Founder Questions, Answered | Founders In Motion</title>
 <meta name="description" content="Every founder question answered by interviews with real early-stage founders. ${all.length} questions, with citations to the exact episode and moment." />
 <link rel="canonical" href="${SITE_URL}/questions/" />
 <meta property="og:title" content="Founder Questions, Answered | Founders In Motion" />
 <meta property="og:description" content="Every founder question answered by interviews with real early-stage founders." />
+<meta property="twitter:title" content="Founder Questions, Answered | Founders In Motion" />
+<meta property="twitter:description" content="Every founder question answered by interviews with real early-stage founders." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="${SITE_URL}/questions/" />
 <meta property="og:site_name" content="Founders In Motion" />
 <meta property="og:image" content="${SITE_URL}/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${SITE_URL}/assets/youtube-banner.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

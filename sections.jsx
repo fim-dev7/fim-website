@@ -16,7 +16,7 @@ function Nav() {
     <nav className="nav">
       <div className="container nav-inner">
         <a href="#top" className="brand">
-          <img className="brand-logo" src="assets/logo-white.png" alt="Founders In Motion" />
+          <img className="brand-logo" src="assets/logo-white.png" alt="Founders In Motion" width="28" height="28" decoding="async" />
           <span className="brand-text">Founders <em>In Motion</em></span>
         </a>
         <div className="nav-links">
@@ -40,7 +40,7 @@ function Hero() {
       <div className="container hero-inner">
         <div className="hero-grid">
         <figure className="hero-photo">
-          <img src="assets/thea-ngo.jpg" alt="Thea Ngo — host of Founders In Motion" />
+          <img src="assets/thea-ngo.jpg" alt="Thea Ngo — host of Founders In Motion" width="800" height="1055" fetchPriority="high" decoding="async" />
           <figcaption><b>Thea Ngo</b><span>Host · early-stage investor</span></figcaption>
         </figure>
         <div className="hero-text">
@@ -80,7 +80,7 @@ function Hero() {
 function GuestStrip() {
   return (
     <div className="guest-strip-wrap">
-      <img className="guest-band" src="assets/guests-strip.png" alt="A selection of past guests of Founders In Motion" />
+      <img className="guest-band" src="assets/guests-strip.png" alt="A selection of past guests of Founders In Motion" width="2560" height="476" loading="lazy" decoding="async" />
       <div className="guest-meta">
         <span className="label">28 founders</span>
         <span>Early-stage building across continents</span>

@@ -117,6 +117,8 @@ export function renderTopicHub({ topic, episodesById, allTopics }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>${esc(topic.question)} | Founders In Motion</title>
 <meta name="description" content="${esc(topic.summary)}" />
 <link rel="canonical" href="${url}" />
@@ -124,10 +126,13 @@ export function renderTopicHub({ topic, episodesById, allTopics }) {
 <meta property="og:site_name" content="Founders In Motion" />
 <meta property="og:image" content="${SITE_URL}/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${SITE_URL}/assets/youtube-banner.png" />
 
 <meta property="og:title" content="${esc(topic.question)}" />
 <meta property="og:description" content="${esc(topic.summary)}" />
-<meta property="og:type" content="article" />
+<meta property="twitter:title" content="${esc(topic.question)}" />
+<meta property="twitter:description" content="${esc(topic.summary)}" />
+<meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -433,16 +438,21 @@ export function renderTopicsIndex({ topics }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>Founder Topics — Founders In Motion</title>
 <meta name="description" content="Question-shaped guides for founders, drawing from interviews across the Founders In Motion archive: customer discovery, pre-seed fundraising, product-market fit, pivots, and the messy middle." />
 <link rel="canonical" href="${SITE_URL}/topics/" />
 <meta property="og:title" content="Founder Topics — Founders In Motion" />
 <meta property="og:description" content="Question-shaped guides for founders, drawing from interviews across the Founders In Motion archive." />
+<meta property="twitter:title" content="Founder Topics — Founders In Motion" />
+<meta property="twitter:description" content="Question-shaped guides for founders, drawing from interviews across the Founders In Motion archive." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="${SITE_URL}/topics/" />
 <meta property="og:site_name" content="Founders In Motion" />
 <meta property="og:image" content="${SITE_URL}/assets/youtube-banner.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${SITE_URL}/assets/youtube-banner.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
