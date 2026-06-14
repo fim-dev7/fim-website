@@ -15,7 +15,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const HOST = 'www.foundersinmotion.tech';
+const HOST = 'foundersinmotion.tech';
 const KEY = 'ee903c75f43d491aa73dc18068dd4bdc';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 

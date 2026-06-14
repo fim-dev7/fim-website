@@ -8,7 +8,7 @@
  * Conventions used: https://llmstxt.org/
  */
 
-const SITE_URL = 'https://www.foundersinmotion.tech';
+const SITE_URL = 'https://foundersinmotion.tech';
 
 function formatLastmod(iso) {
   if (!iso) return new Date().toISOString().slice(0, 10);
@@ -83,7 +83,7 @@ ${body}
 }
 
 export function renderRobots() {
-  return `# https://www.foundersinmotion.tech — robots.txt
+  return `# https://foundersinmotion.tech — robots.txt
 User-agent: *
 Allow: /
 Disallow: /uploads/
