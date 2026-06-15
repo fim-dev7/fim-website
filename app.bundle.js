@@ -1358,22 +1358,6 @@ function PullQuote({
   }, React.createElement("span", null, React.createElement("b", null, quote.attr), " \xB7 ", quote.sub)))));
 }
 function Episodes() {
-  const [data, setData] = useState({
-    episodes: EPISODES,
-    _meta: null
-  });
-  useEffect(() => {
-    let cancel = false;
-    fetch("episodes.json").then(r => r.ok ? r.json() : Promise.reject(r)).then(j => {
-      if (!cancel) setData({
-        episodes: j.episodes || EPISODES,
-        _meta: j._meta || null
-      });
-    }).catch(() => {});
-    return () => {
-      cancel = true;
-    };
-  }, []);
   return React.createElement("section", {
     className: "panel",
     id: "episodes"
@@ -1393,7 +1377,7 @@ function Episodes() {
     className: "btn btn-secondary"
   }, "Browse all episodes ", React.createElement("span", null, "\u2192"))), React.createElement("div", {
     className: "eps-grid"
-  }, data.episodes.slice(0, 3).map(ep => React.createElement(EpisodeCard, {
+  }, EPISODES.slice(0, 3).map(ep => React.createElement(EpisodeCard, {
     key: ep.n,
     ep: ep
   }))), React.createElement("div", {
