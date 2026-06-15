@@ -320,16 +320,36 @@ function WhatThisIs() {
 }
 
 // ─── Pull quote ─────────────────────────────────────────
-function PullQuote({ quote }) {
+function PullQuote({ quote, quotes }) {
+  const list = quotes && quotes.length ? quotes : [quote];
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (list.length < 2) return;
+    const t = setInterval(() => setI((n) => (n + 1) % list.length), 6500);
+    return () => clearInterval(t);
+  }, [list.length]);
+  const q = list[Math.min(i, list.length - 1)];
   return (
     <section className="quote-section">
       <div className="container">
-        <blockquote className="quote">
-          <q>{quote.text}</q>
+        <blockquote className="quote" key={i}>
+          <q>{q.text}</q>
           <div className="attr">
-            <span><b>{quote.attr}</b> · {quote.sub}</span>
+            <span><b>{q.attr}</b> · {q.sub}</span>
           </div>
         </blockquote>
+        {list.length > 1 &&
+        <div className="quote-dots">
+            {list.map((_, n) =>
+          <button
+            key={n}
+            type="button"
+            className={"quote-dot" + (n === i ? " active" : "")}
+            aria-label={"Show quote " + (n + 1)}
+            onClick={() => setI(n)} />
+          )}
+          </div>
+        }
       </div>
     </section>);
 

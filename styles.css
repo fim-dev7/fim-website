@@ -343,6 +343,12 @@ section.panel {
   background: var(--cream);
 }
 .quote .attr b { color: var(--off-white); font-weight: 600; }
+.quote { animation: quoteFade 0.55s ease; }
+@keyframes quoteFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.quote-dots { display: flex; gap: 8px; margin-top: 28px; padding-left: 35px; }
+.quote-dot { width: 7px; height: 7px; border-radius: 999px; border: none; padding: 0; background: var(--border); cursor: pointer; transition: background 0.3s, width 0.3s; }
+.quote-dot.active { background: var(--cream); width: 22px; }
+.quote-dot:hover { background: var(--muted); }
 
 /* ─── Episodes grid (3-up) ─────────────────────────────────────── */
 .eps-header {

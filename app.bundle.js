@@ -610,6 +610,16 @@ const QUOTES = [
     attr: "Celeste Amadon, Founder of Known",
     sub: "pre-seed raised in 8 days · seed raised in 4 days · 12+ term sheets",
   },
+  {
+    text: "The biggest thing that kills startups is not running out of money. It's easy to get money. It's hard to stay motivated.",
+    attr: "Robert Huynh, Founder of Nook",
+    sub: "50,000 users · $20M valuation",
+  },
+  {
+    text: "Strongroom dies. I'm going down with the ship.",
+    attr: "Joe Zhou, Founder of Strongroom AI",
+    sub: "acquired the company out of administration",
+  },
 ];
 
 // Founder Questions — the FAQ section drives the FAQPage JSON-LD on index.html.
@@ -1345,17 +1355,35 @@ function WhatThisIs() {
   }, f.icon), React.createElement("div", null, React.createElement("h4", null, f.title), React.createElement("p", null, f.body))))))));
 }
 function PullQuote({
-  quote
+  quote,
+  quotes
 }) {
+  const list = quotes && quotes.length ? quotes : [quote];
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (list.length < 2) return;
+    const t = setInterval(() => setI(n => (n + 1) % list.length), 6500);
+    return () => clearInterval(t);
+  }, [list.length]);
+  const q = list[Math.min(i, list.length - 1)];
   return React.createElement("section", {
     className: "quote-section"
   }, React.createElement("div", {
     className: "container"
   }, React.createElement("blockquote", {
-    className: "quote"
-  }, React.createElement("q", null, quote.text), React.createElement("div", {
+    className: "quote",
+    key: i
+  }, React.createElement("q", null, q.text), React.createElement("div", {
     className: "attr"
-  }, React.createElement("span", null, React.createElement("b", null, quote.attr), " \xB7 ", quote.sub)))));
+  }, React.createElement("span", null, React.createElement("b", null, q.attr), " \xB7 ", q.sub))), list.length > 1 && React.createElement("div", {
+    className: "quote-dots"
+  }, list.map((_, n) => React.createElement("button", {
+    key: n,
+    type: "button",
+    className: "quote-dot" + (n === i ? " active" : ""),
+    "aria-label": "Show quote " + (n + 1),
+    onClick: () => setI(n)
+  })))));
 }
 function Episodes() {
   return React.createElement("section", {
@@ -1629,10 +1657,8 @@ function App() {
     applyPalette(t.palette);
   }, [t.palette]);
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement(Hero, null), React.createElement(AskBox, null), React.createElement(GuestStrip, null), React.createElement(WhatThisIs, null), React.createElement(PullQuote, {
-    quote: QUOTES[0]
-  }), React.createElement(Episodes, null), React.createElement(PullQuote, {
-    quote: QUOTES[1]
-  }), React.createElement(FaqSection, null), React.createElement(Listen, null), React.createElement(About, null), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
+    quotes: QUOTES
+  }), React.createElement(Episodes, null), React.createElement(FaqSection, null), React.createElement(Listen, null), React.createElement(About, null), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
     label: "Theme"
   }), React.createElement(TweakColor, {
     label: "Palette (bg \xB7 fg \xB7 cream)",

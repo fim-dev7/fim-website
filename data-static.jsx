@@ -17,6 +17,16 @@ const QUOTES = [
     attr: "Celeste Amadon, Founder of Known",
     sub: "pre-seed raised in 8 days · seed raised in 4 days · 12+ term sheets",
   },
+  {
+    text: "The biggest thing that kills startups is not running out of money. It's easy to get money. It's hard to stay motivated.",
+    attr: "Robert Huynh, Founder of Nook",
+    sub: "50,000 users · $20M valuation",
+  },
+  {
+    text: "Strongroom dies. I'm going down with the ship.",
+    attr: "Joe Zhou, Founder of Strongroom AI",
+    sub: "acquired the company out of administration",
+  },
 ];
 
 // Founder Questions — the FAQ section drives the FAQPage JSON-LD on index.html.

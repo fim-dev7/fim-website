@@ -32,9 +32,8 @@ function App() {
       <AskBox />
       <GuestStrip />
       <WhatThisIs />
-      <PullQuote quote={QUOTES[0]} />
+      <PullQuote quotes={QUOTES} />
       <Episodes />
-      <PullQuote quote={QUOTES[1]} />
       <FaqSection />
       <Listen />
       <About />
