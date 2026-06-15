@@ -66,6 +66,15 @@ export function renderQuestionPage({ group, allGrouped }) {
     }
   }
 
+  // Convert the sheet's DD/MM/YYYY (or any parseable) date to ISO YYYY-MM-DD.
+  const isoDate = (s) => {
+    if (!s) return null;
+    const m = String(s).trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+    const d = new Date(s);
+    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+  };
+
   // ----- JSON-LD --------------------------------------------------------------
 
   const breadcrumb = JSON.stringify({
@@ -78,8 +87,28 @@ export function renderQuestionPage({ group, allGrouped }) {
     ],
   }, null, 2);
 
-  // QAPage — Google's canonical schema for community Q&A. Each contributor is
-  // a separate suggestedAnswer. The first contributor's answer is the acceptedAnswer.
+  // QAPage — Google's canonical schema for community Q&A. answerCount is REQUIRED;
+  // the first contributor's answer is the acceptedAnswer, the rest are suggestedAnswer.
+  const answerUrlFor = (ep) => ep.has_episode_page ? `${SITE_URL}/episodes/${ep.slug}/` : (ep.spotify_url || url);
+  const makeAnswer = ({ ep, entry }) => {
+    const ans = {
+      '@type': 'Answer',
+      text: entry.answer,
+      url: answerUrlFor(ep),
+      upvoteCount: 0,
+      author: {
+        '@type': 'Person',
+        name: ep.guest_name,
+        url: answerUrlFor(ep),
+        ...(ep.guest_company ? { affiliation: { '@type': 'Organization', name: ep.guest_company } } : {}),
+      },
+    };
+    const d = isoDate(ep.published_date);
+    if (d) ans.datePublished = d;
+    return ans;
+  };
+  const answered = contributors.filter(c => c?.entry?.answer);
+  const questionDate = isoDate(answered[0]?.ep?.published_date);
   const qaPage = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'QAPage',
@@ -88,27 +117,11 @@ export function renderQuestionPage({ group, allGrouped }) {
       '@type': 'Question',
       name: question,
       url,
-      author: { '@type': 'Organization', name: 'Founders In Motion' },
-      acceptedAnswer: contributors[0]?.entry?.answer ? {
-        '@type': 'Answer',
-        text: contributors[0].entry.answer,
-        url: contributors[0].ep.has_episode_page ? `${SITE_URL}/episodes/${contributors[0].ep.slug}/` : (contributors[0].ep.spotify_url || url),
-        author: {
-          '@type': 'Person',
-          name: contributors[0].ep.guest_name,
-          affiliation: { '@type': 'Organization', name: contributors[0].ep.guest_company },
-        },
-      } : undefined,
-      suggestedAnswer: contributors.slice(1).map(c => ({
-        '@type': 'Answer',
-        text: c.entry.answer,
-        url: c.ep.has_episode_page ? `${SITE_URL}/episodes/${c.ep.slug}/` : (c.ep.spotify_url || url),
-        author: {
-          '@type': 'Person',
-          name: c.ep.guest_name,
-          affiliation: { '@type': 'Organization', name: c.ep.guest_company },
-        },
-      })),
+      answerCount: answered.length,
+      ...(questionDate ? { datePublished: questionDate } : {}),
+      author: { '@type': 'Organization', name: 'Founders In Motion', url: `${SITE_URL}/` },
+      ...(answered[0] ? { acceptedAnswer: makeAnswer(answered[0]) } : {}),
+      ...(answered.length > 1 ? { suggestedAnswer: answered.slice(1).map(makeAnswer) } : {}),
     },
   });
 
