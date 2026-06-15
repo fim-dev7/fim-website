@@ -392,7 +392,7 @@ function EpisodeCard({ ep }) {
   return (
     <article className="epc">
       <div className="epc-tag">Ep {ep.n} · {ep.tags.join(" · ")}</div>
-      <h3 className="epc-title">{ep.title}</h3>
+      <h3 className="epc-title">{ep.title.split(/\s*\|\s*/)[0]}</h3>
       <p className="epc-desc">{ep.desc}</p>
       <div className="epc-guest">
         <div className="avatar">{initials(ep.guest)}</div>
