@@ -203,6 +203,8 @@ export function renderArchivePage({ episodes, settings }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Thea Ngo" />
 <title>Episodes — Founders In Motion | All ${totalCount} Episodes</title>
 <meta name="description" content="All episodes of Founders In Motion. ${totalCount} unscripted conversations with early-stage founders across Australia, Southeast Asia, and the US — covering customer discovery, pre-seed fundraising, pivots, rebuilds, and what the messy middle of building actually looks like." />
 <link rel="canonical" href="https://foundersinmotion.tech/episodes/" />
