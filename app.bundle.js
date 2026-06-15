@@ -1383,7 +1383,7 @@ function Episodes() {
     className: "eps-header"
   }, React.createElement("div", null, React.createElement("div", {
     className: "label"
-  }, "Recent Episodes"), React.createElement("h2", {
+  }, "Most popular"), React.createElement("h2", {
     className: "h2",
     style: {
       marginTop: 16

@@ -62,9 +62,16 @@ function pickFeatured(episodes, n = 3) {
  * Render data.jsx.
  * `episodes` is the merged list of sheet rows + parsed content.
  */
+// Homepage "Start here" trio — the best-performing episodes, in display order.
+// Editorial pick (not recency): edit these slugs to swap which 3 show on the homepage.
+const START_HERE_SLUGS = ['4-kiki-and-elan', '24-nam-nguyen', '14-jason-ma'];
+
 export function renderDataCMS({ episodes, settings }) {
   const sortedDesc = [...episodes].sort((a, b) => b.episode_number - a.episode_number);
-  const featured = pickFeatured(sortedDesc, 3);
+  // Prefer the curated "Start here" trio; fall back to featured/most-recent if any slug is missing.
+  const bySlug = new Map(sortedDesc.map(e => [e.slug, e]));
+  const curated = START_HERE_SLUGS.map(s => bySlug.get(s)).filter(Boolean);
+  const featured = curated.length === START_HERE_SLUGS.length ? curated : pickFeatured(sortedDesc, 3);
 
   const EPISODES = featured.map(e => ({
     n: String(e.episode_number),

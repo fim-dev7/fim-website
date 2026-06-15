@@ -353,7 +353,7 @@ function Episodes() {
       <div className="container">
         <div className="eps-header">
           <div>
-            <div className="label">Recent Episodes</div>
+            <div className="label">Most popular</div>
             <h2 className="h2" style={{ marginTop: 16 }}>Start here.</h2>
           </div>
           <a href="episodes/" className="btn btn-secondary">
