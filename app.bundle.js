@@ -1405,7 +1405,7 @@ function EpisodeCard({
     className: "epc"
   }, React.createElement("div", {
     className: "epc-tag"
-  }, "Ep ", ep.n, " \xB7 ", ep.tags.join(" · ")), React.createElement("h3", {
+  }, "Ep ", ep.n, ep.tags && ep.tags.length ? " · " + ep.tags.join(" · ") : ""), React.createElement("h3", {
     className: "epc-title"
   }, ep.title.split(/\s*\|\s*/)[0]), React.createElement("p", {
     className: "epc-desc"
