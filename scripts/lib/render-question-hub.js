@@ -66,13 +66,15 @@ export function renderQuestionPage({ group, allGrouped }) {
     }
   }
 
-  // Convert the sheet's DD/MM/YYYY (or any parseable) date to ISO YYYY-MM-DD.
+  // Convert the sheet's DD/MM/YYYY (or any parseable) date to a full ISO 8601
+  // datetime WITH timezone — Google's QAPage validator rejects date-only and
+  // requires a timezone on datePublished.
   const isoDate = (s) => {
     if (!s) return null;
     const m = String(s).trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-    if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+    if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}T00:00:00+00:00`;
     const d = new Date(s);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    return Number.isNaN(d.getTime()) ? null : d.toISOString();
   };
 
   // ----- JSON-LD --------------------------------------------------------------
