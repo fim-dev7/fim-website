@@ -64,7 +64,7 @@ function pickFeatured(episodes, n = 3) {
  */
 // Homepage "Start here" trio — the best-performing episodes, in display order.
 // Editorial pick (not recency): edit these slugs to swap which 3 show on the homepage.
-const START_HERE_SLUGS = ['4-kiki-and-elan', '24-nam-nguyen', '14-jason-ma'];
+const START_HERE_SLUGS = ['10-hung-bui', '7-robert-huynh', '14-jason-ma'];
 
 export function renderDataCMS({ episodes, settings }) {
   const sortedDesc = [...episodes].sort((a, b) => b.episode_number - a.episode_number);
