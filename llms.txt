@@ -24,70 +24,49 @@ Question-shaped hubs that synthesize answers across multiple episodes:
 
 Each link is a dedicated page with direct answers from named founders, QAPage JSON-LD, and links back to the source episode:
 
-- [How do I find my first customers?](https://foundersinmotion.tech/questions/how-to-find-first-customers/) — answered by 23 founders
+- [How do I find my first customers?](https://foundersinmotion.tech/questions/how-to-find-first-customers/) — answered by 22 founders
 - [How do I validate a startup idea before building it?](https://foundersinmotion.tech/questions/how-to-validate-startup-idea/) — answered by 19 founders
-- [When should I quit my corporate job to start a company?](https://foundersinmotion.tech/questions/when-to-quit-job-to-start-company/) — answered by 14 founders
 - [How do I do customer discovery on a tiny budget?](https://foundersinmotion.tech/questions/how-to-do-customer-discovery/) — answered by 13 founders
+- [When should I quit my corporate job to start a company?](https://foundersinmotion.tech/questions/when-to-quit-job-to-start-company/) — answered by 13 founders
 - [How do I avoid burning out in the first two years of building?](https://foundersinmotion.tech/questions/how-to-avoid-founder-burnout/) — answered by 11 founders
 - [How do I know when I've found product-market fit?](https://foundersinmotion.tech/questions/how-to-find-product-market-fit/) — answered by 11 founders
 - [How do I evaluate a co-founder before going all in?](https://foundersinmotion.tech/questions/how-to-evaluate-cofounder/) — answered by 9 founders
-- [How long does a pre-seed or seed round take to close?](https://foundersinmotion.tech/questions/how-long-fundraising-takes/) — answered by 7 founders
 - [How do I pivot without losing my team or investors?](https://foundersinmotion.tech/questions/how-to-pivot-without-losing-team/) — answered by 6 founders
-- [How do founders handle investor rejection?](https://foundersinmotion.tech/questions/how-to-handle-investor-rejection/) — answered by 5 founders
+- [How long does a pre-seed or seed round take to close?](https://foundersinmotion.tech/questions/how-long-fundraising-takes/) — answered by 6 founders
 - [Should I bootstrap or raise venture capital?](https://foundersinmotion.tech/questions/bootstrap-vs-venture/) — answered by 5 founders
 - [What does Shopfront actually do?](https://foundersinmotion.tech/questions/what-does-the-product-do/) — answered by 5 founders
+- [How do founders handle investor rejection?](https://foundersinmotion.tech/questions/how-to-handle-investor-rejection/) — answered by 4 founders
 - [How do I build a consumer brand on a tight budget?](https://foundersinmotion.tech/questions/how-to-build-consumer-brand/) — answered by 4 founders
-- [How did Ethan Yong's role change as Umami Papi grew?](https://foundersinmotion.tech/questions/founder-to-ceo-transition/) — answered by 3 founders
 - [How did Sisterwould find the right manufacturer?](https://foundersinmotion.tech/questions/how-to-find-a-manufacturer/) — answered by 3 founders
-- [How do you sell a prototype to a bank or large institution?](https://foundersinmotion.tech/questions/how-to-sell-to-enterprise-as-startup/) — answered by 3 founders
-- [How do you stay sane comparing yourself to faster-growing startups?](https://foundersinmotion.tech/questions/how-to-handle-comparison-as-founder/) — answered by 3 founders
-- [How will the way people build AI products change in the future?](https://foundersinmotion.tech/questions/future-of-building-ai-products/) — answered by 3 founders
-- [Should you become a founder?](https://foundersinmotion.tech/questions/should-i-become-a-founder/) — answered by 3 founders
-- [What are the pros and cons of being a solo founder?](https://foundersinmotion.tech/questions/solo-founder-vs-cofounder-pros-cons/) — answered by 3 founders
-- [What does "the messy middle" feel like for a founder?](https://foundersinmotion.tech/questions/how-to-survive-messy-middle/) — answered by 3 founders
 - [What does YC actually look for in founders?](https://foundersinmotion.tech/questions/what-yc-looks-for/) — answered by 3 founders
 - [What happens when your startup fails? How do founders survive it?](https://foundersinmotion.tech/questions/how-to-survive-startup-failure/) — answered by 3 founders
-- [What warning signs tell you it's time to pivot, not patch?](https://foundersinmotion.tech/questions/warning-signs-time-to-pivot/) — answered by 3 founders
 - [What's it like being a non-technical female founder?](https://foundersinmotion.tech/questions/how-to-sell-as-young-founder/) — answered by 3 founders
-- [What's the most important lesson from building a startup?](https://foundersinmotion.tech/questions/most-important-startup-lesson/) — answered by 3 founders
-- [Can you break into a technical industry with no network and still win customers?](https://foundersinmotion.tech/questions/break-into-industry-without-network/) — answered by 2 founders
-- [Do startup milestones feel bigger as the numbers get bigger?](https://foundersinmotion.tech/questions/first-dollar-vs-first-million/) — answered by 2 founders
 - [How did Andy Miller build company culture at Heaps Normal?](https://foundersinmotion.tech/questions/how-to-build-company-culture/) — answered by 2 founders
+- [How did Ethan Yong's role change as Umami Papi grew?](https://foundersinmotion.tech/questions/founder-to-ceo-transition/) — answered by 2 founders
 - [How do I hire my first engineer at a startup?](https://foundersinmotion.tech/questions/how-to-hire-first-engineer/) — answered by 2 founders
 - [How do I know when my MVP is ready to ship?](https://foundersinmotion.tech/questions/how-to-know-mvp-is-ready/) — answered by 2 founders
 - [How do I test if people actually want my product before launch?](https://foundersinmotion.tech/questions/how-to-test-demand-before-launch/) — answered by 2 founders
-- [How do you build a great customer experience in an industry people hate?](https://foundersinmotion.tech/questions/customer-experience-in-hated-industry/) — answered by 2 founders
 - [How do you decide which international market to enter?](https://foundersinmotion.tech/questions/how-to-expand-startup-internationally/) — answered by 2 founders
-- [How do you fix a fundraising pitch that keeps getting rejected?](https://foundersinmotion.tech/questions/how-to-fix-fundraising-pitch/) — answered by 2 founders
-- [How do you learn startup skills you have no background in?](https://foundersinmotion.tech/questions/how-to-learn-startup-skills-from-scratch/) — answered by 2 founders
-- [How do you protect your pricing model when VCs keep telling you it's broken?](https://foundersinmotion.tech/questions/when-vcs-hate-your-pricing-model/) — answered by 2 founders
-- [How do you rebuild a startup solo when your co-founder leaves mid-pivot?](https://foundersinmotion.tech/questions/how-to-rebuild-after-cofounder-leaves/) — answered by 2 founders
-- [How do you survive a redundancy and come out the other side with more clarity?](https://foundersinmotion.tech/questions/how-to-survive-redundancy/) — answered by 2 founders
-- [How do you trust your own instincts over advice from people you respect?](https://foundersinmotion.tech/questions/trust-your-instincts-over-advice/) — answered by 2 founders
-- [How does ketamine actually treat depression?](https://foundersinmotion.tech/questions/how-does-ketamine-treat-depression/) — answered by 2 founders
-- [How much does ketamine treatment cost in Australia?](https://foundersinmotion.tech/questions/ketamine-treatment-cost-australia/) — answered by 2 founders
+- [How do you sell a prototype to a bank or large institution?](https://foundersinmotion.tech/questions/how-to-sell-to-enterprise-as-startup/) — answered by 2 founders
+- [How do you stay sane comparing yourself to faster-growing startups?](https://foundersinmotion.tech/questions/how-to-handle-comparison-as-founder/) — answered by 2 founders
 - [How should an early startup think about pricing its first customer?](https://foundersinmotion.tech/questions/how-to-price-first-customer/) — answered by 2 founders
 - [How should I price a premium consumer product?](https://foundersinmotion.tech/questions/how-to-price-premium-product/) — answered by 2 founders
-- [Should you build or buy when entering a new technology frontier like voice AI?](https://foundersinmotion.tech/questions/build-vs-buy-ai-stack/) — answered by 2 founders
-- [Should you join an existing startup as a co-founder instead of starting from scratch?](https://foundersinmotion.tech/questions/should-i-join-startup-as-cofounder/) — answered by 2 founders
-- [What does InDebted actually do?](https://foundersinmotion.tech/questions/what-does-indebted-do/) — answered by 2 founders
-- [What does stand-up comedy teach you about being a founder?](https://foundersinmotion.tech/questions/what-comedy-teaches-founders/) — answered by 2 founders
-- [What is Hachiko Energy?](https://foundersinmotion.tech/questions/what-is-hachiko-energy/) — answered by 2 founders
-- [What is ketamine-assisted therapy and what happens at a clinic?](https://foundersinmotion.tech/questions/what-is-ketamine-assisted-therapy/) — answered by 2 founders
-- [What is organizational debt and why should founders fear it more than tech debt?](https://foundersinmotion.tech/questions/what-is-organizational-debt/) — answered by 2 founders
-- [What is treatment-resistant depression — and how common is it?](https://foundersinmotion.tech/questions/what-is-treatment-resistant-depression/) — answered by 2 founders
+- [How will the way people build AI products change in the future?](https://foundersinmotion.tech/questions/future-of-building-ai-products/) — answered by 2 founders
+- [Should you become a founder?](https://foundersinmotion.tech/questions/should-i-become-a-founder/) — answered by 2 founders
+- [What are the pros and cons of being a solo founder?](https://foundersinmotion.tech/questions/solo-founder-vs-cofounder-pros-cons/) — answered by 2 founders
+- [What does "the messy middle" feel like for a founder?](https://foundersinmotion.tech/questions/how-to-survive-messy-middle/) — answered by 2 founders
+- [What warning signs tell you it's time to pivot, not patch?](https://foundersinmotion.tech/questions/warning-signs-time-to-pivot/) — answered by 2 founders
 - [What's the hardest part of expanding a consumer brand to new countries?](https://foundersinmotion.tech/questions/how-to-expand-internationally/) — answered by 2 founders
+- [What's the most important lesson from building a startup?](https://foundersinmotion.tech/questions/most-important-startup-lesson/) — answered by 2 founders
 - [What's the most valuable lesson Sam learned as a founder?](https://foundersinmotion.tech/questions/most-valuable-startup-lesson/) — answered by 2 founders
-- [When should you turn down a term sheet?](https://foundersinmotion.tech/questions/when-to-reject-term-sheet/) — answered by 2 founders
-- [Why did Josh Foreman step down as CEO of InDebted to go back to building?](https://foundersinmotion.tech/questions/when-to-step-down-as-ceo/) — answered by 2 founders
-- [Why would a doctor leave medicine to build a startup?](https://foundersinmotion.tech/questions/why-leave-medicine-to-build-startup/) — answered by 2 founders
-- [Will people actually talk to a voice AI agent about their debts?](https://foundersinmotion.tech/questions/will-customers-talk-to-voice-ai/) — answered by 2 founders
 - [Are big players like OpenAI's Agent Kit competitors or validation?](https://foundersinmotion.tech/questions/vibeflow-openai-agent-kit-validation/) — answered by Alessia and Elia (VibeFlow (YC S25))
 - [Are consumers getting tired of celebrity brands?](https://foundersinmotion.tech/questions/celebrity-brand-fatigue/) — answered by Kiki and Elan (Sourmilk)
 - [Are research and entrepreneurship really that different?](https://foundersinmotion.tech/questions/researcher-to-founder-mindset/) — answered by Stephen Turban (Lumiere Education)
 - [Can a startup really out-execute incumbents on speed?](https://foundersinmotion.tech/questions/startup-speed-vs-incumbents/) — answered by Nam Nguyen (TruthSystems (YC S25))
+- [Can you break into a technical industry with no network and still win customers?](https://foundersinmotion.tech/questions/break-into-industry-without-network/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [Did anyone not take Finnlay seriously because of his age?](https://foundersinmotion.tech/questions/did-investors-take-young-founder-seriously/) — answered by Finnlay Morcombe (Fluency)
 - [Did Finnlay experience tall poppy syndrome in Australia?](https://foundersinmotion.tech/questions/tall-poppy-syndrome-australia/) — answered by Finnlay Morcombe (Fluency)
+- [Do startup milestones feel bigger as the numbers get bigger?](https://foundersinmotion.tech/questions/first-dollar-vs-first-million/) — answered by Josh Foreman (InDebted)
 - [Do US investors discount Australian revenue?](https://foundersinmotion.tech/questions/do-us-investors-discount-australian-revenue/) — answered by Finnlay Morcombe (Fluency)
 - [Do you need confidence to apply to YC?](https://foundersinmotion.tech/questions/confidence-to-apply-to-yc/) — answered by Satya Tumati (Socratix AI)
 - [Does Finnlay feel the pressure of a big raise?](https://foundersinmotion.tech/questions/pressure-of-raising-venture-capital/) — answered by Finnlay Morcombe (Fluency)
@@ -141,12 +120,19 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [How do you balance a full-time job and a side hustle?](https://foundersinmotion.tech/questions/how-to-balance-job-and-side-hustle/) — answered by Ethan Yong (Umami Papi)
 - [How do you balance grinding on a startup with enjoying your 20s?](https://foundersinmotion.tech/questions/how-to-balance-startup-and-life/) — answered by Hamish McKay (Order Editing)
 - [How do you build a following on social media as a founder?](https://foundersinmotion.tech/questions/how-to-build-founder-audience-on-social/) — answered by Kiki and Elan (Sourmilk)
+- [How do you build a great customer experience in an industry people hate?](https://foundersinmotion.tech/questions/customer-experience-in-hated-industry/) — answered by Josh Foreman (InDebted)
 - [How do you build trust when your AI touches sensitive systems?](https://foundersinmotion.tech/questions/building-trust-with-agentic-ai/) — answered by Jevon Le Roux (Keeyu)
+- [How do you fix a fundraising pitch that keeps getting rejected?](https://foundersinmotion.tech/questions/how-to-fix-fundraising-pitch/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [How do you keep customers when your product keeps breaking?](https://foundersinmotion.tech/questions/how-to-retain-customers-through-failures/) — answered by Will Bodewes (Phonely (YC S24))
+- [How do you learn startup skills you have no background in?](https://foundersinmotion.tech/questions/how-to-learn-startup-skills-from-scratch/) — answered by Lauren Barker (Good Mind Therapeutics)
+- [How do you protect your pricing model when VCs keep telling you it's broken?](https://foundersinmotion.tech/questions/when-vcs-hate-your-pricing-model/) — answered by Josh Foreman (InDebted)
 - [How do you push through a difficult personal transition while building?](https://foundersinmotion.tech/questions/personal-transition-while-building/) — answered by Nam Nguyen (TruthSystems (YC S25))
+- [How do you rebuild a startup solo when your co-founder leaves mid-pivot?](https://foundersinmotion.tech/questions/how-to-rebuild-after-cofounder-leaves/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [How do you sell a product that's a brand-new category?](https://foundersinmotion.tech/questions/how-to-build-a-new-category/) — answered by Jevon Le Roux (Keeyu)
 - [How do you set boundaries when you're building all the time?](https://foundersinmotion.tech/questions/bene-personal-boundaries-while-building/) — answered by Kiki and Elan (Sourmilk)
+- [How do you survive a redundancy and come out the other side with more clarity?](https://foundersinmotion.tech/questions/how-to-survive-redundancy/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [How do you train robots to do physical tasks?](https://foundersinmotion.tech/questions/how-to-train-robots-with-data/) — answered by Jason Ma (Dyna Robotics)
+- [How do you trust your own instincts over advice from people you respect?](https://foundersinmotion.tech/questions/trust-your-instincts-over-advice/) — answered by Josh Foreman (InDebted)
 - [How do you turn old gear into new products through upcycling?](https://foundersinmotion.tech/questions/how-to-upcycle-technical-textiles/) — answered by Ben Wood (WipWrk)
 - [How do you win on Shark Tank as a founder?](https://foundersinmotion.tech/questions/how-to-win-on-shark-tank/) — answered by Nathan Yun (Paire)
 - [How does a fintech build trust with cautious customers?](https://foundersinmotion.tech/questions/how-fintech-builds-trust-with-customers/) — answered by Nhi Nguyen (MaiMoney)
@@ -154,6 +140,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [How does Dime market to Gen Z consumers?](https://foundersinmotion.tech/questions/how-to-market-to-gen-z/) — answered by Abby Huang (Dime)
 - [How does Dyna price its robots?](https://foundersinmotion.tech/questions/how-to-price-robots-for-business/) — answered by Jason Ma (Dyna Robotics)
 - [How does Hamish McKay think about scaling Order Editing to 5 million in AR?](https://foundersinmotion.tech/questions/how-to-scale-to-revenue-goal/) — answered by Hamish McKay (Order Editing)
+- [How does ketamine actually treat depression?](https://foundersinmotion.tech/questions/how-does-ketamine-treat-depression/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [How does Known onboard new users?](https://foundersinmotion.tech/questions/how-known-onboards-users/) — answered by Celeste Amadon (Known)
 - [How does MaiMoney's partnership model with fund managers work?](https://foundersinmotion.tech/questions/how-maimoney-partners-with-fund-managers/) — answered by Nhi Nguyen (MaiMoney)
 - [How does Order Editing make money for brands?](https://foundersinmotion.tech/questions/how-order-editing-monetizes-post-purchase/) — answered by Hamish McKay (Order Editing)
@@ -161,6 +148,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [How does Stephen keep his closest relationships while living far away?](https://foundersinmotion.tech/questions/staying-connected-while-abroad/) — answered by Stephen Turban (Lumiere Education)
 - [How long does it take to launch a product?](https://foundersinmotion.tech/questions/how-long-to-launch-product/) — answered by Phung, Daniel and Hanson (SipHRD)
 - [How many investors do you have to talk to to raise a pre-seed round?](https://foundersinmotion.tech/questions/how-many-investors-to-talk-to/) — answered by Nate Spiteri (Shopfront)
+- [How much does ketamine treatment cost in Australia?](https://foundersinmotion.tech/questions/ketamine-treatment-cost-australia/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [How should founders think about fundraising as a process?](https://foundersinmotion.tech/questions/how-to-treat-fundraising-like-a-sales-pipeline/) — answered by Nate Spiteri (Shopfront)
 - [How will AI change the health and wellness space?](https://foundersinmotion.tech/questions/how-ai-will-change-health-and-wellness/) — answered by Selina Li (gymii.ai)
 - [If I don't get into YC, how do I get the same intensity?](https://foundersinmotion.tech/questions/how-to-get-yc-intensity-without-yc/) — answered by Vivek and John (Affil.ai (YC S24))
@@ -176,6 +164,8 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Should I launch before the product is ready?](https://foundersinmotion.tech/questions/how-to-launch-before-ready/) — answered by Alessia and Elia (VibeFlow (YC S25))
 - [Should I open a physical store for my online brand?](https://foundersinmotion.tech/questions/should-i-open-a-physical-store/) — answered by Nathan Yun (Paire)
 - [Should the technical co-founder be in fundraising pitches?](https://foundersinmotion.tech/questions/should-cto-be-in-pitches/) — answered by Nate Spiteri (Shopfront)
+- [Should you build or buy when entering a new technology frontier like voice AI?](https://foundersinmotion.tech/questions/build-vs-buy-ai-stack/) — answered by Josh Foreman (InDebted)
+- [Should you join an existing startup as a co-founder instead of starting from scratch?](https://foundersinmotion.tech/questions/should-i-join-startup-as-cofounder/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [Should you rebrand a company with a damaged reputation?](https://foundersinmotion.tech/questions/should-you-rebrand-after-a-scandal/) — answered by Joe Zhou (StrongRoom AI)
 - [Was there a market that looked perfect but turned out harder than expected?](https://foundersinmotion.tech/questions/market-that-looked-perfect-but-was-hard/) — answered by Brian Pham (Litecard)
 - [What actually happened to StrongRoom AI before Joe bought it?](https://foundersinmotion.tech/questions/what-happened-to-strongroom/) — answered by Joe Zhou (StrongRoom AI)
@@ -191,11 +181,13 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What did the first version of VibeFlow look like?](https://foundersinmotion.tech/questions/vibeflow-first-version-no-ai/) — answered by Alessia and Elia (VibeFlow (YC S25))
 - [What does Affil.ai actually do?](https://foundersinmotion.tech/questions/what-does-affilai-do/) — answered by Vivek and John (Affil.ai (YC S24))
 - [What does Fluency mean by a "work ontology"?](https://foundersinmotion.tech/questions/what-is-a-work-ontology/) — answered by Finnlay Morcombe (Fluency)
+- [What does InDebted actually do?](https://foundersinmotion.tech/questions/what-does-indebted-do/) — answered by Josh Foreman (InDebted)
 - [What does it mean to "sell before you build"?](https://foundersinmotion.tech/questions/sell-before-you-build/) — answered by Vivek and John (Affil.ai (YC S24))
 - [What does Keeyu's "wow of the week" mean?](https://foundersinmotion.tech/questions/keeyu-wow-of-the-week/) — answered by Jevon Le Roux (Keeyu)
 - [What does Nhi believe needs to change for more people in Vietnam to invest?](https://foundersinmotion.tech/questions/what-vietnam-needs-for-higher-investment-adoption/) — answered by Nhi Nguyen (MaiMoney)
 - [What does Satya miss about working at a big company?](https://foundersinmotion.tech/questions/leaving-big-company-to-found-startup/) — answered by Satya Tumati (Socratix AI)
 - [What does Shakeel mean by "frameworks don't find markets"?](https://foundersinmotion.tech/questions/frameworks-dont-find-markets/) — answered by Shakeel Lala (Marloo)
+- [What does stand-up comedy teach you about being a founder?](https://foundersinmotion.tech/questions/what-comedy-teaches-founders/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [What does the "verbs not nouns" idea mean to Hamish McKay?](https://foundersinmotion.tech/questions/verbs-not-nouns-hamish/) — answered by Hamish McKay (Order Editing)
 - [What does Y Combinator actually get you — the badge, the network, or the mentorship?](https://foundersinmotion.tech/questions/what-yc-network-vs-badge/) — answered by Alessia and Elia (VibeFlow (YC S25))
 - [What early mistake did Jevon make building Keeyu?](https://foundersinmotion.tech/questions/jevon-shopify-app-mistake/) — answered by Jevon Le Roux (Keeyu)
@@ -210,11 +202,14 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What is Dime?](https://foundersinmotion.tech/questions/what-is-dime/) — answered by Abby Huang (Dime)
 - [What is Fluency?](https://foundersinmotion.tech/questions/what-is-fluency/) — answered by Finnlay Morcombe (Fluency)
 - [What is gymii.ai and what problem does it solve?](https://foundersinmotion.tech/questions/what-is-gymii/) — answered by Selina Li (gymii.ai)
+- [What is Hachiko Energy?](https://foundersinmotion.tech/questions/what-is-hachiko-energy/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [What is Hamish McKay's most controversial startup hot take?](https://foundersinmotion.tech/questions/founder-hot-take/) — answered by Hamish McKay (Order Editing)
 - [What is Keeyu and what problem does it solve?](https://foundersinmotion.tech/questions/what-is-keeyu/) — answered by Jevon Le Roux (Keeyu)
+- [What is ketamine-assisted therapy and what happens at a clinic?](https://foundersinmotion.tech/questions/what-is-ketamine-assisted-therapy/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [What is Known and what does Celeste Amadon mean by "intelligence for human connection"?](https://foundersinmotion.tech/questions/what-is-known-celeste-amadon/) — answered by Celeste Amadon (Known)
 - [What is MaiMoney and what problem does it solve?](https://foundersinmotion.tech/questions/what-is-maimoney/) — answered by Nhi Nguyen (MaiMoney)
 - [What is Order Editing?](https://foundersinmotion.tech/questions/what-is-order-editing/) — answered by Hamish McKay (Order Editing)
+- [What is organizational debt and why should founders fear it more than tech debt?](https://foundersinmotion.tech/questions/what-is-organizational-debt/) — answered by Josh Foreman (InDebted)
 - [What is Paire?](https://foundersinmotion.tech/questions/what-is-pair-sock-brand/) — answered by Nathan Yun (Paire)
 - [What is Phonely and what problem does it solve?](https://foundersinmotion.tech/questions/what-is-phonely/) — answered by Will Bodewes (Phonely (YC S24))
 - [What is Reforge Labs, Robert's new startup?](https://foundersinmotion.tech/questions/what-is-reforge-labs/) — answered by Robert Huynh (Nook / Reforge)
@@ -227,6 +222,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What is the most misunderstood thing about what Joe did?](https://foundersinmotion.tech/questions/the-most-misunderstood-thing-joe/) — answered by Joe Zhou (StrongRoom AI)
 - [What is the most valuable lesson Floriye learned as a founder?](https://foundersinmotion.tech/questions/sisterwood-most-valuable-lesson/) — answered by Floriye Elmazi (Sisterwould)
 - [What is the most valuable lesson Hung Bui learned as a founder?](https://foundersinmotion.tech/questions/hung-bui-most-valuable-lesson/) — answered by Hung Bui (AIducation)
+- [What is treatment-resistant depression — and how common is it?](https://foundersinmotion.tech/questions/what-is-treatment-resistant-depression/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [What is Umami Papi?](https://foundersinmotion.tech/questions/what-is-umami-papi/) — answered by Ethan Yong (Umami Papi)
 - [What makes Phonely different from other voice AI companies?](https://foundersinmotion.tech/questions/how-phonely-is-different/) — answered by Will Bodewes (Phonely (YC S24))
 - [What should I think about before moving abroad to a new country?](https://foundersinmotion.tech/questions/how-to-move-abroad-as-founder/) — answered by Stephen Turban (Lumiere Education)
@@ -268,6 +264,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What's the secured-debt play for buying a company out of administration?](https://foundersinmotion.tech/questions/how-to-buy-company-out-of-administration/) — answered by Joe Zhou (StrongRoom AI)
 - [What's your advice for creatives who don't see themselves as business-minded?](https://foundersinmotion.tech/questions/how-to-start-business-as-creative-not-business-minded/) — answered by Ben Wood (WipWrk)
 - [When should a non-technical founder go back to school for the skill?](https://foundersinmotion.tech/questions/should-founder-learn-to-code/) — answered by Selina Li (gymii.ai)
+- [When should you turn down a term sheet?](https://foundersinmotion.tech/questions/when-to-reject-term-sheet/) — answered by Rakhesh Martyn (Hachiko Energy)
 - [Where did the idea for gymii come from?](https://foundersinmotion.tech/questions/where-gymii-idea-came-from/) — answered by Selina Li (gymii.ai)
 - [Where did the idea for Keeyu come from?](https://foundersinmotion.tech/questions/where-keeyu-idea-came-from/) — answered by Jevon Le Roux (Keeyu)
 - [Who is Finnlay Morcombe?](https://foundersinmotion.tech/questions/who-is-finnlay-morcombe/) — answered by Finnlay Morcombe (Fluency)
@@ -280,6 +277,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Why did Hamish McKay build Order Editing in public?](https://foundersinmotion.tech/questions/how-to-build-in-public/) — answered by Hamish McKay (Order Editing)
 - [Why did Heaps Normal become a B Corp from the beginning?](https://foundersinmotion.tech/questions/heaps-normal-b-corp-impact/) — answered by Andy Miller (Heaps Normal)
 - [Why did Heaps Normal launch during the pandemic, and how did it survive?](https://foundersinmotion.tech/questions/heaps-normal-launching-during-pandemic/) — answered by Andy Miller (Heaps Normal)
+- [Why did Josh Foreman step down as CEO of InDebted to go back to building?](https://foundersinmotion.tech/questions/when-to-step-down-as-ceo/) — answered by Josh Foreman (InDebted)
 - [Why did Litecard open its first European office in Amsterdam?](https://foundersinmotion.tech/questions/why-litecard-opened-amsterdam-office/) — answered by Brian Pham (Litecard)
 - [Why did Nam decide to start with lawyers as the first market?](https://foundersinmotion.tech/questions/why-start-with-lawyers/) — answered by Nam Nguyen (TruthSystems (YC S25))
 - [Why did Nook's home renovation idea fail in Vietnam?](https://foundersinmotion.tech/questions/why-copycat-idea-failed-in-vietnam/) — answered by Robert Huynh (Nook / Reforge)
@@ -307,17 +305,16 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Why should founders keep investors who said no engaged?](https://foundersinmotion.tech/questions/keep-investors-who-passed-engaged/) — answered by Nate Spiteri (Shopfront)
 - [Why was Keeyu's first version "a vitamin, not a painkiller"?](https://foundersinmotion.tech/questions/vitamin-vs-painkiller-product/) — answered by Jevon Le Roux (Keeyu)
 - [Why was the 24-hour napkin test such a breakthrough?](https://foundersinmotion.tech/questions/robotics-reliability-vs-demos/) — answered by Jason Ma (Dyna Robotics)
+- [Why would a doctor leave medicine to build a startup?](https://foundersinmotion.tech/questions/why-leave-medicine-to-build-startup/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [Why would you buy a company that's in the middle of a public scandal?](https://foundersinmotion.tech/questions/why-buy-a-distressed-startup/) — answered by Joe Zhou (StrongRoom AI)
 - [Why would you start a fashion brand with socks?](https://foundersinmotion.tech/questions/why-start-a-brand-with-socks/) — answered by Nathan Yun (Paire)
+- [Will people actually talk to a voice AI agent about their debts?](https://foundersinmotion.tech/questions/will-customers-talk-to-voice-ai/) — answered by Josh Foreman (InDebted)
 - [Will XiaoHongShu (Red Note) last in the US market?](https://foundersinmotion.tech/questions/will-xiaohongshu-last-in-us/) — answered by Abby Huang (Dime)
 
 ## Episodes with detailed show notes
 
 - [Ep 32: Josh Foreman, InDebted](https://foundersinmotion.tech/episodes/32-josh-foreman/): Ten years into building InDebted into one of the biggest debt collection software companies in the world, Josh Foreman stepped down as CEO to rebuild it from its core — because the competitor he fears most is an AI-native version of himself, starting today with nothing to protect.
-- [Ep 32: Josh Foreman, InDebted](https://foundersinmotion.tech/episodes/32-josh-foreman/): Ten years into building InDebted into one of the biggest debt collection software companies in the world, Josh Foreman stepped down as CEO to rebuild it from its core — because the competitor he fears most is an AI-native version of himself, starting today with nothing to protect.
 - [Ep 31: Rakhesh Martyn, Hachiko Energy](https://foundersinmotion.tech/episodes/31-rakhesh-martyn/): Made redundant at 28 and scrubbing dishes in a central London kitchen, Rakhesh Martyn rebuilt himself into the founder of Hachiko Energy — surviving eight months of investor rejection, refusing the only term sheet on the table, and getting a term sheet from the right fund just 16 days after meeting them.
-- [Ep 31: Rakhesh Martyn, Hachiko Energy](https://foundersinmotion.tech/episodes/31-rakhesh-martyn/): Made redundant at 28 and scrubbing dishes in a central London kitchen, Rakhesh Martyn rebuilt himself into the founder of Hachiko Energy — surviving eight months of investor rejection, refusing the only term sheet on the table, and getting a term sheet from the right fund just 16 days after meeting them.
-- [Ep 30: Lauren Barker, Good Mind Therapeutics](https://foundersinmotion.tech/episodes/30-lauren-barker/): Lauren Barker walked away from almost a decade in medicine, joined a company that was little more than a chaotic slide deck, then rebuilt it alone after her co-founder left mid-pivot — into five break-even ketamine-assisted therapy clinics across Australia.
 - [Ep 30: Lauren Barker, Good Mind Therapeutics](https://foundersinmotion.tech/episodes/30-lauren-barker/): Lauren Barker walked away from almost a decade in medicine, joined a company that was little more than a chaotic slide deck, then rebuilt it alone after her co-founder left mid-pivot — into five break-even ketamine-assisted therapy clinics across Australia.
 - [Ep 29: Caroline Tran, Hello Clever](https://foundersinmotion.tech/episodes/29-caroline-tran/): Caroline Tran was building a payments company with no payment background. She started a consumer cashback app, ran out of money, pivoted, and found her first paying merchant on a Facebook group — today Hello Clever runs at $15M ARR, processing payments across 20 countries.
 - [Ep 28: Will Bodewes, Phonely (YC S24)](https://foundersinmotion.tech/episodes/28-will-bodewes/): Will was an ultra endurance cyclist and a college skier whose final race got cancelled. He carried that chip into Phonely — voice AI that answers your phone — going from 30% of calls failing to a customer paying $78,000 a month.
@@ -352,10 +349,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 ## Full archive
 
 - Ep 32: Josh Foreman, InDebted — $350M Fintech Founder Steps Down as CEO to Rebuild With AI
-- Ep 32: Josh Foreman, InDebted — $350M Fintech Founder Steps Down as CEO to Rebuild With AI
 - Ep 31: Rakhesh Martyn, Hachiko Energy — Battery Storage Founder: 8 Months of Rejection, One Term Sheet He Refused
-- Ep 31: Rakhesh Martyn, Hachiko Energy — Battery Storage Founder: 8 Months of Rejection, One Term Sheet He Refused
-- Ep 30: Lauren Barker, Good Mind Therapeutics — Ketamine for Treatment-Resistant Depression: The Doctor Who Left Medicine to Build a Clinic Network
 - Ep 30: Lauren Barker, Good Mind Therapeutics — Ketamine for Treatment-Resistant Depression: The Doctor Who Left Medicine to Build a Clinic Network
 - Ep 29: Caroline Tran, Hello Clever — $15M ARR Fintech Founder: I Found My First Customer on Facebook
 - Ep 28: Will Bodewes, Phonely (YC S24) — The D1 Athlete Who Built a $100M Voice AI Company
@@ -406,4 +400,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - Every /questions/ page carries QAPage JSON-LD; every /topics/ page carries WebPage + ItemList + FAQPage JSON-LD.
 - Homepage has FAQPage JSON-LD with founder questions and answers drawn from across the archive.
 
-Generated: 2026-07-02T22:05:13.244Z
+Generated: 2026-07-02T22:20:50.886Z
