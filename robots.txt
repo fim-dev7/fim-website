@@ -1,5 +1,82 @@
 # https://foundersinmotion.tech — robots.txt
+# LLM-friendly content indexes: https://foundersinmotion.tech/llms.txt and https://foundersinmotion.tech/llms-full.txt
+
 User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: CCBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /uploads/
+Disallow: /cms-source/
+
+User-agent: YouBot
 Allow: /
 Disallow: /uploads/
 Disallow: /cms-source/
