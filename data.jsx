@@ -52,6 +52,21 @@ const FEATURED = EPISODES[0];
 
 const ARCHIVE = [
   {
+    guest: "Josh Foreman",
+    company: "InDebted",
+    url: "episodes/32-josh-foreman/"
+  },
+  {
+    guest: "Rakhesh",
+    company: "Hachiko",
+    url: "episodes/31-rakhesh/"
+  },
+  {
+    guest: "Lauren",
+    company: "Good Mind Therapeutics",
+    url: "episodes/30-lauren/"
+  },
+  {
     guest: "Caroline Tran",
     company: "Hello Clever",
     url: "episodes/29-caroline-tran/"
