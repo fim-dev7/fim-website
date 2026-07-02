@@ -99,10 +99,11 @@ function extractQuotes(text) {
   for (const m of text.matchAll(/["“]([^"”\n]{25,400})["”]/g)) out.push(m[1]);
   // <q>…</q>
   for (const m of text.matchAll(/<q>([\s\S]{15,500}?)<\/q>/g)) out.push(m[1]);
-  // Markdown blockquotes
-  for (const m of text.matchAll(/(?:^|\n)>\s+([^\n]{15,400})/g)) {
-    // Skip attribution lines that start with — or -
-    if (/^[—\-]/.test(m[1].trim())) continue;
+  // Markdown blockquotes — [ \t] (not \s) so an empty ">" continuation line
+  // can't swallow the newline and capture the NEXT line with its "> " prefix
+  for (const m of text.matchAll(/(?:^|\n)>[ \t]+([^\n]{15,400})/g)) {
+    // Skip attribution lines that start with — or - (or a nested "> —")
+    if (/^>?\s*[—\-]/.test(m[1].trim())) continue;
     out.push(m[1]);
   }
   return Array.from(new Set(out.map(q => q.trim())));
