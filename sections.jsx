@@ -41,13 +41,13 @@ function Hero() {
         <div className="hero-grid">
         <figure className="hero-photo">
           <img src="assets/thea-hero.jpg" alt="Thea Ngo — host of Founders In Motion" width="888" height="1100" fetchPriority="high" decoding="async" />
-          <figcaption><b>Thea Ngo</b><span>Host · early-stage investor</span></figcaption>
+          <figcaption><b>Thea Ngo</b><span>Host</span></figcaption>
         </figure>
         <div className="hero-text">
         <span className="pill"><span className="dot"></span>New episodes weekly</span>
         <h1>Before the <em>headline.</em></h1>
         <p className="hero-sub">
-          Founders In Motion is where the top 1% of early-stage founders around the world, across Australia, Southeast Asia, and the US, share how they're building their business, what's working, what's not. Hosted by <b>Thea Ngo</b>, an early-stage investor and startup nerd.<br /><br />Think pivots, chaos, scandals and how to get through it.<br />
+          Founders In Motion is where the top 1% of early-stage founders around the world, across Australia, Southeast Asia, and the US, share how they're building their business, what's working, what's not. Hosted by <b>Thea Ngo</b>.<br /><br />Think pivots, chaos, scandals and how to get through it.<br />
         </p>
         <div className="hero-cta">
           <a href="https://www.youtube.com/@foundersinmotion" className="btn btn-primary">

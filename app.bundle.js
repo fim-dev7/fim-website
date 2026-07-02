@@ -823,6 +823,21 @@ const FEATURED = EPISODES[0];
 
 const ARCHIVE = [
   {
+    guest: "Josh Foreman",
+    company: "InDebted",
+    url: "episodes/32-josh-foreman/"
+  },
+  {
+    guest: "Rakhesh",
+    company: "Hachiko",
+    url: "episodes/31-rakhesh/"
+  },
+  {
+    guest: "Lauren",
+    company: "Good Mind Therapeutics",
+    url: "episodes/30-lauren/"
+  },
+  {
     guest: "Caroline Tran",
     company: "Hello Clever",
     url: "episodes/29-caroline-tran/"
@@ -1056,7 +1071,7 @@ function Hero() {
     height: "1100",
     fetchPriority: "high",
     decoding: "async"
-  }), React.createElement("figcaption", null, React.createElement("b", null, "Thea Ngo"), React.createElement("span", null, "Host \xB7 early-stage investor"))), React.createElement("div", {
+  }), React.createElement("figcaption", null, React.createElement("b", null, "Thea Ngo"), React.createElement("span", null, "Host"))), React.createElement("div", {
     className: "hero-text"
   }, React.createElement("span", {
     className: "pill"
@@ -1064,7 +1079,7 @@ function Hero() {
     className: "dot"
   }), "New episodes weekly"), React.createElement("h1", null, "Before the ", React.createElement("em", null, "headline.")), React.createElement("p", {
     className: "hero-sub"
-  }, "Founders In Motion is where the top 1% of early-stage founders around the world, across Australia, Southeast Asia, and the US, share how they're building their business, what's working, what's not. Hosted by ", React.createElement("b", null, "Thea Ngo"), ", an early-stage investor and startup nerd.", React.createElement("br", null), React.createElement("br", null), "Think pivots, chaos, scandals and how to get through it.", React.createElement("br", null)), React.createElement("div", {
+  }, "Founders In Motion is where the top 1% of early-stage founders around the world, across Australia, Southeast Asia, and the US, share how they're building their business, what's working, what's not. Hosted by ", React.createElement("b", null, "Thea Ngo"), ".", React.createElement("br", null), React.createElement("br", null), "Think pivots, chaos, scandals and how to get through it.", React.createElement("br", null)), React.createElement("div", {
     className: "hero-cta"
   }, React.createElement("a", {
     href: "https://www.youtube.com/@foundersinmotion",
