@@ -32,7 +32,7 @@ import { fileURLToPath } from 'url';
 import { parseEpisodeDoc } from './lib/parse-doc.js';
 import { renderEpisodePage } from './lib/render-episode.js';
 import { renderDataCMS, renderArchivePage } from './lib/render-data.js';
-import { renderSitemap, renderRobots, renderLlmsTxt } from './lib/render-meta.js';
+import { renderSitemap, renderRobots, renderLlmsTxt, renderLlmsFullTxt } from './lib/render-meta.js';
 import { extractFaqFromDataStatic, renderFaqPageJsonLd, injectFaqIntoIndexHtml } from './lib/render-homepage-faq.js';
 import { TOPICS } from './lib/topics-config.js';
 import { renderTopicHub, renderTopicsIndex } from './lib/render-topic-hub.js';
@@ -601,9 +601,22 @@ async function main() {
   if (robotsOut.changed) written.push(robotsOut.path);
   console.log(`🤖 robots.txt ${robotsOut.changed ? '(written)' : '(unchanged)'}`);
 
-  const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({ episodes: epsForData, settings }));
+  const llmsOut = writeIfChanged('llms.txt', renderLlmsTxt({
+    episodes: epsForData,
+    settings,
+    topics: TOPICS,
+    questions: qaIndex,
+  }));
   if (llmsOut.changed) written.push(llmsOut.path);
   console.log(`📚 llms.txt ${llmsOut.changed ? '(written)' : '(unchanged)'}`);
+
+  const llmsFullOut = writeIfChanged('llms-full.txt', renderLlmsFullTxt({
+    grouped,
+    topics: TOPICS,
+    settings,
+  }));
+  if (llmsFullOut.changed) written.push(llmsFullOut.path);
+  console.log(`📚 llms-full.txt ${llmsFullOut.changed ? '(written)' : '(unchanged)'}`);
 
   // Sync homepage FAQ JSON-LD with the hand-curated FAQ in data-static.jsx
   const faqs = extractFaqFromDataStatic(REPO_ROOT);
