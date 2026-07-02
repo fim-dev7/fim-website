@@ -190,11 +190,11 @@ export const TOPICS = [
     slug: 'founder-mental-health',
     question: 'How do founders protect their mental health while building?',
     intro: `The messy middle takes a personal toll the highlight reels never show. Founders In Motion asks every guest about it directly — and the answers cover burnout, comparison, loneliness, missed years with family, and the emotional whiplash of being "punched in the gut every single day," as Nam Nguyen puts it.`,
-    summary: `The archive's honest accounting: the costs are real — Finnlay Morcombe names time with family as his number one; Will Bodewes reckons he traded two years of friendships and travel. What keeps founders sane: naming the trade explicitly (Hamish McKay's "slam life hard for five years" frame), refusing the comparison game ("comparison is the thief of joy" — Will Bodewes), and, in Lauren Barker's case, simply logging off LinkedIn and competing only with yesterday's self.`,
+    summary: `The archive's honest accounting: the costs are real — Finnlay Morcombe names time with family as his number one; Will Bodewes reckons he traded two years of friendships and travel. What keeps founders sane: naming the trade explicitly (Hamish McKay's "slam life hard for five years" frame), refusing the comparison game ("comparison is the thief of joy" — Will Bodewes), and, in Lauren Barker's case, simply logging off LinkedIn to stay in her own lane.`,
     keyAnswers: [
       {
         q: 'How do I stop comparing myself to faster-growing startups?',
-        a: 'Will Bodewes felt the "we should be better, we should be bigger" pressure at Phonely and landed on "comparison is the thief of joy." Lauren Barker\'s harder-edged version: she left LinkedIn entirely — "the only person you should be comparing yourself to is you of yesterday."',
+        a: 'Will Bodewes felt the "we should be better, we should be bigger" pressure at Phonely and landed on "comparison is the thief of joy." Lauren Barker\'s harder-edged version: after her lowest day scrolling founder stories, "I\'m not gonna be on LinkedIn in an active way, because I know that for my mental health I need to just be like — what am I doing in my lane."',
       },
       {
         q: 'What does building a startup actually cost founders personally?',
