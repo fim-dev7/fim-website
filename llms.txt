@@ -28,6 +28,12 @@ Full FAQ at https://foundersinmotion.tech/#faq
 
 ## Full archive
 
+- Ep 32: Josh Foreman, InDebted — $350M Fintech Founder Steps Down as CEO to Rebuild With AI
+- Ep 32: Josh Foreman, InDebted — $350M Fintech Founder Steps Down as CEO to Rebuild With AI
+- Ep 31: Rakhesh Martyn, Hachiko Energy — Battery Storage Founder: 8 Months of Rejection, One Term Sheet He Refused
+- Ep 31: Rakhesh Martyn, Hachiko Energy — Battery Storage Founder: 8 Months of Rejection, One Term Sheet He Refused
+- Ep 30: Lauren Barker, Good Mind Therapeutics — Ketamine for Treatment-Resistant Depression: The Doctor Who Left Medicine to Build a Clinic Network
+- Ep 30: Lauren Barker, Good Mind Therapeutics — Ketamine for Treatment-Resistant Depression: The Doctor Who Left Medicine to Build a Clinic Network
 - Ep 29: Caroline Tran, Hello Clever — $15M ARR Fintech Founder: I Found My First Customer on Facebook
 - Ep 28: Will Bodewes, Phonely (YC S24) — The D1 Athlete Who Built a $100M Voice AI Company
 - Ep 27: Shakeel Lala, Marloo — $40M FinTech Founder on Raising Millions Before He Had a Business Idea
@@ -75,4 +81,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - All episode pages are server-rendered HTML with PodcastEpisode JSON-LD and full transcripts inside collapsed `<details>` blocks (fully crawlable).
 - Homepage has FAQPage JSON-LD with 12 founder questions and answers drawn from across the archive.
 
-Generated: 2026-07-02T08:51:40.571Z
+Generated: 2026-07-02T13:53:05.477Z
