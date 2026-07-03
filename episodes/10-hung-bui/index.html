@@ -206,18 +206,23 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://foundersinmotion.tech/episodes/10-hung-bui/#guest",
   "name": "Hung Bui",
   "jobTitle": "Founder, AIducation",
   "url": "https://foundersinmotion.tech/episodes/10-hung-bui/",
+  "mainEntityOfPage": "https://foundersinmotion.tech/episodes/10-hung-bui/",
   "affiliation": {
-    "@type": "Organization",
-    "name": "AIducation"
+    "@id": "https://foundersinmotion.tech/episodes/10-hung-bui/#company"
   },
   "worksFor": {
-    "@type": "Organization",
-    "name": "AIducation"
+    "@id": "https://foundersinmotion.tech/episodes/10-hung-bui/#company"
   },
-  "description": "Founder of AIducation, introduced as Vietnam's first AI powered learning platform; pivoted from a mental-health product called Personal AI after a year of pushing the wrong angle."
+  "description": "Founder of AIducation, introduced as Vietnam's first AI powered learning platform; pivoted from a mental-health product called Personal AI after a year of pushing the wrong angle.",
+  "knowsAbout": [
+    "AI Edtech",
+    "Pivoting",
+    "Customer Discovery"
+  ]
 }
 </script>
 <!-- JSON-LD: Person/Organization (entity graph) -->
@@ -225,10 +230,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://foundersinmotion.tech/episodes/10-hung-bui/#company",
   "name": "AIducation",
   "founder": {
-    "@type": "Person",
-    "name": "Hung Bui"
+    "@id": "https://foundersinmotion.tech/episodes/10-hung-bui/#guest"
   },
   "url": "https://foundersinmotion.tech/episodes/10-hung-bui/"
 }
@@ -275,6 +280,30 @@
       ".lead",
       ".claim .txt"
     ]
+  }
+}
+</script>
+
+<!-- JSON-LD: VideoObject + Clip key moments -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "What Stanford Didn't Teach Me: Rebuilding Vietnam's Hottest EdTech | Hung Bui, AIducation",
+  "description": "Hung Bui's AIducation hit 40,000 users and entered 23,000 schools — but only after his first product flopped in the field and he had five months to rebuild it from scratch.",
+  "thumbnailUrl": [
+    "https://i.ytimg.com/vi/N990hEgOWOc/maxresdefault.jpg",
+    "https://i.ytimg.com/vi/N990hEgOWOc/hqdefault.jpg"
+  ],
+  "uploadDate": "2025-07-10",
+  "duration": "PT25M",
+  "contentUrl": "https://www.youtube.com/watch?v=N990hEgOWOc",
+  "embedUrl": "https://www.youtube.com/embed/N990hEgOWOc",
+  "mainEntityOfPage": "https://foundersinmotion.tech/episodes/10-hung-bui/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Founders In Motion",
+    "url": "https://foundersinmotion.tech/"
   }
 }
 </script>

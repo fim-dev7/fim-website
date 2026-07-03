@@ -286,4 +286,108 @@ export const TOPICS = [
     featuredEpisodeNumbers: [26, 20, 4, 9],
     seeAlso: ['pricing-your-product', 'building-in-public', 'product-market-fit'],
   },
+  {
+    slug: 'first-customers-and-sales',
+    question: 'How do startups win their first customers and learn to sell?',
+    intro: `Nothing in the archive gets asked about more than the first customer — it's the single most-answered question across the Founders In Motion catalogue, with over twenty founders weighing in. Their stories range from a Facebook group to a four-year enterprise courtship, but the mechanics repeat: sell early, charge real money, and treat the "no" as the start of a relationship rather than the end.`,
+    summary: `The patterns: sell before you build (Affil.ai's YC mantra — see who's interested before you waste time on a perfect MVP). Charge from day one, because free pilots produce polite lies — "customers did not really care, they were just being nice." Play the long game on hard markets: Hachiko's first customer said "please leave me alone" in 2021 and "I think you're ready for me now" three years later, kept warm by a monthly newsletter. And when you're too young to be credible, do what Nam Nguyen did: "remove imagination from the equation" and win on shipped product instead of vision.`,
+    keyAnswers: [
+      {
+        q: 'Should pilots be free or paid?',
+        a: 'Paid, every time. John from Affil.ai: "a big lesson we learned is that you should do paid pilots." Their free pilots felt like validation but weren\'t — customers "did not really care, they were just either being nice or just thought it was like a cool tool they could try out."',
+      },
+      {
+        q: 'How do you sell when the buyer says you\'re too early?',
+        a: 'Keep the relationship warm and let the product catch up. Rakhesh Martyn\'s first Hachiko customer told him in 2021 "this product just isn\'t ready for me to use, please leave me alone." Monthly newsletters later, the reply came: "I think you\'re ready for me now." In enterprise categories like battery storage, first meeting to signed contract runs 9–12 months at minimum.',
+      },
+      {
+        q: 'How do you sell as a very young founder?',
+        a: 'Nam Nguyen was in his early 20s, his co-founder 19, selling AI governance to managing partners with decades of experience — some firms said "come back in like 5 years." Their answer: "remove imagination from the equation" and win on shipped product instead of vision.',
+      },
+      {
+        q: 'How should you price the very first deal?',
+        a: 'Reasonable, not cheap. Caroline Tran gave Hello Clever\'s first merchant a fair price, then researched how competitors charged — the merchants themselves supplied the data points that became a structured commercial model.',
+      },
+    ],
+    featuredEpisodeNumbers: [31, 11, 24, 29, 3],
+    seeAlso: ['customer-discovery', 'pricing-your-product', 'product-market-fit'],
+  },
+  {
+    slug: 'investor-rejection-and-term-sheets',
+    question: 'How do founders survive investor rejection — and judge a term sheet?',
+    intro: `The fundraising stories founders actually need aren't the 8-day rounds — they're the eight-month grinds. This hub collects the archive's hardest-won fundraising lessons: a founder who pitched 1,000 investors, one who refused his only term sheet, and the diagnosis that finally fixed a pitch that wasn't landing.`,
+    summary: `What the archive teaches: volume and rejection are the baseline — Nate Spiteri contacted nearly 1,000 investors and heard "95% no's"; Rakhesh Martyn pitched four to five times a week for eight months. A bad term sheet can be worse than no term sheet — Rakhesh refused his only offer because of the dynamic it would lock in, and 16 days after meeting the right fund he had a better one. Keep the no's close: Nate sends investor updates to everyone who passed, and they come back. And when nothing lands, fix the story, not the optics — "at the very, very early stage, you are the reason they're investing."`,
+    keyAnswers: [
+      {
+        q: 'When should you walk away from a term sheet?',
+        a: 'When the dynamic is worse than not raising. Rakhesh Martyn\'s lawyer told him his only term sheet after eight months "isn\'t very good, and because you don\'t have another one, you have no leverage." He refused it: "I felt like I would actually rather not start the company than take that term sheet." The right fund issued a better one 16 days after their first meeting.',
+      },
+      {
+        q: 'How many investors do you actually need to talk to?',
+        a: 'More than feels reasonable. Nate Spiteri reached out to almost 1,000 investors for Shopfront\'s raise and dealt with "95% no\'s" — he\'d returned to Australia with a "super thin" network and had to brute-force his way to the right investor profile.',
+      },
+      {
+        q: 'What do you do with investors who said no?',
+        a: 'Keep them on the update list. Nate sends monthly updates to everyone who passed — many were wrong-stage passes, and a lot have come back as the numbers grew. Those relationships are the pipeline for the next round.',
+      },
+      {
+        q: 'How do you fix a pitch that keeps getting rejected?',
+        a: 'Rakhesh\'s diagnosis after eight months: "I spent too much time solving for the optics rather than trying to build a great story of the company that I wanted to build." The fix was putting the founder at the centre — "at the very, very early stage, you are the reason they\'re investing." And don\'t anchor to a valuation early: Robert Huynh says Nook basically picked $20M from the middle of a range their VCs suggested, a decision he cautions against.',
+      },
+    ],
+    featuredEpisodeNumbers: [31, 3, 29, 7, 24],
+    seeAlso: ['pre-seed-fundraising', 'apac-fundraising', 'founder-mental-health'],
+  },
+  {
+    slug: 'hiring-and-team',
+    question: 'When should a startup hire — and how do you build the early team?',
+    intro: `Hiring too early burns runway; hiring too late burns customers. The Founders In Motion archive covers the trigger for the first engineering hire, whether the technical co-founder belongs in pitches, what non-technical founders actually bring, and the rituals that hold a global team together.`,
+    summary: `The archive's rules of thumb: hire when you start missing customer demands, not when the funding lands — Affil.ai's trigger was dropping the ball at "a very crucial moment of the contract." Keep the CTO out of early pitches; hundreds of pitch hours belong in the product. Non-technical founders win on distribution — Sam Richardson calls B2C "a distribution game" where his commercial background was the upper hand. And culture is rituals, not posters: Hello Clever runs Clever Together, Clever Pitch, and Clever Ideas to keep 70 people connected.`,
+    keyAnswers: [
+      {
+        q: 'When do you hire your first engineer?',
+        a: 'John from Affil.ai pushes back on hiring just because you raised: "you should hire when you\'re starting to miss your first customer demands." Their trigger was missing something during "a very crucial moment of the contract."',
+      },
+      {
+        q: 'Should the technical co-founder join investor pitches?',
+        a: 'Nate Spiteri says no — or at least not the initial call. You might do hundreds of pitches; that\'s hundreds of hours better spent on product. One person runs fundraising, and the CTO comes in for due diligence and the technical check.',
+      },
+      {
+        q: 'Do you need to learn to code to start?',
+        a: 'Selina Li taught herself enough to ship the gymii MVP in two months — "just find a project and go for it" — and is now doing a master\'s in computer science for a stronger foundation. Helpful, not a prerequisite. Sam Richardson\'s counterpoint: for consumer products it\'s "a distribution game," and a commercial founder\'s brand and content skills are the superpower.',
+      },
+      {
+        q: 'How do you keep culture alive as the team grows?',
+        a: 'Rituals over rules. Caroline Tran empowers rather than micromanages, and holds a 70-person global team together with a Monday all-hands (Clever Together), an open pitch session where anyone presents their view of the company (Clever Pitch), and a feature-proposal forum (Clever Ideas).',
+      },
+    ],
+    featuredEpisodeNumbers: [11, 29, 3, 13, 2],
+    seeAlso: ['cofounders', 'first-customers-and-sales', 'founder-mental-health'],
+  },
+  {
+    slug: 'building-ai-startups',
+    question: 'How are founders actually building AI startups?',
+    intro: `Half the archive's recent guests are building with or against AI — YC AI companies, a 10-year-old fintech rebuilding itself AI-native, and founders on both sides of the "GPT wrapper" debate. This hub collects what they're doing in practice, not the discourse.`,
+    summary: `The practical consensus: build the layer where your proprietary data makes you the best in the world, buy everything else (Josh Foreman's InDebted rule after 90+ days deep in voice AI). The real bottleneck is trust, not capability — TruthSystems found nobody bought AI guardrails until they sold them to the people who actually held the pain. "GPT wrapper" is a marketing slur, not an analysis — Hung Bui reframes a model call as "a function in the code that allows your platform to be intelligent." And the thing incumbents should fear isn't tech debt but organizational debt — the legacy processes AI-native companies simply never accumulate.`,
+    keyAnswers: [
+      {
+        q: 'Should you build or buy your AI stack?',
+        a: 'Josh Foreman\'s honest answer: "we\'ve done both" — early on "the humble answer is we just have no idea," so test the market while building in parallel. Where InDebted landed: build the layer where proprietary data makes you the best in the world (negotiating collection outcomes), buy the layers where you never will (text to speech).',
+      },
+      {
+        q: 'Is being a "GPT wrapper" a real business?',
+        a: 'Hung Bui thinks the bad rap is unfair: "you don\'t have to train your own models to be different." A model call is just "a function in the code that allows your platform to be intelligent" — differentiation comes from customer understanding and distribution, same as ever.',
+      },
+      {
+        q: 'What\'s the real bottleneck for AI adoption?',
+        a: 'Trust, not capability. Nam Nguyen says it was "quite obvious" — TruthSystems\' early guardrail products made sense on paper but nobody bought until they sold to the people who actually held the pain. Jevon Le Roux\'s version at Keeyu: roll out agentic workflows five at a time with the customer watching, and expand only once they\'re comfortable.',
+      },
+      {
+        q: 'Is agentic AI overhyped?',
+        a: 'Finnlay Morcombe publicly called it "robotic process automation on the cloud" — and has since reversed: "I don\'t agree with it anymore. I think the opposite\'s now true." His read: people are "quite flippant about the current capabilities" and undervalue what\'s coming. Josh Foreman adds the incumbent\'s angle: the thing to fear is organizational debt — the legacy processes AI-native companies never accumulate.',
+      },
+    ],
+    featuredEpisodeNumbers: [32, 23, 24, 10, 21],
+    seeAlso: ['product-market-fit', 'yc-and-accelerators', 'first-customers-and-sales'],
+  },
 ];

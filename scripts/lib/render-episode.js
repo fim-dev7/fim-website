@@ -244,24 +244,30 @@ function renderPersonOrgJsonLd({ ep, content, slug }) {
   const guestUrl = `https://foundersinmotion.tech/episodes/${slug}/`;
   const out = [];
 
+  // Stable @id anchors — question pages reference these same identifiers so
+  // crawlers reconcile the guest/company as ONE entity across the whole site.
+  const personId = `${guestUrl}#guest`;
+  const companyId = `${guestUrl}#company`;
+  const tags = (content.meta.tags || '').split(/\s*[·|]\s*/).map(s => s.trim()).filter(Boolean);
+
   if (ep.guest_name) {
     const person = {
       '@context': 'https://schema.org',
       '@type': 'Person',
+      '@id': personId,
       name: ep.guest_name,
       jobTitle: content.meta.guest_role || 'Founder',
       url: guestUrl,
+      mainEntityOfPage: guestUrl,
     };
     if (ep.guest_company) {
-      person.affiliation = {
-        '@type': 'Organization',
-        name: ep.guest_company,
-      };
-      person.worksFor = { '@type': 'Organization', name: ep.guest_company };
+      person.affiliation = { '@id': companyId };
+      person.worksFor = { '@id': companyId };
     }
     if (content.meta.guest_bio) {
       person.description = content.meta.guest_bio;
     }
+    if (tags.length) person.knowsAbout = tags;
     out.push(JSON.stringify(person, null, 2));
   }
 
@@ -269,14 +275,79 @@ function renderPersonOrgJsonLd({ ep, content, slug }) {
     const org = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': companyId,
       name: ep.guest_company,
-      founder: { '@type': 'Person', name: ep.guest_name },
+      founder: { '@id': personId },
       url: guestUrl,
     };
     out.push(JSON.stringify(org, null, 2));
   }
 
   return out;
+}
+
+/**
+ * VideoObject + Clip JSON-LD from the episode's YouTube video and chapters —
+ * makes the episode eligible for "key moments" jump links in video results.
+ */
+function renderVideoJsonLd({ ep, content, slug }) {
+  const ytId = (() => {
+    if (!ep.youtube_url) return null;
+    const m = ep.youtube_url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  })();
+  if (!ytId) return null;
+
+  const pageUrl = `https://foundersinmotion.tech/episodes/${slug}/`;
+  const watchUrl = `https://www.youtube.com/watch?v=${ytId}`;
+
+  const toSeconds = (t) => {
+    const parts = String(t).split(':').map(Number);
+    if (parts.some(isNaN)) return null;
+    return parts.reduce((acc, n) => acc * 60 + n, 0);
+  };
+  const isoToSeconds = (iso) => {
+    const m = String(iso || '').match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
+    if (!m) return null;
+    return (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+  };
+
+  const chapters = (content.chapters || [])
+    .map(c => ({ ...c, start: toSeconds(c.time) }))
+    .filter(c => c.start !== null);
+  const totalSeconds = isoToSeconds(content.meta.duration_iso);
+
+  const clips = chapters.map((c, i) => {
+    const clip = {
+      '@type': 'Clip',
+      name: c.label + (c.sub ? ` — ${c.sub}` : ''),
+      startOffset: c.start,
+      url: `${watchUrl}&t=${c.start}s`,
+    };
+    const end = i + 1 < chapters.length ? chapters[i + 1].start : totalSeconds;
+    if (end && end > c.start) clip.endOffset = end;
+    return clip;
+  });
+
+  const video = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: ep.title,
+    description: content.hook || ep.short_desc || ep.title,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`, `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`],
+    uploadDate: (() => {
+      const m = String(ep.published_date || '').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      return m ? `${m[3]}-${m[2]}-${m[1]}` : (ep.published_date || undefined);
+    })(),
+    duration: content.meta.duration_iso || undefined,
+    contentUrl: watchUrl,
+    embedUrl: `https://www.youtube.com/embed/${ytId}`,
+    mainEntityOfPage: pageUrl,
+    publisher: { '@type': 'Organization', name: 'Founders In Motion', url: 'https://foundersinmotion.tech/' },
+  };
+  if (clips.length >= 3) video.hasPart = clips;
+
+  return JSON.stringify(video, null, 2);
 }
 
 function renderHeader({ ep, content }) {
@@ -666,6 +737,10 @@ ${renderPersonOrgJsonLd({ ep, content, slug }).map(json => `\n<!-- JSON-LD: Pers
 <script type="application/ld+json">
 ${renderArticleJsonLd({ ep, content, slug })}
 </script>
+${(() => {
+  const video = renderVideoJsonLd({ ep, content, slug });
+  return video ? `\n<!-- JSON-LD: VideoObject + Clip key moments -->\n<script type="application/ld+json">\n${video}\n</script>` : '';
+})()}
 
 </head>
 <body>

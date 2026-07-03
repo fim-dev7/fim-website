@@ -100,9 +100,16 @@ export function renderQuestionPage({ group, allGrouped }) {
       upvoteCount: 0,
       author: {
         '@type': 'Person',
+        // Same @id as the Person entity on the episode page — reconciles the
+        // guest as one entity across every page that quotes them.
+        ...(ep.has_episode_page ? { '@id': `${SITE_URL}/episodes/${ep.slug}/#guest` } : {}),
         name: ep.guest_name,
         url: answerUrlFor(ep),
-        ...(ep.guest_company ? { affiliation: { '@type': 'Organization', name: ep.guest_company } } : {}),
+        ...(ep.guest_company ? {
+          affiliation: ep.has_episode_page
+            ? { '@id': `${SITE_URL}/episodes/${ep.slug}/#company` }
+            : { '@type': 'Organization', name: ep.guest_company },
+        } : {}),
       },
     };
     const d = isoDate(ep.published_date);
