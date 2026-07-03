@@ -15,7 +15,7 @@ import { renderEpisodePage } from './render-episode.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '../..');
 
-const sourceHtml = fs.readFileSync(path.join(REPO_ROOT, 'cms-source/ep-28-shakeel-lala.html'), 'utf8');
+const sourceHtml = fs.readFileSync(path.join(REPO_ROOT, 'cms-source/ep-27-shakeel-lala.html'), 'utf8');
 const content = parseEpisodeDoc(sourceHtml);
 
 const ep = {
