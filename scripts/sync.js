@@ -294,8 +294,11 @@ async function pushToAlgolia(records) {
     // Filter-only attributes (not facetable display, but `filters: "type:question"` works)
     attributesForFaceting: ['filterOnly(type)', 'filterOnly(episode_number)'],
   });
-  const { objectIDs } = await index.saveObjects(records);
-  console.log(`\n✅ Pushed ${objectIDs.length} records to Algolia`);
+  // Atomic full replace: `records` is always the complete corpus, so this
+  // also purges records for questions/episodes that have been removed
+  // (saveObjects would merge and leave stale entries searchable forever).
+  const { objectIDs } = await index.replaceAllObjects(records, { safe: true });
+  console.log(`\n✅ Replaced Algolia index with ${objectIDs.length} records`);
 }
 
 // --- Main -----------------------------------------------------------------

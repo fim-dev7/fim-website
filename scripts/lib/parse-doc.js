@@ -30,20 +30,27 @@ function extractBody(html) {
 /**
  * Decode HTML entities → plain unicode.
  */
+const NAMED_ENTITIES = {
+  nbsp: ' ', lt: '<', gt: '>', quot: '"', apos: "'",
+  mdash: '—', ndash: '–', hellip: '…', middot: '·', bull: '•',
+  lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”',
+  eacute: 'é', egrave: 'è', ecirc: 'ê', euml: 'ë',
+  aacute: 'á', agrave: 'à', acirc: 'â', auml: 'ä',
+  iacute: 'í', icirc: 'î', iuml: 'ï',
+  oacute: 'ó', ocirc: 'ô', ouml: 'ö',
+  uacute: 'ú', ucirc: 'û', uuml: 'ü',
+  ntilde: 'ñ', ccedil: 'ç', szlig: 'ß',
+  deg: '°', pound: '£', euro: '€', copy: '©', reg: '®', trade: '™',
+};
+
 function decodeEntities(s) {
   return String(s)
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&mdash;/g, '—')
-    .replace(/&ndash;/g, '–')
-    .replace(/&hellip;/g, '…')
-    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(parseInt(d, 10)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    // Named entities (Docs HTML export uses these for ·, ë, é, …). &amp; is
+    // decoded LAST so a literal "&amp;middot;" in a doc doesn't double-decode.
+    .replace(/&([a-z]+);/gi, (m, name) => NAMED_ENTITIES[name.toLowerCase()] ?? m)
+    .replace(/&amp;/g, '&');
 }
 
 /**
@@ -193,33 +200,39 @@ function extractBlockquotes(html) {
     if (text) out.push({ text, attr });
   }
   if (out.length > 0) return out;
-  // Fallback: paragraphs starting with > are quote text; the next paragraph
-  // starting with — or - is the attribution. Pair them up.
+  // Fallback: paragraphs starting with > are quote text; the attribution is a
+  // paragraph starting with — or -, either bare ("— attr") or still inside the
+  // blockquote ("> — attr"). Bare ">" lines are blank blockquote separators.
   const paras = extractParagraphs(html);
-  let i = 0;
-  while (i < paras.length) {
-    const p = paras[i].trim();
-    const quoteMatch = p.match(/^>\s+(.+)$/);
-    if (quoteMatch) {
-      let text = quoteMatch[1].trim();
-      // Multi-line quote: keep consuming `> ...` paragraphs
-      let j = i + 1;
-      while (j < paras.length && /^>\s+/.test(paras[j].trim())) {
-        text += ' ' + paras[j].trim().replace(/^>\s+/, '');
-        j++;
+  let cur = null; // { text, attr }
+  const flush = () => {
+    if (cur && cur.text) out.push({ text: cur.text.replace(/^["“]|["”]$/g, ''), attr: cur.attr || '' });
+    cur = null;
+  };
+  for (const raw of paras) {
+    const p = raw.trim();
+    if (p === '>') continue; // blank line inside a blockquote — not a boundary
+    const qm = p.match(/^>\s+(.+)$/);
+    if (qm) {
+      const inner = qm[1].trim();
+      if (/^[—-]/.test(inner)) {
+        // "> — attr" — attribution written inside the blockquote
+        if (cur) { cur.attr = inner.replace(/^[—-]\s*/, ''); flush(); }
+        continue;
       }
-      // Attribution
-      let attr = '';
-      if (j < paras.length && /^[—-]\s*/.test(paras[j].trim())) {
-        attr = paras[j].trim().replace(/^[—-]\s*/, '');
-        j++;
-      }
-      out.push({ text: text.replace(/^["“]|["”]$/g, ''), attr });
-      i = j;
-    } else {
-      i++;
+      if (cur && cur.attr) flush(); // previous quote fully formed — start a new one
+      if (cur) cur.text += ' ' + inner;
+      else cur = { text: inner, attr: '' };
+      continue;
     }
+    if (/^[—-]/.test(p) && cur) {
+      cur.attr = p.replace(/^[—-]\s*/, '');
+      flush();
+      continue;
+    }
+    flush(); // any other paragraph ends the current quote
   }
+  flush();
   return out;
 }
 

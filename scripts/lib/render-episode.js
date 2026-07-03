@@ -533,6 +533,24 @@ function renderTranscript({ ep, content, transcriptText, durationDisp }) {
     </details>`;
 }
 
+/**
+ * Linked list of the questions this episode answers — each points at its
+ * canonical /questions/<slug>/ page (internal-link mesh: episode ↔ questions).
+ */
+function renderEpisodeQuestions({ ep }) {
+  const entries = (ep.qaEntries || []).filter(e => e.slug && e.question);
+  if (entries.length === 0) return '';
+  const items = entries.map(e =>
+    `<li><a href="../../questions/${esc(e.slug)}/">${esc(e.question)}</a></li>`
+  ).join('\n        ');
+  return `    <section class="ep-questions" aria-label="Questions answered in this episode">
+      <h2>Questions ${esc(ep.guest_name)} answers in this episode</h2>
+      <ul>
+        ${items}
+      </ul>
+    </section>`;
+}
+
 function renderRelated({ ep, allEpisodes }) {
   // Pick two other episodes with rich pages, prioritizing nearest episode_number.
   const candidates = allEpisodes
@@ -713,6 +731,8 @@ ${renderSidebar({ content, ep, slug, episodes: allEpisodes })}
     </div>
 
 ${renderTranscript({ ep, content, transcriptText, durationDisp: durationDisplay(content.meta.duration) })}
+
+${renderEpisodeQuestions({ ep })}
 
 ${renderRelated({ ep, allEpisodes })}
 

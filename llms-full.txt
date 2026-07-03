@@ -507,7 +507,7 @@ Hung admits that sometimes you may think you understand a customer's pain point,
 
 **Brian Pham, Litecard (Ep 8):** Brian's approach was sitting with agencies and brands and reshaping the product around what each needed. Working with North Face's media agency, he asked "how can we make this process like out of 100 clicks, ten clicks," then learned that agencies differ — some technical, some media-strategy focused, some both.
 
-Brian says it came from "having all those conversations after working with the North Face and then it moves on to all the other agencies as well. And just like understanding, you know, what each agency needs and how they differ from each other." Some agencies "are very technical and they like to do a lot of the integration themselves," some "are very sort of media strategy consulting focused, and they want to do mainly the execution and have the tools and not have to do any engineering," and "there are some agencies I want to do both." That listening also revealed the underlying customer pain — that brands like L'Or&eacute;al "run a promotion and have no idea who's seen the promotion and what the customer demographic is."
+Brian says it came from "having all those conversations after working with the North Face and then it moves on to all the other agencies as well. And just like understanding, you know, what each agency needs and how they differ from each other." Some agencies "are very technical and they like to do a lot of the integration themselves," some "are very sort of media strategy consulting focused, and they want to do mainly the execution and have the tools and not have to do any engineering," and "there are some agencies I want to do both." That listening also revealed the underlying customer pain — that brands like L'Oréal "run a promotion and have no idea who's seen the promotion and what the customer demographic is."
 
 **Robert Huynh, Nook / Reforge (Ep 7):** Robert's lesson is the inverse — they skipped it and paid for it. They built a TikTok-style upskilling app first without talking to workers, and "built this app that no one really wanted." A startup, he says, is all about the basics: talking to customers, feeling what they want, then building it.
 
@@ -1141,7 +1141,7 @@ URL: https://foundersinmotion.tech/questions/should-i-become-a-founder/
 
 **Lauren Barker, Good Mind Therapeutics (Ep 30):** Asked if she'd still join Good Mind knowing everything, Lauren doesn't hesitate: "oh absolutely — even if our hypothesis had been wrong... I would have grown and gained so much in the past year." The skills only come from doing it: "unless you've done it and you've tried to build something by yourself, I couldn't have got those skills elsewhere."
 
-Lauren's answer is striking because she explicitly decouples it from the outcome: "even if I was sitting here today and I built these five clinics and nothing had worked, I would have grown and gained so much in the past year." The growth was the return; the fact that Good Mind came out the other side with "quite a cool little idea is just kind of a bit of a cherry on the top."
+Lauren's answer is striking because she explicitly decouples it from the outcome: "even if I was sitting here today and I built these five clinics and nothing had worked, I would have grown and gained so much in the past year." The growth was the return; the fact that Good Mind came out the other side with "quite a cool little idea" is, in her words, "just kind of a bit of a cherry on the top."
 
 That's from someone who did a lot of crying, went through "dark nights of the soul," battled "perennial imposter syndrome," and quit LinkedIn to protect her mental health. The founder year was, in her words, an invaluable experience — ending the episode "really excited for what's next, and just excited for more novel therapies in medicine."
 
@@ -1187,11 +1187,11 @@ Internal pressure > external pressure. Shakeel describes setting expectations of
 
 URL: https://foundersinmotion.tech/questions/warning-signs-time-to-pivot/
 
-**Lauren Barker, Good Mind Therapeutics (Ep 30):** For Lauren, the sign was that Good Mind's entire original thesis — psilocybin and MDMA therapy — depended on a regulator moving: "you can't bat on what the TGA is gonna maybe do in the next five years... you can't build a business on an idea that maybe something will change."
+**Lauren Barker, Good Mind Therapeutics (Ep 30):** For Lauren, the sign was that Good Mind's entire original thesis — psilocybin and MDMA therapy — depended on a regulator moving: "you can't bet on what the TGA is gonna maybe do in the next five years... you can't build a business on an idea that maybe something will change."
 
 Good Mind's shell company was originally set up around psilocybin and potentially MDMA therapy — Australia being the only western country with that legalised therapy pathway. But the regulation was an "incredibly governance heavy model," the research still "very very early doors" and "inconclusive about what those results will look like for patients." Lauren's test was brutal in its simplicity: if the business only works when a regulator changes its mind on an uncertain timeline, it isn't a business yet.
 
-It took "quite a long time and sort of gentle messaging" to bring the existing team around — her framing was "it's not that I don't like this idea," but that it's "a very exciting potential vertical for the future... not one that we're exploring today." The pivot question became: what can we make accessible from now? The answer was ketamine — a treatment that was already available in Australia, where Lauren saw an underexplored first-mover opportunity.
+It took "quite a long time and sort of gentle messaging" to bring the existing team around — her framing was "it's not that I don't like this idea," but that it's "a very exciting potential vertical for the future... not one that we're exploring today." The pivot question became: what can we make accessible now? The answer was ketamine — a treatment that was already available in Australia, where Lauren saw an underexplored first-mover opportunity.
 
 **Hung Bui, AIducation (Ep 10):** For Hung, two tickers signalled a deeper problem. First, even though users signed up, "there was basically no activities on the platform." Second, there were no paying users, and a monthly active number "too embarrassing to discuss right now."
 
@@ -1289,7 +1289,7 @@ URL: https://foundersinmotion.tech/questions/break-into-industry-without-network
 
 **Rakhesh Martyn, Hachiko Energy (Ep 31):** Rakhesh's honest answer: "it would take a while — it's always possible." The challenges in energy are "incredibly complicated," so if you can demonstrate you understand and empathise with them and your product actually solves the problem, "absolutely anybody can come in and solve problems in brand new ways and blow people's minds." But the insider has a real head start.
 
-Rakhesh's own shortcut was lived experience from the buyer's side. He fits the profile of his own customers: the work he had done in the past was structuring battery portfolios to get them through funding and into operation, and in 2024 was personally exposed to "somewhere in the region of $500 million worth of project capital that could have been allocated but was not, because the investors were not comfortable that the returns were gonna come at the rate that they wanted." He could see the software gap from inside the transaction meetings — so he built it.
+Rakhesh's own shortcut was lived experience from the buyer's side. He fits the profile of his own customers: the work he had done in the past was structuring battery portfolios to get them through funding and into operation, and in 2024 he was personally exposed to "somewhere in the region of $500 million worth of project capital that could have been allocated but was not, because the investors were not comfortable that the returns were gonna come at the rate that they wanted." He could see the software gap from inside the transaction meetings — so he built it.
 
 For outsiders, the bar is empathy and proof. Warm intro beats cold outreach because the first thing a buyer does after your pitch is check you out with shared connections. Without a track record, you have to compensate by demonstrating you genuinely understand the complicated problems that make the customer need a solution in the first place — "if you can show to a customer that you've lived it, and that's where your solution comes from, then you have a much greater chance of success than if you're brand new."
 
@@ -1321,7 +1321,7 @@ URL: https://foundersinmotion.tech/questions/first-dollar-vs-first-million/
 
 **Josh Foreman, InDebted (Ep 32):** No — the emotional weight doesn't scale. "I remember the first collection like it was yesterday, and making the first $12 of revenue and being like, that was the coolest... it honestly meant more." Today InDebted makes over $1 million a week in revenue.
 
-Josh remembers the first dollar, and the first million dollars collected — there's a video of him and a few teammates popping a bottle of Mo&euml;t to celebrate $1 million collected. Fast forward, and the company makes over $1 million a week. The early milestones carried more feeling than the ones a thousand times larger, which is his case for loving the engine-room days rather than rushing past them.
+Josh remembers the first dollar, and the first million dollars collected — there's a video of him and a few teammates popping a bottle of Moët to celebrate $1 million collected. Fast forward, and the company makes over $1 million a week. The early milestones carried more feeling than the ones a thousand times larger, which is his case for loving the engine-room days rather than rushing past them.
 
 ---
 
@@ -1495,7 +1495,7 @@ URL: https://foundersinmotion.tech/questions/how-litecard-reduced-technical-fric
 
 **Brian Pham, Litecard (Ep 8):** By evolving the product until it needed almost no coding. Brian says early objections were about "too much, sort of coding and technical integrations," but now the whole add-to-wallet-and-scan flow "takes sort of like 1 to 2 minutes. You don't have to do any integrations."
 
-Brian says the biggest early objection was that "providing a product into the mobile wallet and then using it for advertising, at a beginning of our journey there was too much, sort of coding and technical integrations needed." As they worked with more retailers and brands, they evolved it to require less. He gives the example that a brand like L'Or&eacute;al, Mars or Jack Daniels could "go to a Chemist Warehouse or Dan's Murphy and buy like" a hundred thousand barcodes, load them into the platform, customise the journey, and a customer could click a social media ad, add it to their wallet, and "come and scan in demo fees immediately." His framing: objections "went from like technical and security to, like, now there's nothing really to worry about. And you can do it yourself."
+Brian says the biggest early objection was that "providing a product into the mobile wallet and then using it for advertising, at a beginning of our journey there was too much, sort of coding and technical integrations needed." As they worked with more retailers and brands, they evolved it to require less. He gives the example that a brand like L'Oréal, Mars or Jack Daniels could "go to a Chemist Warehouse or Dan's Murphy and buy like" a hundred thousand barcodes, load them into the platform, customise the journey, and a customer could click a social media ad, add it to their wallet, and "come and scan in demo fees immediately." His framing: objections "went from like technical and security to, like, now there's nothing really to worry about. And you can do it yourself."
 
 ---
 
@@ -2051,7 +2051,7 @@ URL: https://foundersinmotion.tech/questions/how-ai-fits-into-retail-media/
 
 **Brian Pham, Litecard (Ep 8):** For Brian, "AI revolves a lot around data, and it's about how much you can gather." Litecard uses an AI-driven customer onboarding journey for partners, and looks at AI to speed up building brand experiences — turning "20 clicks" into "30s in one click."
 
-Brian says the data a brand gathers from a customer "has been what's influenced us the most," because a brand like L'Or&eacute;al might run a promotion with "no idea who's seen the promotion and what the customer demographic is." Litecard's platform lets customers click a promotion, fill out details and get an offer, which helps the brand understand buying habits. On their own product, "Our whole like customer onboarding journey is like" AI-driven — "if you're a partner, you sign up with LiteCard... any question you would ever have. The AI will be able to answer it." He also wants AI to speed up building a brand experience, asking "what if it took 30s in one click instead of like 20 clicks."
+Brian says the data a brand gathers from a customer "has been what's influenced us the most," because a brand like L'Oréal might run a promotion with "no idea who's seen the promotion and what the customer demographic is." Litecard's platform lets customers click a promotion, fill out details and get an offer, which helps the brand understand buying habits. On their own product, "Our whole like customer onboarding journey is like" AI-driven — "if you're a partner, you sign up with LiteCard... any question you would ever have. The AI will be able to answer it." He also wants AI to speed up building a brand experience, asking "what if it took 30s in one click instead of like 20 clicks."
 
 ---
 
@@ -2082,18 +2082,6 @@ URL: https://foundersinmotion.tech/questions/how-to-scale-to-revenue-goal/
 **Hamish McKay, Order Editing (Ep 15):** Hamish describes going through a period of anxiety and then clarity. Order Editing will finish the year doing about two and a half in ARR — roughly 3x on last year — and he was freaking out about how to go from 2.5 to 7.5 in 12 months, calling it actually insane.
 
 The math drove the clarity: even at a 50% close rate without changing the ACV they'd have to pitch around 2,000 people next year — eight deals a day — and it could be 3,000 deals to acquire in the pretty small market of the Shopify ecosystem. So the strategy update became about building a product team to make room for ideas, and a strong account-management and client-management layer so it's easy, fast and efficient to sell more products to existing customers.
-
----
-
-## How does ketamine actually treat depression?
-
-URL: https://foundersinmotion.tech/questions/how-does-ketamine-treat-depression/
-
-**Lauren Barker, Good Mind Therapeutics (Ep 30):** "Ketamine's got two actions": a direct antidepressant effect on different neurotransmitters than tablet antidepressants target — working "within sort of 48 hours" for most people — and, the part Lauren calls "really really sexy," it "stimulates the growth of new pathways in the brain."
-
-The first action explains why ketamine works when tablets fail: "the neurotransmitters that ketamine targets are different to the ones that are targeted by tablet antidepressants — so that's why when people sort of fail tablet antidepressants, ketamine will still work for them." It's also fast: tablets "take a really long time to work," while "ketamine will work for most people within sort of 48 hours of treatment."
-
-The second action is the neuroplasticity. Thought patterns "over a period of time are becoming grained in our brain networks," which is why changing a habit is "bloody hard to do as an individual" — "and then you get ketamine and you get this burst of fertility for growing new pathways." Combined with behavioural activation or psychotherapy, "suddenly your therapy actually works for you" — the kind of change "that is actually really difficult to generate in a brain that's had chronic pathways for a really long time."
 
 ---
 
@@ -2166,18 +2154,6 @@ URL: https://foundersinmotion.tech/questions/how-many-investors-to-talk-to/
 **Nate Spiteri, Shopfront (Ep 3):** Nate reached out to almost 1000 investors across the whole spectrum just to see who had interest and who was a fit. He came back to Australia after four years in London with a "super thin" network, so it took a long time to find the ideal investor profile — and he dealt with "like 99, 95% no's."
 
 Nate explains that because he'd just come from four years in London, his network in Australia was super thin when it came to people who would invest. "It took us a long time to find out ideal, investor profile. And so to get to that point, we had to speak to almost 1000 investors" — or at least reach out to almost 1000 — "just on the whole spectrum of investors, just to kind of see who had interest and who was a fit, which is an incredibly time consuming process." It was necessary, he says, because "you do deal with like 99, 95% no's," and if you're not targeting enough investors, every no can be a big hit to your pipeline.
-
----
-
-## How much does ketamine treatment cost in Australia?
-
-URL: https://foundersinmotion.tech/questions/ketamine-treatment-cost-australia/
-
-**Lauren Barker, Good Mind Therapeutics (Ep 30):** Before the PBS listing, the medication alone cost $800–$1,000 a dose — only the Department of Veteran Affairs was really funding it. Since it was put on the PBS halfway through last year, patients pay mainly for supervised nursing care: "about three to five thousand dollars out of pocket" over three to six months of treatment.
-
-When Good Mind started, "the only people that were really funding this was the Department of Veteran Affairs," who saw the benefit for "veterans who were coming back with sort of PTSD and depression — really difficult to treat." At $800–$1,000 a dose for the medication, it was "hugely expensive" for everyone else.
-
-The PBS listing changed the economics: "all patients are paying for is coming into a supervised setting and having it given to you under the care of nurses to make sure that you're safe." At three to five thousand dollars for a full course, Lauren says it's "getting towards a stage where that's actually achievable" — private patients are arriving saying "that is the price that I'm willing to pay to have my life back," and insurers are "getting on board now, being like I can see the ROI on treating these patients, because we can get them back into our workforce."
 
 ---
 
@@ -2337,7 +2313,7 @@ URL: https://foundersinmotion.tech/questions/build-vs-buy-ai-stack/
 
 **Josh Foreman, InDebted (Ep 32):** Josh's honest answer: "we've done both." Early on, "the humble answer is we just have no idea" — so go to market and find the best products while building and testing in parallel. Where they landed: build the layer where your proprietary data makes you the best in the world, buy every layer where it doesn't.
 
-After roughly ninety to a hundred and eighty days deep in the process, Josh's key learning is that "voice AI is a multi layered system of complexity." Text to speech? "We are not gonna be the best in the world at that. There are phenomenal companies out of the valley doing incredible stuff raising awesome rounds — let's use those products."
+After more than 90 days deep in the process, Josh's key learning is that "voice AI is a multi layered system of complexity." Text to speech? "We are not gonna be the best in the world at that. There are phenomenal companies out of the valley doing incredible stuff raising awesome rounds — let's use those products."
 
 But knowing the right way to engage a customer for collections and being "the best at negotiating those outcomes" — that's where InDebted's proprietary dataset gives it an edge. "So I'd say it's built in our case, but with a very big asterisk: building using industry-leading layers of the stack to help us do that." And don't be fooled by the cursory lens — getting an answer that sounds like a human takes very meticulous test-and-tweak work.
 
@@ -2759,18 +2735,6 @@ Jevon describes Keeyu as the only solution that tracks an order "from the moment
 
 ---
 
-## What is ketamine-assisted therapy and what happens at a clinic?
-
-URL: https://foundersinmotion.tech/questions/what-is-ketamine-assisted-therapy/
-
-**Lauren Barker, Good Mind Therapeutics (Ep 30):** At Good Mind, patients usually reach out directly, get a GP referral and a psychiatry assessment, then come in for a series of in-person treatment sessions at a clinic over three to six months — with nurses supervising each dose. "About 70% of those people will have their depression treated or cured."
-
-The pathway Lauren describes is straightforward: "often patients reach out to us directly, we tell them all about the treatment that we offer, we get a GP referral, we do the patient psychiatry assessment, and then that patient comes to us for a series of in-person treatment sessions in one of our clinics over the course of 3 to 6 months."
-
-Over that period patients get "a really positive neuroplastic effect in their brain, as well as a direct antidepressant effect from the ketamine." The sessions happen in a supervised setting "under the care of nurses to make sure that you're safe." Good Mind delivers this through a hybrid of telehealth and in-person care across five clinic sites in Australia.
-
----
-
 ## What is Known and what does Celeste Amadon mean by "intelligence for human connection"?
 
 URL: https://foundersinmotion.tech/questions/what-is-known-celeste-amadon/
@@ -2932,18 +2896,6 @@ URL: https://foundersinmotion.tech/questions/hung-bui-most-valuable-lesson/
 **Hung Bui, AIducation (Ep 10):** That each of us has a different version of reality, and he was so immersed in his own that he never got a reality check on whether others would want his product. "It took me a year to fix that mistake."
 
 Hung says he was so immersed in his own view of reality and what would be a good product that he "did not really have a reality check on whether or not others would also want my product." His takeaway is to put the product in front of people early: "don't be ashamed of the product that you're building, just show them even if it's like really bad right now, but at least you all know if that's something that they would want and use."
-
----
-
-## What is treatment-resistant depression — and how common is it?
-
-URL: https://foundersinmotion.tech/questions/what-is-treatment-resistant-depression/
-
-**Lauren Barker, Good Mind Therapeutics (Ep 30):** "People think of treatment resistant depression as a niche illness, and it is so far from the truth." Roughly 1 in 5 Australians will have depression in their life, tablet antidepressants work for about half of them, and by the third failed tablet a patient is considered treatment resistant — "we're talking about millions and millions of Australians."
-
-Lauren walks through the funnel: first-line treatment is tablet antidepressants, which "work for about half of people who have depression." If the first one doesn't work, "the chances of the second one working are significantly diminished, and then by the time you're trying a third one, like it's not gonna work essentially."
-
-The label itself is dated. "The idea of treatment resistance came around before we had other therapies — so before we had ECT and TMS, brain stimulation type therapies, these patients could not be treated, so they were treatment resistant. It's a hangover from a system that's not today's system." The scale is the point: "we're not talking about like a few people who have this weird disorder — we're talking about a huge group of Australians today who aren't getting the best care for them."
 
 ---
 
@@ -3173,7 +3125,7 @@ Back then he had no idea he had to register his kitchen with the council to sell
 
 URL: https://foundersinmotion.tech/questions/how-to-choose-a-partner/
 
-**Sam Richardson, Butter (Ep 13):** Make a list of your non-negotiables — on a values-driven level, based on the life you want and the type of partner who fits it, not surface traits like being tall or attractive. After being single for five or six years, Sam wrote down a list of eight things and two weeks later matched with his now-fianc&eacute; on Hinge.
+**Sam Richardson, Butter (Ep 13):** Make a list of your non-negotiables — on a values-driven level, based on the life you want and the type of partner who fits it, not surface traits like being tall or attractive. After being single for five or six years, Sam wrote down a list of eight things and two weeks later matched with his now-fiancé on Hinge.
 
 He didn't find that list again until about six months into dating; when he looked at it, it was his partner "to a tee." He cautions that getting there takes time and meeting a lot of different types of people — you can get set on a type you think you want before you've actually experienced enough to know. His advice: write the list and stick to it. He half-jokes it sounds like TikTok manifestation, but frames it as clarity — being able to articulate what you actually want.
 
@@ -3501,7 +3453,7 @@ URL: https://foundersinmotion.tech/questions/when-to-step-down-as-ceo/
 
 **Josh Foreman, InDebted (Ep 32):** Three reasons: the CEO seat at InDebted is dominated by non-technical work; ten years in, he wants a business that compounds "with or without Josh" — for decades or centuries; and the AI rebuild is hard enough that he refuses to do it part-time. "I don't want to get to a position in three years time — it didn't work, but I only gave it like 50% of my time."
 
-The trigger was the tooling. From the end of last year into the start of this year, Josh noticed the quality of AI tooling got so much better that he started clearing his calendar to spend more time back on the tools — and saw how much you could build with less resources. The question that stuck: what if this was the first year he founded the company, not ten years ago? "I know personally I would have been able to go a lot further with a lot less."
+The trigger was the tooling. From the end of last year into the start of this year, Josh noticed the quality of AI tooling got so much better that he started clearing his calendar to spend more time back on the tools — and saw how much you could build with fewer resources. The question that stuck: what if this was the first year he founded the company, not ten years ago? "I know personally I would have been able to go a lot further with a lot less."
 
 He's explicit that stepping down doesn't have to be the approach for everybody. Being CEO of InDebted specifically requires a lot of the non-technical components of the job — the nature of the business, the reporting structure. And the ten-year mark forced a longer view: "Now I'm so confident on the ability for the business to compound over the long term that I have to think about a world where the business exists without even me in it" — whether because he wants to go do something else, or because "literally I'm not here anymore."
 
@@ -3838,4 +3790,4 @@ URL: https://foundersinmotion.tech/questions/will-xiaohongshu-last-in-us/
 Dime actually ran a last-minute, smaller XiaoHongShu campaign for an Asia-based client with a Jan 19th deadline, because that client was flexible with the platform and the two had a really good relationship. Once TikTok came back after 12 hours, Abby saw an uptick of users — a lot of American users, ABCs, international students and student creators jumped onto XiaoHongShu, and she thinks there will be resurfacing interest from those creators. But in terms of user downloads and continuous content, she thinks the hype has probably died down, since TikTok seems to be doing fine right now.
 
 
-Generated: 2026-07-02T22:20:50.888Z
+Generated: 2026-07-03T00:35:13.279Z
