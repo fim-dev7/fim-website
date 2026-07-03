@@ -428,9 +428,9 @@ ${itemListSchema}
       <span class="brand-text">Founders <em>In Motion</em></span>
     </a>
     <div class="nav-links">
-      <a href="../index.html#episodes">Episodes</a>
+      <a href="../episodes/">Episodes</a>
       <a href="../questions/">Founder Questions</a>
-      <a href="../index.html#about">About</a>
+      <a href="../about/">About</a>
     </div>
     <a class="btn btn-primary" href="${escAttr(settings.spotify_show || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl')}">
       Listen Free <span aria-hidden="true">→</span>

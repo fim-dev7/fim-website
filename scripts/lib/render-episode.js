@@ -753,9 +753,9 @@ ${(() => {
       <span class="brand-text">Founders <em>In Motion</em></span>
     </a>
     <div class="nav-links">
-      <a href="../index.html#episodes">Episodes</a>
+      <a href="../">Episodes</a>
       <a href="../../questions/">Founder Questions</a>
-      <a href="../index.html#about">About</a>
+      <a href="../../about/">About</a>
     </div>
     <a class="btn btn-primary" href="${escAttr(ep.spotify_url || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl')}">
       Listen Free <span aria-hidden="true">→</span>
@@ -769,7 +769,7 @@ ${(() => {
     <!-- Breadcrumb -->
     <div class="ep-breadcrumb">
       <a href="../../index.html">Founders In Motion</a> &nbsp;/&nbsp;
-      <a href="../index.html#episodes">Episodes</a> &nbsp;/&nbsp;
+      <a href="../">Episodes</a> &nbsp;/&nbsp;
       Ep ${ep.episode_number}
     </div>
 
