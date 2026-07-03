@@ -34,7 +34,6 @@ function App() {
       <WhatThisIs />
       <PullQuote quotes={QUOTES} />
       <Episodes />
-      <Listen />
       <About />
       <Footer />
 

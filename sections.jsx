@@ -20,9 +20,9 @@ function Nav() {
           <span className="brand-text">Founders <em>In Motion</em></span>
         </a>
         <div className="nav-links">
-          <a href="#episodes">Episodes</a>
+          <a href="episodes/">Episodes</a>
           <a href="questions/">Founder Questions</a>
-          <a href="#about">About</a>
+          <a href="about/">About</a>
         </div>
       </div>
     </nav>);
@@ -59,17 +59,12 @@ function Hero() {
         </div>
         </div>
         <div className="stats">
-          {STATS.map((raw) => {
-            const s = raw.label === "Episodes published" && typeof ARCHIVE !== "undefined"
-              ? { ...raw, value: ARCHIVE.length + "+" }
-              : raw;
-            return (
+          {STATS.map((s) =>
           <div className="stat" key={s.label}>
               <div className="v">{s.value}</div>
               <div className="l">{s.label}</div>
             </div>
-            );
-          })}
+          )}
         </div>
       </div>
     </header>);
@@ -460,17 +455,14 @@ function About() {
           <img className="thea-avatar" src="assets/thea-ngo.jpg" alt="Thea Ngo, host of Founders In Motion" loading="lazy" decoding="async" />
           <div>
             <h2 className="h2">Thea Ngo</h2>
-            <div className="role-tag">Early-stage investor &amp; professional question-asker</div>
-            <p>Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable.
+            <div className="role-tag">Host &amp; professional question-asker</div>
+            <p>Hi, I'm Thea. I back early-stage founders for a living, which mostly means asking nosy questions and trying to figure out which weird ideas are about to become inevitable.
 
             </p>
-            <p>Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said "I just wouldn't come to work tomorrow." I was so curious of the messy middle, so I went and got it.
+            <p>I started Founders In Motion because there's a real gap between how building looks online and how it actually feels. The LinkedIn version is all wins; the real version is the year of nothing, the co-founder breakup, the term sheet you walked away from. This is the show for that version — founders while they're still in the thick of it.
 
             </p>
-            <p>{typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32} episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record.
-
-            </p>
-            <p>{"Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"}
+            <p>If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days.
 
             </p>
             <div className="socials">

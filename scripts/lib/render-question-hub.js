@@ -548,6 +548,13 @@ ${itemListSchema}
 .q-index-card-meta { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); }
 .q-index-badge { display: inline-block; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; margin-bottom: 12px; background: rgba(212,168,125,0.06); }
 .q-index-arrow { position: absolute; top: 28px; right: 32px; color: var(--cream); font-size: 18px; }
+.q-index-search { max-width: 880px; margin: 0 auto 18px; position: relative; }
+.q-index-search input { width: 100%; box-sizing: border-box; font-family: var(--body); font-size: 16px; color: var(--off-white); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px 16px 50px; outline: none; transition: border-color 0.15s; }
+.q-index-search input:focus { border-color: var(--cream); }
+.q-index-search input::placeholder { color: var(--muted); }
+.q-index-search .q-search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.q-index-count { max-width: 880px; margin: 0 auto 18px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); min-height: 14px; }
+.q-index-empty { max-width: 880px; margin: 0 auto; display: none; font-family: var(--body); font-size: 16px; color: var(--muted); text-align: center; padding: 40px 0; }
 </style>
 </head>
 <body>
@@ -576,9 +583,15 @@ ${itemListSchema}
       <h1>${all.length} founder questions, answered by founders.</h1>
       <p>Every question on this page has a direct, cited answer from a real founder in the archive. Click any question for the full answer + the episode it came from.</p>
     </header>
+    <div class="q-index-search">
+      <svg class="q-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="qSearch" placeholder="Search questions — e.g. pre-seed, customer discovery, pivot…" aria-label="Search founder questions" autocomplete="off" spellcheck="false" />
+    </div>
+    <div class="q-index-count" id="qCount"></div>
     <div class="q-index-grid">
       ${cards}
     </div>
+    <p class="q-index-empty" id="qEmpty">No questions match that search. Try a broader term like &ldquo;fundraising&rdquo;, &ldquo;customers&rdquo;, or &ldquo;co-founder&rdquo;.</p>
   </div>
 </main>
 
@@ -601,6 +614,33 @@ ${itemListSchema}
     <div class="footer-mark">Founders <em>In Motion</em></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var input = document.getElementById('qSearch');
+  if (!input) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.q-index-card'));
+  var empty = document.getElementById('qEmpty');
+  var count = document.getElementById('qCount');
+  var total = cards.length;
+  cards.forEach(function(c){ c.dataset.text = (c.textContent || '').toLowerCase(); });
+  function apply(q){
+    q = (q || '').trim().toLowerCase();
+    var tokens = q.split(/\\s+/).filter(Boolean);
+    var shown = 0;
+    cards.forEach(function(c){
+      var match = tokens.every(function(t){ return c.dataset.text.indexOf(t) !== -1; });
+      c.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    empty.style.display = (shown === 0 && tokens.length) ? 'block' : 'none';
+    count.textContent = tokens.length ? (shown + ' of ' + total + ' questions') : '';
+  }
+  input.addEventListener('input', function(){ apply(input.value); });
+  var pq = new URLSearchParams(location.search).get('q');
+  if (pq) { input.value = pq; apply(pq); }
+})();
+</script>
 
 </body>
 </html>

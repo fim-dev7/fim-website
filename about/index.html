@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="author" content="Thea Ngo" />
-<title>About — Founders In Motion | Thea Ngo, host and early-stage investor</title>
+<title>About — Founders In Motion | Thea Ngo, host</title>
 <meta name="description" content="Founders In Motion is hosted by Thea Ngo — an early-stage investor across Australia, Southeast Asia, and the US. The podcast documents the messy middle of building: customer discovery, pre-seed fundraising, pivots, rebuilds, and the decisions founders rarely talk about in public." />
 
 <meta property="og:title" content="About — Founders In Motion" />
@@ -102,10 +102,16 @@
 .about-moments { max-width: 760px; margin: 56px auto 0; }
 .about-moments h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -0.02em; color: var(--off-white); margin: 0 0 6px; }
 .about-moments .moments-sub { font-family: var(--body); font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0 0 20px; }
-.moments-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.moments-grid img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); display: block; }
-.moments-grid img:last-child { grid-column: 1 / -1; }
-@media (max-width: 640px) { .moments-grid { grid-template-columns: 1fr; } .moments-grid img:last-child { grid-column: auto; } }
+.about-slideshow { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #000; }
+.about-slideshow .slides { display: flex; transition: transform 0.45s ease; }
+.about-slideshow .slides img { flex: 0 0 100%; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.about-slideshow .ss-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(0,0,0,0.5); color: #fff; font-size: 24px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.about-slideshow .ss-btn:hover { background: rgba(0,0,0,0.75); }
+.about-slideshow .ss-prev { left: 12px; }
+.about-slideshow .ss-next { right: 12px; }
+.about-slideshow .ss-dots { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+.about-slideshow .ss-dot { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.15s; }
+.about-slideshow .ss-dot.active { background: var(--cream); }
 
 .about-body { max-width: 720px; margin: 0 auto; }
 .about-body h2 {
@@ -170,9 +176,9 @@
       <span class="brand-text">Founders <em>In Motion</em></span>
     </a>
     <div class="nav-links">
-      <a href="../index.html#episodes">Episodes</a>
+      <a href="../episodes/">Episodes</a>
       <a href="../questions/">Founder Questions</a>
-      <a href="../index.html#ask">Search</a>
+      <a href="../index.html">Home</a>
     </div>
     <a class="btn btn-primary" href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">
       Listen Free <span aria-hidden="true">→</span>
@@ -199,12 +205,17 @@
     <section class="about-moments">
       <h2>On the show</h2>
       <p class="moments-sub">Behind the scenes — in studio, on location, and over video, across the archive.</p>
-      <div class="moments-grid">
-        <img src="../assets/moments/studio.jpg" alt="Founders In Motion — Thea Ngo in a recording session" loading="lazy" decoding="async" width="1280" height="720" />
-        <img src="../assets/moments/will.jpg" alt="Founders In Motion — Thea Ngo interviewing Will Bodewes" loading="lazy" decoding="async" width="1280" height="714" />
-        <img src="../assets/moments/nathan.jpg" alt="Founders In Motion — Thea Ngo interviewing Nathan Yun" loading="lazy" decoding="async" width="1280" height="720" />
-        <img src="../assets/moments/lauren.jpg" alt="Founders In Motion — Thea Ngo interviewing Lauren" loading="lazy" decoding="async" width="1280" height="720" />
-        <img src="../assets/moments/videocall.jpg" alt="Founders In Motion — a remote interview" loading="lazy" decoding="async" width="1280" height="720" />
+      <div class="about-slideshow" id="aboutSlideshow">
+        <div class="slides">
+          <img src="../assets/moments/studio.jpg" alt="Founders In Motion — Thea Ngo in a recording session" loading="lazy" decoding="async" width="1280" height="720" />
+          <img src="../assets/moments/will.jpg" alt="Founders In Motion — Thea Ngo interviewing Will Bodewes" loading="lazy" decoding="async" width="1280" height="714" />
+          <img src="../assets/moments/nathan.jpg" alt="Founders In Motion — Thea Ngo interviewing Nathan Yun" loading="lazy" decoding="async" width="1280" height="720" />
+          <img src="../assets/moments/lauren.jpg" alt="Founders In Motion — Thea Ngo interviewing Lauren" loading="lazy" decoding="async" width="1280" height="720" />
+          <img src="../assets/moments/videocall.jpg" alt="Founders In Motion — a remote interview" loading="lazy" decoding="async" width="1280" height="720" />
+        </div>
+        <button class="ss-btn ss-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="ss-btn ss-next" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="ss-dots"></div>
       </div>
     </section>
 
@@ -274,13 +285,11 @@
       </p>
 
       <div class="about-contact">
-        <h3>Connect</h3>
-        <p>If you'd like to be a guest, or you're an investor wanting to discuss a deal, or you've just got something to say:</p>
+        <h3>Keen to partner with us?</h3>
+        <p>Whether you'd like to come on as a guest, explore a sponsorship, or work with Founders In Motion in any way — we'd love to hear from you.</p>
         <div class="links">
-          <a href="https://www.linkedin.com/in/theango/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl" target="_blank" rel="noreferrer">Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671" target="_blank" rel="noreferrer">Apple Podcasts</a>
-          <a href="https://www.youtube.com/@foundersinmotion" target="_blank" rel="noreferrer">YouTube</a>
+          <a href="mailto:hello.foundersinmotion@gmail.com">Get in touch ↗</a>
+          <a href="https://www.linkedin.com/in/theango/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
 
@@ -308,6 +317,35 @@
     <div class="footer-mark">Founders <em>In Motion</em></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var root = document.getElementById('aboutSlideshow');
+  if (!root) return;
+  var track = root.querySelector('.slides');
+  var imgs = root.querySelectorAll('.slides img');
+  var dotsWrap = root.querySelector('.ss-dots');
+  var n = imgs.length, i = 0, timer;
+  for (var d = 0; d < n; d++) {
+    var b = document.createElement('button');
+    b.className = 'ss-dot' + (d === 0 ? ' active' : '');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to photo ' + (d + 1));
+    (function (idx) { b.addEventListener('click', function () { go(idx); reset(); }); })(d);
+    dotsWrap.appendChild(b);
+  }
+  var dots = dotsWrap.querySelectorAll('.ss-dot');
+  function go(idx) {
+    i = (idx + n) % n;
+    track.style.transform = 'translateX(-' + (i * 100) + '%)';
+    for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('active', k === i);
+  }
+  function reset() { clearInterval(timer); timer = setInterval(function () { go(i + 1); }, 5000); }
+  root.querySelector('.ss-prev').addEventListener('click', function () { go(i - 1); reset(); });
+  root.querySelector('.ss-next').addEventListener('click', function () { go(i + 1); reset(); });
+  reset();
+})();
+</script>
 
 </body>
 </html>

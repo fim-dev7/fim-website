@@ -752,7 +752,7 @@ const FAQ = [
 ];
 
 const STATS = [
-  { value: "32+", label: "Episodes published" },  // fallback — homepage overrides with live ARCHIVE.length
+  { value: "300K+", label: "Monthly reach (mainly LinkedIn)" },
   { value: "$120M", label: "Largest raise in the archive" },
   { value: "$1B+", label: "Combined valuation of guest companies" },
   { value: "Live", label: "Spotify · Apple · YouTube" },
@@ -1041,11 +1041,11 @@ function Nav() {
   }, "Founders ", React.createElement("em", null, "In Motion"))), React.createElement("div", {
     className: "nav-links"
   }, React.createElement("a", {
-    href: "#episodes"
+    href: "episodes/"
   }, "Episodes"), React.createElement("a", {
     href: "questions/"
   }, "Founder Questions"), React.createElement("a", {
-    href: "#about"
+    href: "about/"
   }, "About"))));
 }
 function Hero() {
@@ -1086,20 +1086,14 @@ function Hero() {
     className: "btn btn-secondary"
   }, React.createElement(AppleIcon, null), " Apple Podcasts")))), React.createElement("div", {
     className: "stats"
-  }, STATS.map(raw => {
-    const s = raw.label === "Episodes published" && typeof ARCHIVE !== "undefined" ? {
-      ...raw,
-      value: ARCHIVE.length + "+"
-    } : raw;
-    return React.createElement("div", {
-      className: "stat",
-      key: s.label
-    }, React.createElement("div", {
-      className: "v"
-    }, s.value), React.createElement("div", {
-      className: "l"
-    }, s.label));
-  }))));
+  }, STATS.map(s => React.createElement("div", {
+    className: "stat",
+    key: s.label
+  }, React.createElement("div", {
+    className: "v"
+  }, s.value), React.createElement("div", {
+    className: "l"
+  }, s.label))))));
 }
 function GuestStrip() {
   return React.createElement("div", {
@@ -1520,7 +1514,7 @@ function About() {
     className: "h2"
   }, "Thea Ngo"), React.createElement("div", {
     className: "role-tag"
-  }, "Early-stage investor & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said \"I just wouldn't come to work tomorrow.\" I was so curious of the messy middle, so I went and got it."), React.createElement("p", null, typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32, " episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record."), React.createElement("p", null, "Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"), React.createElement("div", {
+  }, "Host & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I back early-stage founders for a living, which mostly means asking nosy questions and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "I started Founders In Motion because there's a real gap between how building looks online and how it actually feels. The LinkedIn version is all wins; the real version is the year of nothing, the co-founder breakup, the term sheet you walked away from. This is the show for that version \u2014 founders while they're still in the thick of it."), React.createElement("p", null, "If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days."), React.createElement("div", {
     className: "socials"
   }, React.createElement("a", {
     className: "social",
@@ -1637,7 +1631,7 @@ function App() {
   }, [t.palette]);
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement(Hero, null), React.createElement(AskBox, null), React.createElement(GuestStrip, null), React.createElement(WhatThisIs, null), React.createElement(PullQuote, {
     quotes: QUOTES
-  }), React.createElement(Episodes, null), React.createElement(Listen, null), React.createElement(About, null), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
+  }), React.createElement(Episodes, null), React.createElement(About, null), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
     label: "Theme"
   }), React.createElement(TweakColor, {
     label: "Palette (bg \xB7 fg \xB7 cream)",
