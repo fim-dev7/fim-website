@@ -3,8 +3,6 @@
    This file is NEVER touched by scripts/sync.js — edit it directly.
    Loads BEFORE data.jsx so generated EPISODES/ARCHIVE/PLATFORMS overlay these. */
 
-const FILTERS = ["All", "Fundraising", "Customer Discovery", "AI", "Consumer Tech"];
-
 // Pull quotes — rotate these as new standout moments come up
 const QUOTES = [
   {
@@ -171,4 +169,4 @@ const FEATURES = [
   { icon: "🌏", title: "APAC + Global Founders", body: "Founders from Australia, Southeast Asia, and beyond building companies the world hasn't caught up to yet." },
 ];
 
-Object.assign(window, { QUOTES, FAQ, STATS, FEATURES, FILTERS });
+Object.assign(window, { QUOTES, FAQ, STATS, FEATURES });

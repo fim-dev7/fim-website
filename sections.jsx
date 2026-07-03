@@ -1,4 +1,4 @@
-/* global React, EPISODES, FEATURED, ARCHIVE, PLATFORMS, FILTERS, QUOTES, FAQ, STATS, FEATURES */
+/* global React, EPISODES, ARCHIVE, QUOTES, STATS, FEATURES */
 const { useState, useEffect, useMemo } = React;
 
 // ─── Helpers ─────────────────────────────────────────
@@ -413,34 +413,6 @@ function EpisodeCard({ ep }) {
 
 }
 
-// ─── Listen ─────────────────────────────────────────
-function Listen() {
-  return (
-    <section className="panel listen-section" id="listen">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="label">Listen free</div>
-            <h2 className="h2" style={{ marginTop: 16 }}>Available everywhere you listen.</h2>
-            <p style={{ marginTop: 20, color: "var(--muted)", fontSize: 17 }}>
-              New episodes weekly. Completely free.
-            </p>
-          </div>
-        </div>
-        <div className="platforms">
-          {PLATFORMS.map((p) =>
-          <a key={p.name} className="platform" href={p.url} target="_blank" rel="noreferrer">
-              <span className="ico">{p.short}</span>
-              <span className="name">{p.name}</span>
-              <span className="arrow">↗</span>
-            </a>
-          )}
-        </div>
-      </div>
-    </section>);
-
-}
-
 // ─── About Thea ─────────────────────────────────────────
 function About() {
   return (
@@ -531,5 +503,5 @@ function YouTubeIcon() {
 
 Object.assign(window, {
   Nav, Hero, GuestStrip, WhatThisIs, PullQuote,
-  Episodes, Listen, About, Footer
+  Episodes, About, Footer
 });

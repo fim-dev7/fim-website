@@ -13,3 +13,12 @@ settings.json
 *.napkin
 *.thumbnail.png
 .DS_Store
+
+# Source & internal files — kept in the repo, not needed on the deployed site.
+# The homepage ships compiled app.bundle.js; the raw .jsx are build inputs only.
+*.jsx
+aliases.json
+README.md
+AGENT-PLAYBOOK.md
+EVAL-VERIFIER-PROMPT.md
+QA_PACK_TEMPLATE.md
