@@ -752,7 +752,7 @@ const FAQ = [
 ];
 
 const STATS = [
-  { value: "300K+", label: "Monthly reach (mainly LinkedIn)" },
+  { value: "300K+", label: "Monthly reach" },
   { value: "$120M", label: "Largest raise in the archive" },
   { value: "$1B+", label: "Combined valuation of guest companies" },
   { value: "Live", label: "Spotify · Apple · YouTube" },
@@ -1514,7 +1514,7 @@ function About() {
     className: "h2"
   }, "Thea Ngo"), React.createElement("div", {
     className: "role-tag"
-  }, "Host & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I back early-stage founders for a living, which mostly means asking nosy questions and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "I started Founders In Motion because there's a real gap between how building looks online and how it actually feels. The LinkedIn version is all wins; the real version is the year of nothing, the co-founder breakup, the term sheet you walked away from. This is the show for that version \u2014 founders while they're still in the thick of it."), React.createElement("p", null, "If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days."), React.createElement("div", {
+  }, "Early-stage investor & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said \"I just wouldn't come to work tomorrow.\" I was so curious of the messy middle, so I went and got it."), React.createElement("p", null, typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32, " episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record."), React.createElement("p", null, "Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"), React.createElement("div", {
     className: "socials"
   }, React.createElement("a", {
     className: "social",
