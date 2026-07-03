@@ -1557,6 +1557,8 @@ function Footer() {
   }, "Spotify"), React.createElement("a", {
     href: "https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671"
   }, "Apple"), React.createElement("a", {
+    href: "https://www.youtube.com/@foundersinmotion"
+  }, "YouTube"), React.createElement("a", {
     href: "https://www.instagram.com/thea.yaps"
   }, "Instagram"), React.createElement("a", {
     href: "https://www.tiktok.com/@foundersinmotion"

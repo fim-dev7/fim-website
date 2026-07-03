@@ -472,6 +472,7 @@ ${gridCards}
       <nav class="footer-nav">
         <a href="${escAttr(settings.spotify_show || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl')}">Spotify</a>
         <a href="${escAttr(settings.apple_show || 'https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671')}">Apple</a>
+        <a href="${escAttr(settings.youtube || 'https://www.youtube.com/@foundersinmotion')}">YouTube</a>
         <a href="${escAttr(settings.instagram || 'https://www.instagram.com/thea.yaps')}">Instagram</a>
         <a href="${escAttr(settings.tiktok || 'https://www.tiktok.com/@foundersinmotion')}">TikTok</a>
         <a href="${escAttr(settings.my_linkedin || 'https://www.linkedin.com/in/theango/')}">LinkedIn</a>
