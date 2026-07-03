@@ -102,9 +102,9 @@
 .about-moments { max-width: 760px; margin: 56px auto 0; }
 .about-moments h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -0.02em; color: var(--off-white); margin: 0 0 6px; }
 .about-moments .moments-sub { font-family: var(--body); font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0 0 20px; }
-.about-slideshow { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #000; }
-.about-slideshow .slides { display: flex; transition: transform 0.45s ease; }
-.about-slideshow .slides img { flex: 0 0 100%; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.about-slideshow { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #000; }
+.about-slideshow .slides { display: flex; height: 100%; transition: transform 0.45s ease; }
+.about-slideshow .slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-slideshow .ss-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(0,0,0,0.5); color: #fff; font-size: 24px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
 .about-slideshow .ss-btn:hover { background: rgba(0,0,0,0.75); }
 .about-slideshow .ss-prev { left: 12px; }
@@ -191,16 +191,24 @@
 
     <header class="about-head">
       <div class="kicker">About</div>
-      <h1>Founders In Motion is the podcast for what founders don't post about.</h1>
-      <p class="lead">
-        Hosted by Thea Ngo, an early-stage investor across Australia, Southeast Asia, and the US. It's where the top 1% of early-stage founders share what they're actually doing, what's working, and what's not.
-      </p>
+      <h1>Hi, I'm Thea.</h1>
     </header>
 
-    <figure class="about-photo">
-      <img src="../assets/thea-ngo.jpg" alt="Thea Ngo, host of Founders In Motion" loading="lazy" decoding="async" />
-      <figcaption>Thea Ngo — host of Founders In Motion.</figcaption>
-    </figure>
+    <div class="about-body">
+      <div class="role-tag">Early-stage investor &amp; professional question-asker</div>
+      <p>
+        I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable.
+      </p>
+      <p>
+        Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said &ldquo;I just wouldn't come to work tomorrow.&rdquo; I was so curious of the messy middle, so I went and got it.
+      </p>
+      <p>
+        32 episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record.
+      </p>
+      <p>
+        Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days.
+      </p>
+    </div>
 
     <section class="about-moments">
       <h2>On the show</h2>
@@ -220,39 +228,6 @@
     </section>
 
     <div class="about-body">
-
-      <h2>What this is</h2>
-      <p>
-        Most podcasts about startups interview founders after the win. Founders In Motion catches them <em>during</em> it — in the messy middle between conviction and traction, when the answers haven't fully formed yet.
-      </p>
-      <p>
-        Episodes are recorded as single-guest conversations. No panel debates, no marketing arc. The questions an early-stage investor would actually ask: what did you try first that didn't work, what surprised you about your customers, what made you keep going.
-      </p>
-
-      <h2>Who Thea is</h2>
-      <p>
-        Thea Ngo is an early-stage investor at <b>Archangel Ventures</b>, an Australian pre-seed and seed fund — sourcing and backing founders across Australia, Southeast Asia, and the US. She's spent the last several years on both sides of the table: building, investing, and sitting in rooms where founders make decisions before anyone else can see them.
-      </p>
-      <p>
-        She started Founders In Motion because she kept noticing the same thing: the conversations she had with founders privately — about how the pre-seed actually closed, what really killed the early product, how it felt to pivot — were never the conversations they had publicly. The podcast is an attempt to make the private version the public one.
-      </p>
-
-      <h2>Why I do this — from Thea</h2>
-      <p>
-        My day job is investing. Pre-seed and seed, which means I sit in a lot of rooms where founders tell the truth — about the round that nearly died, the product they had to throw away, the co-founder conversation they'd been putting off for months.
-      </p>
-      <p>
-        Then I'd watch the same founders on a stage or another podcast, telling the version with all of that removed.
-      </p>
-      <p>
-        The gap between those two conversations is why this show exists. Not because the polished version is dishonest — because it's useless. You can't learn from a highlight reel. The decisions that decide whether a company survives get made in the messy middle, and nobody was recording them.
-      </p>
-      <p>
-        I'm also young, Vietnamese-Australian, and building this alongside a full-time job in venture — so I'm in the "still figuring it out" stage myself, and I know exactly what it's like to go looking for the real version and get the LinkedIn version instead.
-      </p>
-      <p>
-        So the deal I make with every guest is simple: come on while you're still in it, and tell it the way you'd tell an investor you trust. Most of them are relieved to.
-      </p>
 
       <h2>How these pages are made</h2>
       <p>
