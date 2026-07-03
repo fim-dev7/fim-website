@@ -167,7 +167,6 @@ const STATS = [
 
 const FEATURES = [
   { icon: "🧭", title: "Customer Discovery", body: "How the best founders find and validate their first customers and why most skip the most important step." },
-  { icon: "💸", title: "Pre-Seed Fundraising", body: "What moves a pre-seed check, how founders raise before they have a product, and what early-stage investors actually read for." },
   { icon: "🔄", title: "Pivots & Rebuilds", body: "Co-founder exits, regulatory collapses, models rebuilt from scratch, the moments nobody posts about." },
   { icon: "🌏", title: "APAC + Global Founders", body: "Founders from Australia, Southeast Asia, and beyond building companies the world hasn't caught up to yet." },
 ];

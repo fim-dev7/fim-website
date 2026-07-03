@@ -21,13 +21,9 @@ function Nav() {
         </a>
         <div className="nav-links">
           <a href="#episodes">Episodes</a>
-          <a href="#faq">Founder Questions</a>
+          <a href="questions/">Founder Questions</a>
           <a href="#about">About</a>
         </div>
-        <a className="btn btn-primary" href="https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl">
-          Listen Free
-          <span aria-hidden="true">→</span>
-        </a>
       </div>
     </nav>);
 
@@ -59,7 +55,6 @@ function Hero() {
           <a href="https://podcasts.apple.com/us/podcast/founders-in-motion/id1810228671" className="btn btn-secondary">
             <AppleIcon /> Apple Podcasts
           </a>
-          <a href="#episodes" className="btn btn-secondary">Browse Episodes</a>
         </div>
         </div>
         </div>
@@ -423,33 +418,6 @@ function EpisodeCard({ ep }) {
 
 }
 
-// ─── FAQ ─────────────────────────────────────────
-function FaqSection() {
-  return (
-    <section className="panel" id="faq">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="label">What founders actually ask</div>
-            <h2 className="h2" style={{ marginTop: 16 }}>The questions nobody answers honestly.</h2>
-            <p style={{ marginTop: 20, maxWidth: 640, color: "var(--muted)", fontSize: 17, lineHeight: 1.6 }}>
-              The founding journey raises questions that most content skips. Here's what {typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32} episodes with early-stage founders actually taught us.
-            </p>
-          </div>
-        </div>
-        <div className="faq-grid">
-          {FAQ.map((item, i) =>
-          <article className="faq-item" key={i}>
-              <h3>{item.q}</h3>
-              <p className="a">{item.a}</p>
-            </article>
-          )}
-        </div>
-      </div>
-    </section>);
-
-}
-
 // ─── Listen ─────────────────────────────────────────
 function Listen() {
   return (
@@ -567,5 +535,5 @@ function YouTubeIcon() {
 
 Object.assign(window, {
   Nav, Hero, GuestStrip, WhatThisIs, PullQuote,
-  Episodes, FaqSection, Listen, About, Footer
+  Episodes, Listen, About, Footer
 });

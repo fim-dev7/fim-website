@@ -621,19 +621,17 @@ async function main() {
   if (llmsFullOut.changed) written.push(llmsFullOut.path);
   console.log(`📚 llms-full.txt ${llmsFullOut.changed ? '(written)' : '(unchanged)'}`);
 
-  // Sync homepage FAQ JSON-LD with the hand-curated FAQ in data-static.jsx
-  const faqs = extractFaqFromDataStatic(REPO_ROOT);
-  if (faqs && faqs.length > 0) {
-    const jsonLdBlock = renderFaqPageJsonLd(faqs);
-    const indexPath = path.join(REPO_ROOT, 'index.html');
-    if (fs.existsSync(indexPath)) {
-      const indexHtml = fs.readFileSync(indexPath, 'utf8');
-      const updated = injectFaqIntoIndexHtml(indexHtml, jsonLdBlock);
-      const idxOut = writeIfChanged('index.html', updated);
-      if (idxOut.changed) written.push(idxOut.path);
-      console.log(`❓ index.html FAQPage JSON-LD ${idxOut.changed ? '(updated)' : '(unchanged)'} — ${faqs.length} Qs`);
-    }
-  }
+  // Homepage FAQPage JSON-LD injection is DISABLED (2026-07-03): the visible
+  // FAQ section was removed from the homepage, and Google requires FAQ schema
+  // content to be visible on the page. Question coverage lives on the
+  // /questions/ pages (QAPage schema). To re-enable, restore the FaqSection
+  // component in sections.jsx first, then this block:
+  // const faqs = extractFaqFromDataStatic(REPO_ROOT);
+  // if (faqs && faqs.length > 0) {
+  //   const updated = injectFaqIntoIndexHtml(fs.readFileSync(path.join(REPO_ROOT, 'index.html'), 'utf8'), renderFaqPageJsonLd(faqs));
+  //   const idxOut = writeIfChanged('index.html', updated);
+  //   if (idxOut.changed) written.push(idxOut.path);
+  // }
 
   // Settings
   const settingsOutput = { ...settings, synced_at: new Date().toISOString(), total_episodes: episodes.length };

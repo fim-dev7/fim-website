@@ -1,4 +1,4 @@
-/* global React, ReactDOM, useTweaks, TweaksPanel, TweakSection, TweakColor, TweakText, QUOTES, Nav, Hero, AskBox, GuestStrip, WhatThisIs, PullQuote, Episodes, FaqSection, Listen, About, Footer */
+/* global React, ReactDOM, useTweaks, TweaksPanel, TweakSection, TweakColor, TweakText, QUOTES, Nav, Hero, AskBox, GuestStrip, WhatThisIs, PullQuote, Episodes, Listen, About, Footer */
 const { useEffect } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
@@ -34,7 +34,6 @@ function App() {
       <WhatThisIs />
       <PullQuote quotes={QUOTES} />
       <Episodes />
-      <FaqSection />
       <Listen />
       <About />
       <Footer />

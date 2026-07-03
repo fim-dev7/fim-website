@@ -429,7 +429,7 @@ ${itemListSchema}
     </a>
     <div class="nav-links">
       <a href="../index.html#episodes">Episodes</a>
-      <a href="../index.html#faq">Founder Questions</a>
+      <a href="../questions/">Founder Questions</a>
       <a href="../index.html#about">About</a>
     </div>
     <a class="btn btn-primary" href="${escAttr(settings.spotify_show || 'https://open.spotify.com/show/0ZwlHrWLbX6ajZo2hsVVdl')}">
