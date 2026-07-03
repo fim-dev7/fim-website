@@ -159,7 +159,7 @@ const FAQ = [
 ];
 
 const STATS = [
-  { value: "28+", label: "Episodes published" },
+  { value: "32+", label: "Episodes published" },  // fallback — homepage overrides with live ARCHIVE.length
   { value: "$120M", label: "Largest raise in the archive" },
   { value: "$1B+", label: "Combined valuation of guest companies" },
   { value: "Live", label: "Spotify · Apple · YouTube" },

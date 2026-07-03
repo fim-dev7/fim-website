@@ -64,12 +64,17 @@ function Hero() {
         </div>
         </div>
         <div className="stats">
-          {STATS.map((s) =>
+          {STATS.map((raw) => {
+            const s = raw.label === "Episodes published" && typeof ARCHIVE !== "undefined"
+              ? { ...raw, value: ARCHIVE.length + "+" }
+              : raw;
+            return (
           <div className="stat" key={s.label}>
               <div className="v">{s.value}</div>
               <div className="l">{s.label}</div>
             </div>
-          )}
+            );
+          })}
         </div>
       </div>
     </header>);
@@ -82,7 +87,7 @@ function GuestStrip() {
     <div className="guest-strip-wrap">
       <img className="guest-band" src="assets/guests-strip.png" alt="A selection of past guests of Founders In Motion" width="2560" height="476" loading="lazy" decoding="async" />
       <div className="guest-meta">
-        <span className="label">28 founders</span>
+        <span className="label">{typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32}+ founders</span>
         <span>Early-stage building across continents</span>
       </div>
     </div>);
@@ -428,7 +433,7 @@ function FaqSection() {
             <div className="label">What founders actually ask</div>
             <h2 className="h2" style={{ marginTop: 16 }}>The questions nobody answers honestly.</h2>
             <p style={{ marginTop: 20, maxWidth: 640, color: "var(--muted)", fontSize: 17, lineHeight: 1.6 }}>
-              The founding journey raises questions that most content skips. Here's what 28 episodes with early-stage founders actually taught us.
+              The founding journey raises questions that most content skips. Here's what {typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32} episodes with early-stage founders actually taught us.
             </p>
           </div>
         </div>
@@ -494,7 +499,7 @@ function About() {
             <p>Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said "I just wouldn't come to work tomorrow." I was so curious of the messy middle, so I went and got it.
 
             </p>
-            <p>28 episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record.
+            <p>{typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32} episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record.
 
             </p>
             <p>{"Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"}

@@ -752,7 +752,7 @@ const FAQ = [
 ];
 
 const STATS = [
-  { value: "28+", label: "Episodes published" },
+  { value: "32+", label: "Episodes published" },  // fallback — homepage overrides with live ARCHIVE.length
   { value: "$120M", label: "Largest raise in the archive" },
   { value: "$1B+", label: "Combined valuation of guest companies" },
   { value: "Live", label: "Spotify · Apple · YouTube" },
@@ -1095,14 +1095,20 @@ function Hero() {
     className: "btn btn-secondary"
   }, "Browse Episodes")))), React.createElement("div", {
     className: "stats"
-  }, STATS.map(s => React.createElement("div", {
-    className: "stat",
-    key: s.label
-  }, React.createElement("div", {
-    className: "v"
-  }, s.value), React.createElement("div", {
-    className: "l"
-  }, s.label))))));
+  }, STATS.map(raw => {
+    const s = raw.label === "Episodes published" && typeof ARCHIVE !== "undefined" ? {
+      ...raw,
+      value: ARCHIVE.length + "+"
+    } : raw;
+    return React.createElement("div", {
+      className: "stat",
+      key: s.label
+    }, React.createElement("div", {
+      className: "v"
+    }, s.value), React.createElement("div", {
+      className: "l"
+    }, s.label));
+  }))));
 }
 function GuestStrip() {
   return React.createElement("div", {
@@ -1119,7 +1125,7 @@ function GuestStrip() {
     className: "guest-meta"
   }, React.createElement("span", {
     className: "label"
-  }, "28 founders"), React.createElement("span", null, "Early-stage building across continents")));
+  }, typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32, "+ founders"), React.createElement("span", null, "Early-stage building across continents")));
 }
 const ALGOLIA_APP_ID = "G2C3CUY2G8";
 const ALGOLIA_SEARCH_KEY = "fad56bd6443dfbfc93a64a2b5c1d629c";
@@ -1487,7 +1493,7 @@ function FaqSection() {
       fontSize: 17,
       lineHeight: 1.6
     }
-  }, "The founding journey raises questions that most content skips. Here's what 28 episodes with early-stage founders actually taught us."))), React.createElement("div", {
+  }, "The founding journey raises questions that most content skips. Here's what ", typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32, " episodes with early-stage founders actually taught us."))), React.createElement("div", {
     className: "faq-grid"
   }, FAQ.map((item, i) => React.createElement("article", {
     className: "faq-item",
@@ -1555,7 +1561,7 @@ function About() {
     className: "h2"
   }, "Thea Ngo"), React.createElement("div", {
     className: "role-tag"
-  }, "Early-stage investor & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said \"I just wouldn't come to work tomorrow.\" I was so curious of the messy middle, so I went and got it."), React.createElement("p", null, "28 episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record."), React.createElement("p", null, "Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"), React.createElement("div", {
+  }, "Early-stage investor & professional question-asker"), React.createElement("p", null, "Hi, I'm Thea. I invest in early-stage founders for a living, which mostly means I spend my days asking nosy questions, and trying to figure out which weird ideas are about to become inevitable."), React.createElement("p", null, "Founders In Motion is the show I started because the LinkedIn highlight reel was driving me a little crazy. Nobody talks about the year of nothing, the co-founder breakup, the term sheet you walked away from, the customer who said \"I just wouldn't come to work tomorrow.\" I was so curious of the messy middle, so I went and got it."), React.createElement("p", null, typeof ARCHIVE !== "undefined" ? ARCHIVE.length : 32, " episodes deep, I've talked to founders building non-alcoholic beer ($50M+ valued), AI robotics ($120M raised), YC companies, chili oil empires (150 stores, Gordon Ramsay's seal of approval), and the next frontier dating apps (seed closed in 4 days). The only thing they have in common: they were still in the thick of it when we hit record."), React.createElement("p", null, "Things I'm into: cold founder DMs, niche verticals, anyone building the next big thing. If you're early and a little obsessed, I'd love to meet you. I'm best found on LinkedIn these days!!\n\nAND THANK YOU FOR WATCHING <3\n"), React.createElement("div", {
     className: "socials"
   }, React.createElement("a", {
     className: "social",
