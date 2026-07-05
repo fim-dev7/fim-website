@@ -33,7 +33,6 @@ import { parseEpisodeDoc } from './lib/parse-doc.js';
 import { renderEpisodePage } from './lib/render-episode.js';
 import { renderDataCMS, renderArchivePage } from './lib/render-data.js';
 import { renderSitemap, renderRobots, renderLlmsTxt, renderLlmsFullTxt } from './lib/render-meta.js';
-import { extractFaqFromDataStatic, renderFaqPageJsonLd, injectFaqIntoIndexHtml } from './lib/render-homepage-faq.js';
 import { TOPICS } from './lib/topics-config.js';
 import { renderTopicHub, renderTopicsIndex } from './lib/render-topic-hub.js';
 import { parseQaPack } from './lib/parse-qa-pack.js';
@@ -621,17 +620,6 @@ async function main() {
   if (llmsFullOut.changed) written.push(llmsFullOut.path);
   console.log(`📚 llms-full.txt ${llmsFullOut.changed ? '(written)' : '(unchanged)'}`);
 
-  // Homepage FAQPage JSON-LD injection is DISABLED (2026-07-03): the visible
-  // FAQ section was removed from the homepage, and Google requires FAQ schema
-  // content to be visible on the page. Question coverage lives on the
-  // /questions/ pages (QAPage schema). To re-enable, restore the FaqSection
-  // component in sections.jsx first, then this block:
-  // const faqs = extractFaqFromDataStatic(REPO_ROOT);
-  // if (faqs && faqs.length > 0) {
-  //   const updated = injectFaqIntoIndexHtml(fs.readFileSync(path.join(REPO_ROOT, 'index.html'), 'utf8'), renderFaqPageJsonLd(faqs));
-  //   const idxOut = writeIfChanged('index.html', updated);
-  //   if (idxOut.changed) written.push(idxOut.path);
-  // }
 
   // Settings
   const settingsOutput = { ...settings, synced_at: new Date().toISOString(), total_episodes: episodes.length };

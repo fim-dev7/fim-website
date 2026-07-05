@@ -66,3 +66,10 @@ const header =
 const dest = path.join(root, 'app.bundle.js');
 fs.writeFileSync(dest, header + body);
 console.log(`built app.bundle.js — ${fs.statSync(dest).size} bytes from ${FILES.length} files; hooks: ${[...reactHooks].join(', ') || 'none'}`);
+
+// Regenerate the crawlable <noscript> homepage mirror from the same episode/stat
+// data, so it never drifts as episodes are added. (The homepage is the only
+// client-rendered page; this is what non-JS crawlers / AI bots see for "/".)
+const { renderHomepageFallback } = await import('./lib/render-homepage-fallback.js');
+const fb = renderHomepageFallback(root);
+console.log(`homepage <noscript> fallback ${fb.changed ? 'updated' : 'unchanged'} — ${fb.episodes} episodes`);
