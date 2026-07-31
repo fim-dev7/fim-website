@@ -400,4 +400,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - Every /questions/ page carries QAPage JSON-LD; every /topics/ page carries WebPage + ItemList + FAQPage JSON-LD.
 - Homepage has FAQPage JSON-LD with founder questions and answers drawn from across the archive.
 
-Generated: 2026-07-31T08:45:23.258Z
+Generated: 2026-07-31T13:57:17.640Z
