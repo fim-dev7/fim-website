@@ -334,7 +334,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Ep 14: Jason Ma, Dyna Robotics](https://foundersinmotion.tech/episodes/14-jason-ma/): Jason Ma turned down offers to return to Google DeepMind, Nvidia and Meta to start Dyna Robotics — and just raised $120 million to build robots that fold napkins non-stop for 24 hours instead of chasing the humanoid dream.
 - [Ep 13: Sam Richardson, Butter](https://foundersinmotion.tech/episodes/13-sam-richardson/): Sam moved cities six times and kept rebuilding his social life from scratch, so he built Butter — the app to hang out with new friends, now at 10,000 users and gearing up to launch across Australia.
 - [Ep 12: Phung, Daniel and Hanson, SipHRD](https://foundersinmotion.tech/episodes/12-phung-daniel-and-hanson/): Phung, Daniel and Hanson spent two years building SipHRD — an Asian-flavoured alcohol brand — while juggling full-time jobs, four different launch dates, and 15 trial recipes. Their first product, a lychee vodka seltzer, sold out in 48 hours.
-- [Ep 11: Vivek and John, Affil.ai (YC S24)](https://foundersinmotion.tech/episodes/11-vivek-and-john/): Vivek and John, Affil.ai (YC S24)
+- [Ep 11: Vivek and John, Affil.ai (YC S24)](https://foundersinmotion.tech/episodes/11-vivek-and-john/): Vivek and John got into YC with an idea the partners disliked, then landed their first paying customer with no real product — John manually skim-reading documents at "absolute blitz breakneck speed" while telling the customer the AI worked great. They sold before they built.
 - [Ep 10: Hung Bui, AIducation](https://foundersinmotion.tech/episodes/10-hung-bui/): Hung Bui's AIducation hit 40,000 users and entered 23,000 schools — but only after his first product flopped in the field and he had five months to rebuild it from scratch.
 - [Ep 9: Floriye Elmazi, Sisterwould](https://foundersinmotion.tech/episodes/9-floriye-elmazi/): Floriye sold her car to start a hair care brand she didn't set out to build — and ended up shipping Sisterwould to Lindsay Lohan, Dua Lipa and Nicole Kidman, with Braille on every bottle.
 - [Ep 8: Brian Pham, Litecard](https://foundersinmotion.tech/episodes/8-brian-pham/): Brian Pham built Litecard, a "wallet led marketing platform" that turns Apple and Google Wallet into a media channel for brands and retailers — and expanded it from Australia across Asia and into Europe. This is how he picked markets, killed technical friction, and learned to study the data faster.
@@ -400,4 +400,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - Every /questions/ page carries QAPage JSON-LD; every /topics/ page carries WebPage + ItemList + FAQPage JSON-LD.
 - Homepage has FAQPage JSON-LD with founder questions and answers drawn from across the archive.
 
-Generated: 2026-08-20T06:39:39.841Z
+Generated: 2026-08-20T12:40:30.967Z
