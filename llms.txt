@@ -29,18 +29,18 @@ Question-shaped hubs that synthesize answers across multiple episodes:
 Each link is a dedicated page with direct answers from named founders, QAPage JSON-LD, and links back to the source episode:
 
 - [How do I find my first customers?](https://foundersinmotion.tech/questions/how-to-find-first-customers/) — answered by 22 founders
-- [How do I validate a startup idea before building it?](https://foundersinmotion.tech/questions/how-to-validate-startup-idea/) — answered by 19 founders
+- [How do I validate a startup idea before building it?](https://foundersinmotion.tech/questions/how-to-validate-startup-idea/) — answered by 18 founders
 - [How do I do customer discovery on a tiny budget?](https://foundersinmotion.tech/questions/how-to-do-customer-discovery/) — answered by 13 founders
-- [When should I quit my corporate job to start a company?](https://foundersinmotion.tech/questions/when-to-quit-job-to-start-company/) — answered by 13 founders
+- [When should I quit my corporate job to start a company?](https://foundersinmotion.tech/questions/when-to-quit-job-to-start-company/) — answered by 12 founders
 - [How do I avoid burning out in the first two years of building?](https://foundersinmotion.tech/questions/how-to-avoid-founder-burnout/) — answered by 11 founders
 - [How do I know when I've found product-market fit?](https://foundersinmotion.tech/questions/how-to-find-product-market-fit/) — answered by 11 founders
 - [How do I evaluate a co-founder before going all in?](https://foundersinmotion.tech/questions/how-to-evaluate-cofounder/) — answered by 9 founders
 - [How do I pivot without losing my team or investors?](https://foundersinmotion.tech/questions/how-to-pivot-without-losing-team/) — answered by 6 founders
 - [How long does a pre-seed or seed round take to close?](https://foundersinmotion.tech/questions/how-long-fundraising-takes/) — answered by 6 founders
 - [Should I bootstrap or raise venture capital?](https://foundersinmotion.tech/questions/bootstrap-vs-venture/) — answered by 5 founders
-- [What does Shopfront actually do?](https://foundersinmotion.tech/questions/what-does-the-product-do/) — answered by 5 founders
 - [How do founders handle investor rejection?](https://foundersinmotion.tech/questions/how-to-handle-investor-rejection/) — answered by 4 founders
 - [How do I build a consumer brand on a tight budget?](https://foundersinmotion.tech/questions/how-to-build-consumer-brand/) — answered by 4 founders
+- [What does Shopfront actually do?](https://foundersinmotion.tech/questions/what-does-the-product-do/) — answered by 4 founders
 - [How did Sisterwould find the right manufacturer?](https://foundersinmotion.tech/questions/how-to-find-a-manufacturer/) — answered by 3 founders
 - [What does YC actually look for in founders?](https://foundersinmotion.tech/questions/what-yc-looks-for/) — answered by 3 founders
 - [What happens when your startup fails? How do founders survive it?](https://foundersinmotion.tech/questions/how-to-survive-startup-failure/) — answered by 3 founders
@@ -135,14 +135,12 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [How do you sell a product that's a brand-new category?](https://foundersinmotion.tech/questions/how-to-build-a-new-category/) — answered by Jevon Le Roux (Keeyu)
 - [How do you set boundaries when you're building all the time?](https://foundersinmotion.tech/questions/bene-personal-boundaries-while-building/) — answered by Kiki and Elan (Sourmilk)
 - [How do you survive a redundancy and come out the other side with more clarity?](https://foundersinmotion.tech/questions/how-to-survive-redundancy/) — answered by Rakhesh Martyn (Hachiko Energy)
-- [How do you train robots to do physical tasks?](https://foundersinmotion.tech/questions/how-to-train-robots-with-data/) — answered by Jason Ma (Dyna Robotics)
 - [How do you trust your own instincts over advice from people you respect?](https://foundersinmotion.tech/questions/trust-your-instincts-over-advice/) — answered by Josh Foreman (InDebted)
 - [How do you turn old gear into new products through upcycling?](https://foundersinmotion.tech/questions/how-to-upcycle-technical-textiles/) — answered by Ben Wood (WipWrk)
 - [How do you win on Shark Tank as a founder?](https://foundersinmotion.tech/questions/how-to-win-on-shark-tank/) — answered by Nathan Yun (Paire)
 - [How does a fintech build trust with cautious customers?](https://foundersinmotion.tech/questions/how-fintech-builds-trust-with-customers/) — answered by Nhi Nguyen (MaiMoney)
 - [How does AI fit into a retail media platform?](https://foundersinmotion.tech/questions/how-ai-fits-into-retail-media/) — answered by Brian Pham (Litecard)
 - [How does Dime market to Gen Z consumers?](https://foundersinmotion.tech/questions/how-to-market-to-gen-z/) — answered by Abby Huang (Dime)
-- [How does Dyna price its robots?](https://foundersinmotion.tech/questions/how-to-price-robots-for-business/) — answered by Jason Ma (Dyna Robotics)
 - [How does Hamish McKay think about scaling Order Editing to 5 million in AR?](https://foundersinmotion.tech/questions/how-to-scale-to-revenue-goal/) — answered by Hamish McKay (Order Editing)
 - [How does Known onboard new users?](https://foundersinmotion.tech/questions/how-known-onboards-users/) — answered by Celeste Amadon (Known)
 - [How does MaiMoney's partnership model with fund managers work?](https://foundersinmotion.tech/questions/how-maimoney-partners-with-fund-managers/) — answered by Nhi Nguyen (MaiMoney)
@@ -154,7 +152,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [How should founders think about fundraising as a process?](https://foundersinmotion.tech/questions/how-to-treat-fundraising-like-a-sales-pipeline/) — answered by Nate Spiteri (Shopfront)
 - [How will AI change the health and wellness space?](https://foundersinmotion.tech/questions/how-ai-will-change-health-and-wellness/) — answered by Selina Li (gymii.ai)
 - [If I don't get into YC, how do I get the same intensity?](https://foundersinmotion.tech/questions/how-to-get-yc-intensity-without-yc/) — answered by Vivek and John (Affil.ai (YC S24))
-- [In 10 years, will robots or humans do these jobs?](https://foundersinmotion.tech/questions/future-of-robots-vs-humans/) — answered by Jason Ma (Dyna Robotics)
 - [Is a GPT wrapper a real business?](https://foundersinmotion.tech/questions/are-gpt-wrappers-a-real-business/) — answered by Hung Bui (AIducation)
 - [Is an accelerator worth it for a first-time founder?](https://foundersinmotion.tech/questions/is-an-accelerator-worth-it/) — answered by Nate Spiteri (Shopfront)
 - [Is building a company in Europe harder than in the US?](https://foundersinmotion.tech/questions/building-in-europe-vs-us/) — answered by Alessia and Elia (VibeFlow (YC S25))
@@ -177,7 +174,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What are the biggest bottlenecks in second-hand fashion selling?](https://foundersinmotion.tech/questions/bottlenecks-in-resale-fashion/) — answered by Nate Spiteri (Shopfront)
 - [What are their top priorities for the next few months?](https://foundersinmotion.tech/questions/bene-next-priorities/) — answered by Kiki and Elan (Sourmilk)
 - [What changes after the product is built?](https://foundersinmotion.tech/questions/from-building-to-marketing-as-founder/) — answered by Selina Li (gymii.ai)
-- [What changes when you move a robot from the lab to a real laundromat?](https://foundersinmotion.tech/questions/deploying-robots-real-world-pilots/) — answered by Jason Ma (Dyna Robotics)
 - [What did athletics teach Will about being a founder?](https://foundersinmotion.tech/questions/athlete-to-founder-mindset/) — answered by Will Bodewes (Phonely (YC S24))
 - [What did the first version of Heaps Normal beer taste like?](https://foundersinmotion.tech/questions/heaps-normal-first-beer-recipe/) — answered by Andy Miller (Heaps Normal)
 - [What did the first version of VibeFlow look like?](https://foundersinmotion.tech/questions/vibeflow-first-version-no-ai/) — answered by Alessia and Elia (VibeFlow (YC S25))
@@ -233,7 +229,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What was it like cooking for Gordon Ramsay?](https://foundersinmotion.tech/questions/cooking-for-gordon-ramsay/) — answered by Ethan Yong (Umami Papi)
 - [What was Robert's biggest regret with Nook?](https://foundersinmotion.tech/questions/robert-biggest-regret-nook/) — answered by Robert Huynh (Nook / Reforge)
 - [What was the Brisbane conference moment for Marloo?](https://foundersinmotion.tech/questions/brisbane-conference-moment-shakeel/) — answered by Shakeel Lala (Marloo)
-- [What was the funniest robot failure during training?](https://foundersinmotion.tech/questions/robot-training-failures/) — answered by Jason Ma (Dyna Robotics)
 - [What was the hardest day Nam remembers as a founder?](https://foundersinmotion.tech/questions/hardest-day-as-founder/) — answered by Nam Nguyen (TruthSystems (YC S25))
 - [What was the moment Floriye thought the business might break?](https://foundersinmotion.tech/questions/sisterwood-oh-no-moment/) — answered by Floriye Elmazi (Sisterwould)
 - [What was their most rewarding moment building the company?](https://foundersinmotion.tech/questions/bene-pennsylvania-factory-moment/) — answered by Kiki and Elan (Sourmilk)
@@ -254,7 +249,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [What's the difference between investing in Australia and Vietnam?](https://foundersinmotion.tech/questions/australia-vietnam-investing-differences/) — answered by Nhi Nguyen (MaiMoney)
 - [What's the difference between making consumer products and commercial products?](https://foundersinmotion.tech/questions/consumer-vs-commercial-products-tradeoff/) — answered by Ben Wood (WipWrk)
 - [What's the downside of building your startup so publicly?](https://foundersinmotion.tech/questions/downside-of-building-in-public/) — answered by Kiki and Elan (Sourmilk)
-- [What's the hardest lesson about moving from research to founder?](https://foundersinmotion.tech/questions/most-valuable-founder-lesson-jason/) — answered by Jason Ma (Dyna Robotics)
 - [What's the hardest part of building a company?](https://foundersinmotion.tech/questions/how-to-maintain-mental-balance-as-founder/) — answered by Ben Wood (WipWrk)
 - [What's the most valuable lesson Caroline Tran learned as a founder?](https://foundersinmotion.tech/questions/caroline-tran-most-valuable-lesson/) — answered by Caroline Tran (Hello Clever)
 - [What's the most valuable lesson Satya learned as a founder?](https://foundersinmotion.tech/questions/most-valuable-founder-lesson-satya/) — answered by Satya Tumati (Socratix AI)
@@ -271,8 +265,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Why are high-performance technical textiles so hard to recycle?](https://foundersinmotion.tech/questions/why-technical-textiles-hard-to-recycle/) — answered by Ben Wood (WipWrk)
 - [Why are they betting on dairy yogurt now when alternatives took over?](https://foundersinmotion.tech/questions/bene-dairy-protein-probiotics-bet/) — answered by Kiki and Elan (Sourmilk)
 - [Why are they building their yogurt brand in public?](https://foundersinmotion.tech/questions/why-build-a-brand-in-public/) — answered by Kiki and Elan (Sourmilk)
-- [Why build research and product at the same time?](https://foundersinmotion.tech/questions/why-build-research-and-product-together/) — answered by Jason Ma (Dyna Robotics)
-- [Why build robots for everyday tasks instead of humanoids?](https://foundersinmotion.tech/questions/why-everyday-tasks-not-humanoids/) — answered by Jason Ma (Dyna Robotics)
 - [Why did Abby Huang start working with Casetify?](https://foundersinmotion.tech/questions/why-abby-started-with-casetify/) — answered by Abby Huang (Dime)
 - [Why did Hamish McKay build Order Editing in public?](https://foundersinmotion.tech/questions/how-to-build-in-public/) — answered by Hamish McKay (Order Editing)
 - [Why did Heaps Normal become a B Corp from the beginning?](https://foundersinmotion.tech/questions/heaps-normal-b-corp-impact/) — answered by Andy Miller (Heaps Normal)
@@ -289,7 +281,6 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Why does Celeste Amadon call dating "a political problem"?](https://foundersinmotion.tech/questions/dating-as-a-political-problem/) — answered by Celeste Amadon (Known)
 - [Why does Celeste Amadon say dating apps are "perversely incentivized" to keep you single?](https://foundersinmotion.tech/questions/why-dating-apps-keep-you-single/) — answered by Celeste Amadon (Known)
 - [Why does distribution matter more than the product itself?](https://foundersinmotion.tech/questions/why-distribution-matters-more-than-product/) — answered by Hung Bui (AIducation)
-- [Why does Dyna build the robot arm and the AI together?](https://foundersinmotion.tech/questions/why-co-design-hardware-and-ai/) — answered by Jason Ma (Dyna Robotics)
 - [Why does getting your first investor make fundraising harder, not easier?](https://foundersinmotion.tech/questions/why-first-investor-increases-pressure/) — answered by Nate Spiteri (Shopfront)
 - [Why does Litecard sell to agencies instead of just brands?](https://foundersinmotion.tech/questions/why-litecard-sells-through-agencies/) — answered by Brian Pham (Litecard)
 - [Why does Nathan Yun say DTC doesn't mean online?](https://foundersinmotion.tech/questions/why-dtc-doesnt-mean-online/) — answered by Nathan Yun (Paire)
@@ -299,12 +290,10 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Why doesn't VibeFlow let AI touch the raw code directly?](https://foundersinmotion.tech/questions/vibeflow-deterministic-code-reliability/) — answered by Alessia and Elia (VibeFlow (YC S25))
 - [Why is Australia a good place to test a startup?](https://foundersinmotion.tech/questions/why-australia-is-a-startup-testing-ground/) — answered by Brian Pham (Litecard)
 - [Why is being a non-technical commercial founder a superpower?](https://foundersinmotion.tech/questions/non-technical-founder-superpower/) — answered by Sam Richardson (Butter)
-- [Why is folding laundry so hard for a robot?](https://foundersinmotion.tech/questions/why-folding-laundry-is-hard-for-robots/) — answered by Jason Ma (Dyna Robotics)
 - [Why is most conventional yogurt not actually probiotic?](https://foundersinmotion.tech/questions/why-most-yogurt-isnt-probiotic/) — answered by Kiki and Elan (Sourmilk)
 - [Why pick a hard problem to work on?](https://foundersinmotion.tech/questions/why-pick-a-hard-problem/) — answered by Will Bodewes (Phonely (YC S24))
 - [Why should founders keep investors who said no engaged?](https://foundersinmotion.tech/questions/keep-investors-who-passed-engaged/) — answered by Nate Spiteri (Shopfront)
 - [Why was Keeyu's first version "a vitamin, not a painkiller"?](https://foundersinmotion.tech/questions/vitamin-vs-painkiller-product/) — answered by Jevon Le Roux (Keeyu)
-- [Why was the 24-hour napkin test such a breakthrough?](https://foundersinmotion.tech/questions/robotics-reliability-vs-demos/) — answered by Jason Ma (Dyna Robotics)
 - [Why would a doctor leave medicine to build a startup?](https://foundersinmotion.tech/questions/why-leave-medicine-to-build-startup/) — answered by Lauren Barker (Good Mind Therapeutics)
 - [Why would you buy a company that's in the middle of a public scandal?](https://foundersinmotion.tech/questions/why-buy-a-distressed-startup/) — answered by Joe Zhou (StrongRoom AI)
 - [Why would you start a fashion brand with socks?](https://foundersinmotion.tech/questions/why-start-a-brand-with-socks/) — answered by Nathan Yun (Paire)
@@ -400,4 +389,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - Every /questions/ page carries QAPage JSON-LD; every /topics/ page carries WebPage + ItemList + FAQPage JSON-LD.
 - Homepage has FAQPage JSON-LD with founder questions and answers drawn from across the archive.
 
-Generated: 2026-09-08T15:56:28.326Z
+Generated: 2026-09-08T20:40:32.045Z
