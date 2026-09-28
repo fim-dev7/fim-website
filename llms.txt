@@ -338,7 +338,7 @@ Each link is a dedicated page with direct answers from named founders, QAPage JS
 - [Ep 10: Hung Bui, AIducation](https://foundersinmotion.tech/episodes/10-hung-bui/): Hung Bui's AIducation hit 40,000 users and entered 23,000 schools — but only after his first product flopped in the field and he had five months to rebuild it from scratch.
 - [Ep 9: Floriye Elmazi, Sisterwould](https://foundersinmotion.tech/episodes/9-floriye-elmazi/): Floriye sold her car to start a hair care brand she didn't set out to build — and ended up shipping Sisterwould to Lindsay Lohan, Dua Lipa and Nicole Kidman, with Braille on every bottle.
 - [Ep 8: Brian Pham, Litecard](https://foundersinmotion.tech/episodes/8-brian-pham/): Brian Pham built Litecard, a "wallet led marketing platform" that turns Apple and Google Wallet into a media channel for brands and retailers — and expanded it from Australia across Asia and into Europe. This is how he picked markets, killed technical friction, and learned to study the data faster.
-- [Ep 7: Robert Huynh, Nook / Reforge](https://foundersinmotion.tech/episodes/7-robert-huynh/): Robert Huynh got Nook, his blue collar job marketplace in Vietnam, to 50,000 users and a $20 million valuation — then had to walk away. This is the story of how it started and how it fell apart.
+- [Ep 7: Robert Huynh, Nook / Reforge](https://foundersinmotion.tech/episodes/7-robert-huynh/): Robert Huynh, Nook / Reforge
 - [Ep 6: Ben Wood, WipWrk](https://foundersinmotion.tech/episodes/6-ben-wood/): A designer turned founder, Ben Wood takes tents and backpacks that are past their use-by date and turns them into brand new products — keeping high-performance textiles that are nigh on impossible to recycle out of the landfill.
 - [Ep 5: Nhi Nguyen, MaiMoney](https://foundersinmotion.tech/episodes/5-nhi-nguyen/): Nhi grew up in Vietnam, studied finance in Australia, and was shocked that one country builds your wealth automatically while the other leaves you guessing — so she built MaiMoney to bring institutional-quality investing to everyday Vietnamese investors.
 - [Ep 4: Kiki and Elan, Sourmilk](https://foundersinmotion.tech/episodes/4-kiki-and-elan/): Kiki and Elan quit their corporate jobs to start Sourmilk, a probiotic yogurt company — and grew to ten K followers and a cult following by building the brand in public. Their bet: people still care about protein, but now they're caring a lot more about gut health.
@@ -400,4 +400,4 @@ Thea Ngo — early-stage investor. Site: https://foundersinmotion.tech. LinkedIn
 - Every /questions/ page carries QAPage JSON-LD; every /topics/ page carries WebPage + ItemList + FAQPage JSON-LD.
 - Homepage has FAQPage JSON-LD with founder questions and answers drawn from across the archive.
 
-Generated: 2026-09-27T20:48:52.058Z
+Generated: 2026-09-28T03:23:50.483Z
